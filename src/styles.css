@@ -60,6 +60,28 @@
     object-fit: cover;
   }
 
+  /**
+   * iOS-style frosted glass (translucent layer + blur + saturation + hairline highlight).
+   * Fallback solid when backdrop-filter is unavailable.
+   */
+  .ios-frosted-glass {
+    position: relative;
+    /* Stronger base opacity so text meets contrast on busy photos while keeping blur. */
+    background: rgba(255, 255, 255, 0.82);
+    -webkit-backdrop-filter: saturate(180%) blur(24px);
+    backdrop-filter: saturate(180%) blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.88);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .ios-frosted-glass {
+      background: rgba(255, 255, 255, 0.98);
+    }
+  }
+
   .container-fluid {
     width: 100%;
     max-width: 1440px;
@@ -105,6 +127,11 @@
 
 .custom-location-marker.main-marker {
   z-index: 9999 !important;
+}
+
+.map-pin-marker {
+  background: transparent !important;
+  border: none !important;
 }
 
 .leaflet-container {

@@ -9,11 +9,41 @@ export function ParadiseSection() {
     >
       <div className="max-w-content mx-auto px-4 sm:px-6 text-center">
         <div className="mb-6 sm:mb-8">
-          <img
-            src="home/offer-badge.png"
-            alt="5-Day/4-Night Riviera Cancun Vacation - $299 for Two Adults"
-            className="mx-auto w-full max-w-3xl h-auto"
-          />
+          <div className="ios-frosted-glass mx-auto w-full max-w-3xl rounded-2xl px-5 py-7 sm:rounded-3xl sm:px-8 sm:py-9 md:px-10 md:py-10">
+            <div className="mb-4 sm:mb-5 md:mb-6">
+              <img
+                src="home/Zilara-logo.png"
+                alt="Hyatt Zilara"
+                className="mx-auto h-auto max-h-12 w-auto max-w-[min(100%,220px)] object-contain sm:max-h-14 md:max-h-16 md:max-w-[260px]"
+                width={1112}
+                height={171}
+                loading="lazy"
+              />
+            </div>
+            <h2 className="text-slate-950">
+              <span className="block text-fluid-sm font-bold uppercase tracking-[0.2em] text-primary-dark sm:text-fluid-base">
+                5-DAY/4-NIGHT
+              </span>
+              <span className="mt-2 block text-fluid-3xl font-black uppercase leading-[1.05] tracking-tight sm:mt-3 sm:text-fluid-4xl md:text-fluid-5xl">
+                BEACHFRONT
+              </span>
+              <span className="mt-1 block text-fluid-2xl font-black uppercase leading-tight tracking-tight text-primary-dark sm:text-fluid-3xl md:text-fluid-4xl">
+                RIVIERA CANCUN
+              </span>
+              <span className="mt-1 block text-fluid-3xl font-black uppercase leading-[1.05] tracking-tight sm:text-fluid-4xl md:text-fluid-5xl">
+                VACATION
+              </span>
+            </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-pretty text-gray-900 text-fluid-base leading-relaxed sm:mt-8 sm:text-fluid-lg">
+              <span className="font-bold text-slate-950">The Hyatt Zilara Riviera Maya</span>{' '}
+              is Only{' '}
+              <span className="font-extrabold text-accent-dark text-fluid-xl sm:text-fluid-2xl">$299</span>{' '}
+              for Two Adults.{' '}
+              <span className="font-semibold text-slate-950">
+                Your 5-Day All-Inclusive Luxury Escape Awaits
+              </span>
+            </p>
+          </div>
         </div>
 
         <div className="mb-6 sm:mb-8 flex justify-center">

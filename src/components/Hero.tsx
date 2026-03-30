@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Play } from 'lucide-react';
+import { PLAY_VIDEO_LABEL } from '../constants';
 import { BookingCard } from './BookingCard';
 import { Lightbox } from './Lightbox';
 
@@ -38,7 +39,7 @@ export function Hero() {
                     alt="Mexico destination"
                     loading="eager"
                   />
-                  <div className="hero-composite-wrap relative lg:hidden">
+                  <div className="hero-composite-wrap relative overflow-visible lg:hidden">
                     <img
                       className="hero-couple-element hero-layer-couple"
                       src="home/layer-0-10.png"
@@ -46,13 +47,16 @@ export function Hero() {
                       loading="eager"
                     />
                     <button
+                      type="button"
                       onClick={() => setIsLightboxOpen(true)}
-                      className="absolute bottom-[12%] left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 rounded-full bg-white/95 px-3 py-2 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl md:gap-3 md:px-5 md:py-3"
+                      className="absolute bottom-[12%] left-1/2 z-10 flex w-max max-w-none shrink-0 -translate-x-1/2 flex-nowrap items-center gap-2 whitespace-nowrap rounded-full bg-white/95 px-3 py-2 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl md:gap-3 md:px-5 md:py-3"
                     >
-                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-500 transition-colors group-hover:bg-amber-600 md:h-12 md:w-12">
-                        <Play className="ml-0.5 h-5 w-5 fill-white text-white md:h-6 md:w-6" />
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 transition-colors group-hover:bg-amber-600 md:h-12 md:w-12">
+                        <Play className="ml-0.5 h-5 w-5 shrink-0 fill-white text-white md:h-6 md:w-6" />
                       </span>
-                      <span className="pr-1 text-base font-semibold text-gray-900 md:text-lg">Play video</span>
+                      <span className="shrink-0 whitespace-nowrap pr-1 text-base font-semibold leading-none text-gray-900 md:text-lg">
+                        {PLAY_VIDEO_LABEL}
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -65,21 +69,18 @@ export function Hero() {
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 hidden lg:flex">
             <div className="mx-auto flex w-full max-w-content px-4 md:px-6 lg:px-8">
               <div className="relative flex flex-1 justify-center pointer-events-auto">
-                <div className="hero-composite-wrap relative">
-                  <img
-                    className="hero-couple-element hero-layer-couple"
-                    src="home/layer-0-10.png"
-                    alt="Couple enjoying resort"
-                    loading="eager"
-                  />
+                <div className="hero-composite-wrap hero-desktop-play-shell relative min-h-[280px]">
                   <button
+                    type="button"
                     onClick={() => setIsLightboxOpen(true)}
-                    className="absolute bottom-[12%] left-1/2 z-10 flex -translate-x-1/2 items-center gap-3 rounded-full bg-white/95 px-5 py-3 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl"
+                    className="absolute bottom-[12%] left-1/2 z-10 flex w-max max-w-none shrink-0 -translate-x-1/2 flex-nowrap items-center gap-3 whitespace-nowrap rounded-full bg-white/95 px-5 py-3 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl"
                   >
-                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500 transition-colors group-hover:bg-amber-600">
-                      <Play className="ml-0.5 h-6 w-6 fill-white text-white" />
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-amber-500 transition-colors group-hover:bg-amber-600">
+                      <Play className="ml-0.5 h-6 w-6 shrink-0 fill-white text-white" />
                     </span>
-                    <span className="pr-1 text-lg font-semibold text-gray-900">Play video</span>
+                    <span className="shrink-0 whitespace-nowrap pr-1 text-lg font-semibold leading-none text-gray-900">
+                      {PLAY_VIDEO_LABEL}
+                    </span>
                   </button>
                 </div>
               </div>
