@@ -1,0 +1,256 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img,
+  video,
+  picture,
+  svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  img {
+    aspect-ratio: attr(width) / attr(height);
+    object-fit: cover;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+@layer components {
+  .touch-target {
+    position: relative;
+  }
+
+  .touch-target::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 44px;
+    min-height: 44px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .responsive-img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .container-fluid {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1rem, 4vw, 2rem);
+    padding-right: clamp(1rem, 4vw, 2rem);
+  }
+
+  .section-padding {
+    padding-top: clamp(2rem, 5vw, 4rem);
+    padding-bottom: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+@layer utilities {
+  .min-touch {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.custom-popup .leaflet-popup-content {
+  margin: 0;
+  width: auto !important;
+}
+
+.custom-popup .leaflet-popup-tip-container {
+  display: none;
+}
+
+.custom-location-marker {
+  background: transparent;
+  border: none;
+}
+
+.custom-location-marker.main-marker {
+  z-index: 9999 !important;
+}
+
+.leaflet-container {
+  isolation: isolate;
+}
+
+.leaflet-marker-pane {
+  overflow: visible !important;
+}
+
+img.hero-sticker-element {
+  display: block;
+  height: auto;
+}
+
+@media (max-width: 1023px) {
+  img.hero-sticker-element {
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  img.hero-sticker-element {
+    width: 70%;
+    max-width: 450px;
+  }
+}
+
+@media (min-width: 1024px) {
+  img.hero-sticker-element {
+    width: auto;
+    max-width: 700px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.hero-composite-wrap {
+  position: relative;
+  display: block;
+}
+
+img.hero-couple-element {
+  height: auto;
+  display: block;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1023px) {
+  .hero-composite-wrap {
+    width: 100%;
+    max-width: 220px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-composite-wrap img.hero-couple-element {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-composite-wrap {
+    max-width: 260px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-composite-wrap {
+    width: clamp(12rem, 15vw, 19rem);
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0px 0px 52px 357px;
+  }
+
+  .hero-composite-wrap img.hero-couple-element {
+    width: 100%;
+  }
+}
+
+.like-1-9-k-span {
+  color: #ffffff;
+  font-family: "-", sans-serif;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.like-1-9-k-span2 {
+  color: #ffffff;
+  font-family: "-", sans-serif;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+.riviera-cancun-vacation-span {
+  color: #ffd174;
+  font-family: "Playfair Display", serif;
+  font-size: 126.68162536621094px;
+  font-weight: 500;
+}
+
+.riviera-cancun-vacation-span2 {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 126.68162536621094px;
+  font-weight: 500;
+}
+
+.title-8-span {
+  color: #0d0d0d;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.title-8-span2 {
+  color: #0d0d0d;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.title-9-span {
+  color: #0d0d0d;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.title-9-span2 {
+  color: #0d0d0d;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
