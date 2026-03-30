@@ -1,18 +1,10 @@
 /* Figma Styles of your File */:root {
-  /* Primary Button Accent */
-  --primary-button-accent-50: #fdfcfe;
-  --primary-button-accent-100: #f6f1fb;
-  --primary-button-accent-200: #ece0f6;
-  --primary-button-accent-300: #ddc8ee;
-  --primary-button-accent-400: #c9aae5;
-  --primary-button-accent-500: #b284d9;
-  --primary-button-accent-600: #9658cc;
-  --primary-button-accent-700: #7435ac;
-  --primary-button-accent-800: #421e62;
-  --primary-button-accent-900: #241136;
-  --primary-button-accent-950: #1a0c27;
+  /* Tailwind `primary` / `bg-primary` — single source for brand teal */
+  --color-primary: #44AD98;
+  /* Legacy slot name; same as --color-primary (badges, var() aliases) */
+  --rgb-117-53-173-replacement: var(--color-primary);
 
-  /* Gold */
+  /* Gold (defined before --primary-button-accent-* so var() aliases resolve cleanly) */
   --gold-50: #fffdfc;
   --gold-100: #fdf9f2;
   --gold-200: #fbf1e1;
@@ -24,6 +16,19 @@
   --gold-800: #815612;
   --gold-900: #422c09;
   --gold-950: #2d1e06;
+
+  /* Primary button accent: mirrors gold + brand teal at 700 (legacy purple slot; no purple in :root) */
+  --primary-button-accent-50: var(--gold-50);
+  --primary-button-accent-100: var(--gold-100);
+  --primary-button-accent-200: var(--gold-200);
+  --primary-button-accent-300: var(--gold-300);
+  --primary-button-accent-400: var(--gold-400);
+  --primary-button-accent-500: var(--gold-500);
+  --primary-button-accent-600: var(--gold-600);
+  --primary-button-accent-700: var(--rgb-117-53-173-replacement);
+  --primary-button-accent-800: var(--gold-800);
+  --primary-button-accent-900: var(--gold-900);
+  --primary-button-accent-950: var(--gold-950);
 
   /* Gray */
   --gray-50: #fbfcfc;
@@ -51,7 +56,7 @@
   --blue-400: #6e8acc;
   --blue-100: #e2ebff;
   --blue-600: #355aad;
-  --teal-500: #44AD98;
+  --teal-500: var(--color-primary);
   --yellow-500: #fabc41;
   --teal-600: #009daf;
   --yellow-200: #ffd174;

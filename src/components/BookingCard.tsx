@@ -53,7 +53,7 @@ export function BookingCard({
 
       <div className="bg-gray-100 py-3 md:py-4 px-3 md:px-4">
         <div className="flex items-center gap-2 md:gap-4">
-          <div className="bg-primary text-white font-bold text-fluid-lg md:text-fluid-2xl py-3 md:py-4 px-2 md:px-4 rounded-xl text-center leading-tight shadow-lg animate-bounce-subtle">
+          <div className="bg-[var(--rgb-117-53-173-replacement)] text-white font-bold text-fluid-lg md:text-fluid-2xl py-3 md:py-4 px-2 md:px-4 rounded-xl text-center leading-tight shadow-lg animate-bounce-subtle">
             <div>84%</div>
             <div>OFF!</div>
           </div>

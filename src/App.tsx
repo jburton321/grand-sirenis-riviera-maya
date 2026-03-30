@@ -1,5 +1,3 @@
-import "./styles.css";
-import "./tailwind.css";
 import { Header, Footer, MobileStickyCTA } from "./components";
 import { RouterProvider, useRouter } from "./context/RouterContext";
 import { HomePage } from "./pages/HomePage";

@@ -58,13 +58,13 @@ export function InteriorMobilePriceBar() {
         </h2>
         <div className="space-y-4">
           <div className="flex items-start gap-3">
-            <BedIcon className="w-6 h-6 flex-shrink-0 mt-0.5 text-[#7C3AED]" />
+            <BedIcon className="w-6 h-6 flex-shrink-0 mt-0.5 text-accent" />
             <span className="text-[15px] text-[#374151] leading-relaxed">
               <span className="font-bold">Deluxe Room for two adults at the 5-Star Hyatt Zilara Riviera Maya</span>
             </span>
           </div>
           <div className="flex items-start gap-3">
-            <CocktailIcon className="w-6 h-6 flex-shrink-0 mt-0.5 text-[#7C3AED]" />
+            <CocktailIcon className="w-6 h-6 flex-shrink-0 mt-0.5 text-accent" />
             <span className="text-[15px] text-[#374151] leading-relaxed">
               <span className="font-bold">Unlimited-Luxury, Where Everything's Included:</span>{' '}
               Unlimited Dining, Drinks, Wifi, Entertainment, Resort & Beach Amenities!

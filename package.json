@@ -27,10 +27,10 @@
     "vite": "^4.2.0"
   },
   "scripts": {
-    "build:style": "tailwind build -i src/styles.css -c tailwind.config.js -o src/tailwind.css",
-    "dev": "npm run build:style && vite",
-    "build": "npm run build:style && vite build",
-    "preview": "npm run build:style && vite preview"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "replace:rgb-117-53-173": "bash scripts/replace-rgb-117-53-173.sh"
   },
   "browserslist": [
     ">0.2%",

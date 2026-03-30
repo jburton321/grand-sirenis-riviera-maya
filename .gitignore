@@ -8,3 +8,12 @@ dist/
 *.log
 npm-debug.log*
 .vite/
+
+# Generated Tailwind (Vite + PostCSS compile src/styles.css at build time)
+src/tailwind.css
+
+# Caches / tooling
+*.tsbuildinfo
+.cache/
+coverage/
+.eslintcache

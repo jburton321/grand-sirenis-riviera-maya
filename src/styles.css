@@ -316,3 +316,24 @@ img.hero-couple-element {
   line-height: 24px;
   font-weight: 400;
 }
+
+/* Primary CTA surface lock — literal #44AD98 (same as tailwind `primary` / vars `--color-primary`).
+   End of bundle so it wins over any stale `.bg-primary` from cached CSS. */
+.bg-primary {
+  --tw-bg-opacity: 1;
+  background-color: #44AD98;
+}
+
+.visited\:bg-primary:visited {
+  --tw-bg-opacity: 1;
+  background-color: #44AD98;
+}
+
+.hover\:bg-primary-dark:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(54 144 130 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:visited\:bg-primary-dark:visited:hover {
+  background-color: rgb(54 144 130 / var(--tw-bg-opacity, 1));
+}

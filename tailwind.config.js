@@ -79,6 +79,7 @@ module.exports = {
         'item-spacing-s': '24px',
       },
       colors: {
+        /* Must match src/vars.css --color-primary (#44AD98) for bg-primary / text-primary */
         primary: '#44AD98',
         'primary-dark': '#369082',
         accent: '#E29A28',

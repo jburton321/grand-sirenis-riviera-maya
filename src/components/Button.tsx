@@ -27,8 +27,10 @@ export function Button({
   const baseStyles = `
     relative overflow-hidden
     bg-primary text-white text-center font-bold uppercase tracking-wide cursor-pointer
+    visited:text-white visited:bg-primary
     transition-all duration-300 ease-out
     hover:bg-primary-dark hover:shadow-xl hover:-translate-y-0.5
+    hover:visited:bg-primary-dark
     active:scale-[0.98] active:translate-y-0
     touch-manipulation shadow-lg
     before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent

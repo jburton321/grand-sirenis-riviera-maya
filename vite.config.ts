@@ -43,7 +43,4 @@ export default defineConfig({
   build: {
     copyPublicDir: false,
   },
-  optimizeDeps: {
-    include: ['react-map-gl', 'mapbox-gl'],
-  },
 })
