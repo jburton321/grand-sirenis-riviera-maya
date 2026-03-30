@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Play } from 'lucide-react';
 import { PLAY_VIDEO_LABEL } from '../constants';
 import { BookingCard } from './BookingCard';
+import { HeroBlossomOverlay } from './HeroBlossomOverlay';
 import { Lightbox } from './Lightbox';
 
 export function Hero() {
@@ -10,6 +11,7 @@ export function Hero() {
   return (
     <>
       <section className="relative flex min-h-[500px] flex-col overflow-hidden md:min-h-[600px] lg:min-h-[800px] lg:overflow-visible">
+        <HeroBlossomOverlay />
         {/* Desktop: full-bleed hero (unchanged) */}
         <div
           className="pointer-events-none absolute inset-0 z-0 hidden bg-cover bg-center lg:block"
