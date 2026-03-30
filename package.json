@@ -9,7 +9,6 @@
   "main": "src/index.tsx",
   "dependencies": {
     "@types/leaflet": "^1.9.21",
-    "jszip": "^3.10.1",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.563.0",
     "react": "18.0.0",

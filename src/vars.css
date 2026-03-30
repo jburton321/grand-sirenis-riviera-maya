@@ -1,7 +1,4 @@
 /* Figma Styles of your File */:root {
-  /* Colors */
-  --email-gradient: linear-gradient(180deg, rgba(255, 255, 255, 1.00) 0%,rgba(140, 163, 217, 1.00) 100%);
-
   /* Primary Button Accent */
   --primary-button-accent-50: #fdfcfe;
   --primary-button-accent-100: #f6f1fb;
@@ -48,13 +45,13 @@
 /* Figma Color Variables of your File */:root, [data-variable-collection-mode=mode-1] {
   /* mode-1 */
   --cta: #3579ea;
-  --blue-900: #182b56;
+  --blue-900: #000000;
   --blue-950: #06163a;
   --blue-300: #8ca3d9;
   --blue-400: #6e8acc;
   --blue-100: #e2ebff;
   --blue-600: #355aad;
-  --teal-500: #00c0d5;
+  --teal-500: #44AD98;
   --yellow-500: #fabc41;
   --teal-600: #009daf;
   --yellow-200: #ffd174;

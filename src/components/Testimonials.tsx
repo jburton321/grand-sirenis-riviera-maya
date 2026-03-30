@@ -1,7 +1,6 @@
 import { Star } from 'lucide-react';
 import { Button } from './Button';
 import { Gallery } from './Gallery';
-import { useRouter } from '../context/RouterContext';
 
 interface Review {
   name: string;
@@ -91,8 +90,6 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
 }
 
 export function Testimonials() {
-  const { navigateTo } = useRouter();
-
   return (
     <section className="bg-white py-fluid-8">
       <div className="max-w-content mx-auto px-4 md:px-6">
@@ -111,7 +108,7 @@ export function Testimonials() {
         </div>
 
         <div className="mt-fluid-8">
-          <Button className="w-full" onClick={() => navigateTo('thank-you')}>Reserve Now</Button>
+          <Button className="w-full" asCta>Reserve Now</Button>
         </div>
       </div>
     </section>

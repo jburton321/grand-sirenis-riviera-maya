@@ -71,7 +71,9 @@ export function HomePage() {
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 max-w-5xl mx-auto leading-tight mb-8">
           Relax in Ultimate Luxury with Your Premium All-Inclusive Hyatt Zilara Experience Package
         </h2>
-        <Button className="w-full max-w-2xl mx-auto block">RESERVE NOW</Button>
+        <Button className="w-full max-w-2xl mx-auto block" asCta>
+          RESERVE NOW
+        </Button>
       </div>
       <div style={{ backgroundColor: '#F2F4F6' }}>
         <img

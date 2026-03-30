@@ -1,6 +1,5 @@
 import { Award, Wine, Car, Star } from 'lucide-react';
 import { Button } from './Button';
-import { useRouter } from '../context/RouterContext';
 
 const whatYouGet = [
   {
@@ -23,8 +22,6 @@ const whatYouGet = [
 const whyYouGetIt = `The only thing you need to do to unlock this Incredible price is attend a relaxed 120-Minute Tour of the stunning Hyatt Zilara Riviera Maya. Think of it as your exclusive VIP pass! You'll get to see every amenity, every oceanfront bar, and every luxury detail of the resort, all while learning about the deep future travel savings offered by Unlimited Vacation Club.`;
 
 export function AboutPackage() {
-  const { navigateTo } = useRouter();
-
   return (
     <section className="bg-white py-fluid-8 px-4 md:px-6 lg:px-10">
       <div className="max-w-content mx-auto">
@@ -74,7 +71,9 @@ export function AboutPackage() {
         </div>
 
         <div className="mt-fluid-8">
-          <Button className="w-full" onClick={() => navigateTo('thank-you')}>Reserve Now</Button>
+          <Button className="w-full" asCta>
+            Reserve Now
+          </Button>
         </div>
       </div>
     </section>

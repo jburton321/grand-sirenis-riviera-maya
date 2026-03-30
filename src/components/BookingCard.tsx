@@ -1,7 +1,6 @@
 import { Zap, Bed, Wine, Eye, Car } from 'lucide-react';
 import { Button } from './Button';
 import { useCountdown } from '../hooks/useCountdown';
-import { useRouter } from '../context/RouterContext';
 
 interface BookingCardProps {
   normalRate?: string;
@@ -15,7 +14,6 @@ export function BookingCard({
   roomDescription = 'Deluxe Room for two adults at the 5-Star Hyatt Zilara Riviera Maya',
 }: BookingCardProps) {
   const { hours, minutes, seconds, isExpired } = useCountdown(45);
-  const { navigateTo } = useRouter();
 
   return (
     <aside className="bg-white shadow-xl w-full max-w-none lg:max-w-md lg:rounded-xl overflow-hidden backdrop-blur-sm hover:shadow-2xl transition-shadow duration-500">
@@ -38,7 +36,7 @@ export function BookingCard({
       <div className="p-4 md:p-6 flex flex-col gap-3 md:gap-4">
         <img
           className="h-10 md:h-14 w-auto mx-auto transition-transform duration-300 hover:scale-105"
-          src="image-30.png"
+          src="home/image-30.png"
           alt="Hyatt Zilara"
         />
 
@@ -100,11 +98,11 @@ export function BookingCard({
       </div>
 
       <div className="px-4 md:px-8 pb-4">
-        <Button className="w-full min-h-touch touch-manipulation" onClick={() => navigateTo('thank-you')}>Reserve Now</Button>
+        <Button className="w-full min-h-touch touch-manipulation" asCta>Reserve Now</Button>
       </div>
 
       <div className="flex items-center justify-center py-4 md:py-5 px-4">
-        <img src="trust.png" alt="Secure Transaction Badge" className="h-auto max-w-[200px] object-contain transition-transform duration-300 hover:scale-110" />
+        <img src="images/trust.png" alt="Secure Transaction Badge" className="h-auto max-w-[200px] object-contain transition-transform duration-300 hover:scale-110" />
       </div>
 
       <div className="bg-brand-900 px-3 md:px-4 py-2 flex items-center justify-between gap-2">

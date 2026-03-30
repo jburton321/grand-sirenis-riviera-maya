@@ -31,7 +31,7 @@ export function Header() {
           >
             <img
               className="h-5 md:h-6 w-auto"
-              src="vacation-vip-full-color-horiz0.png"
+              src="images/vacation-vip-full-color-horiz0.png"
               alt="VacationVIP Logo"
             />
           </button>
@@ -56,7 +56,7 @@ export function Header() {
                 </li>
               ))}
             </ul>
-            <Button variant="small" onClick={() => navigateTo('thank-you')}>reserve now</Button>
+            <Button variant="small" asCta>reserve now</Button>
           </nav>
 
           <button
@@ -86,7 +86,7 @@ export function Header() {
               ))}
             </ul>
             <div className="mt-4 px-2">
-              <Button variant="small" className="w-full min-h-touch" onClick={() => navigateTo('thank-you')}>reserve now</Button>
+              <Button variant="small" className="w-full min-h-touch" asCta>reserve now</Button>
             </div>
           </nav>
         </div>

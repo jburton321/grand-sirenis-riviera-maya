@@ -20,7 +20,6 @@ import {
   TreePine,
 } from 'lucide-react';
 import { Button } from './Button';
-import { useRouter } from '../context/RouterContext';
 
 const featuredAmenities = [
   { icon: ConciergeBell, text: 'Four restaurants & five bars and lounges' },
@@ -49,10 +48,8 @@ const nearbyAttractions = [
 ];
 
 export function Amenities() {
-  const { navigateTo } = useRouter();
-
   return (
-    <section className="bg-[#2b353d] py-fluid-8 px-4 md:px-6 lg:px-10">
+    <section className="bg-black py-fluid-8 px-4 md:px-6 lg:px-10">
       <div className="max-w-content mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-fluid-8">
           <article>
@@ -85,7 +82,7 @@ export function Amenities() {
         </div>
 
         <div className="mt-fluid-8">
-          <Button className="w-full" onClick={() => navigateTo('thank-you')}>Reserve Now</Button>
+          <Button className="w-full" asCta>Reserve Now</Button>
         </div>
       </div>
     </section>

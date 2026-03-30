@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Play } from 'lucide-react';
 import { BookingCard } from './BookingCard';
-import { BackgroundSection } from './BackgroundSection';
 import { Lightbox } from './Lightbox';
 
 export function Hero() {
@@ -9,67 +8,86 @@ export function Hero() {
 
   return (
     <>
-      <BackgroundSection
-        backgroundImage="home/section0.png"
-        className="relative min-h-[500px] md:min-h-[600px] lg:min-h-[800px] flex flex-col overflow-visible"
-      >
-        <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8 pt-8 md:pt-12 lg:pt-fluid-3 w-full flex-1 flex flex-col">
-          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-0 lg:gap-fluid-4 flex-1">
-            <div className="flex flex-col items-center order-1">
-              <img
-                className="hero-sticker-element"
-                src="home/mexico-10.png"
-                alt="Mexico destination"
-                loading="eager"
-              />
-              <div className="hero-composite-wrap relative lg:hidden">
-                <img
-                  className="hero-couple-element hero-layer-couple"
-                  src="home/layer-0-10.png"
-                  alt="Couple enjoying resort"
-                  loading="eager"
+      <section className="relative flex min-h-[500px] flex-col overflow-hidden md:min-h-[600px] lg:min-h-[800px] lg:overflow-visible">
+        {/* Desktop: full-bleed hero (unchanged) */}
+        <div
+          className="pointer-events-none absolute inset-0 z-0 hidden bg-cover bg-center lg:block"
+          style={{ backgroundImage: 'url(home/HERO-BCK-Desktop.png)' }}
+          aria-hidden
+        />
+
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col">
+          <div className="mx-auto flex w-full max-w-content flex-1 flex-col pt-8 md:pt-12 lg:px-8 lg:pt-fluid-3">
+            <div className="flex flex-1 flex-col gap-0 lg:flex-row lg:items-start lg:justify-between lg:gap-fluid-4">
+              {/* Mobile / tablet: background in this column only, above booking; full-bleed under lg (parent has lg:px-8 only). */}
+              <div className="relative order-1 flex min-h-[500px] flex-col items-center overflow-hidden md:min-h-[600px] lg:min-h-0 lg:overflow-visible">
+                <div
+                  className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center md:hidden"
+                  style={{ backgroundImage: 'url(home/HERO-BCK-MOBILE.png)' }}
+                  aria-hidden
                 />
-                <button
-                  onClick={() => setIsLightboxOpen(true)}
-                  className="absolute bottom-[12%] left-1/2 -translate-x-1/2 z-10 flex items-center gap-2 md:gap-3 bg-white/95 backdrop-blur-sm px-3 py-2 md:px-5 md:py-3 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 group"
-                >
-                  <span className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-amber-500 rounded-full group-hover:bg-amber-600 transition-colors">
-                    <Play className="w-5 h-5 md:w-6 md:h-6 text-white fill-white ml-0.5" />
-                  </span>
-                  <span className="text-gray-900 font-semibold text-base md:text-lg pr-1">Play video</span>
-                </button>
+                <div
+                  className="pointer-events-none absolute inset-0 z-0 hidden bg-cover bg-center md:block lg:hidden"
+                  style={{ backgroundImage: 'url(home/HERO-BCK-TAB.png)' }}
+                  aria-hidden
+                />
+                <div className="relative z-10 flex w-full flex-col items-center px-4 md:px-6 lg:px-0">
+                  <img
+                    className="hero-sticker-element"
+                    src="home/mexico-10.png"
+                    alt="Mexico destination"
+                    loading="eager"
+                  />
+                  <div className="hero-composite-wrap relative lg:hidden">
+                    <img
+                      className="hero-couple-element hero-layer-couple"
+                      src="home/layer-0-10.png"
+                      alt="Couple enjoying resort"
+                      loading="eager"
+                    />
+                    <button
+                      onClick={() => setIsLightboxOpen(true)}
+                      className="absolute bottom-[12%] left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 rounded-full bg-white/95 px-3 py-2 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl md:gap-3 md:px-5 md:py-3"
+                    >
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-500 transition-colors group-hover:bg-amber-600 md:h-12 md:w-12">
+                        <Play className="ml-0.5 h-5 w-5 fill-white text-white md:h-6 md:w-6" />
+                      </span>
+                      <span className="pr-1 text-base font-semibold text-gray-900 md:text-lg">Play video</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="relative z-10 order-2 w-full lg:w-auto">
+                <BookingCard />
               </div>
             </div>
-            <div className="w-[calc(100%+2rem)] md:w-[calc(100%+3rem)] lg:w-auto -mx-4 md:-mx-6 lg:mx-0 order-2">
-              <BookingCard />
+          </div>
+          <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 hidden lg:flex">
+            <div className="mx-auto flex w-full max-w-content px-4 md:px-6 lg:px-8">
+              <div className="relative flex flex-1 justify-center pointer-events-auto">
+                <div className="hero-composite-wrap relative">
+                  <img
+                    className="hero-couple-element hero-layer-couple"
+                    src="home/layer-0-10.png"
+                    alt="Couple enjoying resort"
+                    loading="eager"
+                  />
+                  <button
+                    onClick={() => setIsLightboxOpen(true)}
+                    className="absolute bottom-[12%] left-1/2 z-10 flex -translate-x-1/2 items-center gap-3 rounded-full bg-white/95 px-5 py-3 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl"
+                  >
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500 transition-colors group-hover:bg-amber-600">
+                      <Play className="ml-0.5 h-6 w-6 fill-white text-white" />
+                    </span>
+                    <span className="pr-1 text-lg font-semibold text-gray-900">Play video</span>
+                  </button>
+                </div>
+              </div>
+              <div className="flex-shrink-0" style={{ width: 'calc(28rem + 2rem)' }} />
             </div>
           </div>
         </div>
-        <div className="hidden lg:flex absolute bottom-0 left-0 right-0 z-10 pointer-events-none">
-          <div className="max-w-content w-full mx-auto px-4 md:px-6 lg:px-8 flex">
-            <div className="relative pointer-events-auto flex-1 flex justify-center">
-              <div className="hero-composite-wrap relative">
-                <img
-                  className="hero-couple-element hero-layer-couple"
-                  src="home/layer-0-10.png"
-                  alt="Couple enjoying resort"
-                  loading="eager"
-                />
-                <button
-                  onClick={() => setIsLightboxOpen(true)}
-                  className="absolute bottom-[12%] left-1/2 -translate-x-1/2 z-10 flex items-center gap-3 bg-white/95 backdrop-blur-sm px-5 py-3 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 group"
-                >
-                  <span className="flex items-center justify-center w-12 h-12 bg-amber-500 rounded-full group-hover:bg-amber-600 transition-colors">
-                    <Play className="w-6 h-6 text-white fill-white ml-0.5" />
-                  </span>
-                  <span className="text-gray-900 font-semibold text-lg pr-1">Play video</span>
-                </button>
-              </div>
-            </div>
-            <div className="flex-shrink-0" style={{width: 'calc(28rem + 2rem)'}}></div>
-          </div>
-        </div>
-      </BackgroundSection>
+      </section>
 
       <Lightbox
         isOpen={isLightboxOpen}

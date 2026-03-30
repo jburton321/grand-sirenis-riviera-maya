@@ -155,9 +155,11 @@ img.hero-couple-element {
   margin: 0;
   position: relative;
   z-index: 1;
+  object-fit: contain;
 }
 
-@media (max-width: 1023px) {
+/* Fixed couple frame per band — no vw/clamp so size/position stay stable until the next breakpoint. */
+@media (max-width: 767px) {
   .hero-composite-wrap {
     width: 100%;
     max-width: 220px;
@@ -174,18 +176,51 @@ img.hero-couple-element {
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .hero-composite-wrap {
+    width: 100%;
     max-width: 260px;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+
+  .hero-composite-wrap img.hero-couple-element {
+    width: 100%;
+  }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
   .hero-composite-wrap {
-    width: clamp(12rem, 15vw, 19rem);
-    padding-left: 0px;
-    padding-right: 0px;
-    margin: 0px 0px 52px 357px;
+    width: 14rem;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 0 52px 357px;
+  }
+
+  .hero-composite-wrap img.hero-couple-element {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .hero-composite-wrap {
+    width: 16rem;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 0 52px 357px;
+  }
+
+  .hero-composite-wrap img.hero-couple-element {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-composite-wrap {
+    width: 19rem;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 0 52px 357px;
   }
 
   .hero-composite-wrap img.hero-couple-element {

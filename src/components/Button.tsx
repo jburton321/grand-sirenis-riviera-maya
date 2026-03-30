@@ -1,18 +1,29 @@
-import { ReactNode } from 'react';
+import { ReactNode, MouseEvent } from 'react';
+import { DUMMY_CTA_HREF } from '../constants';
+
+export { DUMMY_CTA_HREF } from '../constants';
 
 interface ButtonProps {
   children?: ReactNode;
   variant?: 'primary' | 'small';
   className?: string;
   onClick?: () => void;
+  /** Renders as &lt;a&gt;. */
+  href?: string;
+  /** When true, links to `DUMMY_CTA_HREF` from `../constants`. */
+  asCta?: boolean;
 }
 
 export function Button({
   children = 'RESERVE NOW',
   variant = 'primary',
   className = '',
-  onClick
+  onClick,
+  href,
+  asCta = false,
 }: ButtonProps) {
+  const anchorHref = asCta ? DUMMY_CTA_HREF : href;
+
   const baseStyles = `
     relative overflow-hidden
     bg-primary text-white text-center font-bold uppercase tracking-wide cursor-pointer
@@ -26,14 +37,37 @@ export function Button({
 
   const variantStyles = {
     primary: 'rounded-3xl py-3 md:py-3.5 px-8 md:px-16 text-fluid-sm min-h-touch',
-    small: 'rounded-3xl py-2 px-4 text-fluid-xs min-h-touch min-w-[100px] md:min-w-[120px]'
+    small: 'rounded-3xl py-2 px-4 text-fluid-xs min-h-touch min-w-[100px] md:min-w-[120px]',
   };
 
+  const sharedClassName = `${baseStyles} ${variantStyles[variant]} ${className} inline-flex items-center justify-center no-underline`;
+
+  const isExternal =
+    typeof anchorHref === 'string' && /^https?:\/\//i.test(anchorHref);
+
+  const handleAnchorClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (anchorHref === '#' || anchorHref === '') e.preventDefault();
+    onClick?.();
+  };
+
+  if (anchorHref !== undefined) {
+    return (
+      <a
+        href={anchorHref}
+        className={sharedClassName}
+        onClick={handleAnchorClick}
+        role="button"
+        {...(isExternal
+          ? { target: '_blank', rel: 'noopener noreferrer' }
+          : {})}
+      >
+        <span className="relative z-10">{children}</span>
+      </a>
+    );
+  }
+
   return (
-    <button
-      className={`${baseStyles} ${variantStyles[variant]} ${className}`}
-      onClick={onClick}
-    >
+    <button type="button" className={sharedClassName} onClick={onClick}>
       <span className="relative z-10">{children}</span>
     </button>
   );

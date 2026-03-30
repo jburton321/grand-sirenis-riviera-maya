@@ -3,11 +3,8 @@ import { AccommodationsPriceBar } from '../components/AccommodationsPriceBar';
 import { InteriorMobilePriceBar } from '../components/InteriorMobilePriceBar';
 import { InteriorFooter } from '../components/InteriorFooter';
 import { InteriorHero } from '../components/InteriorHero';
-import { useRouter } from '../context/RouterContext';
 
 export function ThingsToDoPage() {
-  const { navigateTo } = useRouter();
-
   return (
     <>
       <InteriorHero
@@ -30,7 +27,7 @@ export function ThingsToDoPage() {
               </span>{' '}
               You're perfectly positioned to explore epic history, stunning nature, and vibrant local life. Feel the ancient energy of the Mayan civilization beneath your feet.
             </p>
-            <Button className="w-full" onClick={() => navigateTo('thank-you')}>RESERVE NOW</Button>
+            <Button className="w-full" asCta>RESERVE NOW</Button>
           </div>
           <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
             <img
@@ -62,7 +59,7 @@ export function ThingsToDoPage() {
                 </span>{' '}
                 This vibrant, pedestrian street is the place to be for high-energy entertainment, featuring everything from bustling dance clubs to sophisticated rooftop lounges.
               </p>
-              <Button className="w-full" onClick={() => navigateTo('thank-you')}>RESERVE NOW</Button>
+              <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
           </div>
         </div>
@@ -88,7 +85,7 @@ export function ThingsToDoPage() {
                 </span>{' '}
                 Expert bartenders use unique, local ingredients to elevate your tasting experience.
               </p>
-              <Button className="w-full" onClick={() => navigateTo('thank-you')}>RESERVE NOW</Button>
+              <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
           </div>
         </div>
@@ -114,7 +111,7 @@ export function ThingsToDoPage() {
                 </span>{' '}
                 Visit one of the New Seven Wonders of the World to marvel at the sheer scale and architectural genius of El Castillo pyramid. This UNESCO World Heritage Site offers deep historical insight into the ancient Mayan civilization.
               </p>
-              <Button className="w-full" onClick={() => navigateTo('thank-you')}>RESERVE NOW</Button>
+              <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
           </div>
         </div>
@@ -140,7 +137,7 @@ export function ThingsToDoPage() {
                 </span>{' '}
                 These iconic Mayan structures are dramatically set atop a 12-meter (39 ft) cliff, offering unmatched, breathtaking views of the turquoise Caribbean Sea. It's a fascinating blend of history and stunning natural scenery.
               </p>
-              <Button className="w-full" onClick={() => navigateTo('thank-you')}>RESERVE NOW</Button>
+              <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
           </div>
         </div>
@@ -166,7 +163,7 @@ export function ThingsToDoPage() {
                 </span>{' '}
                 These natural pools are filled with cool, crystal-clear water, perfect for a relaxing float in an environment surrounded by ancient formations.
               </p>
-              <Button className="w-full" onClick={() => navigateTo('thank-you')}>RESERVE NOW</Button>
+              <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
           </div>
         </div>
@@ -192,7 +189,7 @@ export function ThingsToDoPage() {
                 </span>{' '}
                 At Xcaret, you can glide through cool underground rivers, wander jungle trails, and snorkel in natural lagoons. The park provides an all-day adventure experience unlike any other.
               </p>
-              <Button className="w-full" onClick={() => navigateTo('thank-you')}>RESERVE NOW</Button>
+              <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
           </div>
         </div>
@@ -218,7 +215,7 @@ export function ThingsToDoPage() {
                 </span>{' '}
                 During the day, it's a vibrant pedestrian street perfect for shopping, grabbing authentic handmade souvenirs, and finding unique cafes and bars to relax before the evening action starts.
               </p>
-              <Button className="w-full" onClick={() => navigateTo('thank-you')}>RESERVE NOW</Button>
+              <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
           </div>
         </div>

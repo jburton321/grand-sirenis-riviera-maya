@@ -4,10 +4,10 @@ interface FooterProps {
 
 export function Footer({ fullWidth = false }: FooterProps) {
   return (
-    <footer className="bg-[#2A323B] py-fluid-6 px-4 md:px-6 w-full">
+    <footer className="bg-black py-fluid-6 px-4 md:px-6 w-full">
       <div className={`${fullWidth ? '' : 'max-w-content mx-auto'} text-center`}>
         <img
-          src="layer-20.svg"
+          src="images/layer-20.svg"
           alt="VacationVIP"
           className="h-4 md:h-5 w-auto mx-auto mb-4 md:mb-5 transition-transform duration-300 hover:scale-105"
         />
@@ -18,7 +18,7 @@ export function Footer({ fullWidth = false }: FooterProps) {
 
         <div className="bg-white rounded-lg inline-flex items-center gap-2 px-2 md:px-3 py-1 mb-4 md:mb-5 transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer min-h-touch">
           <img
-            src="group6.svg"
+            src="images/group6.svg"
             alt="BBB Accredited"
             className="h-7 md:h-9 w-auto"
           />

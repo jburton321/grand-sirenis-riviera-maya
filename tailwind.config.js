@@ -79,8 +79,8 @@ module.exports = {
         'item-spacing-s': '24px',
       },
       colors: {
-        primary: '#7535AD',
-        'primary-dark': '#5f2a8f',
+        primary: '#44AD98',
+        'primary-dark': '#369082',
         accent: '#E29A28',
         'accent-dark': '#815612',
         'color-white-solid': '#ffffff',

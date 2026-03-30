@@ -3,7 +3,6 @@ import { divIcon } from 'leaflet';
 import { Heart } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
 import { Button } from './Button';
-import { useRouter } from '../context/RouterContext';
 
 const locations = [
   {
@@ -62,7 +61,7 @@ function createLocationMarker(location: typeof locations[0]) {
     : `${location.distance} | ${location.time}`;
 
   const nameContent = isMain
-    ? `<img src="/image-30.png" alt="${location.name}" style="height: 56px; width: auto; margin-bottom: 6px;" />`
+    ? `<img src="/home/image-30.png" alt="${location.name}" style="height: 56px; width: auto; margin-bottom: 6px;" />`
     : `<h3 style="font-weight: bold; color: rgb(17, 24, 39); font-size: 16px; line-height: 1.2; margin: 0 0 4px 0;">${location.name}</h3>`;
 
   const zIndex = isMain ? 'z-index: 9999;' : '';
@@ -111,7 +110,6 @@ interface MapSectionProps {
 
 export function MapSection({ children }: MapSectionProps) {
   const center: [number, number] = [20.6976, -87.0198];
-  const { navigateTo } = useRouter();
 
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-gray-100 relative z-0">
@@ -162,7 +160,7 @@ export function MapSection({ children }: MapSectionProps) {
           )}
 
           <div className="px-6 pb-10">
-            <Button className="w-full" onClick={() => navigateTo('thank-you')}>Reserve Now</Button>
+            <Button className="w-full" asCta>Reserve Now</Button>
           </div>
         </div>
       </div>

@@ -4,7 +4,6 @@ import { AccommodationsPriceBar } from '../components/AccommodationsPriceBar';
 import { InteriorMobilePriceBar } from '../components/InteriorMobilePriceBar';
 import { InteriorFooter } from '../components/InteriorFooter';
 import { InteriorHero } from '../components/InteriorHero';
-import { useRouter } from '../context/RouterContext';
 
 const amenitiesGallery = [
   'amenities/photo-description0.png',
@@ -16,8 +15,6 @@ const amenitiesGallery = [
 ];
 
 export function AmenitiesPage() {
-  const { navigateTo } = useRouter();
-
   return (
     <>
       <InteriorHero
@@ -40,7 +37,7 @@ export function AmenitiesPage() {
               </span>{' '}
               set across 70 acres of white sand shoreline and lush mangrove surroundings. The resort features 291 well-appointed rooms, including swim-up accommodations, designed for guests seeking comfort, privacy, and elevated service.
             </p>
-            <Button className="w-full" onClick={() => navigateTo('thank-you')}>RESERVE NOW</Button>
+            <Button className="w-full" asCta>RESERVE NOW</Button>
           </div>
           <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
             <img
@@ -72,7 +69,7 @@ export function AmenitiesPage() {
                 </span>{' '}
                 Everything is handled in one place, allowing you to focus on enjoying the setting, the service, and the pace of the resort without added decisions or extra planning.
               </p>
-              <Button className="w-full" onClick={() => navigateTo('thank-you')}>RESERVE NOW</Button>
+              <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
           </div>
         </div>
@@ -98,7 +95,7 @@ export function AmenitiesPage() {
                 </span>{' '}
                 Guests enjoy gourmet dining every evening with no reservations required, making it easy to choose what fits your mood. Options range across global cuisines, including guest-favorite Asian and hibachi experiences.
               </p>
-              <Button className="w-full" onClick={() => navigateTo('thank-you')}>RESERVE NOW</Button>
+              <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
           </div>
         </div>
@@ -124,7 +121,7 @@ export function AmenitiesPage() {
                 </span>{' '}
                 Swim-up rooms offer direct pool access steps from your terrace, while shaded loungers and open beach space provide plenty of room to enjoy the coast. Non-motorized water sports and beach activities are included as part of your stay.
               </p>
-              <Button className="w-full" onClick={() => navigateTo('thank-you')}>RESERVE NOW</Button>
+              <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
           </div>
         </div>
@@ -150,7 +147,7 @@ export function AmenitiesPage() {
                 </span>{' '}
                 A modern fitness center, tennis court, and guided fitness classes support an active stay, while poolside and beachfront activities keep the days engaging without feeling scheduled.
               </p>
-              <Button className="w-full" onClick={() => navigateTo('thank-you')}>RESERVE NOW</Button>
+              <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
           </div>
         </div>
@@ -176,7 +173,7 @@ export function AmenitiesPage() {
                 </span>{' '}
                 Oceanfront bars and entertainment areas host performances and music that keep the energy going after sunset, offering a lively yet refined atmosphere designed for adults.
               </p>
-              <Button className="w-full" onClick={() => navigateTo('thank-you')}>RESERVE NOW</Button>
+              <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
           </div>
         </div>
@@ -187,7 +184,7 @@ export function AmenitiesPage() {
           <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
             <Gallery images={amenitiesGallery} className="bg-transparent" />
             <div className="px-6 pb-10">
-              <Button className="w-full" onClick={() => navigateTo('thank-you')}>Reserve Now</Button>
+              <Button className="w-full" asCta>Reserve Now</Button>
             </div>
           </div>
         </div>
