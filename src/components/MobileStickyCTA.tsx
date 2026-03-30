@@ -1,3 +1,9 @@
+import {
+  OFFER_DEPOSIT_LINE,
+  OFFER_SECURE_LINE,
+  OFFER_TOTAL_AMOUNT,
+  OFFER_TOTAL_LABEL,
+} from '../constants';
 import { Button } from './Button';
 
 export function MobileStickyCTA() {
@@ -6,7 +12,18 @@ export function MobileStickyCTA() {
       <div className="max-w-md mx-auto flex items-center justify-between gap-3">
         <div className="flex-1 min-w-0">
           <p className="text-fluid-xs text-gray-600 truncate">5-Day Luxury Vacation</p>
-          <p className="text-fluid-lg md:text-fluid-xl font-bold text-slate-800">$299<span className="text-fluid-xs font-normal text-gray-500">/couple</span></p>
+          <p className="font-black leading-none text-slate-800 text-fluid-base md:text-fluid-lg">
+            {OFFER_TOTAL_AMOUNT}
+          </p>
+          <p className="mt-0.5 font-bold uppercase tracking-[0.1em] text-slate-600 text-[10px] md:text-fluid-xs">
+            {OFFER_TOTAL_LABEL}
+          </p>
+          <p className="mt-0.5 font-bold leading-snug text-slate-800 text-fluid-xs md:text-fluid-sm">
+            {OFFER_DEPOSIT_LINE}
+          </p>
+          <p className="mt-0.5 font-semibold leading-snug text-gray-700 text-[11px] md:text-fluid-xs">
+            {OFFER_SECURE_LINE}
+          </p>
         </div>
         <Button className="shrink-0 min-h-touch px-6 md:px-8" asCta>
           Reserve

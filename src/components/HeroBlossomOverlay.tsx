@@ -101,8 +101,15 @@ export function HeroBlossomOverlay() {
       const w = container.clientWidth;
       const h = container.clientHeight;
       if (w < 1 || h < 1) return;
-      width = canvas.width = w;
-      height = canvas.height = h;
+      // Logical size for simulation; buffer scaled for sharp rendering on mobile retina.
+      width = w;
+      height = h;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       blossoms = Array.from({ length: blossomCount }, () => new Blossom());
     }
 

@@ -36,11 +36,10 @@ export function ParadiseSection() {
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-pretty text-gray-900 text-fluid-base leading-relaxed sm:mt-8 sm:text-fluid-lg">
               <span className="font-bold text-slate-950">The Hyatt Zilara Riviera Maya</span>{' '}
-              is Only{' '}
-              <span className="font-extrabold text-accent-dark text-fluid-xl sm:text-fluid-2xl">$299</span>{' '}
-              for Two Adults.{' '}
+              is <span className="font-extrabold text-accent-dark">$899 total</span> for two adults.{' '}
+              <span className="font-semibold text-slate-950">Pay a $299 deposit now to secure this deal.</span>{' '}
               <span className="font-semibold text-slate-950">
-                Your 5-Day All-Inclusive Luxury Escape Awaits
+                Your 5-day all-inclusive luxury escape awaits.
               </span>
             </p>
           </div>

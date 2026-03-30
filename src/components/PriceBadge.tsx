@@ -1,9 +1,18 @@
+import {
+  OFFER_DEPOSIT_LINE,
+  OFFER_SECURE_LINE,
+  OFFER_TOTAL_AMOUNT,
+  OFFER_TOTAL_LABEL,
+} from '../constants';
+
 interface PriceBadgeProps {
   days?: string;
   oldPrice?: string;
-  newPrice?: string;
   ribbonText?: string;
-  footerText?: string;
+  totalAmount?: string;
+  totalLabel?: string;
+  depositLine?: string;
+  secureLine?: string;
   width?: number;
   className?: string;
 }
@@ -11,13 +20,15 @@ interface PriceBadgeProps {
 const BASE_SIZE = 350;
 
 export function PriceBadge({
-  days = "4-Days",
-  oldPrice = "$1,079",
-  newPrice = "77",
-  ribbonText = "ONLY",
-  footerText = "ENTIRE STAY",
+  days = '5-Days / 4-Nights',
+  oldPrice = '$5,600',
+  ribbonText = 'DEAL',
+  totalAmount = OFFER_TOTAL_AMOUNT,
+  totalLabel = OFFER_TOTAL_LABEL,
+  depositLine = OFFER_DEPOSIT_LINE,
+  secureLine = OFFER_SECURE_LINE,
   width = 220,
-  className = "",
+  className = '',
 }: PriceBadgeProps) {
   const scale = width / BASE_SIZE;
 
@@ -32,16 +43,16 @@ export function PriceBadge({
           width: `${BASE_SIZE}px`,
           height: `${BASE_SIZE}px`,
           transform: `scale(${scale})`,
-          transformOrigin: "top left",
+          transformOrigin: 'top left',
         }}
       >
         <div
-          className="absolute left-[-15px] top-1/2 -translate-y-1/2 z-10 whitespace-nowrap"
+          className="absolute left-[-15px] top-1/2 z-10 -translate-y-1/2 whitespace-nowrap"
           style={{
-            backgroundColor: "#44AD98",
-            color: "white",
-            padding: "10px 20px",
-            fontSize: "24px",
+            backgroundColor: '#44AD98',
+            color: 'white',
+            padding: '8px 16px',
+            fontSize: '20px',
             fontWeight: 700,
           }}
         >
@@ -49,20 +60,23 @@ export function PriceBadge({
         </div>
 
         <div
-          className="w-full h-full rounded-full flex flex-col items-center justify-center text-white box-border"
+          className="box-border flex h-full w-full flex-col items-center justify-center rounded-full text-white"
           style={{
-            backgroundColor: "#000000",
-            border: "14px solid #e9b25a",
-            outline: "8px solid white",
-            outlineOffset: "-22px",
+            backgroundColor: '#000000',
+            border: '12px solid #e9b25a',
+            outline: '8px solid white',
+            outlineOffset: '-20px',
+            padding: '12px 14px',
           }}
         >
           <div
-            className="bg-white text-black font-bold rounded-md"
+            className="rounded-md bg-white text-center font-bold text-black"
             style={{
-              padding: "4px 18px",
-              fontSize: "22px",
-              marginBottom: "5px",
+              padding: '3px 12px',
+              fontSize: '14px',
+              marginBottom: '6px',
+              lineHeight: 1.2,
+              maxWidth: '240px',
             }}
           >
             {days.toUpperCase()}
@@ -71,29 +85,59 @@ export function PriceBadge({
           <div
             className="line-through"
             style={{
-              fontSize: "24px",
-              marginBottom: "-10px",
+              fontSize: '18px',
+              marginBottom: '4px',
             }}
           >
             {oldPrice}
           </div>
 
           <div
-            className="font-black flex"
-            style={{
-              fontSize: "110px",
-              lineHeight: 1,
-            }}
+            className="flex flex-col items-center text-center leading-tight"
+            style={{ marginTop: '2px' }}
           >
-            <span style={{ fontSize: "40px", marginTop: "15px" }}>$</span>
-            {newPrice}
-          </div>
-
-          <div
-            className="font-bold uppercase"
-            style={{ fontSize: "20px" }}
-          >
-            {footerText}
+            <div
+              className="font-black"
+              style={{
+                fontSize: '52px',
+                lineHeight: 0.95,
+                letterSpacing: '-0.02em',
+              }}
+            >
+              {totalAmount}
+            </div>
+            <div
+              className="font-semibold uppercase tracking-[0.14em]"
+              style={{
+                fontSize: '11px',
+                marginTop: '2px',
+                opacity: 0.92,
+              }}
+            >
+              {totalLabel}
+            </div>
+            <div
+              className="font-semibold"
+              style={{
+                fontSize: '13px',
+                marginTop: '10px',
+                maxWidth: '220px',
+                lineHeight: 1.25,
+              }}
+            >
+              {depositLine}
+            </div>
+            <div
+              className="font-semibold"
+              style={{
+                fontSize: '12px',
+                marginTop: '6px',
+                maxWidth: '220px',
+                lineHeight: 1.25,
+              }}
+            >
+              {secureLine}
+            </div>
           </div>
         </div>
       </div>

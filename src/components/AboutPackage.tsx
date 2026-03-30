@@ -5,7 +5,8 @@ const whatYouGet = [
   {
     icon: Award,
     title: '5-Days/4-Nights in a Deluxe Room',
-    description: 'for two adults at the 5-Star Hyatt Zilara Riviera Maya for only $299 today. Pay the remaining $600 when you book your vacation dates.',
+    description:
+      'for two adults at the 5-Star Hyatt Zilara Riviera Maya. $899 total — pay a $299 deposit now to secure this deal; the remaining balance is due when you book your vacation dates.',
   },
   {
     icon: Wine,

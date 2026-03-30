@@ -1,17 +1,29 @@
 import { Zap, Bed, Wine, Eye, Car } from 'lucide-react';
+import {
+  OFFER_DEPOSIT_LINE,
+  OFFER_SECURE_LINE,
+  OFFER_TOTAL_AMOUNT,
+  OFFER_TOTAL_LABEL,
+} from '../constants';
 import { Button } from './Button';
 import { useCountdown } from '../hooks/useCountdown';
 
 interface BookingCardProps {
   normalRate?: string;
-  salePrice?: string;
   roomDescription?: string;
+  totalAmount?: string;
+  totalLabel?: string;
+  depositLine?: string;
+  secureLine?: string;
 }
 
 export function BookingCard({
   normalRate = '$5,600',
-  salePrice = '$299*',
   roomDescription = 'Deluxe Room for two adults at the 5-Star Hyatt Zilara Riviera Maya',
+  totalAmount = OFFER_TOTAL_AMOUNT,
+  totalLabel = OFFER_TOTAL_LABEL,
+  depositLine = OFFER_DEPOSIT_LINE,
+  secureLine = OFFER_SECURE_LINE,
 }: BookingCardProps) {
   const { hours, minutes, seconds, isExpired } = useCountdown(45);
 
@@ -61,16 +73,22 @@ export function BookingCard({
             <p className="text-gray-600 text-fluid-xs">
               Normal Rate: <span className="line-through font-bold text-red-600">{normalRate}</span>
             </p>
-            <p className="text-slate-800 font-bold text-fluid-4xl">{salePrice}</p>
-          </div>
-          <div className="text-slate-800 font-bold text-right shrink-0">
-            <span className="text-fluid-lg">TODAY!</span>
-            <span className="block text-fluid-xs">PER COUPLE</span>
+            <div className="mt-1 text-slate-800">
+              <p className="font-black text-fluid-2xl leading-none tracking-tight md:text-fluid-3xl">
+                {totalAmount}
+              </p>
+              <p className="mt-0.5 font-bold uppercase tracking-[0.12em] text-fluid-xs text-slate-600 md:text-fluid-sm">
+                {totalLabel}
+              </p>
+              <p className="mt-2 font-bold text-fluid-base leading-snug md:text-fluid-lg">
+                {depositLine}
+              </p>
+              <p className="mt-1.5 font-semibold text-fluid-sm text-slate-700 md:text-fluid-base">
+                {secureLine}
+              </p>
+            </div>
           </div>
         </div>
-        <p className="text-slate-800 font-bold text-fluid-xs text-center mt-3">
-          *Pay $600 at the time of booking for all 5-days/4-nights
-        </p>
       </div>
 
       <div className="p-4 md:p-6 flex flex-col gap-3">
