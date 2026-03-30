@@ -39,7 +39,7 @@ export function Hero() {
                     alt="Mexico destination"
                     loading="eager"
                   />
-                  <div className="hero-composite-wrap relative overflow-visible lg:hidden">
+                  <div className="hero-composite-wrap relative mt-10 overflow-visible md:mt-8 lg:hidden">
                     <img
                       className="hero-couple-element hero-layer-couple"
                       src="home/layer-0-10.png"
