@@ -44,9 +44,8 @@ const mapLocations: MapLocation[] = [
     lat: 20.6976,
     lng: -87.0198,
     isMain: true,
-    detailImageSrc: homePublicImage('Zilara-logo.png'),
-    detailImageObjectFit: 'contain',
-    detailImageAlt: 'Hyatt Zilara logo',
+    detailImageSrc: homePublicImage('Hyatt.webp'),
+    detailImageAlt: 'Hyatt Zilara Riviera Maya resort',
     popupSummary:
       'Adults-only, all-inclusive beachfront resort on a large Riviera Maya parcel—positioned between mangroves and the Caribbean, with a strong focus on couples-oriented stays.',
     popupHighlights: [
