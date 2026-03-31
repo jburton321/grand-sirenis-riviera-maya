@@ -24,7 +24,8 @@ interface MapLocation {
   /** Short note when the photo is thematic rather than a literal place photo. */
   detailImageCaption?: string;
   popupSummary: string;
-  popupHighlights: readonly string[];
+  /** Exactly two bullets in the detail lightbox. */
+  popupHighlights: readonly [string, string];
 }
 
 const mapLocations: MapLocation[] = [
@@ -44,7 +45,6 @@ const mapLocations: MapLocation[] = [
     popupHighlights: [
       'Multiple restaurants, bars, pools, and a spa across the property',
       'Beachfront setting along the same corridor as Km 299 (Federal 387)',
-      'About 25–35 minutes by car from Cancún International Airport for many guests (traffic dependent)',
     ],
   },
   {
@@ -65,7 +65,6 @@ const mapLocations: MapLocation[] = [
     popupHighlights: [
       'Puerto Morelos Reef National Park—part of the Mesoamerican Barrier Reef System',
       'Snorkeling and diving with corals and reef life relatively close to shore',
-      'Compact town center, lighthouse pier area, and local seafood spots',
     ],
   },
   {
@@ -84,7 +83,6 @@ const mapLocations: MapLocation[] = [
     popupHighlights: [
       'Quinta Avenida for walkable dining, retail, and people-watching',
       'Public beach access and beach clubs nearby along the shore',
-      'Ferry service toward Cozumel from the Playa waterfront (operator schedules vary)',
     ],
   },
   {
@@ -105,7 +103,6 @@ const mapLocations: MapLocation[] = [
     popupHighlights: [
       'Long-running PGA TOUR host venue in Mexico’s Riviera Maya market',
       'Distinct ecosystems on one course: forest, mangrove, and oceanfront play',
-      'Practice range, instruction, and Mayakoba clubhouse/dining ecosystem',
     ],
   },
   {
@@ -123,7 +120,6 @@ const mapLocations: MapLocation[] = [
       'Flagship eco-archaeological park along Highway 307 south of Playa del Carmen—underground rivers, wildlife exhibits, Maya heritage displays, and a major evening show.',
     popupHighlights: [
       'Underground rivers and swimming experiences through rock galleries',
-      'Aquarium, aviary, cultural exhibits, and on-site archaeological zones',
       'Evening “México Espectacular”-style production (Xcaret’s signature night show)',
     ],
   },
@@ -218,6 +214,9 @@ function LocationLightboxDetail({ location }: { location: MapLocation }) {
           </p>
         )}
       </div>
+      <Button className="mt-6 w-full min-h-touch" asCta>
+        RESERVE NOW
+      </Button>
     </>
   );
 }
