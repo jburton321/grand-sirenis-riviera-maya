@@ -1,10 +1,12 @@
+import { FOOTER_PRICE_DISCLAIMER } from '../constants';
+
 interface FooterProps {
   fullWidth?: boolean;
 }
 
 export function Footer({ fullWidth = false }: FooterProps) {
   return (
-    <footer className="bg-[#003782] py-fluid-6 px-4 md:px-6 w-full">
+    <footer className="bg-plum py-fluid-6 px-4 md:px-6 w-full">
       <div className={`${fullWidth ? '' : 'max-w-content mx-auto'} text-center`}>
         <img
           src="images/layer-20.svg"
@@ -12,8 +14,15 @@ export function Footer({ fullWidth = false }: FooterProps) {
           className="h-4 md:h-5 w-auto mx-auto mb-4 md:mb-5 transition-transform duration-300 hover:scale-105"
         />
 
+        <p className="text-white text-fluid-xs md:text-fluid-sm mb-3 md:mb-4 max-w-3xl mx-auto px-2 leading-relaxed">
+          THIS ADVERTISING MATERIAL IS BEING USED FOR THE PURPOSE OF SOLICITING THE SALE OF VACATION
+          OWNERSHIP INTERESTS.
+        </p>
         <p className="text-white text-fluid-xs md:text-fluid-sm mb-4 md:mb-5 max-w-3xl mx-auto px-2 leading-relaxed">
-          THIS ADVERTISING MATERIAL IS BEING USED FOR THE PURPOSE OF SOLICITING SALES OF TIMESHARE INTERESTS OR PLANS
+          This preview rate includes an engaging and educational 90 to 120-minute sales presentation and
+          resort tour about the benefits and savings opportunities of Unlimited Leisure Club vacation
+          ownership. There is no obligation to join or purchase, and the balance of the vacation is yours
+          to enjoy.
         </p>
 
         <div className="bg-white rounded-lg inline-flex items-center gap-2 px-2 md:px-3 py-1 mb-4 md:mb-5 transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer min-h-touch">
@@ -40,6 +49,10 @@ export function Footer({ fullWidth = false }: FooterProps) {
 
         <p className="text-white text-fluid-xs md:text-fluid-sm mb-4 md:mb-5">
           Copyright &copy; 2026 | All Rights Reserved.
+        </p>
+
+        <p className="text-white text-fluid-xs md:text-fluid-sm mb-4 md:mb-5 max-w-3xl mx-auto px-2 leading-relaxed">
+          {FOOTER_PRICE_DISCLAIMER}
         </p>
 
         <p className="text-white text-fluid-xs px-2 leading-relaxed">

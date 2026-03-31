@@ -1,5 +1,14 @@
 import { BackgroundSection } from './BackgroundSection';
 import { PriceBadge } from './PriceBadge';
+import {
+  OFFER_HEADLINE_BEACHFRONT,
+  OFFER_HEADLINE_DESTINATION,
+  OFFER_HEADLINE_VACATION,
+  OFFER_STAY_LABEL,
+  OFFER_TOTAL_AMOUNT,
+  RESORT_DISPLAY_NAME,
+} from '../constants';
+import { PriceFootnoteMark } from './PriceFootnoteMark';
 
 export function ParadiseSection() {
   return (
@@ -13,7 +22,7 @@ export function ParadiseSection() {
             <div className="mb-4 sm:mb-5 md:mb-6">
               <img
                 src="home/ULC-Grand-Sirenis-logo.png"
-                alt="ULC Grand Sirenis Riviera Maya"
+                alt={RESORT_DISPLAY_NAME}
                 className="mx-auto h-auto max-h-12 w-auto max-w-[min(100%,220px)] object-contain sm:max-h-14 md:max-h-16 md:max-w-[260px]"
                 width={1112}
                 height={171}
@@ -22,24 +31,25 @@ export function ParadiseSection() {
             </div>
             <h2 className="text-slate-800">
               <span className="block text-fluid-sm font-bold uppercase tracking-tight sm:text-fluid-base">
-                5-DAY/4-NIGHT
+                {OFFER_STAY_LABEL}
               </span>
               <span className="mt-2 block text-fluid-2xl font-bold uppercase tracking-tight sm:mt-3 md:text-fluid-3xl">
-                BEACHFRONT
+                {OFFER_HEADLINE_BEACHFRONT} · {OFFER_HEADLINE_DESTINATION}
               </span>
               <span className="mt-1 block text-fluid-2xl font-bold uppercase tracking-tight md:text-fluid-3xl">
-                RIVIERA MAYA
-              </span>
-              <span className="mt-1 block text-fluid-2xl font-bold uppercase tracking-tight md:text-fluid-3xl">
-                VACATION
+                {OFFER_HEADLINE_VACATION}
               </span>
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-pretty text-gray-900 text-fluid-base leading-relaxed sm:mt-8 sm:text-fluid-lg">
-              <span className="font-bold text-slate-950">ULC Grand Sirenis Riviera Maya</span>{' '}
-              is <span className="font-extrabold text-accent-dark">$899 total</span> for two adults.{' '}
-              <span className="font-semibold text-slate-950">Pay a $299 deposit now to secure this deal.</span>{' '}
+              <span className="font-bold text-slate-950">{RESORT_DISPLAY_NAME}</span>
+              {': '}
+              <span className="font-extrabold text-amber">
+                {OFFER_TOTAL_AMOUNT}
+                <PriceFootnoteMark /> per couple
+              </span>{' '}
+              all-inclusive stay (save 96% vs. retail).{' '}
               <span className="font-semibold text-slate-950">
-                Your 5-day all-inclusive luxury escape awaits.
+                12 months to travel. Total price, not per person or per night.
               </span>
             </p>
           </div>
@@ -50,13 +60,15 @@ export function ParadiseSection() {
         </div>
       </div>
 
-      <div className="bg-[#003782] py-10 sm:py-12 md:py-16 px-4 sm:px-6 -mt-[10px]">
+      <div className="bg-plum py-10 sm:py-12 md:py-16 px-4 sm:px-6 -mt-[10px]">
         <div className="max-w-content mx-auto text-center">
-          <h3 className="text-accent text-xl sm:text-2xl font-extrabold uppercase mb-6 sm:mb-8 md:mb-10">
-            Ultimate Adults-Only Paradise
+          <h3 className="text-xl font-extrabold uppercase text-purple sm:text-2xl mb-6 sm:mb-8 md:mb-10">
+            Your Caribbean sanctuary
           </h3>
-          <p className="text-white text-base sm:text-lg md:text-xl leading-relaxed">
-            Discover true beachfront bliss on a pristine white-sand beach, creating the perfect backdrop for romance and relaxation. The Premium All-Inclusive experience offers specialty gourmet à la carte dining nightly; no reservations needed, for a world-class culinary adventure. Enjoy seamless service from the moment you arrive with a private Amstar transfer, 24-hour room service, and an award-winning staff ensuring you are pampered at every turn.
+          <p className="text-base leading-relaxed text-white sm:text-lg md:text-xl">
+            All-inclusive on two miles of Caribbean beachfront between Playa del Carmen and Tulum.
+            Junior Suite Deluxe, pools, lazy river, dining, spa, and jungle-meets-coast setting at{' '}
+            {RESORT_DISPLAY_NAME}.
           </p>
           <img
             src="home/divider.png"

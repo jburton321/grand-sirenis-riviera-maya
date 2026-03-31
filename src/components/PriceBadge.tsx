@@ -1,9 +1,10 @@
 import {
-  OFFER_DEPOSIT_LINE,
-  OFFER_SECURE_LINE,
+  OFFER_RETAIL_PRICE,
+  OFFER_STAY_LABEL,
   OFFER_TOTAL_AMOUNT,
   OFFER_TOTAL_LABEL,
 } from '../constants';
+import { PriceFootnoteMark } from './PriceFootnoteMark';
 
 interface PriceBadgeProps {
   days?: string;
@@ -11,8 +12,6 @@ interface PriceBadgeProps {
   ribbonText?: string;
   totalAmount?: string;
   totalLabel?: string;
-  depositLine?: string;
-  secureLine?: string;
   width?: number;
   className?: string;
 }
@@ -20,13 +19,11 @@ interface PriceBadgeProps {
 const BASE_SIZE = 350;
 
 export function PriceBadge({
-  days = '5-Days / 4-Nights',
-  oldPrice = '$5,600',
+  days = OFFER_STAY_LABEL,
+  oldPrice = OFFER_RETAIL_PRICE,
   ribbonText = 'ONLY',
   totalAmount = OFFER_TOTAL_AMOUNT,
   totalLabel = OFFER_TOTAL_LABEL,
-  depositLine = OFFER_DEPOSIT_LINE,
-  secureLine = OFFER_SECURE_LINE,
   width = 220,
   className = '',
 }: PriceBadgeProps) {
@@ -62,8 +59,8 @@ export function PriceBadge({
         <div
           className="box-border flex h-full w-full flex-col items-center justify-center rounded-full text-white shadow-[0_10px_30px_-6px_rgba(0,0,0,0.3)]"
           style={{
-            backgroundColor: '#003782',
-            border: '12px solid #44AD98',
+            backgroundColor: '#793DC3',
+            border: '12px solid #67A1CE',
             outline: '8px solid white',
             outlineOffset: '-20px',
             padding: '12px 14px',
@@ -90,6 +87,7 @@ export function PriceBadge({
             }}
           >
             {oldPrice}
+            <PriceFootnoteMark />
           </div>
 
           <div
@@ -105,6 +103,7 @@ export function PriceBadge({
               }}
             >
               {totalAmount}
+              <PriceFootnoteMark />
             </div>
             <div
               className="font-semibold uppercase tracking-[0.14em]"
@@ -115,28 +114,6 @@ export function PriceBadge({
               }}
             >
               {totalLabel}
-            </div>
-            <div
-              className="font-semibold"
-              style={{
-                fontSize: '13px',
-                marginTop: '10px',
-                maxWidth: '220px',
-                lineHeight: 1.25,
-              }}
-            >
-              {depositLine}
-            </div>
-            <div
-              className="font-semibold"
-              style={{
-                fontSize: '12px',
-                marginTop: '6px',
-                maxWidth: '220px',
-                lineHeight: 1.25,
-              }}
-            >
-              {secureLine}
             </div>
           </div>
         </div>

@@ -10,9 +10,11 @@ interface GalleryImage {
 interface GalleryProps {
   images: (string | GalleryImage)[];
   className?: string;
+  /** Tighter strip under hero: smaller cards, less padding/gap. */
+  compact?: boolean;
 }
 
-export function Gallery({ images, className = '' }: GalleryProps) {
+export function Gallery({ images, className = '', compact = false }: GalleryProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -35,12 +37,14 @@ export function Gallery({ images, className = '' }: GalleryProps) {
     checkScrollability();
     window.addEventListener('resize', checkScrollability);
     return () => window.removeEventListener('resize', checkScrollability);
-  }, []);
+  }, [compact, images.length]);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const cardWidth = scrollRef.current.querySelector('div')?.offsetWidth || 300;
-      const scrollAmount = direction === 'left' ? -cardWidth - 16 : cardWidth + 16;
+      const cardWidth =
+        scrollRef.current.querySelector('button')?.offsetWidth ?? (compact ? 200 : 300);
+      const gap = compact ? 10 : 16;
+      const scrollAmount = direction === 'left' ? -cardWidth - gap : cardWidth + gap;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
@@ -52,23 +56,29 @@ export function Gallery({ images, className = '' }: GalleryProps) {
 
   return (
     <>
-      <section className={`bg-gray-100 relative ${className}`}>
+      <section className={`relative bg-gray-100 ${className}`}>
         <div
           ref={scrollRef}
           onScroll={checkScrollability}
-          className="overflow-x-auto py-4 md:py-6 scrollbar-hide scroll-smooth"
+          className={`scrollbar-hide scroll-touch-x scroll-smooth overflow-x-auto ${compact ? 'py-2 md:py-3' : 'py-4 md:py-6'}`}
         >
-          <div className="flex gap-3 md:gap-4 lg:gap-5 px-4 md:px-6 lg:px-8">
+          <div
+            className={`flex ${compact ? 'gap-2 px-3 md:gap-2.5 md:px-4 lg:px-6' : 'gap-3 px-4 md:gap-4 md:px-6 lg:gap-5 lg:px-8'}`}
+          >
             {normalizedImages.map((image, index) => (
               <button
                 key={index}
                 onClick={() => openLightbox(index)}
-                className="rounded-xl md:rounded-2xl overflow-hidden shrink-0 relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 min-h-touch"
+                className={`group relative shrink-0 cursor-pointer overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 md:rounded-xl ${compact ? 'min-h-0' : 'min-h-touch md:rounded-2xl'}`}
               >
                 <img
                   src={image.src}
                   alt={image.label || `Resort photo ${index + 1}`}
-                  className="w-[280px] h-[200px] md:w-[340px] md:h-[240px] lg:w-[400px] lg:h-[280px] xl:w-[420px] xl:h-[300px] object-cover transition-all duration-500 group-hover:scale-110"
+                  className={`object-cover transition-all duration-500 group-hover:scale-110 ${
+                    compact
+                      ? 'h-[120px] w-[180px] sm:h-[132px] sm:w-[200px] md:h-[144px] md:w-[220px] lg:h-[156px] lg:w-[240px]'
+                      : 'h-[200px] w-[280px] md:h-[240px] md:w-[340px] lg:h-[280px] lg:w-[400px] xl:h-[300px] xl:w-[420px]'
+                  }`}
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
@@ -96,21 +106,35 @@ export function Gallery({ images, className = '' }: GalleryProps) {
 
         {canScrollLeft && (
           <button
+            type="button"
             onClick={() => scroll('left')}
-            className="absolute left-2 md:left-3 lg:left-4 top-1/2 -translate-y-1/2 min-w-touch min-h-touch w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-xl active:scale-95 touch-manipulation z-10"
+            className={`absolute top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-white hover:shadow-xl active:scale-95 touch-manipulation ${
+              compact
+                ? 'left-1 h-9 w-9 min-h-9 min-w-9 md:left-2'
+                : 'left-2 min-h-touch min-w-touch h-10 w-10 md:left-3 md:h-11 md:w-11 lg:left-4 lg:h-12 lg:w-12'
+            }`}
             aria-label="Previous"
           >
-            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-gray-800" />
+            <ChevronLeft
+              className={`text-gray-800 ${compact ? 'h-4 w-4 md:h-5 md:w-5' : 'h-5 w-5 md:h-6 md:w-6'}`}
+            />
           </button>
         )}
 
         {canScrollRight && (
           <button
+            type="button"
             onClick={() => scroll('right')}
-            className="absolute right-2 md:right-3 lg:right-4 top-1/2 -translate-y-1/2 min-w-touch min-h-touch w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-xl active:scale-95 touch-manipulation z-10"
+            className={`absolute top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-white hover:shadow-xl active:scale-95 touch-manipulation ${
+              compact
+                ? 'right-1 h-9 w-9 min-h-9 min-w-9 md:right-2'
+                : 'right-2 min-h-touch min-w-touch h-10 w-10 md:right-3 md:h-11 md:w-11 lg:right-4 lg:h-12 lg:w-12'
+            }`}
             aria-label="Next"
           >
-            <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-gray-800" />
+            <ChevronRight
+              className={`text-gray-800 ${compact ? 'h-4 w-4 md:h-5 md:w-5' : 'h-5 w-5 md:h-6 md:w-6'}`}
+            />
           </button>
         )}
       </section>

@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react';
 
 const navItems = [
-  { label: 'Resort video', href: '#resort-video' },
   { label: 'What you get', href: '#what-you-get' },
+  { label: 'Hotel video', href: '#hotel-video' },
   { label: 'Resort details', href: '#resort-details' },
-  { label: 'Guest reviews', href: '#guest-reviews' },
   { label: 'Reserve it now', href: '#reserve-now' },
-];
+] as const;
 
 export function SubNav() {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navItems.map(item => item.href.slice(1));
+      const sections = navItems.map((item) => item.href.slice(1));
       const scrollPosition = window.scrollY + 150;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -35,7 +34,7 @@ export function SubNav() {
     const targetId = href.slice(1);
     const element = document.getElementById(targetId);
     if (element) {
-      const headerOffset = 120;
+      const headerOffset = 168;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
@@ -47,17 +46,25 @@ export function SubNav() {
   };
 
   return (
-    <nav className="bg-gray-100 pt-5 pb-2 md:pt-4 md:pb-2 overflow-x-auto shadow-sm scrollbar-hide sticky top-[52px] md:top-[56px] z-40 border-b border-gray-200">
-      <ul className="w-full max-w-content mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-start lg:justify-center gap-1 sm:gap-2 md:gap-4 whitespace-nowrap">
-        {navItems.map((item) => (
-          <li key={item.label}>
+    <nav className="sticky top-[52px] z-40 border-b border-cardline bg-page pt-5 pb-2 shadow-sm scrollbar-hide scroll-touch-x overflow-x-auto md:top-[56px] md:pt-4 md:pb-2">
+      <ul className="mx-auto flex w-full max-w-content items-center justify-start gap-0 px-4 whitespace-nowrap md:px-6 lg:justify-center lg:px-8">
+        {navItems.map((item, index) => (
+          <li key={item.label} className="flex items-center">
+            {index > 0 ? (
+              <span
+                className="select-none px-1.5 text-[11px] text-gray-300 md:px-2 md:text-xs"
+                aria-hidden
+              >
+                |
+              </span>
+            ) : null}
             <a
               href={item.href}
               onClick={(e) => handleClick(e, item.href)}
-              className={`text-[11px] md:text-xs font-normal uppercase tracking-wide transition-colors py-1.5 px-1.5 sm:px-2 flex items-center min-h-[36px] touch-manipulation whitespace-nowrap ${
+              className={`flex min-h-[36px] items-center px-1.5 py-1.5 text-[11px] font-normal uppercase tracking-wide transition-colors sm:px-2 md:text-xs ${
                 activeSection === item.href.slice(1)
-                  ? 'text-primary font-semibold'
-                  : 'text-brand-700 hover:text-primary'
+                  ? 'font-semibold text-primary'
+                  : 'text-muted hover:text-primary'
               }`}
             >
               {item.label}

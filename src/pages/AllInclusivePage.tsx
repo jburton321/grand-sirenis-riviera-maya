@@ -23,9 +23,12 @@ export function AllInclusivePage() {
             </h1>
             <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
               <span className="font-semibold">
-                ULC Grand Sirenis Riviera Maya offers an adults-only, all-inclusive experience designed to keep everything simple and connected.
+                Every meal, every cocktail, and virtually every on-site experience is included at Grand
+                Sirenis Riviera Maya Resort &amp; Spa.
               </span>{' '}
-              Dining, drinks, service, and resort access are all part of your stay, so plans stay flexible and time stays yours. It's a straightforward way to enjoy the setting, the amenities, and the pace of the resort without added steps.
+              From eight themed à la carte restaurants and two buffets to live theater, watersports, and
+              nature trails. Your vacation belongs to you, not to a running tab. Travel anytime in the
+              next 12 months (subject to availability).
             </p>
             <Button className="w-full" asCta>RESERVE NOW</Button>
           </div>
@@ -55,9 +58,12 @@ export function AllInclusivePage() {
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
                 <span className="font-semibold">
-                  Every stay includes unlimited access to gourmet a la carte restaurants with no reservations required.
+                  Eight themed à la carte restaurants and two buffets mean a new flavor every night, all
+                  included.
                 </span>{' '}
-                Enjoy a variety of global flavors alongside premium cocktails and a full selection of domestic and international spirits. Cafe options and bars across the resort make it easy to grab coffee, desserts, or drinks throughout the day and evening.
+                Premium cocktails, domestic and international spirits, coffee shops, and bars across the
+                resort keep you refreshed from breakfast through late night, with Beyond Flavors as a
+                signature culinary highlight.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
@@ -81,9 +87,11 @@ export function AllInclusivePage() {
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
                 <span className="font-semibold">
-                  Guests enjoy full access to pools, swim-up bar, beachfront spaces, fitness center, tennis court, and non-motorized water sports.
+                  Multiple pools, a lazy river, two miles of beach, snorkeling, fishing, and non-motorized
+                  watersports are all part of the package.
                 </span>{' '}
-                Daytime activities and evening entertainment are part of the experience, offering options to stay active or enjoy the resort atmosphere at your own pace.
+                Water aerobics, nature trails, the turtle sanctuary, and an on-site Mayan ruin add
+                adventure between lazy afternoons in the sun.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
@@ -107,9 +115,11 @@ export function AllInclusivePage() {
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
                 <span className="font-semibold">
-                  Your stay includes 24-hour room service, complimentary Wi-Fi, and attentive service throughout the resort.
+                  24-hour reception and housekeeping, room service, and complimentary Wi-Fi keep everything
+                  effortless.
                 </span>{' '}
-                Select room categories offer enhanced service options, and private airport transportation is available as part of select packages, helping the experience feel smooth right from arrival.
+                You are about an hour from Cancún International Airport, perfectly between Playa del Carmen
+                and Tulum, so the best of the Riviera Maya stays within easy reach.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>

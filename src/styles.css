@@ -5,6 +5,23 @@
 @tailwind utilities;
 
 @layer base {
+  /**
+   * Hide scrollbars site-wide (Firefox / legacy Edge / WebKit). Scrolling still works:
+   * wheel, trackpad, touch swipe, keyboard.
+   */
+  *,
+  *::before,
+  *::after {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
   html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
@@ -102,6 +119,32 @@
     min-width: 44px;
     min-height: 44px;
   }
+
+  /** Explicit opt-in (redundant with global hide); keeps intent in markup. */
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /** Momentum + horizontal swipe for overflow-x strips (Gallery, SubNav). */
+  .scroll-touch-x {
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    overscroll-behavior-x: contain;
+  }
+
+  /** Vertical scroll regions (lightbox body, map list). */
+  .scroll-touch-y {
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    overscroll-behavior-y: contain;
+  }
 }
 
 .custom-popup .leaflet-popup-content-wrapper {
@@ -138,9 +181,9 @@
   isolation: isolate;
 }
 
-/* Map section — tiles + Leaflet UI aligned with brand teal / gold */
+/* Map section: tiles + Leaflet UI aligned with page / sky / plum */
 .brand-map.leaflet-container {
-  background: #f4faf8;
+  background: #f9f5ff;
   font-family: Inter, system-ui, sans-serif;
 }
 
@@ -149,26 +192,26 @@
 }
 
 .brand-map .leaflet-control-zoom a {
-  border-color: #b8d9d0 !important;
+  border-color: #93bedd !important;
   background-color: #fff !important;
-  color: #369082 !important;
+  color: #67a1ce !important;
 }
 
 .brand-map .leaflet-control-zoom a:hover {
-  background-color: #e8f4f1 !important;
-  color: #2d7a6d !important;
+  background-color: #f9f5ff !important;
+  color: #4a82b0 !important;
 }
 
 .brand-map .leaflet-control-attribution {
   background: rgba(255, 255, 255, 0.88) !important;
-  color: #526674 !important;
+  color: #7a6e8a !important;
   font-size: 10px;
   line-height: 1.35;
   max-width: 100%;
 }
 
 .brand-map .leaflet-control-attribution a {
-  color: #369082 !important;
+  color: #1a1033 !important;
 }
 
 .leaflet-marker-pane {
@@ -178,27 +221,29 @@
 img.hero-sticker-element {
   display: block;
   height: auto;
+  margin-top: 2rem;
 }
 
 @media (max-width: 1023px) {
   img.hero-sticker-element {
-    width: 80%;
-    max-width: 400px;
-    margin: 0 auto;
+    width: 75%;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   img.hero-sticker-element {
-    width: 70%;
-    max-width: 450px;
+    width: 64%;
+    max-width: 400px;
   }
 }
 
 @media (min-width: 1024px) {
   img.hero-sticker-element {
     width: auto;
-    max-width: 700px;
+    max-width: 630px;
     padding-left: 0;
     padding-right: 0;
   }
@@ -209,43 +254,26 @@ img.hero-sticker-element {
   display: block;
 }
 
-img.hero-couple-element {
-  height: auto;
-  display: block;
-  margin: 0;
-  position: relative;
-  z-index: 1;
-  object-fit: contain;
-}
-
-/* Fixed couple frame per band — no vw/clamp so size/position stay stable until the next breakpoint. */
+/* Mobile: same footprint as former couple image so play button `bottom: 12%` matches prior layout. */
 @media (max-width: 767px) {
   .hero-composite-wrap {
     width: 100%;
     max-width: 220px;
+    min-height: 220px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
-  }
-
-  .hero-composite-wrap img.hero-couple-element {
-    width: 100%;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .hero-composite-wrap {
     width: 100%;
-    max-width: 260px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-  }
-
-  .hero-composite-wrap img.hero-couple-element {
-    width: 100%;
   }
 }
 
@@ -256,10 +284,6 @@ img.hero-couple-element {
     padding-right: 0;
     margin: 0 0 52px 357px;
   }
-
-  .hero-composite-wrap img.hero-couple-element {
-    width: 100%;
-  }
 }
 
 @media (min-width: 1280px) and (max-width: 1439px) {
@@ -269,10 +293,6 @@ img.hero-couple-element {
     padding-right: 0;
     margin: 0 0 52px 357px;
   }
-
-  .hero-composite-wrap img.hero-couple-element {
-    width: 100%;
-  }
 }
 
 @media (min-width: 1440px) {
@@ -281,10 +301,6 @@ img.hero-couple-element {
     padding-left: 0;
     padding-right: 0;
     margin: 0 0 52px 357px;
-  }
-
-  .hero-composite-wrap img.hero-couple-element {
-    width: 100%;
   }
 }
 
@@ -305,7 +321,7 @@ img.hero-couple-element {
 }
 
 .riviera-cancun-vacation-span {
-  color: #ffd174;
+  color: #faa528;
   font-family: "Playfair Display", serif;
   font-size: 126.68162536621094px;
   font-weight: 500;
@@ -319,7 +335,7 @@ img.hero-couple-element {
 }
 
 .title-8-span {
-  color: #0d0d0d;
+  color: #1a1033;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -327,7 +343,7 @@ img.hero-couple-element {
 }
 
 .title-8-span2 {
-  color: #0d0d0d;
+  color: #1a1033;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -335,7 +351,7 @@ img.hero-couple-element {
 }
 
 .title-9-span {
-  color: #0d0d0d;
+  color: #1a1033;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -343,50 +359,48 @@ img.hero-couple-element {
 }
 
 .title-9-span2 {
-  color: #0d0d0d;
+  color: #1a1033;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
 }
 
-/* Primary CTA surface lock — literal #44AD98 (same as tailwind `primary` / vars `--color-primary`).
-   End of bundle so it wins over any stale `.bg-primary` from cached CSS. */
+/* Brand surfaces: tailwind `primary` (purple) / `cta` (pink). End of bundle wins over stale cache. */
 .bg-primary {
   --tw-bg-opacity: 1;
-  background-color: #44AD98;
+  background-color: #793dc3;
 }
 
 .visited\:bg-primary:visited {
   --tw-bg-opacity: 1;
-  background-color: #44AD98;
+  background-color: #793dc3;
 }
 
 .hover\:bg-primary-dark:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(54 144 130 / var(--tw-bg-opacity, 1));
+  background-color: rgb(90 42 154 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:visited\:bg-primary-dark:visited:hover {
-  background-color: rgb(54 144 130 / var(--tw-bg-opacity, 1));
+  background-color: rgb(90 42 154 / var(--tw-bg-opacity, 1));
 }
 
-/* CTA / reserve buttons — literal teal (same as tailwind `cta` / vars `--color-cta*`) */
 .bg-cta {
   --tw-bg-opacity: 1;
-  background-color: #44AD98;
+  background-color: #c13291;
 }
 
 .visited\:bg-cta:visited {
   --tw-bg-opacity: 1;
-  background-color: #44AD98;
+  background-color: #c13291;
 }
 
 .hover\:bg-cta-dark:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(54 144 130 / var(--tw-bg-opacity, 1));
+  background-color: rgb(158 37 118 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:visited\:bg-cta-dark:visited:hover {
-  background-color: rgb(54 144 130 / var(--tw-bg-opacity, 1));
+  background-color: rgb(158 37 118 / var(--tw-bg-opacity, 1));
 }

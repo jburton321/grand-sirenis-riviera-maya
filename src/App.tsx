@@ -1,4 +1,4 @@
-import { Header, Footer, MobileStickyCTA } from "./components";
+import { HelloBar, Header, Footer, MobileStickyCTA } from "./components";
 import { RouterProvider, useRouter } from "./context/RouterContext";
 import { HomePage } from "./pages/HomePage";
 import { AccommodationsPage } from "./pages/AccommodationsPage";
@@ -10,7 +10,8 @@ function AppContent() {
   const { currentPage } = useRouter();
 
   return (
-    <div className="bg-white min-h-screen pb-20 lg:pb-0" style={{ overflowX: 'clip' }}>
+    <div className="bg-page min-h-screen pb-20 lg:pb-0" style={{ overflowX: 'clip' }}>
+      <HelloBar />
       <Header />
       <main>
         {currentPage === 'home' && <HomePage />}

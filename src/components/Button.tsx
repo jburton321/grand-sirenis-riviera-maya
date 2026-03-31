@@ -7,7 +7,7 @@ interface ButtonProps {
   children?: ReactNode;
   variant?: 'primary' | 'small';
   /**
-   * Button surface: `brand` uses `primary` / `primary-dark`; `cta` uses global `cta` / `cta-dark` (fixed reserve teal).
+   * `brand` = purple primary surface; `cta` = pink reserve CTA with white label text.
    * Defaults to `cta` when `asCta`, otherwise `brand`.
    */
   color?: 'brand' | 'cta';

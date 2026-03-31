@@ -1,62 +1,64 @@
 import { useCountdown } from '../hooks/useCountdown';
 import { PriceBadge } from './PriceBadge';
+import { OFFER_DECK_ONE_LINER, OFFER_ROOM_SHORT, RESORT_DISPLAY_NAME } from '../constants';
 
 export function AccommodationsPriceBar() {
   const { hours, minutes, seconds, isExpired } = useCountdown(45);
 
   return (
-    <div className="hidden lg:block w-full bg-[#e8e8e8]/90 rounded-b-3xl overflow-hidden">
+    <div className="hidden lg:block w-full rounded-b-3xl border border-cardline border-t-0 bg-white/95 overflow-hidden">
       <div className="flex flex-wrap lg:flex-nowrap items-center gap-4 xl:gap-6 px-4 xl:px-6 py-4">
         <div className="flex-shrink-0">
           <PriceBadge width={220} className="xl:w-[280px]" />
         </div>
 
         <div className="flex flex-col justify-center flex-1 min-w-0">
-          <h2 className="text-[#1a365d] text-fluid-lg xl:text-fluid-xl font-bold leading-tight mb-2 xl:mb-3">
-            Luxury All-Inclusive<br />
-            Riviera Maya Vacation
+          <h2 className="mb-2 text-fluid-lg font-bold leading-tight text-plum xl:mb-3 xl:text-fluid-xl">
+            {OFFER_DECK_ONE_LINER}
           </h2>
           <div className="space-y-1.5 xl:space-y-2">
             <div className="flex items-start gap-2">
-              <BedIcon className="w-4 h-4 xl:w-5 xl:h-5 flex-shrink-0 mt-0.5 text-accent" />
-              <span className="text-fluid-xs xl:text-fluid-sm text-[#1a365d]">
-                <span className="font-bold">Deluxe Room for two adults at the 5-Star ULC Grand Sirenis Riviera Maya</span>
+              <BedIcon className="w-4 h-4 xl:w-5 xl:h-5 flex-shrink-0 mt-0.5 text-sky" />
+              <span className="text-fluid-xs xl:text-fluid-sm text-plum">
+                <span className="font-bold">
+                  {OFFER_ROOM_SHORT} at {RESORT_DISPLAY_NAME}
+                </span>
               </span>
             </div>
             <div className="flex items-start gap-2">
-              <CocktailIcon className="w-4 h-4 xl:w-5 xl:h-5 flex-shrink-0 mt-0.5 text-accent" />
-              <span className="text-fluid-xs xl:text-fluid-sm text-[#1a365d]">
-                <span className="font-bold">Unlimited-Luxury, Where Everything's Included:</span>{' '}
-                Unlimited Dining, Drinks, Wifi, Entertainment, Resort & Beach Amenities!
+              <CocktailIcon className="w-4 h-4 xl:w-5 xl:h-5 flex-shrink-0 mt-0.5 text-sky" />
+              <span className="text-fluid-xs xl:text-fluid-sm text-plum">
+                <span className="font-bold">All-inclusive: </span>
+                Dining, drinks, pools, beach, and most on-resort activities included.
               </span>
             </div>
           </div>
         </div>
 
         <div className="flex justify-center flex-shrink-0">
-          <div className="bg-[#FFD174] rounded-lg px-4 xl:px-6 py-3 xl:py-4 text-center min-w-[170px] xl:min-w-[200px]">
-            <div className="text-slate-900 font-bold text-fluid-sm xl:text-fluid-base tracking-wide mb-1.5 xl:mb-2">
+          <div className="min-w-[170px] rounded-lg bg-orange px-4 py-3 text-center text-white xl:min-w-[200px] xl:px-6 xl:py-4">
+            <div className="mb-1.5 text-fluid-sm font-bold tracking-wide text-white xl:mb-2 xl:text-fluid-base">
               OFFER EXPIRES:
             </div>
             {!isExpired ? (
               <div className="flex items-center justify-center gap-1">
                 <div className="text-center">
-                  <span className="text-red-600 font-bold text-fluid-xl xl:text-fluid-2xl tabular-nums">{hours}</span>
-                  <div className="text-slate-900 text-fluid-xs font-medium">HR</div>
+                  <span className="text-fluid-xl font-bold tabular-nums text-white xl:text-fluid-2xl">{hours}</span>
+                  <div className="text-fluid-xs font-medium text-white/90">HR</div>
                 </div>
-                <span className="text-red-600 font-bold text-fluid-lg xl:text-fluid-xl mb-3 xl:mb-4 animate-pulse">:</span>
+                <span className="mb-3 animate-pulse text-fluid-lg font-bold text-white xl:mb-4 xl:text-fluid-xl">:</span>
                 <div className="text-center">
-                  <span className="text-red-600 font-bold text-fluid-xl xl:text-fluid-2xl tabular-nums">{minutes}</span>
-                  <div className="text-slate-900 text-fluid-xs font-medium">MIN</div>
+                  <span className="text-fluid-xl font-bold tabular-nums text-white xl:text-fluid-2xl">{minutes}</span>
+                  <div className="text-fluid-xs font-medium text-white/90">MIN</div>
                 </div>
-                <span className="text-red-600 font-bold text-fluid-lg xl:text-fluid-xl mb-3 xl:mb-4 animate-pulse">:</span>
+                <span className="mb-3 animate-pulse text-fluid-lg font-bold text-white xl:mb-4 xl:text-fluid-xl">:</span>
                 <div className="text-center">
-                  <span className="text-red-600 font-bold text-fluid-xl xl:text-fluid-2xl tabular-nums">{seconds}</span>
-                  <div className="text-slate-900 text-fluid-xs font-medium">SEC</div>
+                  <span className="text-fluid-xl font-bold tabular-nums text-white xl:text-fluid-2xl">{seconds}</span>
+                  <div className="text-fluid-xs font-medium text-white/90">SEC</div>
                 </div>
               </div>
             ) : (
-              <div className="text-red-600 font-bold text-fluid-lg">EXPIRED</div>
+              <div className="text-fluid-lg font-bold text-white">EXPIRED</div>
             )}
           </div>
         </div>

@@ -5,10 +5,14 @@ import { Heart, MapPin } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
 import { Button } from './Button';
 import { Lightbox } from './Lightbox';
+import {
+  RESORT_MAP_POPUP_HIGHLIGHTS,
+  RESORT_MAP_POPUP_SUMMARY,
+} from '../content/amenityLists';
 
 /**
  * Distances/times mirror the list UI (typical driving from the resort area).
- * Detail blurbs summarize widely published, non‑warranty facts — verify before legal/compliance use.
+ * Detail blurbs summarize widely published, non-warranty facts. Verify before legal/compliance use.
  */
 interface MapLocation {
   id: string;
@@ -38,26 +42,22 @@ function homePublicImage(fileName: string) {
 const mapLocations: MapLocation[] = [
   {
     id: 'grand-sirenis',
-    name: 'ULC Grand Sirenis Riviera Maya',
-    distance: 'Carretera Cancún–Tulum Km 256,',
-    time: 'Akumal, Solidaridad, Q.R., Mexico',
+    name: 'Grand Sirenis Riviera Maya Resort & Spa',
+    distance: 'Ctra. Federal Cancún to Tulum, Zona Costera, km 256.3,',
+    time: 'Riviera Maya, Mexico',
     lat: 20.3919,
     lng: -87.3231,
     isMain: true,
     detailImageSrc: homePublicImage('GrandSirenis.webp'),
-    detailImageAlt: 'ULC Grand Sirenis Riviera Maya resort',
-    popupSummary:
-      'All-inclusive beachfront resort on a wide Riviera Maya stretch near Akumal—lush grounds, multiple pools and dining venues, and direct Caribbean beach access.',
-    popupHighlights: [
-      'Multiple restaurants, bars, pools, and spa facilities across the property',
-      'Beachfront setting on the Cancún–Tulum corridor (Km 256)',
-    ],
+    detailImageAlt: 'Grand Sirenis Riviera Maya Resort & Spa',
+    popupSummary: RESORT_MAP_POPUP_SUMMARY,
+    popupHighlights: RESORT_MAP_POPUP_HIGHLIGHTS,
   },
   {
     id: 'puerto-morelos',
     name: 'Puerto Morelos',
-    distance: '48–52 miles',
-    time: '55–65 minutes',
+    distance: '48-52 miles',
+    time: '55-65 minutes',
     lat: 20.8475,
     lng: -86.8756,
     isMain: false,
@@ -66,15 +66,15 @@ const mapLocations: MapLocation[] = [
     popupSummary:
       'A quieter fishing port between Cancún and Playa del Carmen, known for its reef-protected waters and a slower pace than the larger resort cities.',
     popupHighlights: [
-      'Puerto Morelos Reef National Park—part of the Mesoamerican Barrier Reef System',
+      'Puerto Morelos Reef National Park, part of the Mesoamerican Barrier Reef System',
       'Snorkeling and diving with corals and reef life relatively close to shore',
     ],
   },
   {
     id: 'playa-del-carmen',
     name: 'Downtown Playa del Carmen',
-    distance: '24–28 miles',
-    time: '35–45 minutes',
+    distance: '24-28 miles',
+    time: '35-45 minutes',
     lat: 20.6282,
     lng: -87.0739,
     isMain: false,
@@ -90,15 +90,15 @@ const mapLocations: MapLocation[] = [
   {
     id: 'golf-course',
     name: 'El Camaleón Golf Course',
-    distance: '30–34 miles',
-    time: '40–50 minutes',
+    distance: '30-34 miles',
+    time: '40-50 minutes',
     lat: 20.6845,
     lng: -87.0255,
     isMain: false,
     detailImageSrc: homePublicImage('mayakoba-el-camaleon-mexico.jpg'),
     detailImageAlt: 'El Camaleón golf course at Mayakoba, Riviera Maya',
     popupSummary:
-      'Greg Norman–designed 18-hole championship layout at Mayakoba, routing through jungle, mangrove channels, and seaside holes—including a famous cenote and canal stretch.',
+      'Greg Norman-designed 18-hole championship layout at Mayakoba, routing through jungle, mangrove channels, and seaside holes, including a famous cenote and canal stretch.',
     popupHighlights: [
       'Long-running PGA TOUR host venue in Mexico’s Riviera Maya market',
       'Distinct ecosystems on one course: forest, mangrove, and oceanfront play',
@@ -107,15 +107,15 @@ const mapLocations: MapLocation[] = [
   {
     id: 'xcaret',
     name: 'Xcaret Park',
-    distance: '16–20 miles',
-    time: '25–35 minutes',
+    distance: '16-20 miles',
+    time: '25-35 minutes',
     lat: 20.5775,
     lng: -87.1197,
     isMain: false,
     detailImageSrc: homePublicImage('XcaretPark.jpg'),
     detailImageAlt: 'Xcaret Park',
     popupSummary:
-      'Flagship eco-archaeological park along Highway 307 south of Playa del Carmen—underground rivers, wildlife exhibits, Maya heritage displays, and a major evening show.',
+      'Flagship eco-archaeological park along Highway 307 south of Playa del Carmen, with underground rivers, wildlife exhibits, Maya heritage displays, and a major evening show.',
     popupHighlights: [
       'Underground rivers and swimming experiences through rock galleries',
       'Evening “México Espectacular”-style production (Xcaret’s signature night show)',
@@ -123,11 +123,11 @@ const mapLocations: MapLocation[] = [
   },
 ];
 
-/** Main resort pin — brand navy; secondary pins use primary/accent teal. */
-const MAP_PIN_MAIN = '#003782';
-const MAP_PIN_MAIN_ACTIVE = '#003782';
-const MAP_PIN_SECONDARY = '#44AD98';
-const MAP_PIN_SECONDARY_ACTIVE = '#44AD98';
+/** Main resort pin: hero plum. Secondary pins: brand sky. */
+const MAP_PIN_MAIN = '#1A1033';
+const MAP_PIN_MAIN_ACTIVE = '#1A1033';
+const MAP_PIN_SECONDARY = '#67A1CE';
+const MAP_PIN_SECONDARY_ACTIVE = '#67A1CE';
 
 function createMapPinIcon(location: MapLocation, isHighlighted: boolean) {
   const isMain = location.isMain;
@@ -140,8 +140,8 @@ function createMapPinIcon(location: MapLocation, isHighlighted: boolean) {
       : MAP_PIN_SECONDARY;
   const glow = isHighlighted
     ? isMain
-      ? 'filter: drop-shadow(0 0 10px rgba(0,55,130,0.9)) drop-shadow(0 4px 8px rgba(0,0,0,0.18));'
-      : 'filter: drop-shadow(0 0 10px rgba(68,173,152,0.9)) drop-shadow(0 4px 8px rgba(0,0,0,0.18));'
+      ? 'filter: drop-shadow(0 0 10px rgba(26,16,51,0.9)) drop-shadow(0 4px 8px rgba(0,0,0,0.18));'
+      : 'filter: drop-shadow(0 0 10px rgba(103,161,206,0.9)) drop-shadow(0 4px 8px rgba(0,0,0,0.18));'
     : 'filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));';
   const scale = isHighlighted ? 1.12 : 1;
   const w = 36 * scale;
@@ -203,7 +203,7 @@ function LocationLightboxDetail({ location }: { location: MapLocation }) {
       <div className="mt-6 border-t border-gray-200 pt-4">
         {location.isMain ? (
           <p className="text-fluid-sm leading-snug text-gray-500">
-            <span className="font-semibold text-gray-800">Address — </span>
+            <span className="font-semibold text-gray-800">Address: </span>
             {location.distance} {location.time}
           </p>
         ) : (
@@ -287,25 +287,24 @@ export function MapSection({ children }: MapSectionProps) {
     : null;
 
   return (
-    <section className="relative bg-[#eef5f4] py-12 md:py-16 lg:py-20">
+    <section className="relative bg-page py-12 md:py-16 lg:py-20">
       <div className="mx-auto max-w-content px-4 sm:px-6">
-        <div className="rounded-3xl bg-white shadow-xl">
+        <div className="rounded-3xl border border-cardline bg-white shadow-xl">
           <div className="px-6 pb-6 pt-10 text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
-              Discover Adult-Only Luxury in the{' '}
-              <Heart className="inline h-8 w-8 fill-primary text-primary sm:h-10 sm:w-10 md:h-12 md:w-12" />
+              Discover the heart of the{' '}
+              <Heart className="inline h-8 w-8 fill-sky text-sky sm:h-10 sm:w-10 md:h-12 md:w-12" />
               <br />
-              of the Mayan Coast Riviera Maya.
+              Mayan Caribbean, Riviera Maya.
             </h2>
             <p className="mx-auto max-w-3xl text-lg text-gray-700">
-              Carretera Cancún–Tulum Km 256, Akumal, Solidaridad, Quintana Roo,
-              Mexico
+              Ctra. Federal Cancún to Tulum, Zona Costera, km 256.3, Riviera Maya, Mexico
             </p>
           </div>
 
           <div className="px-4 pb-8 sm:px-6">
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-stretch lg:gap-8 lg:min-h-[560px]">
-              <div className="relative h-[380px] min-h-[380px] overflow-hidden rounded-2xl border border-primary/20 shadow-inner shadow-primary/5 sm:h-[420px] sm:min-h-[420px] lg:h-full lg:min-h-0">
+              <div className="relative h-[380px] min-h-[380px] overflow-hidden rounded-2xl border border-sky/20 shadow-inner shadow-sky/5 sm:h-[420px] sm:min-h-[420px] lg:h-full lg:min-h-0">
                 <MapContainer
                   center={center}
                   zoom={10}
@@ -333,9 +332,9 @@ export function MapSection({ children }: MapSectionProps) {
                 aria-label="Destinations near the resort"
               >
                 <p className="mb-2 shrink-0 text-left text-fluid-sm font-semibold uppercase tracking-wide text-gray-500 lg:mb-3">
-                  Nearby destinations — tap for details
+                  Nearby destinations (tap for details)
                 </p>
-                <div className="flex min-h-0 flex-1 flex-col gap-4 lg:overflow-y-auto lg:overflow-x-visible lg:overscroll-contain lg:py-1 lg:pr-2">
+                <div className="flex min-h-0 flex-1 flex-col gap-4 scroll-touch-y lg:overflow-y-auto lg:overflow-x-visible lg:overscroll-contain lg:py-1 lg:pr-2">
                   {mapLocations.map((location) => {
                     const isOn = highlightId === location.id;
                     const isMainLoc = location.isMain;
@@ -364,24 +363,24 @@ export function MapSection({ children }: MapSectionProps) {
                         className={`cursor-pointer rounded-2xl border-2 p-4 text-left transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
                           isMainLoc
                             ? isOn
-                              ? 'border-[#003782] bg-[#003782]/10 shadow-md ring-2 ring-[#003782]/30 focus-visible:ring-[#003782]'
-                              : 'border-gray-200 bg-[#EEF5F4] hover:border-[#003782]/25 hover:bg-white focus-visible:ring-[#003782]'
+                              ? 'border-plum bg-plum/10 shadow-md ring-2 ring-plum/30 focus-visible:ring-plum'
+                              : 'border-gray-200 bg-page hover:border-plum/25 hover:bg-white focus-visible:ring-plum'
                             : isOn
-                              ? 'border-primary bg-primary/10 shadow-md ring-2 ring-primary/30 focus-visible:ring-primary'
-                              : 'border-gray-200 bg-[#EEF5F4] hover:border-gray-300 hover:bg-white focus-visible:ring-primary'
+                              ? 'border-sky bg-sky/10 shadow-md ring-2 ring-sky/30 focus-visible:ring-sky'
+                              : 'border-gray-200 bg-page hover:border-gray-300 hover:bg-white focus-visible:ring-sky'
                         }`}
                       >
                         <div className="flex items-start gap-3">
                           <span
                             className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${
                               isMainLoc
-                                ? 'bg-[#003782]/15 text-[#003782]'
-                                : 'bg-primary/15 text-primary'
+                                ? 'bg-plum/15 text-plum'
+                                : 'bg-sky/15 text-sky'
                             } ${
                               isOn
                                 ? isMainLoc
-                                  ? 'ring-2 ring-[#003782] ring-offset-2 ring-offset-white'
-                                  : 'ring-2 ring-primary ring-offset-2 ring-offset-white'
+                                  ? 'ring-2 ring-plum ring-offset-2 ring-offset-white'
+                                  : 'ring-2 ring-sky ring-offset-2 ring-offset-white'
                                 : ''
                             }`}
                             aria-hidden

@@ -1,57 +1,16 @@
 import { useState } from 'react';
 import { Expand } from 'lucide-react';
 import { Lightbox, type LightboxImageItem } from './Lightbox';
+import {
+  AMENITIES_HOME_GRID_INTRO,
+  AMENITIES_HOME_GRID_ITEMS,
+} from '../content/amenityLists';
 
-const amenities: LightboxImageItem[] = [
-  {
-    src: 'home/image0.png',
-    label: 'BEACHFRONT ACCESS',
-    description:
-      'Step straight from the resort onto soft white sand with direct beach access reserved for guests. Stretch out on loungers, take a calm swim in the Caribbean, and catch golden-hour views—ideal for couples who want the ocean as their backyard.',
-  },
-  {
-    src: 'home/image2.png',
-    label: 'TENNIS COURT',
-    description:
-      'Keep your game sharp on outdoor tennis courts designed for play in the Riviera Maya breeze. Ask concierge about court time and equipment; it is an easy way to stay active between pool time and dinner reservations.',
-  },
-  {
-    src: 'home/image4.png',
-    label: 'OUTDOOR ADVENTURES',
-    description:
-      'From water sports to curated excursions, the region invites you to explore cenotes, reefs, and jungle trails. The resort team can point you toward experiences that match your pace—whether that is snorkeling, sailing, or a relaxed eco tour.',
-  },
-  {
-    src: 'home/image6.png',
-    label: 'HOT TUB OR SPA',
-    description:
-      'Unwind in bubbling outdoor tubs and treat yourselves to spa rituals crafted for relaxation. Many services focus on couples—think massages, hydrotherapy touches, and quiet moments away from the main pool energy.',
-  },
-  {
-    src: 'home/image1.png',
-    label: 'SWIMMING POOL - OUTDOOR',
-    description:
-      'Lounge beside expansive outdoor pools with attentive poolside service and plenty of space to spread out. Swim-up bars, sunny decks, and shade pockets make it easy to spend the whole day without leaving the water’s edge.',
-  },
-  {
-    src: 'home/image3.png',
-    label: 'FITNESS CENTER',
-    description:
-      'Stay on track with cardio machines, free weights, and space for stretching or light training. The fitness center is there when you want a morning workout before heading to breakfast or the beach.',
-  },
-  {
-    src: 'home/image5.png',
-    label: 'PREMIUM COCKTAILS',
-    description:
-      'Sip top-shelf spirits, wine, and crafted cocktails across bars and lounges—all part of the premium all-inclusive experience. Order your favorites poolside, before dinner, or while you watch the sunset.',
-  },
-  {
-    src: 'home/image7.png',
-    label: 'ONSITE DINING',
-    description:
-      'Rotate through specialty restaurants and casual venues without leaving the property. Many locations emphasize fresh ingredients and coastal flavors, with flexible dining so you can keep plans loose and romantic.',
-  },
-];
+const amenities: LightboxImageItem[] = AMENITIES_HOME_GRID_ITEMS.map((item) => ({
+  src: item.src,
+  label: item.label,
+  description: item.description,
+}));
 
 export function AmenitiesGrid() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -68,16 +27,16 @@ export function AmenitiesGrid() {
         <img
           className="mx-auto mb-6 h-10 transition-transform duration-300 hover:scale-105 sm:mb-8 sm:h-12 md:h-14"
           src="home/image-30.png"
-          alt="ULC Grand Sirenis Riviera Maya"
+          alt="Grand Sirenis Riviera Maya Resort & Spa"
         />
 
         <h2 className="mb-3 px-2 text-xl font-black uppercase text-slate-800 sm:mb-4 sm:text-2xl md:text-3xl">
-          Explore THE AMENITIES AT<br />
-          ULC Grand Sirenis Riviera Maya
+          Explore the amenities at<br />
+          Grand Sirenis Riviera Maya Resort &amp; Spa
         </h2>
 
         <p className="mx-auto mb-8 max-w-3xl px-2 text-base leading-relaxed text-gray-800 sm:mb-10 sm:text-lg md:mb-12">
-          Relax on pristine beaches, enjoy delicious cuisine, and create unforgettable memories together. With a range of amenities designed for couples, you will find the ideal setting for your next adventure. Tap an image to learn more.
+          {AMENITIES_HOME_GRID_INTRO}
         </p>
 
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 md:gap-6">

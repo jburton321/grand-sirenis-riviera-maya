@@ -90,7 +90,7 @@ export function Lightbox({
   if (isDetailPanel) {
     return createPortal(
       <div
-        className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto overscroll-contain pb-6 px-4 sm:pb-8 sm:pl-6 sm:pr-6"
+        className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto overscroll-contain scroll-touch-y pb-6 px-4 sm:pb-8 sm:pl-6 sm:pr-6"
         style={{ paddingTop: detailTopPad }}
         role="dialog"
         aria-modal="true"
@@ -112,7 +112,7 @@ export function Lightbox({
         </button>
 
         <div
-          className="relative z-10 mx-auto flex w-full max-h-[calc(100dvh-8rem)] max-w-lg flex-col overflow-hidden rounded-2xl border-2 border-primary/30 bg-white shadow-2xl animate-scale-in sm:max-h-[calc(100dvh-8.75rem)] sm:max-w-2xl"
+          className="relative z-10 mx-auto flex w-full max-h-[calc(100dvh-8rem)] max-w-lg flex-col overflow-hidden rounded-2xl border-2 border-sky/30 bg-white shadow-2xl animate-scale-in sm:max-h-[calc(100dvh-8.75rem)] sm:max-w-2xl"
           onClick={(e) => e.stopPropagation()}
         >
           {title ? (
@@ -123,7 +123,7 @@ export function Lightbox({
             </div>
           ) : null}
           <div
-            className={`min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-5 pb-5 text-left text-gray-800 sm:px-8 sm:pb-6 ${title ? 'pt-4' : 'pt-5 sm:pt-6'}`}
+            className={`min-h-0 flex-1 overflow-y-auto overflow-x-hidden scroll-touch-y px-5 pb-5 text-left text-gray-800 sm:px-8 sm:pb-6 ${title ? 'pt-4' : 'pt-5 sm:pt-6'}`}
           >
             {bodyContent}
           </div>
@@ -173,7 +173,7 @@ export function Lightbox({
                     className="max-h-[42vh] w-full max-w-full rounded-lg object-contain shadow-2xl md:max-h-[min(78vh,720px)]"
                   />
                 </div>
-                <div className="flex min-h-0 max-h-[38vh] flex-col overflow-y-auto rounded-xl bg-black/40 px-4 py-4 text-left backdrop-blur-md md:max-h-none md:w-[48%] md:px-6 md:py-6">
+                <div className="flex min-h-0 max-h-[38vh] flex-col overflow-y-auto scroll-touch-y rounded-xl bg-black/40 px-4 py-4 text-left backdrop-blur-md md:max-h-none md:w-[48%] md:px-6 md:py-6">
                   {currentImage?.label ? (
                     <h3 className="mb-3 text-fluid-lg font-black uppercase tracking-tight text-white sm:text-fluid-xl md:mb-4">
                       {currentImage.label}

@@ -9,7 +9,7 @@ export function Hero() {
 
   return (
     <>
-      <section className="relative flex min-h-[500px] flex-col overflow-hidden md:min-h-[600px] lg:min-h-[800px] lg:overflow-visible">
+      <section className="relative flex min-h-[500px] flex-col overflow-hidden bg-plum md:min-h-[600px] lg:min-h-[800px] lg:overflow-visible">
         {/* Desktop: full-bleed hero (unchanged) */}
         <div
           className="pointer-events-none absolute inset-0 z-0 hidden bg-cover bg-center lg:block"
@@ -39,19 +39,13 @@ export function Hero() {
                     alt="Mexico destination"
                     loading="eager"
                   />
-                  <div className="hero-composite-wrap relative mt-14 overflow-visible md:mt-10 lg:hidden">
-                    <img
-                      className="hero-couple-element hero-layer-couple"
-                      src="home/layer-0-10.png"
-                      alt="Couple enjoying resort"
-                      loading="eager"
-                    />
+                  <div className="hero-composite-wrap relative mt-14 overflow-visible md:mt-10 md:flex md:w-full md:flex-col md:items-center lg:hidden">
                     <button
                       type="button"
                       onClick={() => setIsLightboxOpen(true)}
-                      className="absolute bottom-[12%] left-1/2 z-10 flex w-max max-w-none shrink-0 -translate-x-1/2 flex-nowrap items-center gap-2 whitespace-nowrap rounded-full bg-white/95 px-3 py-2 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl md:gap-3 md:px-5 md:py-3"
+                      className="absolute bottom-[12%] left-1/2 z-10 flex w-max max-w-none shrink-0 -translate-x-1/2 flex-nowrap items-center gap-2 whitespace-nowrap rounded-full bg-white/95 px-3 py-2 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl md:relative md:bottom-auto md:left-auto md:translate-x-0 md:gap-3 md:px-5 md:py-3"
                     >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500 transition-colors group-hover:bg-amber-600 md:h-12 md:w-12">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-yellow transition-colors group-hover:bg-yellow-dark md:h-12 md:w-12">
                         <Play className="ml-0.5 h-5 w-5 shrink-0 fill-white text-white md:h-6 md:w-6" />
                       </span>
                       <span className="shrink-0 whitespace-nowrap pr-1 text-base font-semibold leading-none text-gray-900 md:text-lg">
@@ -75,7 +69,7 @@ export function Hero() {
                     onClick={() => setIsLightboxOpen(true)}
                     className="absolute bottom-[12%] left-1/2 z-10 flex w-max max-w-none shrink-0 -translate-x-1/2 flex-nowrap items-center gap-3 whitespace-nowrap rounded-full bg-white/95 px-5 py-3 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl"
                   >
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-amber-500 transition-colors group-hover:bg-amber-600">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-yellow transition-colors group-hover:bg-yellow-dark">
                       <Play className="ml-0.5 h-6 w-6 shrink-0 fill-white text-white" />
                     </span>
                     <span className="shrink-0 whitespace-nowrap pr-1 text-lg font-semibold leading-none text-gray-900">

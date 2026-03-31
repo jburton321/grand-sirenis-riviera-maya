@@ -23,9 +23,11 @@ export function ThingsToDoPage() {
             </h1>
             <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
               <span className="font-semibold">
-                ULC Grand Sirenis Riviera Maya is your gateway to the Riviera Maya's best!
+                The Riviera Maya is more than a destination. It is a world unto itself.
               </span>{' '}
-              You're perfectly positioned to explore epic history, stunning nature, and vibrant local life. Feel the ancient energy of the Mayan civilization beneath your feet.
+              Natural wonders, ancient history, and Caribbean magic are just moments from Grand Sirenis
+              Riviera Maya Resort &amp; Spa: Tulum’s clifftop ruins, cenotes, Chichen Itza, Xcaret, Akumal’s
+              turtles, Playa del Carmen’s 5th Avenue, and beyond.
             </p>
             <Button className="w-full" asCta>RESERVE NOW</Button>
           </div>
@@ -55,7 +57,8 @@ export function ThingsToDoPage() {
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
                 <span className="font-semibold">
-                  The famous Quinta Avenida (5th Avenue) is the Riviera Maya's evening hot spot, located just a quick, easy transfer from the resort.
+                  Playa del Carmen’s famous 5th Avenue is the Riviera Maya’s pedestrian promenade for
+                  shopping, dining, and nightlife, about 30 minutes from Grand Sirenis.
                 </span>{' '}
                 This vibrant, pedestrian street is the place to be for high-energy entertainment, featuring everything from bustling dance clubs to sophisticated rooftop lounges.
               </p>

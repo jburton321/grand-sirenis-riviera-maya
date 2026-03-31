@@ -1,73 +1,76 @@
 import { useCountdown } from '../hooks/useCountdown';
 import { PriceBadge } from './PriceBadge';
+import { OFFER_DECK_ONE_LINER, OFFER_ROOM_SHORT, RESORT_DISPLAY_NAME } from '../constants';
 
 export function InteriorMobilePriceBar() {
   const { hours, minutes, seconds, isExpired } = useCountdown(45);
 
   return (
-    <div className="block lg:hidden w-full overflow-hidden">
-      <div className="bg-[#E5C778] px-6 py-6">
-        <div className="text-center">
-          <div className="text-[#1a1a1a] font-bold text-[22px] tracking-wide mb-3">
+    <div className="block w-full overflow-hidden lg:hidden">
+      <div className="bg-orange px-6 py-6">
+        <div className="text-center text-white">
+          <div className="mb-3 text-[22px] font-bold tracking-wide text-white">
             OFFER EXPIRES:
           </div>
           {!isExpired ? (
             <div className="flex items-start justify-center gap-1">
               <div className="text-center">
-                <span className="text-[#1a1a1a] font-bold text-[32px] leading-none tabular-nums">
+                <span className="text-[32px] font-bold leading-none tabular-nums text-white">
                   {hours}
                 </span>
-                <div className="text-[#6b6b6b] text-[11px] font-medium tracking-wider mt-1">
+                <div className="mt-1 text-[11px] font-medium tracking-wider text-white/90">
                   HR
                 </div>
               </div>
-              <span className="text-[#6b6b6b] font-medium text-[28px] leading-none mx-1">:</span>
+              <span className="mx-1 text-[28px] font-medium leading-none text-white/90">:</span>
               <div className="text-center">
-                <span className="text-[#1a1a1a] font-bold text-[32px] leading-none tabular-nums">
+                <span className="text-[32px] font-bold leading-none tabular-nums text-white">
                   {minutes}
                 </span>
-                <div className="text-[#6b6b6b] text-[11px] font-medium tracking-wider mt-1">
+                <div className="mt-1 text-[11px] font-medium tracking-wider text-white/90">
                   MIN
                 </div>
               </div>
-              <span className="text-[#6b6b6b] font-medium text-[28px] leading-none mx-1">:</span>
+              <span className="mx-1 text-[28px] font-medium leading-none text-white/90">:</span>
               <div className="text-center">
-                <span className="text-[#1a1a1a] font-bold text-[32px] leading-none tabular-nums">
+                <span className="text-[32px] font-bold leading-none tabular-nums text-white">
                   {seconds}
                 </span>
-                <div className="text-[#6b6b6b] text-[11px] font-medium tracking-wider mt-1">
+                <div className="mt-1 text-[11px] font-medium tracking-wider text-white/90">
                   SEC
                 </div>
               </div>
             </div>
           ) : (
-            <div className="text-red-600 font-bold text-xl">EXPIRED</div>
+            <div className="text-xl font-bold text-white">EXPIRED</div>
           )}
         </div>
       </div>
 
-      <div className="bg-[#e8e8e8] px-6 py-10">
+      <div className="bg-page px-6 py-10">
         <div className="flex justify-center">
           <PriceBadge width={220} />
         </div>
       </div>
 
-      <div className="bg-white px-6 py-7">
-        <h2 className="text-[#1a365d] text-[26px] font-bold leading-tight mb-5">
-          Luxury All-Inclusive Riviera Maya Vacation
+      <div className="border-t border-cardline bg-white px-6 py-7">
+        <h2 className="mb-5 text-[22px] font-bold leading-snug text-plum sm:text-[24px]">
+          {OFFER_DECK_ONE_LINER}
         </h2>
         <div className="space-y-4">
           <div className="flex items-start gap-3">
-            <BedIcon className="w-6 h-6 flex-shrink-0 mt-0.5 text-accent" />
-            <span className="text-[15px] text-[#374151] leading-relaxed">
-              <span className="font-bold">Deluxe Room for two adults at the 5-Star ULC Grand Sirenis Riviera Maya</span>
+            <BedIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-sky" />
+            <span className="text-[15px] leading-relaxed text-plum">
+              <span className="font-bold">
+                {OFFER_ROOM_SHORT} at {RESORT_DISPLAY_NAME}
+              </span>
             </span>
           </div>
           <div className="flex items-start gap-3">
-            <CocktailIcon className="w-6 h-6 flex-shrink-0 mt-0.5 text-accent" />
-            <span className="text-[15px] text-[#374151] leading-relaxed">
-              <span className="font-bold">Unlimited-Luxury, Where Everything's Included:</span>{' '}
-              Unlimited Dining, Drinks, Wifi, Entertainment, Resort & Beach Amenities!
+            <CocktailIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-sky" />
+            <span className="text-[15px] leading-relaxed text-plum">
+              <span className="font-bold">All-inclusive: </span>
+              Dining, drinks, pools, beach, and most on-resort activities included.
             </span>
           </div>
         </div>

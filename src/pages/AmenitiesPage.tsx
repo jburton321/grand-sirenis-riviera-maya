@@ -4,6 +4,7 @@ import { AccommodationsPriceBar } from '../components/AccommodationsPriceBar';
 import { InteriorMobilePriceBar } from '../components/InteriorMobilePriceBar';
 import { InteriorFooter } from '../components/InteriorFooter';
 import { InteriorHero } from '../components/InteriorHero';
+import { RESORT_DISPLAY_NAME } from '../constants';
 
 const amenitiesGallery = [
   'amenities/photo-description0.png',
@@ -33,9 +34,10 @@ export function AmenitiesPage() {
             </h1>
             <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
               <span className="font-semibold">
-                ULC Grand Sirenis Riviera Maya is an all-inclusive, adults-only beachfront resort
+                {RESORT_DISPLAY_NAME} is your all-inclusive base on 2 mi Caribbean beachfront.
               </span>{' '}
-              set across 70 acres of white sand shoreline and lush mangrove surroundings. The resort features 291 well-appointed rooms, including swim-up accommodations, designed for guests seeking comfort, privacy, and elevated service.
+              Pools, lazy river, Spa Grand Sirenis, 8 à la carte + 2 buffets, Beyond Flavors, nights out,
+              Sirenios Kids Club, and free WiFi on the Cancún to Tulum corridor.
             </p>
             <Button className="w-full" asCta>RESERVE NOW</Button>
           </div>
@@ -65,9 +67,9 @@ export function AmenitiesPage() {
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
                 <span className="font-semibold">
-                  Your stay includes unlimited dining, drinks, Wi-Fi, entertainment, and full access to resort and beach amenities.
+                  Dining, drinks, WiFi, entertainment, beach, and pools are included.
                 </span>{' '}
-                Everything is handled in one place, allowing you to focus on enjoying the setting, the service, and the pace of the resort without added decisions or extra planning.
+                One resort, one pace: beach, pools, spa, dining, and nights out without extra planning.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
@@ -91,9 +93,9 @@ export function AmenitiesPage() {
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
                 <span className="font-semibold">
-                  The resort offers a diverse culinary program with four a la carte restaurants, a casual cafeteria, and multiple bars and lounges across the property.
+                  8 à la carte + 2 buffets, inclusive, plus Beyond Flavors.
                 </span>{' '}
-                Guests enjoy gourmet dining every evening with no reservations required, making it easy to choose what fits your mood. Options range across global cuisines, including guest-favorite Asian and hibachi experiences.
+                Coffee shop, bars, salon, and nights out round out dining and social time.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
@@ -117,9 +119,9 @@ export function AmenitiesPage() {
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
                 <span className="font-semibold">
-                  Spend your day by the main pool, relax at the swim-up bar, or take in ocean views from the resort's beachfront areas.
+                  Pools, lazy river, activities pool, and 2 mi Caribbean beachfront.
                 </span>{' '}
-                Swim-up rooms offer direct pool access steps from your terrace, while shaded loungers and open beach space provide plenty of room to enjoy the coast. Non-motorized water sports and beach activities are included as part of your stay.
+                Snorkel, fish, watersports, turtle sanctuary, trails, and Mayan ruin on property.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
@@ -143,9 +145,9 @@ export function AmenitiesPage() {
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
                 <span className="font-semibold">
-                  Guests have access to the Zen Spa, featuring a hydrotherapy circuit and a menu of specialized treatments.
+                  Spa Grand Sirenis: treatments and optional beachside services.
                 </span>{' '}
-                A modern fitness center, tennis court, and guided fitness classes support an active stay, while poolside and beachfront activities keep the days engaging without feeling scheduled.
+                2 gyms, sauna, pool time, and shore walks keep you moving.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
@@ -169,9 +171,9 @@ export function AmenitiesPage() {
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
                 <span className="font-semibold">
-                  Evenings bring live shows, themed events, and social gatherings throughout the resort.
+                  Nights out, outdoor theater: music, shows, under the stars.
                 </span>{' '}
-                Oceanfront bars and entertainment areas host performances and music that keep the energy going after sunset, offering a lively yet refined atmosphere designed for adults.
+                Bars, coffee shop, salon, daytime activities, and Sirenios Kids Club for every age.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>

@@ -1,11 +1,27 @@
-/** Global offer / deal pricing (hero card, badges, sticky CTA, body copy). */
-export const OFFER_TOTAL_AMOUNT = '$899' as const;
-export const OFFER_TOTAL_LABEL = 'TOTAL PRICE' as const;
-export const OFFER_DEPOSIT_LINE = 'Pay $299 Deposit Now' as const;
-export const OFFER_SECURE_LINE = 'to Secure this Deal' as const;
+/** Global offer / deal pricing (hero card, badges, sticky CTA, body copy). Grand Sirenis ULC LP. */
+export const OFFER_TOTAL_AMOUNT = '$149' as const;
+export const OFFER_TOTAL_LABEL = 'PER COUPLE, ENTIRE STAY' as const;
+export const OFFER_RETAIL_PRICE = '$3,464' as const;
+export const OFFER_SAVE_PERCENT = 96 as const;
+export const OFFER_STAY_LABEL = '6-Days / 5-Nights' as const;
 
-/** Canonical hex replacing legacy `#7535AD` / `rgb(117 53 173)` (brand teal). */
-export const RGB_117_53_173_REPLACEMENT = '#44AD98' as const;
+/** Short LP headline fragments (Paradise stack, cards, bars). */
+export const OFFER_HEADLINE_BEACHFRONT = 'Beachfront' as const;
+export const OFFER_HEADLINE_DESTINATION = 'Riviera Maya' as const;
+export const OFFER_HEADLINE_VACATION = 'All-Inclusive' as const;
+
+/** Single scannable line for cards and bars. */
+export const OFFER_DECK_ONE_LINER =
+  `${OFFER_HEADLINE_BEACHFRONT} · ${OFFER_HEADLINE_DESTINATION} · ${OFFER_HEADLINE_VACATION}` as const;
+
+export const RESORT_DISPLAY_NAME = 'Grand Sirenis Riviera Maya Resort & Spa' as const;
+export const CLUB_DISPLAY_NAME = 'Unlimited Leisure Club' as const;
+
+/** Hero / booking card one-liner (two adults, suite type). */
+export const OFFER_ROOM_SHORT = 'Junior Suite Deluxe, 2 adults, all-inclusive' as const;
+
+export const FOOTER_PRICE_DISCLAIMER =
+  '*Price does not include taxes and fees which vary and are payable upon check-in.' as const;
 
 /** Placeholder order/checkout URL until the real flow ships (IANA example domain). */
 export const DUMMY_CTA_HREF = 'https://example.com/?vvip-order' as const;

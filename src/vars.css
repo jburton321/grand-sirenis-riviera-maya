@@ -1,69 +1,20 @@
-/* Figma Styles of your File */:root {
-  /* Tailwind `primary` / `bg-primary` — brand surface (may diverge from CTA) */
-  --color-primary: #44AD98;
-  /* Reserve / CTA buttons — fixed teal; keep in sync with tailwind `cta` / `cta-dark` */
-  --color-cta: #44AD98;
-  --color-cta-dark: #369082;
-  /* Legacy slot name; same as --color-primary (badges, var() aliases) */
-  --rgb-117-53-173-replacement: var(--color-primary);
-
-  /* Gold (defined before --primary-button-accent-* so var() aliases resolve cleanly) */
-  --gold-50: #fffdfc;
-  --gold-100: #fdf9f2;
-  --gold-200: #fbf1e1;
-  --gold-300: #f8e6c9;
-  --gold-400: #f4d8ab;
-  --gold-500: #eec686;
-  --gold-600: #44AD98;
-  --gold-700: #44AD98;
-  --gold-800: #44AD98;
-  --gold-900: #422c09;
-  --gold-950: #2d1e06;
-
-  /* Primary button accent: mirrors gold + brand teal at 700 (legacy purple slot; no purple in :root) */
-  --primary-button-accent-50: var(--gold-50);
-  --primary-button-accent-100: var(--gold-100);
-  --primary-button-accent-200: var(--gold-200);
-  --primary-button-accent-300: var(--gold-300);
-  --primary-button-accent-400: var(--gold-400);
-  --primary-button-accent-500: var(--gold-500);
-  --primary-button-accent-600: var(--gold-600);
-  --primary-button-accent-700: var(--rgb-117-53-173-replacement);
-  --primary-button-accent-800: var(--gold-800);
-  --primary-button-accent-900: var(--gold-900);
-  --primary-button-accent-950: var(--gold-950);
-
-  /* Gray */
-  --gray-50: #fbfcfc;
-  --gray-100: #f0f3f4;
-  --gray-200: #dde3e7;
-  --gray-300: #c3cdd5;
-  --gray-400: #a2b2bd;
-  --gray-500: #7990a0;
-  --gray-600: #526674;
-  --gray-700: #2a343c;
-  --gray-800: #1f262b;
-  --gray-900: #181d21;
-  --gray-950: #151a1e;
-
-  /* Fonts */
-  /* Effects */
-
+:root {
+  --color-bg-hero: #1a1033;
+  --color-bg-page: #f9f5ff;
+  --color-bg-card: #ffffff;
+  --color-purple: #793dc3;
+  --color-purple-dark: #5a2a9a;
+  --color-sky: #67a1ce;
+  --color-cta: #c13291;
+  --color-cta-hover: #9e2576;
+  --color-cta-text: #ffffff;
+  --color-urgent: #f25b43;
+  --color-price: #faa528;
+  --color-highlight: #f7db72;
+  --color-text-light: #ffffff;
+  --color-text-dark: #1a1033;
+  --color-text-muted: #7a6e8a;
+  --color-primary: var(--color-purple);
+  --color-accent: var(--color-cta);
+  --color-warning: var(--color-urgent);
 }
-/* Figma Color Variables of your File */:root, [data-variable-collection-mode=mode-1] {
-  /* mode-1 */
-  --cta: #3579ea;
-  --blue-900: #000000;
-  --blue-950: #06163a;
-  --blue-300: #8ca3d9;
-  --blue-400: #6e8acc;
-  --blue-100: #e2ebff;
-  --blue-600: #355aad;
-  --teal-500: var(--color-primary);
-  --yellow-500: #fabc41;
-  --teal-600: #009daf;
-  --yellow-200: #ffd174;
-  --peach-500: #fd643a;
-  --white: #ffffff;
-}
-

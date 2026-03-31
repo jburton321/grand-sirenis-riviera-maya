@@ -1,5 +1,5 @@
 {
-  "name": "VacationVIP — Grand Sirenis Riviera Maya Resort & Spa | Unlimited Leisure Club",
+  "name": "VacationVIP | Grand Sirenis Riviera Maya Resort & Spa | Unlimited Leisure Club",
   "short_name": "VacationVIP",
   "icons": [
     {
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#F9F5FF",
+  "background_color": "#F9F5FF",
   "display": "standalone"
 }
