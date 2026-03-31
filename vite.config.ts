@@ -3,6 +3,28 @@ import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 import { copyFileSync, mkdirSync, readdirSync, statSync, existsSync } from 'fs'
 
+/**
+ * Absolute origin (no trailing slash) for canonical + Open Graph URLs.
+ * - Set `VITE_SITE_BASE` on Vercel Production when using a custom domain (e.g. vacationvip subpath).
+ * - Preview builds use `https://${VERCEL_URL}` so og:image matches the deployment host.
+ */
+function siteBase(): string {
+  const explicit = process.env.VITE_SITE_BASE?.trim().replace(/\/$/, '')
+  if (explicit) return explicit
+  if (process.env.VERCEL_URL)
+    return `https://${process.env.VERCEL_URL.replace(/^https?:\/\//, '')}`
+  return 'https://vacationvip.com/getaways/vvip-uvc-hyatt-riviera-cancun-299'
+}
+
+function injectSiteBaseMetaPlugin() {
+  return {
+    name: 'inject-site-base-meta',
+    transformIndexHtml(html: string) {
+      return html.replaceAll('__SITE_BASE__', siteBase())
+    },
+  }
+}
+
 function copyPublicDirPlugin() {
   return {
     name: 'copy-public-dir',
@@ -39,7 +61,7 @@ function copyPublicDirPlugin() {
 }
 
 export default defineConfig({
-  plugins: [react(), copyPublicDirPlugin()],
+  plugins: [react(), injectSiteBaseMetaPlugin(), copyPublicDirPlugin()],
   build: {
     copyPublicDir: false,
   },
