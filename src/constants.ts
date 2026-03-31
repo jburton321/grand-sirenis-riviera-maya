@@ -12,3 +12,6 @@ export const DUMMY_CTA_HREF = 'https://example.com/?vvip-order' as const;
 
 /** Video trigger label (NBSP so “Play” / “Video” never split across lines on narrow viewports). */
 export const PLAY_VIDEO_LABEL = 'Play\u00a0Video' as const;
+
+/** Local resort promo MP4 (`public/media`; sourced from Cloudflare Stream HLS master manifest). */
+export const RESORT_VIDEO_MP4_SRC = 'media/resort-video.mp4' as const;

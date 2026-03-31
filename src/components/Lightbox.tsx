@@ -75,6 +75,10 @@ export function Lightbox({
 
   if (!isOpen) return null;
 
+  const isNativeVideoFile = Boolean(
+    videoUrl && /\.(mp4|webm|ogv|ogg)(\?.*)?$/i.test(videoUrl)
+  );
+
   /**
    * Map/detail panel: portal to `document.body` so it stacks above sticky header (z-50),
    * subnav (z-40), and any parent `z-0` (e.g. MapSection). Card inset clears header + subnav.
@@ -244,15 +248,27 @@ export function Lightbox({
         <div className="relative w-full max-w-4xl aspect-video animate-scale-in">
           <div className="w-full h-full bg-black rounded-lg overflow-hidden shadow-2xl">
             {videoUrl ? (
-              <iframe
-                src={videoUrl}
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title={title || 'Video'}
-              />
+              isNativeVideoFile ? (
+                <video
+                  src={videoUrl}
+                  controls
+                  playsInline
+                  className="h-full w-full object-contain"
+                  title={title || 'Video'}
+                >
+                  Your browser does not support embedded video.
+                </video>
+              ) : (
+                <iframe
+                  src={videoUrl}
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title={title || 'Video'}
+                />
+              )
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-white text-fluid-lg">
+              <div className="flex h-full w-full items-center justify-center text-fluid-lg text-white">
                 Video content will appear here
               </div>
             )}

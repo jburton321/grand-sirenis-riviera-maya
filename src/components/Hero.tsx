@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Play } from 'lucide-react';
-import { PLAY_VIDEO_LABEL } from '../constants';
+import { PLAY_VIDEO_LABEL, RESORT_VIDEO_MP4_SRC } from '../constants';
 import { BookingCard } from './BookingCard';
 import { HeroBlossomOverlay } from './HeroBlossomOverlay';
 import { Lightbox } from './Lightbox';
@@ -96,6 +96,7 @@ export function Hero() {
         isOpen={isLightboxOpen}
         onClose={() => setIsLightboxOpen(false)}
         title="Resort Video"
+        videoUrl={RESORT_VIDEO_MP4_SRC}
       />
     </>
   );
