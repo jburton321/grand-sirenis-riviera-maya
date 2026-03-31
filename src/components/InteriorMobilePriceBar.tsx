@@ -54,13 +54,13 @@ export function InteriorMobilePriceBar() {
 
       <div className="bg-white px-6 py-7">
         <h2 className="text-[#1a365d] text-[26px] font-bold leading-tight mb-5">
-          Luxury All-Inclusive Riviera Cancun Vacation
+          Luxury All-Inclusive Riviera Maya Vacation
         </h2>
         <div className="space-y-4">
           <div className="flex items-start gap-3">
             <BedIcon className="w-6 h-6 flex-shrink-0 mt-0.5 text-accent" />
             <span className="text-[15px] text-[#374151] leading-relaxed">
-              <span className="font-bold">Deluxe Room for two adults at the 5-Star Hyatt Zilara Riviera Maya</span>
+              <span className="font-bold">Deluxe Room for two adults at the 5-Star ULC Grand Sirenis Riviera Maya</span>
             </span>
           </div>
           <div className="flex items-start gap-3">

@@ -12,8 +12,8 @@ export function ParadiseSection() {
           <div className="ios-frosted-glass mx-auto w-full max-w-3xl rounded-2xl px-5 py-7 sm:rounded-3xl sm:px-8 sm:py-9 md:px-10 md:py-10">
             <div className="mb-4 sm:mb-5 md:mb-6">
               <img
-                src="home/Zilara-logo.png"
-                alt="Hyatt Zilara"
+                src="home/ULC-Grand-Sirenis-logo.png"
+                alt="ULC Grand Sirenis Riviera Maya"
                 className="mx-auto h-auto max-h-12 w-auto max-w-[min(100%,220px)] object-contain sm:max-h-14 md:max-h-16 md:max-w-[260px]"
                 width={1112}
                 height={171}
@@ -28,14 +28,14 @@ export function ParadiseSection() {
                 BEACHFRONT
               </span>
               <span className="mt-1 block text-fluid-2xl font-bold uppercase tracking-tight md:text-fluid-3xl">
-                RIVIERA CANCUN
+                RIVIERA MAYA
               </span>
               <span className="mt-1 block text-fluid-2xl font-bold uppercase tracking-tight md:text-fluid-3xl">
                 VACATION
               </span>
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-pretty text-gray-900 text-fluid-base leading-relaxed sm:mt-8 sm:text-fluid-lg">
-              <span className="font-bold text-slate-950">The Hyatt Zilara Riviera Maya</span>{' '}
+              <span className="font-bold text-slate-950">ULC Grand Sirenis Riviera Maya</span>{' '}
               is <span className="font-extrabold text-accent-dark">$899 total</span> for two adults.{' '}
               <span className="font-semibold text-slate-950">Pay a $299 deposit now to secure this deal.</span>{' '}
               <span className="font-semibold text-slate-950">

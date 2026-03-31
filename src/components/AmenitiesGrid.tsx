@@ -68,12 +68,12 @@ export function AmenitiesGrid() {
         <img
           className="mx-auto mb-6 h-10 transition-transform duration-300 hover:scale-105 sm:mb-8 sm:h-12 md:h-14"
           src="home/image-30.png"
-          alt="Hyatt Zilara"
+          alt="ULC Grand Sirenis Riviera Maya"
         />
 
         <h2 className="mb-3 px-2 text-xl font-black uppercase text-slate-800 sm:mb-4 sm:text-2xl md:text-3xl">
           Explore THE AMENITIES AT<br />
-          Hyatt Zilara Riviera Maya
+          ULC Grand Sirenis Riviera Maya
         </h2>
 
         <p className="mx-auto mb-8 max-w-3xl px-2 text-base leading-relaxed text-gray-800 sm:mb-10 sm:text-lg md:mb-12">

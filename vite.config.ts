@@ -13,7 +13,7 @@ function siteBase(): string {
   if (explicit) return explicit
   if (process.env.VERCEL_URL)
     return `https://${process.env.VERCEL_URL.replace(/^https?:\/\//, '')}`
-  return 'https://vacationvip.com/getaways/vvip-uvc-hyatt-riviera-cancun-299'
+  return 'https://vacationvip.com/getaways/vvip-uvc-grand-sirenis-riviera-maya-299'
 }
 
 function injectSiteBaseMetaPlugin() {

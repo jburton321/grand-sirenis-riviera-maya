@@ -37,27 +37,27 @@ function homePublicImage(fileName: string) {
 
 const mapLocations: MapLocation[] = [
   {
-    id: 'hyatt',
-    name: 'Hyatt Zilara Riviera Maya',
-    distance: 'Carretera Federal 387, Km 299 Solidaridad,',
-    time: 'Riviera Maya, QR, 77710, Mexico',
-    lat: 20.6976,
-    lng: -87.0198,
+    id: 'grand-sirenis',
+    name: 'ULC Grand Sirenis Riviera Maya',
+    distance: 'Carretera Cancún–Tulum Km 256,',
+    time: 'Akumal, Solidaridad, Q.R., Mexico',
+    lat: 20.3919,
+    lng: -87.3231,
     isMain: true,
-    detailImageSrc: homePublicImage('Hyatt.webp'),
-    detailImageAlt: 'Hyatt Zilara Riviera Maya resort',
+    detailImageSrc: homePublicImage('GrandSirenis.webp'),
+    detailImageAlt: 'ULC Grand Sirenis Riviera Maya resort',
     popupSummary:
-      'Adults-only, all-inclusive beachfront resort on a large Riviera Maya parcel—positioned between mangroves and the Caribbean, with a strong focus on couples-oriented stays.',
+      'All-inclusive beachfront resort on a wide Riviera Maya stretch near Akumal—lush grounds, multiple pools and dining venues, and direct Caribbean beach access.',
     popupHighlights: [
-      'Multiple restaurants, bars, pools, and a spa across the property',
-      'Beachfront setting along the same corridor as Km 299 (Federal 387)',
+      'Multiple restaurants, bars, pools, and spa facilities across the property',
+      'Beachfront setting on the Cancún–Tulum corridor (Km 256)',
     ],
   },
   {
     id: 'puerto-morelos',
     name: 'Puerto Morelos',
-    distance: '12–15 miles',
-    time: '25–30 minutes',
+    distance: '48–52 miles',
+    time: '55–65 minutes',
     lat: 20.8475,
     lng: -86.8756,
     isMain: false,
@@ -73,8 +73,8 @@ const mapLocations: MapLocation[] = [
   {
     id: 'playa-del-carmen',
     name: 'Downtown Playa del Carmen',
-    distance: '8–10 miles',
-    time: '15–20 minutes',
+    distance: '24–28 miles',
+    time: '35–45 minutes',
     lat: 20.6282,
     lng: -87.0739,
     isMain: false,
@@ -90,8 +90,8 @@ const mapLocations: MapLocation[] = [
   {
     id: 'golf-course',
     name: 'El Camaleón Golf Course',
-    distance: '3–5 miles',
-    time: '5–10 minutes',
+    distance: '30–34 miles',
+    time: '40–50 minutes',
     lat: 20.6845,
     lng: -87.0255,
     isMain: false,
@@ -107,8 +107,8 @@ const mapLocations: MapLocation[] = [
   {
     id: 'xcaret',
     name: 'Xcaret Park',
-    distance: '10–12 miles',
-    time: '15–20 minutes',
+    distance: '16–20 miles',
+    time: '25–35 minutes',
     lat: 20.5775,
     lng: -87.1197,
     isMain: false,
@@ -123,7 +123,7 @@ const mapLocations: MapLocation[] = [
   },
 ];
 
-/** Main resort (Hyatt) pin — brand navy; secondary pins use primary/accent teal. */
+/** Main resort pin — brand navy; secondary pins use primary/accent teal. */
 const MAP_PIN_MAIN = '#003782';
 const MAP_PIN_MAIN_ACTIVE = '#003782';
 const MAP_PIN_SECONDARY = '#44AD98';
@@ -278,7 +278,7 @@ interface MapSectionProps {
 }
 
 export function MapSection({ children }: MapSectionProps) {
-  const center: [number, number] = [20.6976, -87.0198];
+  const center: [number, number] = [20.6, -87.08];
   const [lightboxId, setLightboxId] = useState<string | null>(null);
   const [hoverId, setHoverId] = useState<string | null>(null);
   const highlightId = hoverId ?? lightboxId;
@@ -295,11 +295,11 @@ export function MapSection({ children }: MapSectionProps) {
               Discover Adult-Only Luxury in the{' '}
               <Heart className="inline h-8 w-8 fill-primary text-primary sm:h-10 sm:w-10 md:h-12 md:w-12" />
               <br />
-              of the Mayan Coast Riviera Cancun.
+              of the Mayan Coast Riviera Maya.
             </h2>
             <p className="mx-auto max-w-3xl text-lg text-gray-700">
-              Carretera Federal 387, Km 299 Solidaridad, Riviera Maya, QR,
-              77710, Mexico
+              Carretera Cancún–Tulum Km 256, Akumal, Solidaridad, Quintana Roo,
+              Mexico
             </p>
           </div>
 
@@ -308,7 +308,7 @@ export function MapSection({ children }: MapSectionProps) {
               <div className="relative h-[380px] min-h-[380px] overflow-hidden rounded-2xl border border-primary/20 shadow-inner shadow-primary/5 sm:h-[420px] sm:min-h-[420px] lg:h-full lg:min-h-0">
                 <MapContainer
                   center={center}
-                  zoom={11}
+                  zoom={10}
                   scrollWheelZoom
                   className="brand-map h-full w-full z-0"
                   zoomControl

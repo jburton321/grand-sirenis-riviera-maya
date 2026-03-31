@@ -23,7 +23,7 @@ export function AllInclusivePage() {
             </h1>
             <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
               <span className="font-semibold">
-                Hyatt Zilara Riviera Maya offers an adults-only, all-inclusive experience designed to keep everything simple and connected.
+                ULC Grand Sirenis Riviera Maya offers an adults-only, all-inclusive experience designed to keep everything simple and connected.
               </span>{' '}
               Dining, drinks, service, and resort access are all part of your stay, so plans stay flexible and time stays yours. It's a straightforward way to enjoy the setting, the amenities, and the pace of the resort without added steps.
             </p>

@@ -70,7 +70,7 @@ export function HomePage() {
       </section>
       <div style={{ backgroundColor: '#F2F4F6' }} className="text-center px-4 pt-12 pb-0">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 max-w-5xl mx-auto leading-tight mb-8">
-          Relax in Ultimate Luxury with Your Premium All-Inclusive Hyatt Zilara Experience Package
+          Relax in Ultimate Luxury with Your Premium All-Inclusive ULC Grand Sirenis Experience Package
         </h2>
         <Button className="w-full max-w-2xl mx-auto block" asCta>
           RESERVE NOW

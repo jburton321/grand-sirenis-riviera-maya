@@ -33,7 +33,7 @@ export function AmenitiesPage() {
             </h1>
             <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
               <span className="font-semibold">
-                Hyatt Zilara Riviera Maya is an all-inclusive, adults-only beachfront resort
+                ULC Grand Sirenis Riviera Maya is an all-inclusive, adults-only beachfront resort
               </span>{' '}
               set across 70 acres of white sand shoreline and lush mangrove surroundings. The resort features 291 well-appointed rooms, including swim-up accommodations, designed for guests seeking comfort, privacy, and elevated service.
             </p>

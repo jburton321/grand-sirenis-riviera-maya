@@ -1,10 +1,12 @@
 {
-  "name": "react",
+  "name": "ulc-grand-sirenis-riviera-maya",
   "version": "1.0.0",
-  "description": "React example starter project",
+  "description": "VacationVIP landing — ULC Grand Sirenis Riviera Maya",
   "keywords": [
-    "react",
-    "starter"
+    "vacationvip",
+    "ulc",
+    "grand-sirenis",
+    "riviera-maya"
   ],
   "main": "src/index.tsx",
   "dependencies": {

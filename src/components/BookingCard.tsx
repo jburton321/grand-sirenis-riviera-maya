@@ -19,7 +19,7 @@ interface BookingCardProps {
 
 export function BookingCard({
   normalRate = '$5,600',
-  roomDescription = 'Deluxe Room for two adults at the 5-Star Hyatt Zilara Riviera Maya',
+  roomDescription = 'Deluxe Room for two adults at the 5-Star ULC Grand Sirenis Riviera Maya',
   totalAmount = OFFER_TOTAL_AMOUNT,
   totalLabel = OFFER_TOTAL_LABEL,
   depositLine = OFFER_DEPOSIT_LINE,
@@ -48,8 +48,8 @@ export function BookingCard({
       <div className="p-4 md:p-6 flex flex-col gap-3 md:gap-4">
         <img
           className="mx-auto h-10 w-auto max-w-full object-contain transition-transform duration-300 hover:scale-105 md:h-14"
-          src="home/Zilara-logo.png"
-          alt="Hyatt Zilara"
+          src="home/ULC-Grand-Sirenis-logo.png"
+          alt="ULC Grand Sirenis Riviera Maya"
           width={1112}
           height={171}
         />
@@ -61,7 +61,7 @@ export function BookingCard({
         </div>
 
         <h3 className="text-slate-800 font-bold text-fluid-xl text-center leading-tight">
-          Luxury All-Inclusive<br />Riviera Cancun Vacation
+          Luxury All-Inclusive<br />Riviera Maya Vacation
         </h3>
       </div>
 

@@ -23,7 +23,7 @@ export function ThingsToDoPage() {
             </h1>
             <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
               <span className="font-semibold">
-                The Hyatt Zilara Riviera Maya is your gateway to Riviera Cancun's best!
+                ULC Grand Sirenis Riviera Maya is your gateway to the Riviera Maya's best!
               </span>{' '}
               You're perfectly positioned to explore epic history, stunning nature, and vibrant local life. Feel the ancient energy of the Mayan civilization beneath your feet.
             </p>

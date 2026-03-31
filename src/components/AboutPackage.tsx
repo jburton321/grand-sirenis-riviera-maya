@@ -6,7 +6,7 @@ const whatYouGet = [
     icon: Award,
     title: '5-Days/4-Nights in a Deluxe Room',
     description:
-      'for two adults at the 5-Star Hyatt Zilara Riviera Maya. $899 total — pay a $299 deposit now to secure this deal; the remaining balance is due when you book your vacation dates.',
+      'for two adults at the 5-Star ULC Grand Sirenis Riviera Maya. $899 total — pay a $299 deposit now to secure this deal; the remaining balance is due when you book your vacation dates.',
   },
   {
     icon: Wine,
@@ -20,7 +20,7 @@ const whatYouGet = [
   },
 ];
 
-const whyYouGetIt = `The only thing you need to do to unlock this Incredible price is attend a relaxed 120-Minute Tour of the stunning Hyatt Zilara Riviera Maya. Think of it as your exclusive VIP pass! You'll get to see every amenity, every oceanfront bar, and every luxury detail of the resort, all while learning about the deep future travel savings offered by Unlimited Vacation Club.`;
+const whyYouGetIt = `The only thing you need to do to unlock this Incredible price is attend a relaxed 120-Minute Tour of the stunning ULC Grand Sirenis Riviera Maya. Think of it as your exclusive VIP pass! You'll get to see every amenity, every oceanfront bar, and every luxury detail of the resort, all while learning about the deep future travel savings offered by Unlimited Vacation Club.`;
 
 export function AboutPackage() {
   return (

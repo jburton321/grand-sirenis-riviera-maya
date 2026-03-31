@@ -14,13 +14,13 @@ export function AccommodationsPriceBar() {
         <div className="flex flex-col justify-center flex-1 min-w-0">
           <h2 className="text-[#1a365d] text-fluid-lg xl:text-fluid-xl font-bold leading-tight mb-2 xl:mb-3">
             Luxury All-Inclusive<br />
-            Riviera Cancun Vacation
+            Riviera Maya Vacation
           </h2>
           <div className="space-y-1.5 xl:space-y-2">
             <div className="flex items-start gap-2">
               <BedIcon className="w-4 h-4 xl:w-5 xl:h-5 flex-shrink-0 mt-0.5 text-accent" />
               <span className="text-fluid-xs xl:text-fluid-sm text-[#1a365d]">
-                <span className="font-bold">Deluxe Room for two adults at the 5-Star Hyatt Zilara Riviera Maya</span>
+                <span className="font-bold">Deluxe Room for two adults at the 5-Star ULC Grand Sirenis Riviera Maya</span>
               </span>
             </div>
             <div className="flex items-start gap-2">

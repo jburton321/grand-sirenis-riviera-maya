@@ -29,7 +29,7 @@ const reviews: Review[] = [
     name: 'JeMaLu2018',
     date: 'June 2025',
     rating: 5,
-    text: "Hyatt Zilara is the best hotel we have visited in Cancun, Playa del Carmen, Riviera Maya. Above and beyond service, excellent resort location, beautiful resort grounds, fantastic beach, top notch food and premium beverages. 24 hour room service. Minutes to 5th Avenue Playa del Carmen shopping and beach.",
+    text: "Grand Sirenis is the best resort we have visited in Cancun, Playa del Carmen, and the Riviera Maya. Above and beyond service, excellent location, beautiful grounds, fantastic beach, top notch food and premium beverages. 24 hour room service. Easy access to Playa del Carmen and Akumal-area highlights.",
     avatar: 'home/_67-d-0924777-f-9-fd-4-ea-51-ba-4-de-2853575-a-86629-f-1-c-31-f-4-c-2-c-210419754-ava-4-webp0.png',
   },
 ];
