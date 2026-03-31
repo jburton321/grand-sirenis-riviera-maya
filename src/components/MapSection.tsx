@@ -23,9 +23,16 @@ interface MapLocation {
   detailImageAlt: string;
   /** Short note when the photo is thematic rather than a literal place photo. */
   detailImageCaption?: string;
+  /** Lightbox hero: `cover` (default) or `contain` (e.g. logos). */
+  detailImageObjectFit?: 'cover' | 'contain';
   popupSummary: string;
   /** Exactly two bullets in the detail lightbox. */
   popupHighlights: readonly [string, string];
+}
+
+/** `public/home` filenames with spaces must be URL-encoded in `src`. */
+function homePublicImage(fileName: string) {
+  return `home/${encodeURIComponent(fileName)}`;
 }
 
 const mapLocations: MapLocation[] = [
@@ -37,9 +44,9 @@ const mapLocations: MapLocation[] = [
     lat: 20.6976,
     lng: -87.0198,
     isMain: true,
-    detailImageSrc: 'home/resort-photo-10.png',
-    detailImageAlt:
-      'Resort pool and palm trees at a luxury Riviera Maya beachfront property',
+    detailImageSrc: homePublicImage('Zilara-logo.png'),
+    detailImageObjectFit: 'contain',
+    detailImageAlt: 'Hyatt Zilara logo',
     popupSummary:
       'Adults-only, all-inclusive beachfront resort on a large Riviera Maya parcel—positioned between mangroves and the Caribbean, with a strong focus on couples-oriented stays.',
     popupHighlights: [
@@ -55,11 +62,8 @@ const mapLocations: MapLocation[] = [
     lat: 20.8475,
     lng: -86.8756,
     isMain: false,
-    detailImageSrc: 'all-inclusive/resorts-beaches.png',
-    detailImageAlt:
-      'Turquoise Caribbean water and white-sand beach with lounge chairs',
-    detailImageCaption:
-      'Illustrative — Puerto Morelos is known for reef snorkeling and a quieter beach town vibe than Cancún or Playa.',
+    detailImageSrc: homePublicImage('PuertoMorelos .jpg'),
+    detailImageAlt: 'Puerto Morelos coastal scene',
     popupSummary:
       'A quieter fishing port between Cancún and Playa del Carmen, known for its reef-protected waters and a slower pace than the larger resort cities.',
     popupHighlights: [
@@ -75,9 +79,8 @@ const mapLocations: MapLocation[] = [
     lat: 20.6282,
     lng: -87.0739,
     isMain: false,
-    detailImageSrc: 'things-to-do/downtown.png',
-    detailImageAlt:
-      'Pedestrian street in Playa del Carmen with shops, cafés, and palm trees',
+    detailImageSrc: homePublicImage('DowntownPlayadelCarmen .webp'),
+    detailImageAlt: 'Downtown Playa del Carmen street scene',
     popupSummary:
       'Downtown Playa centers on Quinta Avenida (Fifth Avenue), a long pedestrian strip of shops and restaurants minutes from the beach.',
     popupHighlights: [
@@ -93,11 +96,8 @@ const mapLocations: MapLocation[] = [
     lat: 20.6845,
     lng: -87.0255,
     isMain: false,
-    detailImageSrc: 'home/resort-photo-50.png',
-    detailImageAlt:
-      'Lush tropical palms and manicured resort grounds in the Riviera Maya',
-    detailImageCaption:
-      'Illustrative — El Camaleón is famous for jungle, mangrove, and oceanfront holes at Mayakoba (Greg Norman design).',
+    detailImageSrc: homePublicImage('mayakoba-el-camaleon-mexico.jpg'),
+    detailImageAlt: 'El Camaleón golf course at Mayakoba, Riviera Maya',
     popupSummary:
       'Greg Norman–designed 18-hole championship layout at Mayakoba, routing through jungle, mangrove channels, and seaside holes—including a famous cenote and canal stretch.',
     popupHighlights: [
@@ -113,9 +113,8 @@ const mapLocations: MapLocation[] = [
     lat: 20.5775,
     lng: -87.1197,
     isMain: false,
-    detailImageSrc: 'things-to-do/xcaret.png',
-    detailImageAlt:
-      'Xcaret eco-archaeological park lagoon, rock formations, and tropical greenery',
+    detailImageSrc: homePublicImage('XcaretPark .jpg'),
+    detailImageAlt: 'Xcaret Park',
     popupSummary:
       'Flagship eco-archaeological park along Highway 307 south of Playa del Carmen—underground rivers, wildlife exhibits, Maya heritage displays, and a major evening show.',
     popupHighlights: [
@@ -180,7 +179,11 @@ function LocationLightboxDetail({ location }: { location: MapLocation }) {
           alt={location.detailImageAlt}
           width={1200}
           height={800}
-          className="h-36 w-full object-cover xs:h-40 sm:h-44 md:h-52"
+          className={
+            location.detailImageObjectFit === 'contain'
+              ? 'h-36 w-full object-contain bg-white p-6 xs:h-40 sm:h-44 md:h-52'
+              : 'h-36 w-full object-cover xs:h-40 sm:h-44 md:h-52'
+          }
           loading="lazy"
           decoding="async"
         />
