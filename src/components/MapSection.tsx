@@ -30,7 +30,7 @@ interface MapLocation {
   popupHighlights: readonly [string, string];
 }
 
-/** `public/home` filenames with spaces must be URL-encoded in `src`. */
+/** Path to an asset in `public/home` (encoded for safe `src` URLs). */
 function homePublicImage(fileName: string) {
   return `home/${encodeURIComponent(fileName)}`;
 }
@@ -62,7 +62,7 @@ const mapLocations: MapLocation[] = [
     lat: 20.8475,
     lng: -86.8756,
     isMain: false,
-    detailImageSrc: homePublicImage('PuertoMorelos .jpg'),
+    detailImageSrc: homePublicImage('PuertoMorelos.jpg'),
     detailImageAlt: 'Puerto Morelos coastal scene',
     popupSummary:
       'A quieter fishing port between Cancún and Playa del Carmen, known for its reef-protected waters and a slower pace than the larger resort cities.',
@@ -79,7 +79,7 @@ const mapLocations: MapLocation[] = [
     lat: 20.6282,
     lng: -87.0739,
     isMain: false,
-    detailImageSrc: homePublicImage('DowntownPlayadelCarmen .webp'),
+    detailImageSrc: homePublicImage('DowntownPlayadelCarmen.webp'),
     detailImageAlt: 'Downtown Playa del Carmen street scene',
     popupSummary:
       'Downtown Playa centers on Quinta Avenida (Fifth Avenue), a long pedestrian strip of shops and restaurants minutes from the beach.',
@@ -113,7 +113,7 @@ const mapLocations: MapLocation[] = [
     lat: 20.5775,
     lng: -87.1197,
     isMain: false,
-    detailImageSrc: homePublicImage('XcaretPark .jpg'),
+    detailImageSrc: homePublicImage('XcaretPark.jpg'),
     detailImageAlt: 'Xcaret Park',
     popupSummary:
       'Flagship eco-archaeological park along Highway 307 south of Playa del Carmen—underground rivers, wildlife exhibits, Maya heritage displays, and a major evening show.',
