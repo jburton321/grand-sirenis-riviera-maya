@@ -1,4 +1,5 @@
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export type LightboxImageItem = {
@@ -16,6 +17,8 @@ interface LightboxProps {
   onNavigate?: (index: number) => void;
   videoUrl?: string;
   title?: string;
+  /** Custom panel when not using image gallery or video (e.g. map location details). */
+  bodyContent?: ReactNode;
 }
 
 export function Lightbox({
@@ -26,6 +29,7 @@ export function Lightbox({
   onNavigate,
   videoUrl,
   title,
+  bodyContent,
 }: LightboxProps) {
   const isGallery = images && images.length > 0;
   const currentImage = isGallery ? images[currentIndex] : null;
@@ -71,12 +75,68 @@ export function Lightbox({
 
   if (!isOpen) return null;
 
+  /**
+   * Map/detail panel: portal to `document.body` so it stacks above sticky header (z-50),
+   * subnav (z-40), and any parent `z-0` (e.g. MapSection). Card inset clears header + subnav.
+   */
+  const isDetailPanel = Boolean(bodyContent) && !isGallery;
+
+  const detailTopPad = 'max(7rem, calc(env(safe-area-inset-top, 0px) + 6rem))';
+
+  if (isDetailPanel) {
+    return createPortal(
+      <div
+        className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto overscroll-contain pb-6 px-4 sm:pb-8 sm:pl-6 sm:pr-6"
+        style={{ paddingTop: detailTopPad }}
+        role="dialog"
+        aria-modal="true"
+        aria-label={title || 'Details'}
+      >
+        <div
+          className="absolute inset-0 bg-black/90 backdrop-blur-sm animate-fade-in"
+          onClick={onClose}
+        />
+
+        <button
+          type="button"
+          onClick={onClose}
+          className="fixed right-3 z-[101] text-white/90 hover:text-white transition-all duration-300 p-2 hover:bg-white/10 rounded-full min-w-touch min-h-touch flex items-center justify-center touch-manipulation sm:right-5"
+          style={{ top: detailTopPad }}
+          aria-label="Close lightbox"
+        >
+          <X className="w-8 h-8" />
+        </button>
+
+        <div
+          className="relative z-10 mx-auto flex w-full max-h-[calc(100dvh-8rem)] max-w-lg flex-col overflow-hidden rounded-2xl border-2 border-primary/30 bg-white shadow-2xl animate-scale-in sm:max-h-[calc(100dvh-8.75rem)] sm:max-w-2xl"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {title ? (
+            <div className="shrink-0 border-b border-gray-100 px-5 pb-3 pt-5 sm:px-8 sm:pb-4 sm:pt-6">
+              <h2 className="pr-10 text-xl font-bold leading-tight text-gray-900 sm:text-2xl md:text-3xl">
+                {title}
+              </h2>
+            </div>
+          ) : null}
+          <div
+            className={`min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-5 pb-5 text-left text-gray-800 sm:px-8 sm:pb-6 ${title ? 'pt-4' : 'pt-5 sm:pt-6'}`}
+          >
+            {bodyContent}
+          </div>
+        </div>
+      </div>,
+      document.body
+    );
+  }
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
-      aria-label={title || currentImage?.label || 'Gallery lightbox'}
+      aria-label={
+        title || currentImage?.label || 'Gallery lightbox'
+      }
     >
       <div
         className="absolute inset-0 bg-black/90 backdrop-blur-sm animate-fade-in"

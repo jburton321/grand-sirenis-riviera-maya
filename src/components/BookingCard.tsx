@@ -47,9 +47,11 @@ export function BookingCard({
 
       <div className="p-4 md:p-6 flex flex-col gap-3 md:gap-4">
         <img
-          className="h-10 md:h-14 w-auto mx-auto transition-transform duration-300 hover:scale-105"
-          src="home/image-30.png"
+          className="mx-auto h-10 w-auto max-w-full object-contain transition-transform duration-300 hover:scale-105 md:h-14"
+          src="home/Zilara-logo.png"
           alt="Hyatt Zilara"
+          width={1112}
+          height={171}
         />
 
         <div className="flex items-center gap-2 md:gap-3">

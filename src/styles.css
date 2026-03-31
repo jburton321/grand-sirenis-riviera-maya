@@ -138,6 +138,39 @@
   isolation: isolate;
 }
 
+/* Map section — tiles + Leaflet UI aligned with brand teal / gold */
+.brand-map.leaflet-container {
+  background: #f4faf8;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.brand-map .leaflet-tile-pane img {
+  filter: saturate(0.94) contrast(1.03);
+}
+
+.brand-map .leaflet-control-zoom a {
+  border-color: #b8d9d0 !important;
+  background-color: #fff !important;
+  color: #369082 !important;
+}
+
+.brand-map .leaflet-control-zoom a:hover {
+  background-color: #e8f4f1 !important;
+  color: #2d7a6d !important;
+}
+
+.brand-map .leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.88) !important;
+  color: #526674 !important;
+  font-size: 10px;
+  line-height: 1.35;
+  max-width: 100%;
+}
+
+.brand-map .leaflet-control-attribution a {
+  color: #369082 !important;
+}
+
 .leaflet-marker-pane {
   overflow: visible !important;
 }
