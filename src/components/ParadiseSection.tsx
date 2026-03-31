@@ -20,17 +20,17 @@ export function ParadiseSection() {
                 loading="lazy"
               />
             </div>
-            <h2 className="text-slate-950">
-              <span className="block text-fluid-sm font-bold uppercase tracking-[0.2em] text-primary-dark sm:text-fluid-base">
+            <h2 className="text-slate-800">
+              <span className="block text-fluid-sm font-bold uppercase tracking-tight sm:text-fluid-base">
                 5-DAY/4-NIGHT
               </span>
-              <span className="mt-2 block text-fluid-3xl font-black uppercase leading-[1.05] tracking-tight sm:mt-3 sm:text-fluid-4xl md:text-fluid-5xl">
+              <span className="mt-2 block text-fluid-2xl font-bold uppercase tracking-tight sm:mt-3 md:text-fluid-3xl">
                 BEACHFRONT
               </span>
-              <span className="mt-1 block text-fluid-2xl font-black uppercase leading-tight tracking-tight text-primary-dark sm:text-fluid-3xl md:text-fluid-4xl">
+              <span className="mt-1 block text-fluid-2xl font-bold uppercase tracking-tight md:text-fluid-3xl">
                 RIVIERA CANCUN
               </span>
-              <span className="mt-1 block text-fluid-3xl font-black uppercase leading-[1.05] tracking-tight sm:text-fluid-4xl md:text-fluid-5xl">
+              <span className="mt-1 block text-fluid-2xl font-bold uppercase tracking-tight md:text-fluid-3xl">
                 VACATION
               </span>
             </h2>
@@ -50,7 +50,7 @@ export function ParadiseSection() {
         </div>
       </div>
 
-      <div className="bg-black py-10 sm:py-12 md:py-16 px-4 sm:px-6 -mt-[10px]">
+      <div className="bg-[#003782] py-10 sm:py-12 md:py-16 px-4 sm:px-6 -mt-[10px]">
         <div className="max-w-content mx-auto text-center">
           <h3 className="text-accent text-xl sm:text-2xl font-extrabold uppercase mb-6 sm:mb-8 md:mb-10">
             Ultimate Adults-Only Paradise

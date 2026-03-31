@@ -34,7 +34,7 @@ export function AboutPackage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-fluid-4">
           <article className="flex flex-col gap-fluid-4">
-            <header className="bg-brand-800 py-2.5 md:py-3 px-4 md:px-5 shadow-md">
+            <header className="bg-[#003782] py-2.5 md:py-3 px-4 md:px-5 shadow-md">
               <h3 className="text-white text-fluid-lg md:text-fluid-xl font-bold text-center uppercase">
                 What you get
               </h3>

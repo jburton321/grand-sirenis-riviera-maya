@@ -22,7 +22,7 @@ const BASE_SIZE = 350;
 export function PriceBadge({
   days = '5-Days / 4-Nights',
   oldPrice = '$5,600',
-  ribbonText = 'DEAL',
+  ribbonText = 'ONLY',
   totalAmount = OFFER_TOTAL_AMOUNT,
   totalLabel = OFFER_TOTAL_LABEL,
   depositLine = OFFER_DEPOSIT_LINE,
@@ -47,10 +47,10 @@ export function PriceBadge({
         }}
       >
         <div
-          className="absolute left-[-15px] top-1/2 z-10 -translate-y-1/2 whitespace-nowrap"
+          className="absolute left-[-15px] top-1/2 z-10 -translate-y-1/2 whitespace-nowrap shadow-[0_10px_30px_-6px_rgba(0,0,0,0.3)]"
           style={{
-            backgroundColor: '#44AD98',
-            color: 'white',
+            backgroundColor: '#ffffff',
+            color: '#000000',
             padding: '8px 16px',
             fontSize: '20px',
             fontWeight: 700,
@@ -60,10 +60,10 @@ export function PriceBadge({
         </div>
 
         <div
-          className="box-border flex h-full w-full flex-col items-center justify-center rounded-full text-white"
+          className="box-border flex h-full w-full flex-col items-center justify-center rounded-full text-white shadow-[0_10px_30px_-6px_rgba(0,0,0,0.3)]"
           style={{
-            backgroundColor: '#000000',
-            border: '12px solid #e9b25a',
+            backgroundColor: '#003782',
+            border: '12px solid #44AD98',
             outline: '8px solid white',
             outlineOffset: '-20px',
             padding: '12px 14px',

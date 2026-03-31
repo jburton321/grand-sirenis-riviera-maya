@@ -1,6 +1,9 @@
 /* Figma Styles of your File */:root {
-  /* Tailwind `primary` / `bg-primary` — single source for brand teal */
+  /* Tailwind `primary` / `bg-primary` — brand surface (may diverge from CTA) */
   --color-primary: #44AD98;
+  /* Reserve / CTA buttons — fixed teal; keep in sync with tailwind `cta` / `cta-dark` */
+  --color-cta: #44AD98;
+  --color-cta-dark: #369082;
   /* Legacy slot name; same as --color-primary (badges, var() aliases) */
   --rgb-117-53-173-replacement: var(--color-primary);
 
@@ -11,9 +14,9 @@
   --gold-300: #f8e6c9;
   --gold-400: #f4d8ab;
   --gold-500: #eec686;
-  --gold-600: #e9b25a;
-  --gold-700: #e29a28;
-  --gold-800: #815612;
+  --gold-600: #44AD98;
+  --gold-700: #44AD98;
+  --gold-800: #44AD98;
   --gold-900: #422c09;
   --gold-950: #2d1e06;
 

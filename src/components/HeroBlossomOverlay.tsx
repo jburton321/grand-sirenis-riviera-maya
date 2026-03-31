@@ -144,7 +144,7 @@ export function HeroBlossomOverlay() {
       className="pointer-events-none absolute inset-0 z-20 overflow-hidden bg-transparent"
       aria-hidden
     >
-      <canvas id="canvas" ref={canvasRef} className="block h-full w-full" />
+      <canvas ref={canvasRef} className="block h-full w-full" />
     </div>
   );
 }

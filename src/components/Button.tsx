@@ -6,6 +6,11 @@ export { DUMMY_CTA_HREF } from '../constants';
 interface ButtonProps {
   children?: ReactNode;
   variant?: 'primary' | 'small';
+  /**
+   * Button surface: `brand` uses `primary` / `primary-dark`; `cta` uses global `cta` / `cta-dark` (fixed reserve teal).
+   * Defaults to `cta` when `asCta`, otherwise `brand`.
+   */
+  color?: 'brand' | 'cta';
   className?: string;
   onClick?: () => void;
   /** Renders as &lt;a&gt;. */
@@ -17,20 +22,25 @@ interface ButtonProps {
 export function Button({
   children = 'RESERVE NOW',
   variant = 'primary',
+  color,
   className = '',
   onClick,
   href,
   asCta = false,
 }: ButtonProps) {
   const anchorHref = asCta ? DUMMY_CTA_HREF : href;
+  const surface = color ?? (asCta ? 'cta' : 'brand');
+  const surfaceStyles =
+    surface === 'cta'
+      ? `bg-cta text-white visited:text-white visited:bg-cta hover:bg-cta-dark hover:visited:bg-cta-dark`
+      : `bg-primary text-white visited:text-white visited:bg-primary hover:bg-primary-dark hover:visited:bg-primary-dark`;
 
   const baseStyles = `
     relative overflow-hidden
-    bg-primary text-white text-center font-bold uppercase tracking-wide cursor-pointer
-    visited:text-white visited:bg-primary
+    ${surfaceStyles}
+    text-center font-bold uppercase tracking-wide cursor-pointer
     transition-all duration-300 ease-out
-    hover:bg-primary-dark hover:shadow-xl hover:-translate-y-0.5
-    hover:visited:bg-primary-dark
+    hover:shadow-xl hover:-translate-y-0.5
     active:scale-[0.98] active:translate-y-0
     touch-manipulation shadow-lg
     before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent

@@ -370,3 +370,23 @@ img.hero-couple-element {
 .hover\:visited\:bg-primary-dark:visited:hover {
   background-color: rgb(54 144 130 / var(--tw-bg-opacity, 1));
 }
+
+/* CTA / reserve buttons — literal teal (same as tailwind `cta` / vars `--color-cta*`) */
+.bg-cta {
+  --tw-bg-opacity: 1;
+  background-color: #44AD98;
+}
+
+.visited\:bg-cta:visited {
+  --tw-bg-opacity: 1;
+  background-color: #44AD98;
+}
+
+.hover\:bg-cta-dark:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(54 144 130 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:visited\:bg-cta-dark:visited:hover {
+  background-color: rgb(54 144 130 / var(--tw-bg-opacity, 1));
+}

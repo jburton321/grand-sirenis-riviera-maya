@@ -123,11 +123,11 @@ const mapLocations: MapLocation[] = [
   },
 ];
 
-/** Match tailwind `primary` / `primary-dark` / `accent` (vars.css). */
-const MAP_PIN_MAIN = '#369082';
-const MAP_PIN_MAIN_ACTIVE = '#44AD98';
-const MAP_PIN_SECONDARY = '#E29A28';
-const MAP_PIN_SECONDARY_ACTIVE = '#e9b25a';
+/** Main resort (Hyatt) pin — brand navy; secondary pins use primary/accent teal. */
+const MAP_PIN_MAIN = '#003782';
+const MAP_PIN_MAIN_ACTIVE = '#003782';
+const MAP_PIN_SECONDARY = '#44AD98';
+const MAP_PIN_SECONDARY_ACTIVE = '#44AD98';
 
 function createMapPinIcon(location: MapLocation, isHighlighted: boolean) {
   const isMain = location.isMain;
@@ -140,8 +140,8 @@ function createMapPinIcon(location: MapLocation, isHighlighted: boolean) {
       : MAP_PIN_SECONDARY;
   const glow = isHighlighted
     ? isMain
-      ? 'filter: drop-shadow(0 0 10px rgba(68,173,152,0.9)) drop-shadow(0 4px 8px rgba(0,0,0,0.18));'
-      : 'filter: drop-shadow(0 0 10px rgba(233,178,90,0.75)) drop-shadow(0 4px 8px rgba(0,0,0,0.18));'
+      ? 'filter: drop-shadow(0 0 10px rgba(0,55,130,0.9)) drop-shadow(0 4px 8px rgba(0,0,0,0.18));'
+      : 'filter: drop-shadow(0 0 10px rgba(68,173,152,0.9)) drop-shadow(0 4px 8px rgba(0,0,0,0.18));'
     : 'filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));';
   const scale = isHighlighted ? 1.12 : 1;
   const w = 36 * scale;
@@ -338,6 +338,7 @@ export function MapSection({ children }: MapSectionProps) {
                 <div className="flex min-h-0 flex-1 flex-col gap-4 lg:overflow-y-auto lg:overflow-x-visible lg:overscroll-contain lg:py-1 lg:pr-2">
                   {mapLocations.map((location) => {
                     const isOn = highlightId === location.id;
+                    const isMainLoc = location.isMain;
                     return (
                       <article
                         key={location.id}
@@ -360,33 +361,34 @@ export function MapSection({ children }: MapSectionProps) {
                             );
                           }
                         }}
-                        className={`cursor-pointer rounded-2xl border-2 p-4 text-left transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
-                          isOn
-                            ? 'border-primary bg-primary/10 shadow-md ring-2 ring-primary/30'
-                            : 'border-gray-200 bg-gray-50 hover:border-gray-300 hover:bg-white'
+                        className={`cursor-pointer rounded-2xl border-2 p-4 text-left transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white ${
+                          isMainLoc
+                            ? isOn
+                              ? 'border-[#003782] bg-[#003782]/10 shadow-md ring-2 ring-[#003782]/30 focus-visible:ring-[#003782]'
+                              : 'border-gray-200 bg-[#EEF5F4] hover:border-[#003782]/25 hover:bg-white focus-visible:ring-[#003782]'
+                            : isOn
+                              ? 'border-primary bg-primary/10 shadow-md ring-2 ring-primary/30 focus-visible:ring-primary'
+                              : 'border-gray-200 bg-[#EEF5F4] hover:border-gray-300 hover:bg-white focus-visible:ring-primary'
                         }`}
                       >
                         <div className="flex items-start gap-3">
                           <span
                             className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${
-                              location.isMain
-                                ? 'bg-primary/15 text-primary-dark'
-                                : 'bg-gold-100 text-gold-800'
-                            } ${isOn ? 'ring-2 ring-primary ring-offset-2 ring-offset-white' : ''}`}
+                              isMainLoc
+                                ? 'bg-[#003782]/15 text-[#003782]'
+                                : 'bg-primary/15 text-primary'
+                            } ${
+                              isOn
+                                ? isMainLoc
+                                  ? 'ring-2 ring-[#003782] ring-offset-2 ring-offset-white'
+                                  : 'ring-2 ring-primary ring-offset-2 ring-offset-white'
+                                : ''
+                            }`}
                             aria-hidden
                           >
                             <MapPin className="h-5 w-5" strokeWidth={2.25} />
                           </span>
                           <div className="min-w-0 flex-1">
-                            {location.isMain ? (
-                              <img
-                                src="home/Zilara-logo.png"
-                                alt=""
-                                className="mb-2 h-8 w-auto max-w-[180px] object-contain sm:h-9"
-                                width={1112}
-                                height={171}
-                              />
-                            ) : null}
                             <h3 className="text-lg font-bold text-gray-900 sm:text-xl">
                               {location.name}
                             </h3>

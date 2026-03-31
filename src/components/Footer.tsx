@@ -4,7 +4,7 @@ interface FooterProps {
 
 export function Footer({ fullWidth = false }: FooterProps) {
   return (
-    <footer className="bg-black py-fluid-6 px-4 md:px-6 w-full">
+    <footer className="bg-[#003782] py-fluid-6 px-4 md:px-6 w-full">
       <div className={`${fullWidth ? '' : 'max-w-content mx-auto'} text-center`}>
         <img
           src="images/layer-20.svg"
