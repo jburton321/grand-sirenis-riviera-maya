@@ -1,7 +1,6 @@
 export { HelloBar } from './HelloBar';
 export { Header } from './Header';
 export { Hero } from './Hero';
-export { HeroBlossomOverlay } from './HeroBlossomOverlay';
 export { SubNav } from './SubNav';
 export { Gallery } from './Gallery';
 export { AboutPackage } from './AboutPackage';

@@ -1,6 +1,5 @@
 import {
   Hero,
-  HeroBlossomOverlay,
   SubNav,
   Gallery,
   AboutPackage,
@@ -72,13 +71,12 @@ export function HomePage() {
           RESERVE NOW
         </Button>
       </div>
-      <div style={{ backgroundColor: '#F9F5FF' }} className="relative">
+      <div style={{ backgroundColor: '#F9F5FF' }}>
         <img
-          className="relative z-0 block w-full h-auto"
+          className="block w-full h-auto"
           src="home/home-bttm.png"
           alt="Beach scene"
         />
-        <HeroBlossomOverlay />
       </div>
     </>
   );
