@@ -8,9 +8,14 @@ import { ThankYouPage } from "./pages/ThankYouPage";
 
 function AppContent() {
   const { currentPage } = useRouter();
+  const isThankYouPage =
+    currentPage === 'thank-you' || currentPage === 'thank-you-dated';
 
   return (
-    <div className="bg-page min-h-screen pb-20 lg:pb-0" style={{ overflowX: 'clip' }}>
+    <div
+      className={`bg-page min-h-screen lg:pb-0 ${isThankYouPage ? '' : 'pb-20'}`}
+      style={{ overflowX: 'clip' }}
+    >
       <HelloBar />
       <Header />
       <main>
@@ -18,10 +23,10 @@ function AppContent() {
         {currentPage === 'accommodations' && <AccommodationsPage />}
         {currentPage === 'amenities' && <AmenitiesPage />}
         {currentPage === 'things-to-do' && <ThingsToDoPage />}
-        {(currentPage === 'thank-you' || currentPage === 'thank-you-dated') && <ThankYouPage />}
+        {isThankYouPage && <ThankYouPage />}
       </main>
       <Footer />
-      <MobileStickyCTA />
+      {!isThankYouPage && <MobileStickyCTA />}
     </div>
   );
 }

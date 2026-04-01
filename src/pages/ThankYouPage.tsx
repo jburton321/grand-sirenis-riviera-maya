@@ -6,7 +6,7 @@ import { ThankYouReceiptCard } from '../components/thankYou/ThankYouReceiptCard'
  * Post-purchase confirmation from copy doc (Thank You Page — Open-Dated / Dated).
  * - `#thank-you` → open-dated (N/A travel dates, “bonuses…” intro).
  * - `#thank-you-dated` → dated ([DATE] placeholders + Vacation Details block).
- * Uses the same HelloBar, Header, Footer, and MobileStickyCTA as the rest of the site (see App.tsx).
+ * Uses the same HelloBar, Header, and Footer as the rest of the site; mobile sticky CTA is omitted (see App.tsx).
  */
 export function ThankYouPage() {
   const { currentPage } = useRouter();
