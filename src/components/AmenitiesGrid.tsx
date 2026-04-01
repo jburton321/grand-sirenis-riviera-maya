@@ -1,16 +1,128 @@
 import { useState } from 'react';
-import { Expand } from 'lucide-react';
 import { Lightbox, type LightboxImageItem } from './Lightbox';
 import {
   AMENITIES_HOME_GRID_INTRO,
   AMENITIES_HOME_GRID_ITEMS,
 } from '../content/amenityLists';
 
-const amenities: LightboxImageItem[] = AMENITIES_HOME_GRID_ITEMS.map((item) => ({
+const lightboxItems: LightboxImageItem[] = AMENITIES_HOME_GRID_ITEMS.map((item) => ({
   src: item.src,
   label: item.label,
   description: item.description,
 }));
+
+/** Matches ResortBento.jsx areas; `lightboxIndex` aligns with AMENITIES_HOME_GRID_ITEMS. */
+const bentoCells = [
+  {
+    lightboxIndex: 0,
+    tag: 'Featured',
+    hero: 'large' as const,
+    placement:
+      'col-span-2 min-h-[13rem] md:col-span-3 md:col-start-1 md:row-start-1 md:min-h-[16rem]',
+  },
+  {
+    lightboxIndex: 3,
+    tag: 'Wellness',
+    hero: false as const,
+    placement:
+      'min-h-[10rem] md:col-span-1 md:col-start-4 md:row-start-1 md:min-h-[16rem]',
+  },
+  {
+    lightboxIndex: 1,
+    tag: 'Sport',
+    hero: false as const,
+    placement:
+      'min-h-[10rem] md:col-span-1 md:col-start-1 md:row-start-2 md:min-h-[10rem]',
+  },
+  {
+    lightboxIndex: 2,
+    tag: 'Activity',
+    hero: false as const,
+    placement:
+      'min-h-[10rem] md:col-span-1 md:col-start-2 md:row-start-2 md:min-h-[10rem]',
+  },
+  {
+    lightboxIndex: 4,
+    tag: 'Leisure',
+    hero: false as const,
+    placement:
+      'min-h-[10rem] md:col-span-1 md:col-start-3 md:row-start-2 md:min-h-[10rem]',
+  },
+  {
+    lightboxIndex: 5,
+    tag: 'Wellness',
+    hero: false as const,
+    placement:
+      'min-h-[10rem] md:col-span-1 md:col-start-4 md:row-start-2 md:min-h-[10rem]',
+  },
+  {
+    lightboxIndex: 6,
+    tag: 'Social',
+    hero: false as const,
+    placement:
+      'min-h-[10rem] md:col-span-1 md:col-start-1 md:row-start-3 md:min-h-[16rem]',
+  },
+  {
+    lightboxIndex: 7,
+    tag: 'Culinary',
+    hero: 'medium' as const,
+    placement:
+      'col-span-2 min-h-[13rem] md:col-span-3 md:col-start-2 md:row-start-3 md:min-h-[16rem]',
+  },
+] as const;
+
+function BentoCard({
+  src,
+  label,
+  tag,
+  hero,
+  onOpen,
+}: {
+  src: string;
+  label: string;
+  tag: string;
+  hero: false | 'large' | 'medium';
+  onOpen: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      className="group relative h-full min-h-0 min-w-0 w-full cursor-pointer overflow-hidden rounded-xl bg-plum text-left transition-transform duration-300 ease-[cubic-bezier(0.34,1.3,0.64,1)] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-page hover:scale-[1.02] active:scale-[0.99] md:rounded-2xl md:hover:scale-[1.03]"
+      aria-label={`Open details: ${label}`}
+    >
+      <div className="absolute inset-0 overflow-hidden">
+        <img
+          src={src}
+          alt=""
+          className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 md:group-hover:scale-[1.08]"
+          loading="lazy"
+        />
+      </div>
+      {/* Same treatment as Gallery.tsx image captions */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent pt-16"
+        aria-hidden
+      />
+      <div className="relative flex h-full min-h-0 flex-col justify-end p-4 md:px-5 md:pb-5 md:pt-16">
+        <span className="mb-1 block text-fluid-xs font-semibold uppercase tracking-widest text-sky-light">
+          {tag}
+        </span>
+        <p
+          className={`m-0 font-sans leading-snug text-white drop-shadow-lg ${
+            hero === 'large'
+              ? 'text-fluid-lg font-bold md:text-fluid-2xl'
+              : hero === 'medium'
+                ? 'text-fluid-base font-bold md:text-fluid-xl'
+                : 'text-fluid-sm font-semibold md:text-fluid-base'
+          }`}
+        >
+          {label}
+        </p>
+      </div>
+    </button>
+  );
+}
 
 export function AmenitiesGrid() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -22,7 +134,7 @@ export function AmenitiesGrid() {
   };
 
   return (
-    <section className="px-4 pb-10 pt-0 sm:pb-12 sm:px-6 md:pb-16">
+    <section className="bg-page px-4 pb-10 pt-0 sm:pb-12 md:px-6 md:pb-16 lg:px-10">
       <div className="mx-auto max-w-content text-center">
         <img
           className="mx-auto mb-6 h-10 transition-transform duration-300 hover:scale-105 sm:mb-8 sm:h-12 md:h-14"
@@ -39,44 +151,33 @@ export function AmenitiesGrid() {
           {AMENITIES_HOME_GRID_INTRO}
         </p>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 md:gap-6">
-          {amenities.map((amenity, index) => (
-            <button
-              key={amenity.src}
-              type="button"
-              onClick={() => openLightbox(index)}
-              className="group flex w-full cursor-pointer flex-col items-center gap-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:gap-3"
-              aria-label={`Open details: ${amenity.label}`}
-            >
-              <div className="relative w-full overflow-hidden rounded-lg sm:rounded-xl">
-                <img
-                  src={amenity.src}
-                  alt=""
-                  className="h-28 w-full object-cover transition-transform duration-500 group-hover:scale-110 sm:h-36 md:h-44"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/25" />
-                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
-                  <div className="absolute inset-0 rounded-lg border-[3px] border-white/40 sm:rounded-xl" />
+        <div className="w-full">
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:grid-rows-[minmax(12rem,16rem)_minmax(7.5rem,10rem)_minmax(12rem,16rem)] md:gap-3 lg:gap-4">
+            {bentoCells.map((cell) => {
+              const item = AMENITIES_HOME_GRID_ITEMS[cell.lightboxIndex];
+              return (
+                <div
+                  key={`${cell.lightboxIndex}-${item.label}`}
+                  className={`flex min-h-0 ${cell.placement}`}
+                >
+                  <BentoCard
+                    src={item.src}
+                    label={item.label}
+                    tag={cell.tag}
+                    hero={cell.hero}
+                    onOpen={() => openLightbox(cell.lightboxIndex)}
+                  />
                 </div>
-                <div className="absolute right-2 top-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 sm:right-3 sm:top-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/95 shadow-lg sm:h-10 sm:w-10">
-                    <Expand className="h-4 w-4 text-gray-800 sm:h-5 sm:w-5" aria-hidden />
-                  </span>
-                </div>
-              </div>
-              <span className="text-center text-xs font-medium leading-tight text-black transition-colors duration-300 group-hover:text-primary sm:text-sm">
-                {amenity.label}
-              </span>
-            </button>
-          ))}
+              );
+            })}
+          </div>
         </div>
       </div>
 
       <Lightbox
         isOpen={lightboxOpen}
         onClose={() => setLightboxOpen(false)}
-        images={amenities}
+        images={lightboxItems}
         currentIndex={lightboxIndex}
         onNavigate={setLightboxIndex}
         title="Resort amenity"
