@@ -18,7 +18,8 @@ import { AccommodationsPriceBar } from '../components/AccommodationsPriceBar';
 import { InteriorMobilePriceBar } from '../components/InteriorMobilePriceBar';
 import { SaveNowTravelLater } from '../components/SaveNowTravelLater';
 import { InteriorHero } from '../components/InteriorHero';
-import { RESORT_DISPLAY_NAME } from '../constants';
+import { ACCOMMODATIONS_HERO_BACKGROUND_IMAGE, RESORT_DISPLAY_NAME } from '../constants';
+import { GUEST_REVIEW_GALLERY_IMAGES } from '../content/guestReviewGalleryFilenames';
 import { interiorStripeClass } from '../utils/interiorStripes';
 
 const roomFeatures = [
@@ -36,22 +37,23 @@ const roomFeatures = [
   { icon: Baby, label: 'Baby cots available on request' },
 ];
 
-const accommodationsGallery = [
-  'accommodations/scrolling-gall/1.png',
-  'accommodations/scrolling-gall/2.png',
-  'accommodations/scrolling-gall/3.png',
-  'accommodations/scrolling-gall/4.png',
-  'accommodations/scrolling-gall/5.png',
-  'accommodations/scrolling-gall/6.png',
-  'accommodations/scrolling-gall/7.png',
-  'accommodations/scrolling-gall/8.png',
-];
+/** Same Junior Suite imagery as Guest reviews (`public/img/GusetReviewGallery/`). */
+const accommodationsGallery = [...GUEST_REVIEW_GALLERY_IMAGES];
+
+const accSuiteShot = (index: number) =>
+  GUEST_REVIEW_GALLERY_IMAGES[
+    Math.min(Math.max(0, index), GUEST_REVIEW_GALLERY_IMAGES.length - 1)
+  ];
+
+/** Bath & comfort block — specific suite photo from guest gallery. */
+const bathComfortGalleryImage =
+  'img/GusetReviewGallery/juniorsuitedeluxesingle13985-jpg-11ce962885ac99463020599860f.webp';
 
 export function AccommodationsPage() {
   return (
     <>
       <InteriorHero
-        backgroundImage="accommodations/accomodations-hero.png"
+        backgroundImage={ACCOMMODATIONS_HERO_BACKGROUND_IMAGE}
         footer={
           <>
             <AccommodationsPriceBar />
@@ -103,8 +105,8 @@ export function AccommodationsPage() {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
             <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
               <img
-                src="accommodations/deluxeroom.png"
-                alt="Junior Suite Deluxe Single"
+                src={accSuiteShot(0)}
+                alt="Junior Suite Deluxe Single — living and sleep area"
                 className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -114,9 +116,9 @@ export function AccommodationsPage() {
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
                 This non-smoking 52 sq. meter Junior Suite Deluxe Single at {RESORT_DISPLAY_NAME} offers an
-                incredible and comfortable accommodation experience with enviable views and various bed
-                options, combining elegance and comfort for your total satisfaction. Thoughtfully designed
-                with quality furnishings and natural light throughout.
+                incredible and comfortable stay with the space, light, and layout you see in these guest
+                photos — enviable views, flexible bed options, and quality furnishings that combine elegance
+                with everyday comfort.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
@@ -129,8 +131,8 @@ export function AccommodationsPage() {
           <div className="flex flex-col lg:flex-row-reverse gap-8 lg:gap-12 items-center">
             <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
               <img
-                src="accommodations/balcony.png"
-                alt="Junior suite living space"
+                src={accSuiteShot(4)}
+                alt="Junior Suite Deluxe — in-room space and amenities"
                 className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -139,10 +141,9 @@ export function AccommodationsPage() {
                 Entertainment and connectivity
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
-                Stay connected and entertained with an HD television with cable service and complimentary
-                Wi-Fi access throughout your suite and across the resort grounds. Additional in-suite
-                amenities include a telephone, wake-up call service, and a laptop-sized personal safe to keep
-                your valuables secure.
+                Relax in the same Junior Suite style shown here while you enjoy HD television with cable and
+                complimentary Wi-Fi in your room and across the resort. Your suite also includes a telephone,
+                wake-up call service, and a laptop-sized personal safe for peace of mind.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
@@ -155,8 +156,8 @@ export function AccommodationsPage() {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
             <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
               <img
-                src="accommodations/convienance.png"
-                alt="Bath and comfort"
+                src={bathComfortGalleryImage}
+                alt="Junior Suite Deluxe — comfort and bath details"
                 className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -165,10 +166,10 @@ export function AccommodationsPage() {
                 Bath and comfort
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
-                Your beautifully appointed bathroom features a full premium bath set and quality amenities
-                with a hair dryer. Individual air conditioning ensures year-round comfort, while daily
-                housekeeping service attends to every detail so your suite always feels like a sanctuary
-                waiting to welcome you home.
+                Unwind in a beautifully appointed bathroom with a full premium bath set, quality amenities,
+                and a hair dryer. Individual air conditioning keeps your suite comfortable year-round, and
+                daily housekeeping keeps everything fresh — so every return to your Junior Suite feels like
+                coming home.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>

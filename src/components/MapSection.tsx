@@ -5,6 +5,7 @@ import { Heart, MapPin } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
 import { Button } from './Button';
 import { Lightbox } from './Lightbox';
+import { RESORT_HERO_BACKGROUND_IMAGE } from '../constants';
 import {
   RESORT_MAP_POPUP_HIGHLIGHTS,
   RESORT_MAP_POPUP_SUMMARY,
@@ -48,7 +49,7 @@ const mapLocations: MapLocation[] = [
     lat: 20.3919,
     lng: -87.3231,
     isMain: true,
-    detailImageSrc: homePublicImage('GrandSirenis.webp'),
+    detailImageSrc: RESORT_HERO_BACKGROUND_IMAGE,
     detailImageAlt: 'Grand Sirenis Riviera Maya Resort & Spa',
     popupSummary: RESORT_MAP_POPUP_SUMMARY,
     popupHighlights: RESORT_MAP_POPUP_HIGHLIGHTS,

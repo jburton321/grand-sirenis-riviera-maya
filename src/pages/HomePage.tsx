@@ -10,17 +10,27 @@ import {
   MapSection,
   Button,
 } from '../components';
+import { HERO_GALLERY_FILENAMES } from '../content/heroGalleryFilenames';
 
-const galleryImages = [
-  'home/resort-photo-10.png',
-  'home/resort-photo-20.png',
-  'home/resort-photo-30.png',
-  'home/resort-photo-40.png',
-  'home/resort-photo-50.png',
-  'home/link-dialog-open-lightbox5.png',
-  'home/link-dialog-open-lightbox6.png',
-  'home/link-dialog-open-lightbox7.png',
-];
+/** Under-hero strip: paths match `public/img/hero-gallery/` (list synced by npm script). */
+const heroGallery = (name: string) => `img/hero-gallery/${encodeURIComponent(name)}`;
+
+/** Stable “random” order: same shuffle every build (change seed to reshuffle). */
+function seededShuffle<T>(items: readonly T[], seed: number): T[] {
+  const arr = [...items];
+  let s = seed >>> 0;
+  const rnd = () => {
+    s = (1664525 * s + 1013904223) >>> 0;
+    return s / 0xffffffff;
+  };
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rnd() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+const galleryImages = seededShuffle([...HERO_GALLERY_FILENAMES], 0x7f4ac0de).map(heroGallery);
 
 const locationGalleryImages = [
   { src: 'things-to-do/playadelcarmenday.png', label: 'Playa del Carmen' },
@@ -45,7 +55,7 @@ export function HomePage() {
       </section>
       <section id="resort-details">
         <Amenities />
-        <div className="relative hidden sm:mt-10 sm:block md:mt-12">
+        <div className="relative hidden sm:block">
           <img
             className="w-full h-auto"
             src="home/banner.png"

@@ -29,6 +29,10 @@
     "vite": "^4.2.0"
   },
   "scripts": {
+    "sync:hero-gallery": "node scripts/sync-hero-gallery.mjs",
+    "sync:guest-review-gallery": "node scripts/sync-guest-review-gallery.mjs",
+    "predev": "node scripts/sync-hero-gallery.mjs && node scripts/sync-guest-review-gallery.mjs",
+    "prebuild": "node scripts/sync-hero-gallery.mjs && node scripts/sync-guest-review-gallery.mjs",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",

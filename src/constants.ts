@@ -33,3 +33,10 @@ export const PLAY_VIDEO_LABEL = 'Play\u00a0Video' as const;
 
 /** Local resort promo MP4 (`public/media`; sourced from Cloudflare Stream HLS master manifest). */
 export const RESORT_VIDEO_MP4_SRC = 'media/resort-video.mp4' as const;
+
+/** Amenities interior hero + Thank You receipt hero background (`public/img/Map/`). */
+export const RESORT_HERO_BACKGROUND_IMAGE = 'img/Map/grand-sirenis-riviera-maya.jpg' as const;
+
+/** Accommodations interior hero (`public/img/GusetReviewGallery/`). */
+export const ACCOMMODATIONS_HERO_BACKGROUND_IMAGE =
+  'img/GusetReviewGallery/juniorsuitedeluxesingle1593-jpg-b2a70f1f45abed688344f0350169.webp' as const;

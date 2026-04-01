@@ -19,6 +19,10 @@ interface PriceBadgeProps {
 
 const BASE_SIZE = 350;
 
+/** Pink/magenta fill for the circular badge only (rest of site keeps purple `primary`). */
+const PRICE_BADGE_FILL = '#C13291';
+
+
 export function PriceBadge({
   days = OFFER_STAY_LABEL,
   oldPrice = OFFER_RETAIL_PRICE,
@@ -60,7 +64,7 @@ export function PriceBadge({
         <div
           className="box-border flex h-full w-full flex-col items-center justify-center rounded-full text-white shadow-[0_10px_30px_-6px_rgba(0,0,0,0.3)]"
           style={{
-            backgroundColor: '#793DC3',
+            backgroundColor: PRICE_BADGE_FILL,
             border: '12px solid #67A1CE',
             outline: '8px solid white',
             outlineOffset: '-20px',

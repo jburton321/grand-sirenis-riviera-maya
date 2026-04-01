@@ -5,7 +5,6 @@ type Page =
   | 'accommodations'
   | 'amenities'
   | 'things-to-do'
-  | 'all-inclusive'
   | 'thank-you'
   | 'thank-you-dated';
 
@@ -21,7 +20,6 @@ const validPages: Page[] = [
   'accommodations',
   'amenities',
   'things-to-do',
-  'all-inclusive',
   'thank-you',
   'thank-you-dated',
 ];

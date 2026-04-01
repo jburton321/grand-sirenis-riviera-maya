@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Star, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { GUEST_REVIEW_GALLERY_IMAGES } from '../content/guestReviewGalleryFilenames';
 import { Button } from './Button';
 import { Gallery } from './Gallery';
 
@@ -39,16 +40,7 @@ const reviews: Review[] = [
   },
 ];
 
-const galleryImages = [
-  'home/resort-photo-11.png',
-  'home/resort-photo-21.png',
-  'home/resort-photo-31.png',
-  'home/resort-photo-41.png',
-  'home/resort-photo-51.png',
-  'home/link-dialog-open-lightbox13.png',
-  'home/link-dialog-open-lightbox14.png',
-  'home/link-dialog-open-lightbox15.png',
-];
+const galleryImages = [...GUEST_REVIEW_GALLERY_IMAGES];
 
 function ReviewsLightbox({
   reviews: reviewList,

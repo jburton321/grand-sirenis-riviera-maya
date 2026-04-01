@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
+import { RESORT_HERO_BACKGROUND_IMAGE } from '../../constants';
 import type { ThankYouCopy, ThankYouVariant } from '../../content/thankYouCopy';
 import { THANK_YOU_DATED, getThankYouCopy, thankYouPackagePriceLine } from '../../content/thankYouCopy';
 import { ThankYouActionBanner } from './ThankYouActionBanner';
-import { ThankYouHeroSticker } from './ThankYouHeroSticker';
 
 const TY = 'thank-you';
 
@@ -119,16 +119,12 @@ export function ThankYouReceiptCard({ variant }: ThankYouReceiptCardProps) {
       className="mx-auto w-full max-w-[1280px] flex-shrink-0 overflow-hidden rounded-2xl bg-neutral-white shadow-md"
       style={{ boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.25)' }}
     >
-      <div className="flex w-full flex-col">
-        <div
-          className="flex min-h-[200px] flex-col items-end justify-start bg-cover bg-center sm:min-h-[280px]"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(thank-you/topper1.png)',
-          }}
-        >
-          <ThankYouHeroSticker />
-        </div>
-      </div>
+      {/* Same footprint as original hero (min-heights + cover); image only — no gradient or sticker. */}
+      <div
+        className="min-h-[200px] w-full overflow-hidden rounded-t-2xl bg-cover bg-center sm:min-h-[280px]"
+        style={{ backgroundImage: `url(${RESORT_HERO_BACKGROUND_IMAGE})` }}
+        aria-hidden
+      />
 
       <div className="flex flex-col gap-12 overflow-hidden p-6 sm:p-10 md:p-12">
         <div className="flex max-w-full flex-col gap-4 sm:gap-6">

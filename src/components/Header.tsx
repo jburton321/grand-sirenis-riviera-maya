@@ -8,7 +8,6 @@ const navLinks = [
   { label: 'Accommodations', page: 'accommodations' as const },
   { label: 'Amenities', page: 'amenities' as const },
   { label: 'Things To Do', page: 'things-to-do' as const },
-  { label: 'All-Inclusive', page: 'all-inclusive' as const },
 ];
 
 export function Header() {

@@ -65,7 +65,7 @@ const nearbyAttractions = NEARBY_ATTRACTION_LINES.map((text, index) => ({
 
 export function Amenities() {
   return (
-    <section className="bg-plum py-fluid-8 px-4 md:px-6 lg:px-10">
+    <section className="bg-plum px-4 pb-fluid-8 pt-fluid-8 md:px-6 lg:px-10">
       <div className="max-w-content mx-auto">
         <p className="text-white/95 text-fluid-sm md:text-fluid-base text-center max-w-3xl mx-auto mb-fluid-6 leading-relaxed">
           Beach, pools, dining, spa, and family spaces at {RESORT_DISPLAY_NAME}.

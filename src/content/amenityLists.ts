@@ -29,51 +29,54 @@ export const NEARBY_ATTRACTION_LINES = [
   'Holbox day trip',
 ] as const;
 
-/** Home page AmenitiesGrid lightbox order: beach, tennis, adventures, spa, pool, fitness, cocktails, dining */
+/**
+ * Home page AmenitiesGrid bento + lightbox.
+ * Images live in `public/img/Ammenities/bento/` (same order as lightbox indices 0–7).
+ */
 export const AMENITIES_HOME_GRID_ITEMS = [
   {
-    src: 'home/image0.png',
+    src: 'img/Ammenities/bento/beach.webp',
     label: 'Caribbean Beach',
     description:
       '2 mi of Caribbean beach, soft sand and loungers, calm swims in turquoise water.',
   },
   {
-    src: 'home/image2.png',
+    src: 'img/Ammenities/bento/tennis-fitness.jpg',
     label: 'Tennis & Fitness',
     description:
       'Tennis, 2 gyms, sauna, and activities between pool time and dinner.',
   },
   {
-    src: 'home/image4.png',
+    src: 'img/Ammenities/bento/watersports.webp',
     label: 'Watersports & Trails',
     description:
       'Snorkel, fish, watersports, turtle sanctuary, and trails on property.',
   },
   {
-    src: 'home/image6.png',
+    src: 'img/Ammenities/bento/spa.webp',
     label: 'Spa Grand Sirenis',
     description:
       'Spa Grand Sirenis: treatments, hydrotherapy, optional beachside services.',
   },
   {
-    src: 'home/image1.png',
+    src: 'img/Ammenities/bento/pool.webp',
     label: 'Pools & Lazy River',
     description:
       'Pools, lazy river, activities pool, sunny decks and shade.',
   },
   {
-    src: 'home/image3.png',
+    src: 'img/Ammenities/bento/fitnesscenter.jpg',
     label: 'Fitness Center',
     description: 'Cardio, weights, and stretch space for morning workouts.',
   },
   {
-    src: 'home/image5.png',
+    src: 'img/Ammenities/bento/bars.webp',
     label: 'Bars & Cocktails',
     description:
       'Premium cocktails and spirits, poolside, before dinner, or at sunset.',
   },
   {
-    src: 'home/image7.png',
+    src: 'img/Ammenities/bento/buffet.webp',
     label: 'Dining & Buffets',
     description:
       '8 à la carte + 2 buffets, Beyond Flavors, all included.',

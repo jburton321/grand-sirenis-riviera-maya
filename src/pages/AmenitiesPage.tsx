@@ -4,31 +4,30 @@ import { AccommodationsPriceBar } from '../components/AccommodationsPriceBar';
 import { InteriorMobilePriceBar } from '../components/InteriorMobilePriceBar';
 import { InteriorFooter } from '../components/InteriorFooter';
 import { InteriorHero } from '../components/InteriorHero';
+import { RESORT_HERO_BACKGROUND_IMAGE } from '../constants';
+import { AMENITIES_HOME_GRID_ITEMS } from '../content/amenityLists';
 import { AMENITY_BLOCKS, ON_SITE_AMENITIES_INTRO, ON_SITE_AMENITIES_TITLE } from '../content/interiorCopy';
 import { interiorStripeClass } from '../utils/interiorStripes';
 
-const amenitiesGallery = [
-  'amenities/photo-description0.png',
-  'amenities/photo-description1.png',
-  'amenities/photo-description2.png',
-  'amenities/photo-description3.png',
-  'amenities/hot-tub-by-building-18-and-190.png',
-  'amenities/photo-description4.png',
-];
+/** Same `img/Ammenities/bento/` set + labels as home `AmenitiesGrid` bento. */
+const amenitiesGallery = AMENITIES_HOME_GRID_ITEMS.map((item) => ({
+  src: item.src,
+  label: item.label,
+}));
 
 const AMENITY_IMAGES = [
-  'amenities/things-to-do-photo-11.png',
-  'amenities/things-to-do-photo-12.png',
-  'amenities/things-to-do-photo-13.png',
-  'amenities/things-to-do-photo-14.png',
-  'amenities/things-to-do-photo-15.png',
+  'img/hero-gallery/grand-sirenis-riviera-maya-resort-slide1125-jpg-1e13f6b58e1a.webp',
+  'img/Ammenities/img/spa25285-jpg-971a5bc2a15364a7b345cbc2f0549ed9.webp',
+  'img/hero-gallery/buffetbayou7591-jpg-a09c4018c8a74611962a7d5ff0d1d43e.webp',
+  'img/Ammenities/img/mexicanshow03882.jpg',
+  'img/Ammenities/img/snorkel1471-jpg-4ae1ccc4e004c727937840a840f2146f.webp',
 ] as const;
 
 export function AmenitiesPage() {
   return (
     <>
       <InteriorHero
-        backgroundImage="things-to-do/todo.png"
+        backgroundImage={RESORT_HERO_BACKGROUND_IMAGE}
         footer={
           <>
             <AccommodationsPriceBar />
@@ -50,7 +49,7 @@ export function AmenitiesPage() {
           </div>
           <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
             <img
-              src="things-to-do/todo.png"
+              src={RESORT_HERO_BACKGROUND_IMAGE}
               alt={ON_SITE_AMENITIES_TITLE}
               className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
             />

@@ -23,7 +23,7 @@ export function ParadiseSection() {
               <img
                 src="home/ULC-Grand-Sirenis-logo.png"
                 alt={RESORT_DISPLAY_NAME}
-                className="block h-auto w-full object-contain object-center"
+                className="mx-auto block h-auto w-full max-w-48 object-contain object-center sm:max-w-52 md:max-w-56"
                 width={1112}
                 height={171}
                 loading="lazy"
