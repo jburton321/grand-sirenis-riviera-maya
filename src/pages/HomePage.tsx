@@ -12,8 +12,8 @@ import {
 } from '../components';
 import { HERO_GALLERY_FILENAMES } from '../content/heroGalleryFilenames';
 
-/** Under-hero strip: paths match `public/img/hero-gallery/` (list synced by npm script). */
-const heroGallery = (name: string) => `img/hero-gallery/${encodeURIComponent(name)}`;
+/** Under-hero strip: paths match `public/images/` (list synced by npm script). */
+const heroGallery = (name: string) => `images/${encodeURIComponent(name)}`;
 
 /** Stable “random” order: same shuffle every build (change seed to reshuffle). */
 function seededShuffle<T>(items: readonly T[], seed: number): T[] {
@@ -33,12 +33,12 @@ function seededShuffle<T>(items: readonly T[], seed: number): T[] {
 const galleryImages = seededShuffle([...HERO_GALLERY_FILENAMES], 0x7f4ac0de).map(heroGallery);
 
 const locationGalleryImages = [
-  { src: 'things-to-do/playadelcarmenday.png', label: 'Playa del Carmen' },
-  { src: 'things-to-do/downtown.png', label: 'Downtown Playa del Carmen' },
-  { src: 'things-to-do/chichenitza.png', label: 'Chichen Itza' },
-  { src: 'things-to-do/xcaret.png', label: 'Xcaret Park' },
-  { src: 'things-to-do/tulumruins.png', label: 'Tulum Ruins' },
-  { src: 'things-to-do/cenotes.png', label: 'Cenotes' },
+  { src: 'images/playadelcarmenday.png', label: 'Playa del Carmen' },
+  { src: 'images/downtown.png', label: 'Downtown Playa del Carmen' },
+  { src: 'images/chichenitza.png', label: 'Chichen Itza' },
+  { src: 'images/xcaret.png', label: 'Xcaret Park' },
+  { src: 'images/tulumruins.png', label: 'Tulum Ruins' },
+  { src: 'images/cenotes.png', label: 'Cenotes' },
 ];
 
 export function HomePage() {
@@ -58,12 +58,12 @@ export function HomePage() {
         <div className="relative hidden sm:block">
           <img
             className="w-full h-auto"
-            src="home/banner.png"
+            src="images/banner.png"
             alt="Save Now Travel Later banner"
           />
           <img
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -mt-[44px] z-50 w-[40%] max-w-md"
-            src="home/tag.png"
+            src="images/tag.png"
             alt="Special offer tag"
           />
         </div>
@@ -88,7 +88,7 @@ export function HomePage() {
       <div style={{ backgroundColor: '#F9F5FF' }}>
         <img
           className="block w-full h-auto"
-          src="home/home-bttm.png"
+          src="images/home-bttm.png"
           alt="Beach scene"
         />
       </div>

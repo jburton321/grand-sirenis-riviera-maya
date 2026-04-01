@@ -37,7 +37,7 @@ const roomFeatures = [
   { icon: Baby, label: 'Baby cots available on request' },
 ];
 
-/** Same Junior Suite imagery as Guest reviews (`public/img/GusetReviewGallery/`). */
+/** Same Junior Suite imagery as Guest reviews (`public/images/`). */
 const accommodationsGallery = [...GUEST_REVIEW_GALLERY_IMAGES];
 
 const accSuiteShot = (index: number) =>
@@ -47,7 +47,7 @@ const accSuiteShot = (index: number) =>
 
 /** Bath & comfort block — specific suite photo from guest gallery. */
 const bathComfortGalleryImage =
-  'img/GusetReviewGallery/juniorsuitedeluxesingle13985-jpg-11ce962885ac99463020599860f.webp';
+  'images/juniorsuitedeluxesingle13985-jpg-11ce962885ac99463020599860f.webp';
 
 export function AccommodationsPage() {
   return (
@@ -180,7 +180,7 @@ export function AccommodationsPage() {
       <div style={{ backgroundColor: '#ffffff' }}>
         <img
           className="w-full h-auto"
-          src="home/frame-19840779511.png"
+          src="images/frame-19840779511.png"
           alt="Decorative divider"
         />
       </div>

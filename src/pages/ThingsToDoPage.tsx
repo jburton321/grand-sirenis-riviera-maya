@@ -8,19 +8,19 @@ import { THINGS_TO_DO_BLOCKS, THINGS_TO_DO_TITLE, thingsToDoIntro } from '../con
 import { interiorStripeClass } from '../utils/interiorStripes';
 
 const THINGS_IMAGES = [
-  'things-to-do/tulumruins.png',
-  'things-to-do/cenotes.png',
-  'things-to-do/chichenitza.png',
-  'things-to-do/xcaret.png',
-  'things-to-do/things-to-do-photo-10.png',
-  'things-to-do/playadelcarmenday.png',
+  'images/tulumruins.png',
+  'images/cenotes.png',
+  'images/chichenitza.png',
+  'images/xcaret.png',
+  'images/things-to-do-photo-10.png',
+  'images/playadelcarmenday.png',
 ] as const;
 
 export function ThingsToDoPage() {
   return (
     <>
       <InteriorHero
-        backgroundImage="things-to-do/hero_herobackground.png"
+        backgroundImage="images/hero_herobackground.png"
         footer={
           <>
             <AccommodationsPriceBar />
@@ -42,7 +42,7 @@ export function ThingsToDoPage() {
           </div>
           <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
             <img
-              src="things-to-do/things-to-do-photo-10.png"
+              src="images/things-to-do-photo-10.png"
               alt={THINGS_TO_DO_TITLE}
               className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
             />

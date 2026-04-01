@@ -51,7 +51,7 @@ export function BookingCard({
       <div className="flex flex-col gap-3 p-4 pt-3 md:gap-4 md:p-6 md:pt-4">
         <img
           className="block h-auto w-full object-contain object-center transition-transform duration-300 hover:scale-[1.02]"
-          src="home/ULC-Grand-Sirenis-logo.png"
+          src="images/ULC-Grand-Sirenis-logo.png"
           alt={RESORT_DISPLAY_NAME}
           width={1112}
           height={171}

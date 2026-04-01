@@ -35,9 +35,9 @@ interface MapLocation {
   popupHighlights: readonly [string, string];
 }
 
-/** Path to an asset in `public/home` (encoded for safe `src` URLs). */
+/** Path to an asset in flat `public/images/` (encoded for safe `src` URLs). */
 function homePublicImage(fileName: string) {
-  return `home/${encodeURIComponent(fileName)}`;
+  return `images/${encodeURIComponent(fileName)}`;
 }
 
 const mapLocations: MapLocation[] = [

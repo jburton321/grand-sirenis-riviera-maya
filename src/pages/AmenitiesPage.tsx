@@ -9,18 +9,18 @@ import { AMENITIES_HOME_GRID_ITEMS } from '../content/amenityLists';
 import { AMENITY_BLOCKS, ON_SITE_AMENITIES_INTRO, ON_SITE_AMENITIES_TITLE } from '../content/interiorCopy';
 import { interiorStripeClass } from '../utils/interiorStripes';
 
-/** Same `img/Ammenities/bento/` set + labels as home `AmenitiesGrid` bento. */
+/** Same `images/` set + labels as home `AmenitiesGrid` bento. */
 const amenitiesGallery = AMENITIES_HOME_GRID_ITEMS.map((item) => ({
   src: item.src,
   label: item.label,
 }));
 
 const AMENITY_IMAGES = [
-  'img/hero-gallery/grand-sirenis-riviera-maya-resort-slide1125-jpg-1e13f6b58e1a.webp',
-  'img/Ammenities/img/spa25285-jpg-971a5bc2a15364a7b345cbc2f0549ed9.webp',
-  'img/hero-gallery/buffetbayou7591-jpg-a09c4018c8a74611962a7d5ff0d1d43e.webp',
-  'img/Ammenities/img/mexicanshow03882.jpg',
-  'img/Ammenities/img/snorkel1471-jpg-4ae1ccc4e004c727937840a840f2146f.webp',
+  'images/grand-sirenis-riviera-maya-resort-slide1125-jpg-1e13f6b58e1a.webp',
+  'images/spa25285-jpg-971a5bc2a15364a7b345cbc2f0549ed9.webp',
+  'images/buffetbayou7591-jpg-a09c4018c8a74611962a7d5ff0d1d43e.webp',
+  'images/mexicanshow03882.jpg',
+  'images/snorkel1471-jpg-4ae1ccc4e004c727937840a840f2146f.webp',
 ] as const;
 
 export function AmenitiesPage() {

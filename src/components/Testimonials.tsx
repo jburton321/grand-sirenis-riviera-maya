@@ -6,7 +6,7 @@ import { Button } from './Button';
 import { Gallery } from './Gallery';
 
 const TRIPADVISOR_LOGO_SRC =
-  'home/_67-d-0924777-f-9-fd-4-ea-51-ba-47-f-tripadvisor-svg0.svg';
+  'images/_67-d-0924777-f-9-fd-4-ea-51-ba-47-f-tripadvisor-svg0.svg';
 
 interface Review {
   name: string;
@@ -22,21 +22,21 @@ const reviews: Review[] = [
     date: 'TripAdvisor',
     rating: 5,
     text: 'Just returned from a fabulous stay at Grand Sirenis Riviera Maya Resort and Spa. Would highly recommend this property. The rooms were beautiful, spacious, and comfortable. The food was awesome and there was always something for even the pickiest eaters. The drinks were great with ever-obliging bartenders. The location, beach, and atmosphere were all five stars. Will be back again!',
-    avatar: 'home/_67-d-0924777-f-9-fd-4-ea-51-ba-542-487-b-67-ace-3-ea-87851-c-0-d-6-f-391302-f-998-ava-1-webp0.png',
+    avatar: 'images/_67-d-0924777-f-9-fd-4-ea-51-ba-542-487-b-67-ace-3-ea-87851-c-0-d-6-f-391302-f-998-ava-1-webp0.png',
   },
   {
     name: 'EllaCook_x',
     date: 'TripAdvisor',
     rating: 5,
     text: 'What a perfect vacation! We had the best time at Grand Sirenis. The staff were nothing short of incredible and the hospitality was off the charts. The food was far greater than we could have imagined and the resort has so much to offer. We absolutely loved our stay and would not hesitate to recommend it to anyone.',
-    avatar: 'home/_67-d-0924777-f-9-fd-4-ea-51-ba-4-be-2853433-cd-627-e-5-efd-26-b-1-c-3-fada-1-eaae-ava-5-webp0.png',
+    avatar: 'images/_67-d-0924777-f-9-fd-4-ea-51-ba-4-be-2853433-cd-627-e-5-efd-26-b-1-c-3-fada-1-eaae-ava-5-webp0.png',
   },
   {
     name: 'TripLoverFamily',
     date: 'TripAdvisor',
     rating: 5,
     text: 'Beautiful property in a stunning natural setting. The staff were the friendliest we have encountered across four resorts in the Mayan Riviera and the service was the best of all. The food was excellent — best buffet and the a-la-carte restaurants were amazing. We felt completely at home from the moment we arrived.',
-    avatar: 'home/_67-d-0924777-f-9-fd-4-ea-51-ba-4-de-2853575-a-86629-f-1-c-31-f-4-c-2-c-210419754-ava-4-webp0.png',
+    avatar: 'images/_67-d-0924777-f-9-fd-4-ea-51-ba-4-de-2853575-a-86629-f-1-c-31-f-4-c-2-c-210419754-ava-4-webp0.png',
   },
 ];
 

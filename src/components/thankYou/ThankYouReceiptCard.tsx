@@ -4,7 +4,7 @@ import type { ThankYouCopy, ThankYouVariant } from '../../content/thankYouCopy';
 import { THANK_YOU_DATED, getThankYouCopy, thankYouPackagePriceLine } from '../../content/thankYouCopy';
 import { ThankYouActionBanner } from './ThankYouActionBanner';
 
-const TY = 'thank-you';
+const TY = 'images';
 
 function Row({
   icon,

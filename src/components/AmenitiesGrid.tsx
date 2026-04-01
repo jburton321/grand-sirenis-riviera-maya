@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Lightbox, type LightboxImageItem } from './Lightbox';
+import { RESORT_DISPLAY_NAME } from '../constants';
 import {
   AMENITIES_HOME_GRID_INTRO,
   AMENITIES_HOME_GRID_ITEMS,
@@ -137,9 +138,12 @@ export function AmenitiesGrid() {
     <section className="bg-page px-4 pb-10 pt-0 sm:pb-12 md:px-6 md:pb-16 lg:px-10">
       <div className="mx-auto max-w-content text-center">
         <img
-          className="mx-auto mb-6 h-10 transition-transform duration-300 hover:scale-105 sm:mb-8 sm:h-12 md:h-14"
-          src="home/image-30.png"
-          alt="Grand Sirenis Riviera Maya Resort & Spa"
+          className="mx-auto mb-6 block h-auto w-full max-w-[min(100%,20rem)] object-contain object-center transition-transform duration-300 hover:scale-[1.02] sm:mb-8 sm:max-w-[min(100%,24rem)] md:max-w-[min(100%,28rem)] lg:max-w-[min(100%,32rem)]"
+          src="images/ULC-Grand-Sirenis-logo.png"
+          alt={RESORT_DISPLAY_NAME}
+          width={1112}
+          height={171}
+          loading="lazy"
         />
 
         <h2 className="mb-3 px-2 text-xl font-black text-slate-800 sm:mb-4 sm:text-2xl md:text-3xl">

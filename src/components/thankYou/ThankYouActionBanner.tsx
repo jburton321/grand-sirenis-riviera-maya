@@ -20,7 +20,7 @@ export function ThankYouActionBanner({
     >
       <div className="flex flex-1 flex-col gap-4">
         <div className="flex flex-row items-center gap-2">
-          <img className="h-6 w-6 shrink-0" src="thank-you/warning0.svg" alt="" />
+          <img className="h-6 w-6 shrink-0" src="images/warning0.svg" alt="" />
           <div
             className="font-sans text-base font-bold uppercase leading-none tracking-wide text-gray-950"
             style={{ letterSpacing: '0.02em' }}

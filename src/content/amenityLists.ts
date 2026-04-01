@@ -31,52 +31,52 @@ export const NEARBY_ATTRACTION_LINES = [
 
 /**
  * Home page AmenitiesGrid bento + lightbox.
- * Images live in `public/img/Ammenities/bento/` (same order as lightbox indices 0–7).
+ * Images live in `public/images/` (same order as lightbox indices 0–7).
  */
 export const AMENITIES_HOME_GRID_ITEMS = [
   {
-    src: 'img/Ammenities/bento/beach.webp',
+    src: 'images/beach.webp',
     label: 'Caribbean Beach',
     description:
       '2 mi of Caribbean beach, soft sand and loungers, calm swims in turquoise water.',
   },
   {
-    src: 'img/Ammenities/bento/tennis-fitness.jpg',
+    src: 'images/tennis-fitness.jpg',
     label: 'Tennis & Fitness',
     description:
       'Tennis, 2 gyms, sauna, and activities between pool time and dinner.',
   },
   {
-    src: 'img/Ammenities/bento/watersports.webp',
+    src: 'images/watersports.webp',
     label: 'Watersports & Trails',
     description:
       'Snorkel, fish, watersports, turtle sanctuary, and trails on property.',
   },
   {
-    src: 'img/Ammenities/bento/spa.webp',
+    src: 'images/spa.webp',
     label: 'Spa Grand Sirenis',
     description:
       'Spa Grand Sirenis: treatments, hydrotherapy, optional beachside services.',
   },
   {
-    src: 'img/Ammenities/bento/pool.webp',
+    src: 'images/pool.webp',
     label: 'Pools & Lazy River',
     description:
       'Pools, lazy river, activities pool, sunny decks and shade.',
   },
   {
-    src: 'img/Ammenities/bento/fitnesscenter.jpg',
+    src: 'images/fitnesscenter.jpg',
     label: 'Fitness Center',
     description: 'Cardio, weights, and stretch space for morning workouts.',
   },
   {
-    src: 'img/Ammenities/bento/bars.webp',
+    src: 'images/bars.webp',
     label: 'Bars & Cocktails',
     description:
       'Premium cocktails and spirits, poolside, before dinner, or at sunset.',
   },
   {
-    src: 'img/Ammenities/bento/buffet.webp',
+    src: 'images/buffet.webp',
     label: 'Dining & Buffets',
     description:
       '8 à la carte + 2 buffets, Beyond Flavors, all included.',

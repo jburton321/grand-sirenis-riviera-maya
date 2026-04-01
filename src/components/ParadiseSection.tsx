@@ -13,7 +13,7 @@ import { StruckRetailPrice } from './StruckRetailPrice';
 export function ParadiseSection() {
   return (
     <BackgroundSection
-      backgroundImage="home/section-wrapper0.png"
+      backgroundImage="images/section-wrapper0.png"
       className="pt-10 sm:pt-12 md:pt-16"
     >
       <div className="max-w-content mx-auto px-4 sm:px-6 text-center">
@@ -21,7 +21,7 @@ export function ParadiseSection() {
           <div className="ios-frosted-glass mx-auto w-full max-w-3xl overflow-hidden rounded-2xl sm:rounded-3xl">
             <div className="w-full px-5 pt-6 sm:px-8 sm:pt-8 md:px-10 md:pt-10">
               <img
-                src="home/ULC-Grand-Sirenis-logo.png"
+                src="images/ULC-Grand-Sirenis-logo.png"
                 alt={RESORT_DISPLAY_NAME}
                 className="mx-auto block h-auto w-full max-w-48 object-contain object-center sm:max-w-52 md:max-w-56"
                 width={1112}
@@ -71,7 +71,7 @@ export function ParadiseSection() {
             {RESORT_DISPLAY_NAME}.
           </p>
           <img
-            src="home/divider.png"
+            src="images/divider.png"
             alt=""
             className="mx-auto mt-8 sm:mt-10 md:mt-12 w-[470px] max-w-full h-auto"
           />
