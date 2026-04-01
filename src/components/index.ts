@@ -13,7 +13,6 @@ export { Button } from './Button';
 export { BookingCard } from './BookingCard';
 export { MobileStickyCTA } from './MobileStickyCTA';
 export { BackgroundSection } from './BackgroundSection';
-export { ImageCard } from './ImageCard';
 export { MapSection } from './MapSection';
 export { Lightbox } from './Lightbox';
 export { PriceBadge } from './PriceBadge';
