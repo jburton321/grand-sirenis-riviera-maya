@@ -1,6 +1,8 @@
-import { useEffect, useCallback, type ReactNode } from 'react';
+import { useEffect, useCallback, useRef, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+
+const SWIPE_THRESHOLD_PX = 56;
 
 export type LightboxImageItem = {
   src: string;
@@ -48,6 +50,44 @@ export function Lightbox({
       onNavigate(currentIndex - 1);
     }
   }, [canGoBack, onNavigate, currentIndex]);
+
+  /** Horizontal drag / swipe (pointer = mouse + touch + pen). */
+  const gallerySwipeStartX = useRef<number | null>(null);
+
+  const onGalleryPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    const t = e.target as HTMLElement;
+    if (t.closest('button, a, [role="button"]')) return;
+    gallerySwipeStartX.current = e.clientX;
+    e.currentTarget.setPointerCapture(e.pointerId);
+  }, []);
+
+  const onGalleryPointerUp = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      if (gallerySwipeStartX.current === null) return;
+      const startX = gallerySwipeStartX.current;
+      gallerySwipeStartX.current = null;
+      try {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      } catch {
+        /* not captured */
+      }
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) < SWIPE_THRESHOLD_PX) return;
+      if (dx < 0 && canGoForward) goToNext();
+      else if (dx > 0 && canGoBack) goToPrev();
+    },
+    [canGoBack, canGoForward, goToNext, goToPrev]
+  );
+
+  const onGalleryPointerCancel = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    gallerySwipeStartX.current = null;
+    try {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    } catch {
+      /* */
+    }
+  }, []);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -166,11 +206,17 @@ export function Lightbox({
           >
             {detailLayout ? (
               <>
-                <div className="flex min-h-0 shrink-0 justify-center md:w-[52%] md:max-w-none">
+                <div
+                  className="flex min-h-0 shrink-0 cursor-grab touch-pan-y justify-center active:cursor-grabbing md:w-[52%] md:max-w-none"
+                  onPointerDown={onGalleryPointerDown}
+                  onPointerUp={onGalleryPointerUp}
+                  onPointerCancel={onGalleryPointerCancel}
+                >
                   <img
                     src={currentImage?.src}
                     alt={currentImage?.label || `Image ${currentIndex + 1}`}
-                    className="max-h-[42vh] w-full max-w-full rounded-lg object-contain shadow-2xl md:max-h-[min(78vh,720px)]"
+                    draggable={false}
+                    className="max-h-[42vh] w-full max-w-full select-none rounded-lg object-contain shadow-2xl md:max-h-[min(78vh,720px)]"
                   />
                 </div>
                 <div className="flex min-h-0 max-h-[38vh] flex-col overflow-y-auto scroll-touch-y rounded-xl bg-black/40 px-4 py-4 text-left backdrop-blur-md md:max-h-none md:w-[48%] md:px-6 md:py-6">
@@ -185,12 +231,18 @@ export function Lightbox({
                 </div>
               </>
             ) : (
-              <div className="relative">
+              <div
+                className="relative cursor-grab touch-pan-y active:cursor-grabbing"
+                onPointerDown={onGalleryPointerDown}
+                onPointerUp={onGalleryPointerUp}
+                onPointerCancel={onGalleryPointerCancel}
+              >
                 <div className="relative flex items-center justify-center">
                   <img
                     src={currentImage?.src}
                     alt={currentImage?.label || `Image ${currentIndex + 1}`}
-                    className="max-h-[80vh] max-w-full rounded-lg object-contain shadow-2xl"
+                    draggable={false}
+                    className="max-h-[80vh] max-w-full select-none rounded-lg object-contain shadow-2xl"
                   />
                 </div>
 

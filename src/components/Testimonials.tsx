@@ -42,6 +42,8 @@ const reviews: Review[] = [
 
 const galleryImages = [...GUEST_REVIEW_GALLERY_IMAGES];
 
+const REVIEW_SWIPE_THRESHOLD_PX = 56;
+
 function ReviewsLightbox({
   reviews: reviewList,
   isOpen,
@@ -54,7 +56,7 @@ function ReviewsLightbox({
   onClose: () => void;
 }) {
   const [index, setIndex] = useState(initialIndex);
-  const touchStartX = useRef<number | null>(null);
+  const swipeStartX = useRef<number | null>(null);
 
   useEffect(() => {
     if (isOpen) setIndex(initialIndex);
@@ -67,6 +69,43 @@ function ReviewsLightbox({
   const goNext = useCallback(() => {
     setIndex((i) => Math.min(reviewList.length - 1, i + 1));
   }, [reviewList.length]);
+
+  const canBack = index > 0;
+  const canForward = index < reviewList.length - 1;
+
+  const onReviewPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    if ((e.target as HTMLElement).closest('button, a, [role="button"]')) return;
+    swipeStartX.current = e.clientX;
+    e.currentTarget.setPointerCapture(e.pointerId);
+  }, []);
+
+  const onReviewPointerUp = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      if (swipeStartX.current === null) return;
+      const startX = swipeStartX.current;
+      swipeStartX.current = null;
+      try {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      } catch {
+        /* */
+      }
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) < REVIEW_SWIPE_THRESHOLD_PX) return;
+      if (dx < 0 && canForward) goNext();
+      else if (dx > 0 && canBack) goPrev();
+    },
+    [canBack, canForward, goNext, goPrev]
+  );
+
+  const onReviewPointerCancel = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    swipeStartX.current = null;
+    try {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    } catch {
+      /* */
+    }
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -91,22 +130,8 @@ function ReviewsLightbox({
   if (!isOpen) return null;
 
   const review = reviewList[index];
-  const canBack = index > 0;
-  const canForward = index < reviewList.length - 1;
 
   const detailTopPad = 'max(7rem, calc(env(safe-area-inset-top, 0px) + 6rem))';
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const onTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null) return;
-    const dx = e.changedTouches[0].clientX - touchStartX.current;
-    touchStartX.current = null;
-    if (dx < -56 && canForward) goNext();
-    else if (dx > 56 && canBack) goPrev();
-  };
 
   return createPortal(
     <div
@@ -154,10 +179,11 @@ function ReviewsLightbox({
       ) : null}
 
       <div
-        className="relative z-10 mx-auto flex w-full max-w-lg flex-col justify-center px-2 animate-scale-in sm:max-w-2xl"
+        className="relative z-10 mx-auto flex w-full max-w-lg cursor-grab touch-pan-y flex-col justify-center px-2 animate-scale-in active:cursor-grabbing sm:max-w-2xl"
         onClick={(e) => e.stopPropagation()}
-        onTouchStart={onTouchStart}
-        onTouchEnd={onTouchEnd}
+        onPointerDown={onReviewPointerDown}
+        onPointerUp={onReviewPointerUp}
+        onPointerCancel={onReviewPointerCancel}
       >
         <div className="overflow-hidden rounded-2xl border-2 border-purple/30 bg-white shadow-2xl">
           <div className="border-b border-gray-100 px-5 pb-4 pt-5 sm:px-8 sm:pb-5 sm:pt-6">
@@ -215,7 +241,7 @@ function ReviewsLightbox({
         </div>
 
         <p className="mt-2 text-center text-fluid-xs text-white/80">
-          {index + 1} / {reviewList.length} · swipe or use arrows
+          {index + 1} / {reviewList.length} · swipe or drag on the card · arrows
         </p>
       </div>
     </div>,
