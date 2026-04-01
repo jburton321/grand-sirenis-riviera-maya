@@ -29,7 +29,6 @@ for (const f of [
   'images/favicon.ico',
   'images/favicon-96x96.png',
   'images/apple-touch-icon.png',
-  'images/og-image.png',
 ]) {
   add(f);
 }
