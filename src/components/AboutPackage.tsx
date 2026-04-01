@@ -79,7 +79,7 @@ export function AboutPackage() {
     <section className="bg-white py-fluid-8 px-4 md:px-6 lg:px-10">
       <div className="max-w-content mx-auto">
         <div className="mb-fluid-6 text-center">
-          <h2 className="text-slate-800 text-fluid-2xl font-bold uppercase tracking-tight md:text-fluid-3xl">
+          <h2 className="text-slate-800 text-fluid-2xl font-bold tracking-tight md:text-fluid-3xl">
             About This Package
           </h2>
         </div>
@@ -90,13 +90,13 @@ export function AboutPackage() {
         */}
         <div className="grid grid-cols-1 overflow-hidden rounded-2xl bg-white shadow-sm md:grid-cols-2 md:grid-rows-[auto_minmax(0,1fr)_minmax(0,1fr)]">
           <header className="flex min-h-[3.25rem] items-center justify-center border-b border-plum/15 bg-plum px-4 py-3 max-md:order-1 md:order-none md:border-r md:border-b md:px-5">
-            <h3 className="text-center text-fluid-lg font-bold uppercase text-white md:text-fluid-xl">
+            <h3 className="text-center text-fluid-lg font-bold text-white md:text-fluid-xl">
               What you get
             </h3>
           </header>
 
           <header className="flex min-h-[3.25rem] items-center justify-center border-b border-plum/15 bg-purple px-4 py-3 max-md:order-4 md:order-none md:border-b md:px-5">
-            <h3 className="text-center text-fluid-lg font-bold uppercase text-white md:text-fluid-xl">
+            <h3 className="text-center text-fluid-lg font-bold text-white md:text-fluid-xl">
               Why you get it
             </h3>
           </header>

@@ -143,7 +143,7 @@ export function AccommodationsPage() {
                   Your bathroom features a full premium bath set, quality amenities, and a hair dryer.
                 </span>{' '}
                 Individual air conditioning keeps you comfortable year-round. Thoughtful touches throughout
-                the suite make it easy to unwind after a day on two miles of Caribbean beachfront.
+                the suite make it easy to unwind after a day on two miles of Caribbean beach.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>

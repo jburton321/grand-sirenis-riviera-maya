@@ -4,6 +4,7 @@ const navItems = [
   { label: 'What you get', href: '#what-you-get' },
   { label: 'Hotel video', href: '#hotel-video' },
   { label: 'Resort details', href: '#resort-details' },
+  { label: 'Guest reviews', href: '#guest-reviews' },
   { label: 'Reserve it now', href: '#reserve-now' },
 ] as const;
 

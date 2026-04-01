@@ -33,6 +33,13 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /** Title-style headings (overridable with `normal-case` / `uppercase` utilities when needed). */
+  h1,
+  h2,
+  h3 {
+    text-transform: capitalize;
+  }
+
   img,
   video,
   picture,
@@ -145,6 +152,14 @@
     touch-action: pan-y;
     overscroll-behavior-y: contain;
   }
+
+  /** Testimonials preview (Tailwind 3.2 has no core line-clamp). */
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+  }
 }
 
 .custom-popup .leaflet-popup-content-wrapper {
@@ -181,7 +196,7 @@
   isolation: isolate;
 }
 
-/* Map section: tiles + Leaflet UI aligned with page / sky / plum */
+/* Map section: tiles + Leaflet UI aligned with page / purple / plum */
 .brand-map.leaflet-container {
   background: #f9f5ff;
   font-family: Inter, system-ui, sans-serif;
@@ -192,14 +207,14 @@
 }
 
 .brand-map .leaflet-control-zoom a {
-  border-color: #93bedd !important;
+  border-color: #d4c4ea !important;
   background-color: #fff !important;
-  color: #67a1ce !important;
+  color: #793dc3 !important;
 }
 
 .brand-map .leaflet-control-zoom a:hover {
   background-color: #f9f5ff !important;
-  color: #4a82b0 !important;
+  color: #5a2a9a !important;
 }
 
 .brand-map .leaflet-control-attribution {

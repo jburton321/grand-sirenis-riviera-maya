@@ -7,6 +7,7 @@ export { AboutPackage } from './AboutPackage';
 export { ParadiseSection } from './ParadiseSection';
 export { Amenities } from './Amenities';
 export { AmenitiesGrid } from './AmenitiesGrid';
+export { Testimonials } from './Testimonials';
 export { Footer } from './Footer';
 export { Button } from './Button';
 export { BookingCard } from './BookingCard';

@@ -112,12 +112,12 @@ export function Lightbox({
         </button>
 
         <div
-          className="relative z-10 mx-auto flex w-full max-h-[calc(100dvh-8rem)] max-w-lg flex-col overflow-hidden rounded-2xl border-2 border-sky/30 bg-white shadow-2xl animate-scale-in sm:max-h-[calc(100dvh-8.75rem)] sm:max-w-2xl"
+          className="relative z-10 mx-auto flex w-full max-h-[calc(100dvh-8rem)] max-w-lg flex-col overflow-hidden rounded-2xl border-2 border-purple/30 bg-white shadow-2xl animate-scale-in sm:max-h-[calc(100dvh-8.75rem)] sm:max-w-2xl"
           onClick={(e) => e.stopPropagation()}
         >
           {title ? (
             <div className="shrink-0 border-b border-gray-100 px-5 pb-3 pt-5 sm:px-8 sm:pb-4 sm:pt-6">
-              <h2 className="pr-10 text-xl font-bold leading-tight text-gray-900 sm:text-2xl md:text-3xl">
+              <h2 className="pr-10 text-xl font-bold leading-tight text-plum sm:text-2xl md:text-3xl">
                 {title}
               </h2>
             </div>
@@ -175,7 +175,7 @@ export function Lightbox({
                 </div>
                 <div className="flex min-h-0 max-h-[38vh] flex-col overflow-y-auto scroll-touch-y rounded-xl bg-black/40 px-4 py-4 text-left backdrop-blur-md md:max-h-none md:w-[48%] md:px-6 md:py-6">
                   {currentImage?.label ? (
-                    <h3 className="mb-3 text-fluid-lg font-black uppercase tracking-tight text-white sm:text-fluid-xl md:mb-4">
+                    <h3 className="mb-3 text-fluid-lg font-black tracking-tight text-white sm:text-fluid-xl md:mb-4">
                       {currentImage.label}
                     </h3>
                   ) : null}

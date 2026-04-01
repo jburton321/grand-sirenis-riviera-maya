@@ -30,7 +30,7 @@ export function AmenitiesGrid() {
           alt="Grand Sirenis Riviera Maya Resort & Spa"
         />
 
-        <h2 className="mb-3 px-2 text-xl font-black uppercase text-slate-800 sm:mb-4 sm:text-2xl md:text-3xl">
+        <h2 className="mb-3 px-2 text-xl font-black text-slate-800 sm:mb-4 sm:text-2xl md:text-3xl">
           Explore the amenities at<br />
           Grand Sirenis Riviera Maya Resort &amp; Spa
         </h2>
@@ -65,7 +65,7 @@ export function AmenitiesGrid() {
                   </span>
                 </div>
               </div>
-              <span className="text-center text-xs font-medium uppercase leading-tight text-black transition-colors duration-300 group-hover:text-primary sm:text-sm">
+              <span className="text-center text-xs font-medium leading-tight text-black transition-colors duration-300 group-hover:text-primary sm:text-sm">
                 {amenity.label}
               </span>
             </button>

@@ -32,7 +32,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "replace:rgb-117-53-173": "bash scripts/replace-rgb-117-53-173.sh"
+    "replace:rgb-117-53-173": "bash scripts/replace-rgb-117-53-173.sh",
+    "docs:copy-md": "python3 scripts/docx_to_md.py --interior-only docs/grand-sirenis-ulc-lp-copy.docx docs/grand-sirenis-ulc-lp-copy-interior-pages.md",
+    "docs:copy-md:full": "python3 scripts/docx_to_md.py docs/grand-sirenis-ulc-lp-copy.docx docs/grand-sirenis-ulc-lp-copy.md"
   },
   "browserslist": [
     ">0.2%",

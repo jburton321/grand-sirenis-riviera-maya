@@ -8,7 +8,7 @@ export function MobileStickyCTA() {
       <div className="max-w-md mx-auto flex items-center justify-between gap-3">
         <div className="flex-1 min-w-0">
           <p className="truncate text-fluid-xs text-gray-600">{OFFER_STAY_LABEL} · Riviera Maya</p>
-          <p className="text-fluid-base font-black leading-none text-amber md:text-fluid-lg">
+          <p className="text-fluid-base font-black leading-none text-black md:text-fluid-lg">
             {OFFER_TOTAL_AMOUNT}
             <PriceFootnoteMark />
           </p>

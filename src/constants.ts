@@ -6,13 +6,12 @@ export const OFFER_SAVE_PERCENT = 96 as const;
 export const OFFER_STAY_LABEL = '6-Days / 5-Nights' as const;
 
 /** Short LP headline fragments (Paradise stack, cards, bars). */
-export const OFFER_HEADLINE_BEACHFRONT = 'Beachfront' as const;
 export const OFFER_HEADLINE_DESTINATION = 'Riviera Maya' as const;
 export const OFFER_HEADLINE_VACATION = 'All-Inclusive' as const;
 
 /** Single scannable line for cards and bars. */
 export const OFFER_DECK_ONE_LINER =
-  `${OFFER_HEADLINE_BEACHFRONT} · ${OFFER_HEADLINE_DESTINATION} · ${OFFER_HEADLINE_VACATION}` as const;
+  `${OFFER_HEADLINE_DESTINATION} · ${OFFER_HEADLINE_VACATION}` as const;
 
 export const RESORT_DISPLAY_NAME = 'Grand Sirenis Riviera Maya Resort & Spa' as const;
 export const CLUB_DISPLAY_NAME = 'Unlimited Leisure Club' as const;

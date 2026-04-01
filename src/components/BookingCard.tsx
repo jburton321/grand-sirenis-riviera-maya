@@ -1,6 +1,5 @@
 import { Zap, Bed, Wine, Eye } from 'lucide-react';
 import {
-  OFFER_HEADLINE_BEACHFRONT,
   OFFER_HEADLINE_DESTINATION,
   OFFER_HEADLINE_VACATION,
   OFFER_RETAIL_PRICE,
@@ -12,6 +11,7 @@ import {
   RESORT_DISPLAY_NAME,
 } from '../constants';
 import { PriceFootnoteMark } from './PriceFootnoteMark';
+import { StruckRetailPrice } from './StruckRetailPrice';
 import { Button } from './Button';
 import { useCountdown } from '../hooks/useCountdown';
 
@@ -48,9 +48,9 @@ export function BookingCard({
         )}
       </div>
 
-      <div className="p-4 md:p-6 flex flex-col gap-3 md:gap-4">
+      <div className="flex flex-col gap-3 p-4 pt-3 md:gap-4 md:p-6 md:pt-4">
         <img
-          className="mx-auto h-10 w-auto max-w-full object-contain transition-transform duration-300 hover:scale-105 md:h-14"
+          className="block h-auto w-full object-contain object-center transition-transform duration-300 hover:scale-[1.02]"
           src="home/ULC-Grand-Sirenis-logo.png"
           alt={RESORT_DISPLAY_NAME}
           width={1112}
@@ -66,7 +66,7 @@ export function BookingCard({
         <h3 className="text-center text-fluid-xl font-bold leading-tight text-slate-800">
           Grand Sirenis Riviera Maya<br />
           <span className="text-fluid-lg font-bold text-slate-700">
-            {OFFER_HEADLINE_BEACHFRONT} · {OFFER_HEADLINE_DESTINATION} ·{' '}
+            {OFFER_HEADLINE_DESTINATION} ·{' '}
             <span className="font-extrabold text-primary">{OFFER_HEADLINE_VACATION}</span>
           </span>
         </h3>
@@ -81,13 +81,10 @@ export function BookingCard({
           <div className="flex-1 min-w-0">
             <p className="text-gray-600 text-fluid-xs">
               Retail rate:{' '}
-              <span className="font-bold text-muted line-through">
-                {normalRate}
-                <PriceFootnoteMark />
-              </span>
+              <StruckRetailPrice amount={normalRate} className="font-bold text-muted" />
             </p>
             <div className="mt-1">
-              <p className="text-fluid-2xl font-black leading-none tracking-tight text-amber md:text-fluid-3xl">
+              <p className="text-fluid-2xl font-black leading-none tracking-tight text-black md:text-fluid-3xl">
                 {totalAmount}
                 <PriceFootnoteMark />
               </p>

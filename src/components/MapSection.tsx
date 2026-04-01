@@ -123,11 +123,11 @@ const mapLocations: MapLocation[] = [
   },
 ];
 
-/** Main resort pin: hero plum. Secondary pins: brand sky. */
+/** Main resort pin: plum. Secondary pins: brand purple (primary). */
 const MAP_PIN_MAIN = '#1A1033';
 const MAP_PIN_MAIN_ACTIVE = '#1A1033';
-const MAP_PIN_SECONDARY = '#67A1CE';
-const MAP_PIN_SECONDARY_ACTIVE = '#67A1CE';
+const MAP_PIN_SECONDARY = '#793DC3';
+const MAP_PIN_SECONDARY_ACTIVE = '#793DC3';
 
 function createMapPinIcon(location: MapLocation, isHighlighted: boolean) {
   const isMain = location.isMain;
@@ -141,7 +141,7 @@ function createMapPinIcon(location: MapLocation, isHighlighted: boolean) {
   const glow = isHighlighted
     ? isMain
       ? 'filter: drop-shadow(0 0 10px rgba(26,16,51,0.9)) drop-shadow(0 4px 8px rgba(0,0,0,0.18));'
-      : 'filter: drop-shadow(0 0 10px rgba(103,161,206,0.9)) drop-shadow(0 4px 8px rgba(0,0,0,0.18));'
+      : 'filter: drop-shadow(0 0 10px rgba(121,61,195,0.85)) drop-shadow(0 4px 8px rgba(0,0,0,0.18));'
     : 'filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));';
   const scale = isHighlighted ? 1.12 : 1;
   const w = 36 * scale;
@@ -172,7 +172,7 @@ function createMapPinIcon(location: MapLocation, isHighlighted: boolean) {
 function LocationLightboxDetail({ location }: { location: MapLocation }) {
   return (
     <>
-      <figure className="mb-5 overflow-hidden rounded-xl bg-gray-100 shadow-md ring-1 ring-black/5">
+      <figure className="mb-5 overflow-hidden rounded-xl bg-page shadow-md ring-1 ring-purple/15">
         <img
           src={location.detailImageSrc}
           alt={location.detailImageAlt}
@@ -187,31 +187,31 @@ function LocationLightboxDetail({ location }: { location: MapLocation }) {
           decoding="async"
         />
         {location.detailImageCaption ? (
-          <figcaption className="border-t border-gray-100 bg-gray-50/90 px-3 py-2 text-left text-[11px] leading-snug text-gray-600 sm:px-4 sm:text-xs">
+          <figcaption className="border-t border-cardline bg-page/95 px-3 py-2 text-left text-[11px] leading-snug text-muted sm:px-4 sm:text-xs">
             {location.detailImageCaption}
           </figcaption>
         ) : null}
       </figure>
-      <p className="text-fluid-base leading-relaxed text-gray-600">
+      <p className="text-fluid-base leading-relaxed text-muted">
         {location.popupSummary}
       </p>
-      <ul className="mt-4 list-disc space-y-2 pl-5 text-fluid-sm leading-relaxed text-gray-700 sm:text-fluid-base">
+      <ul className="mt-4 list-disc space-y-2 pl-5 text-fluid-sm leading-relaxed text-plum/90 sm:text-fluid-base">
         {location.popupHighlights.map((item) => (
           <li key={item}>{item}</li>
         ))}
       </ul>
-      <div className="mt-6 border-t border-gray-200 pt-4">
+      <div className="mt-6 border-t border-cardline pt-4">
         {location.isMain ? (
-          <p className="text-fluid-sm leading-snug text-gray-500">
-            <span className="font-semibold text-gray-800">Address: </span>
+          <p className="text-fluid-sm leading-snug text-muted">
+            <span className="font-semibold text-plum">Address: </span>
             {location.distance} {location.time}
           </p>
         ) : (
-          <p className="text-fluid-sm text-gray-500">
-            <span className="font-semibold text-gray-800">
+          <p className="text-fluid-sm text-muted">
+            <span className="font-semibold text-plum">
               {location.distance}
             </span>
-            <span className="mx-1.5 text-gray-400">·</span>
+            <span className="mx-1.5 text-plum/35">·</span>
             <span>{location.time} drive (typical)</span>
           </p>
         )}
@@ -291,20 +291,20 @@ export function MapSection({ children }: MapSectionProps) {
       <div className="mx-auto max-w-content px-4 sm:px-6">
         <div className="rounded-3xl border border-cardline bg-white shadow-xl">
           <div className="px-6 pb-6 pt-10 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
+            <h2 className="mb-4 text-3xl font-bold text-plum sm:text-4xl md:text-5xl">
               Discover the heart of the{' '}
-              <Heart className="inline h-8 w-8 fill-sky text-sky sm:h-10 sm:w-10 md:h-12 md:w-12" />
+              <Heart className="inline h-8 w-8 fill-cta text-cta sm:h-10 sm:w-10 md:h-12 md:w-12" />
               <br />
               Mayan Caribbean, Riviera Maya.
             </h2>
-            <p className="mx-auto max-w-3xl text-lg text-gray-700">
+            <p className="mx-auto max-w-3xl text-lg text-muted">
               Ctra. Federal Cancún to Tulum, Zona Costera, km 256.3, Riviera Maya, Mexico
             </p>
           </div>
 
           <div className="px-4 pb-8 sm:px-6">
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-stretch lg:gap-8 lg:min-h-[560px]">
-              <div className="relative h-[380px] min-h-[380px] overflow-hidden rounded-2xl border border-sky/20 shadow-inner shadow-sky/5 sm:h-[420px] sm:min-h-[420px] lg:h-full lg:min-h-0">
+              <div className="relative h-[380px] min-h-[380px] overflow-hidden rounded-2xl border border-purple/25 shadow-inner shadow-purple/10 sm:h-[420px] sm:min-h-[420px] lg:h-full lg:min-h-0">
                 <MapContainer
                   center={center}
                   zoom={10}
@@ -331,7 +331,7 @@ export function MapSection({ children }: MapSectionProps) {
                 role="list"
                 aria-label="Destinations near the resort"
               >
-                <p className="mb-2 shrink-0 text-left text-fluid-sm font-semibold uppercase tracking-wide text-gray-500 lg:mb-3">
+                <p className="mb-2 shrink-0 text-left text-fluid-sm font-semibold uppercase tracking-wide text-plum/70 lg:mb-3">
                   Nearby destinations (tap for details)
                 </p>
                 <div className="flex min-h-0 flex-1 flex-col gap-4 scroll-touch-y lg:overflow-y-auto lg:overflow-x-visible lg:overscroll-contain lg:py-1 lg:pr-2">
@@ -364,10 +364,10 @@ export function MapSection({ children }: MapSectionProps) {
                           isMainLoc
                             ? isOn
                               ? 'border-plum bg-plum/10 shadow-md ring-2 ring-plum/30 focus-visible:ring-plum'
-                              : 'border-gray-200 bg-page hover:border-plum/25 hover:bg-white focus-visible:ring-plum'
+                              : 'border-cardline bg-page hover:border-plum/30 hover:bg-white focus-visible:ring-plum'
                             : isOn
-                              ? 'border-sky bg-sky/10 shadow-md ring-2 ring-sky/30 focus-visible:ring-sky'
-                              : 'border-gray-200 bg-page hover:border-gray-300 hover:bg-white focus-visible:ring-sky'
+                              ? 'border-purple bg-purple/10 shadow-md ring-2 ring-purple/30 focus-visible:ring-purple'
+                              : 'border-cardline bg-page hover:border-purple/25 hover:bg-white focus-visible:ring-purple'
                         }`}
                       >
                         <div className="flex items-start gap-3">
@@ -375,12 +375,12 @@ export function MapSection({ children }: MapSectionProps) {
                             className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${
                               isMainLoc
                                 ? 'bg-plum/15 text-plum'
-                                : 'bg-sky/15 text-sky'
+                                : 'bg-purple/15 text-purple'
                             } ${
                               isOn
                                 ? isMainLoc
                                   ? 'ring-2 ring-plum ring-offset-2 ring-offset-white'
-                                  : 'ring-2 ring-sky ring-offset-2 ring-offset-white'
+                                  : 'ring-2 ring-purple ring-offset-2 ring-offset-white'
                                 : ''
                             }`}
                             aria-hidden
@@ -388,21 +388,21 @@ export function MapSection({ children }: MapSectionProps) {
                             <MapPin className="h-5 w-5" strokeWidth={2.25} />
                           </span>
                           <div className="min-w-0 flex-1">
-                            <h3 className="text-lg font-bold text-gray-900 sm:text-xl">
+                            <h3 className="text-lg font-bold text-plum sm:text-xl">
                               {location.name}
                             </h3>
                             {location.isMain ? (
-                              <p className="mt-1 text-fluid-sm leading-snug text-gray-600">
+                              <p className="mt-1 text-fluid-sm leading-snug text-muted">
                                 {location.distance}
                                 <br />
                                 {location.time}
                               </p>
                             ) : (
-                              <p className="mt-1 text-fluid-sm text-gray-600">
-                                <span className="font-semibold text-gray-800">
+                              <p className="mt-1 text-fluid-sm text-muted">
+                                <span className="font-semibold text-plum">
                                   {location.distance}
                                 </span>
-                                <span className="mx-1.5 text-gray-400">
+                                <span className="mx-1.5 text-plum/35">
                                   ·
                                 </span>
                                 <span>{location.time} drive</span>

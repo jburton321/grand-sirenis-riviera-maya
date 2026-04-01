@@ -34,7 +34,7 @@ export function AmenitiesPage() {
             </h1>
             <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
               <span className="font-semibold">
-                {RESORT_DISPLAY_NAME} is your all-inclusive base on 2 mi Caribbean beachfront.
+                {RESORT_DISPLAY_NAME} is your all-inclusive base with 2 mi of Caribbean beach.
               </span>{' '}
               Pools, lazy river, Spa Grand Sirenis, 8 à la carte + 2 buffets, Beyond Flavors, nights out,
               Sirenios Kids Club, and free WiFi on the Cancún to Tulum corridor.
@@ -119,7 +119,7 @@ export function AmenitiesPage() {
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
                 <span className="font-semibold">
-                  Pools, lazy river, activities pool, and 2 mi Caribbean beachfront.
+                  Pools, lazy river, activities pool, and 2 mi of Caribbean beach.
                 </span>{' '}
                 Snorkel, fish, watersports, turtle sanctuary, trails, and Mayan ruin on property.
               </p>

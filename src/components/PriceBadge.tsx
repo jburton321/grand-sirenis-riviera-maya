@@ -5,6 +5,7 @@ import {
   OFFER_TOTAL_LABEL,
 } from '../constants';
 import { PriceFootnoteMark } from './PriceFootnoteMark';
+import { StruckRetailPrice } from './StruckRetailPrice';
 
 interface PriceBadgeProps {
   days?: string;
@@ -80,22 +81,21 @@ export function PriceBadge({
           </div>
 
           <div
-            className="line-through"
+            className="text-white"
             style={{
               fontSize: '18px',
               marginBottom: '4px',
             }}
           >
-            {oldPrice}
-            <PriceFootnoteMark />
+            <StruckRetailPrice amount={oldPrice} className="text-white" />
           </div>
 
           <div
-            className="flex flex-col items-center text-center leading-tight"
+            className="flex flex-col items-center text-center leading-tight text-black"
             style={{ marginTop: '2px' }}
           >
             <div
-              className="font-black"
+              className="font-black text-black"
               style={{
                 fontSize: '52px',
                 lineHeight: 0.95,
@@ -106,11 +106,11 @@ export function PriceBadge({
               <PriceFootnoteMark />
             </div>
             <div
-              className="font-semibold uppercase tracking-[0.14em]"
+              className="font-semibold uppercase tracking-[0.14em] text-black"
               style={{
                 fontSize: '11px',
                 marginTop: '2px',
-                opacity: 0.92,
+                opacity: 0.88,
               }}
             >
               {totalLabel}

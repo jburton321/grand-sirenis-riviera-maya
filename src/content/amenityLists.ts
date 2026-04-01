@@ -2,7 +2,7 @@
  * Single source for short amenity / attraction lines (home Amenities block, interior page, grid blurbs).
  */
 export const FEATURED_AMENITY_LINES = [
-  '2 mi Caribbean beachfront',
+  '2 mi of Caribbean beach',
   'Pools, lazy river, activities pool',
   'Spa Grand Sirenis',
   '8 à la carte + 2 buffets, inclusive',
@@ -33,48 +33,48 @@ export const NEARBY_ATTRACTION_LINES = [
 export const AMENITIES_HOME_GRID_ITEMS = [
   {
     src: 'home/image0.png',
-    label: 'CARIBBEAN BEACHFRONT',
+    label: 'Caribbean Beach',
     description:
-      '2 mi Caribbean beachfront, soft sand and loungers, calm swims in turquoise water.',
+      '2 mi of Caribbean beach, soft sand and loungers, calm swims in turquoise water.',
   },
   {
     src: 'home/image2.png',
-    label: 'TENNIS & FITNESS',
+    label: 'Tennis & Fitness',
     description:
       'Tennis, 2 gyms, sauna, and activities between pool time and dinner.',
   },
   {
     src: 'home/image4.png',
-    label: 'WATERSPORTS & TRAILS',
+    label: 'Watersports & Trails',
     description:
       'Snorkel, fish, watersports, turtle sanctuary, and trails on property.',
   },
   {
     src: 'home/image6.png',
-    label: 'SPA GRAND SIRENIS',
+    label: 'Spa Grand Sirenis',
     description:
       'Spa Grand Sirenis: treatments, hydrotherapy, optional beachside services.',
   },
   {
     src: 'home/image1.png',
-    label: 'POOLS & LAZY RIVER',
+    label: 'Pools & Lazy River',
     description:
       'Pools, lazy river, activities pool, sunny decks and shade.',
   },
   {
     src: 'home/image3.png',
-    label: 'FITNESS CENTER',
+    label: 'Fitness Center',
     description: 'Cardio, weights, and stretch space for morning workouts.',
   },
   {
     src: 'home/image5.png',
-    label: 'BARS & COCKTAILS',
+    label: 'Bars & Cocktails',
     description:
       'Premium cocktails and spirits, poolside, before dinner, or at sunset.',
   },
   {
     src: 'home/image7.png',
-    label: 'DINING & BUFFETS',
+    label: 'Dining & Buffets',
     description:
       '8 à la carte + 2 buffets, Beyond Flavors, all included.',
   },
@@ -85,7 +85,7 @@ export const AMENITIES_HOME_GRID_INTRO =
 
 /** Main resort map pin lightbox (keep in sync with featured amenity phrasing). */
 export const RESORT_MAP_POPUP_SUMMARY =
-  'All-inclusive on 2 mi Caribbean beachfront: pools, lazy river, spa, 8 à la carte + 2 buffets, Akumal area.';
+  'All-inclusive with 2 mi of Caribbean beach: pools, lazy river, spa, 8 à la carte + 2 buffets, Akumal area.';
 
 export const RESORT_MAP_POPUP_HIGHLIGHTS = [
   '8 à la carte + 2 buffets, bars, pools, spa, lazy river',

@@ -6,6 +6,7 @@ import {
   ParadiseSection,
   Amenities,
   AmenitiesGrid,
+  Testimonials,
   MapSection,
   Button,
 } from '../components';
@@ -57,6 +58,9 @@ export function HomePage() {
           />
         </div>
         <AmenitiesGrid />
+      </section>
+      <section id="guest-reviews">
+        <Testimonials />
       </section>
       <section id="reserve-now">
         <MapSection>
