@@ -91,13 +91,13 @@ export function PriceBadge({
           </div>
 
           <div
-            className="flex flex-col items-center text-center leading-tight text-black"
+            className="flex flex-col items-center text-center leading-tight text-white"
             style={{ marginTop: '2px' }}
           >
             <div
-              className="font-black text-black"
+              className="font-black text-white"
               style={{
-                fontSize: '52px',
+                fontSize: '64px',
                 lineHeight: 0.95,
                 letterSpacing: '-0.02em',
               }}
@@ -106,11 +106,11 @@ export function PriceBadge({
               <PriceFootnoteMark />
             </div>
             <div
-              className="font-semibold uppercase tracking-[0.14em] text-black"
+              className="font-semibold uppercase tracking-[0.14em] text-white"
               style={{
-                fontSize: '11px',
-                marginTop: '2px',
-                opacity: 0.88,
+                fontSize: '12px',
+                marginTop: '4px',
+                opacity: 0.95,
               }}
             >
               {totalLabel}

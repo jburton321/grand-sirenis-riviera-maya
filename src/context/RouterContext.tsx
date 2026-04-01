@@ -1,6 +1,13 @@
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
-type Page = 'home' | 'accommodations' | 'amenities' | 'things-to-do' | 'all-inclusive';
+type Page =
+  | 'home'
+  | 'accommodations'
+  | 'amenities'
+  | 'things-to-do'
+  | 'all-inclusive'
+  | 'thank-you'
+  | 'thank-you-dated';
 
 interface RouterContextType {
   currentPage: Page;
@@ -9,7 +16,15 @@ interface RouterContextType {
 
 const RouterContext = createContext<RouterContextType | undefined>(undefined);
 
-const validPages: Page[] = ['home', 'accommodations', 'amenities', 'things-to-do', 'all-inclusive'];
+const validPages: Page[] = [
+  'home',
+  'accommodations',
+  'amenities',
+  'things-to-do',
+  'all-inclusive',
+  'thank-you',
+  'thank-you-dated',
+];
 
 function getPageFromHash(): Page {
   const hash = window.location.hash.slice(1);

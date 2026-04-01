@@ -16,6 +16,9 @@ export const OFFER_DECK_ONE_LINER =
 export const RESORT_DISPLAY_NAME = 'Grand Sirenis Riviera Maya Resort & Spa' as const;
 export const CLUB_DISPLAY_NAME = 'Unlimited Leisure Club' as const;
 
+/** Nights included (matches `OFFER_STAY_LABEL` 6-Days / 5-Nights). */
+export const OFFER_NIGHTS_COUNT = 5 as const;
+
 /** Hero / booking card one-liner (two adults, suite type). */
 export const OFFER_ROOM_SHORT = 'Junior Suite Deluxe, 2 adults, all-inclusive' as const;
 

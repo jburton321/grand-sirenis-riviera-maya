@@ -19,6 +19,7 @@ import { InteriorMobilePriceBar } from '../components/InteriorMobilePriceBar';
 import { SaveNowTravelLater } from '../components/SaveNowTravelLater';
 import { InteriorHero } from '../components/InteriorHero';
 import { RESORT_DISPLAY_NAME } from '../constants';
+import { interiorStripeClass } from '../utils/interiorStripes';
 
 const roomFeatures = [
   { icon: Bed, label: 'Your choice of bed configuration' },
@@ -68,9 +69,8 @@ export function AccommodationsPage() {
                 Your vacation includes 5 nights of all-inclusive accommodations in a Junior Suite Deluxe
                 Single at {RESORT_DISPLAY_NAME}.
               </span>{' '}
-              This elegantly appointed 52 sq. meter suite combines contemporary design with the warmth of
-              Mayan-inspired natural surroundings, a sophisticated retreat after days on the beach
-              and by the pools.
+              This elegantly appointed 52 sq. meter suite offers a sophisticated retreat combining
+              contemporary design with the warmth of Mayan-inspired natural surroundings.
             </p>
             <Button className="w-full" asCta>RESERVE NOW</Button>
           </div>
@@ -93,9 +93,12 @@ export function AccommodationsPage() {
         </div>
       </InteriorHero>
 
-      <Gallery images={accommodationsGallery} />
+      <Gallery
+        images={accommodationsGallery}
+        sectionBackgroundClassName={interiorStripeClass(0)}
+      />
 
-      <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6">
+      <section className={`py-12 md:py-16 lg:py-20 px-4 sm:px-6 ${interiorStripeClass(1)}`}>
         <div className="max-w-content mx-auto">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
             <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
@@ -110,13 +113,10 @@ export function AccommodationsPage() {
                 Suite details
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
-                <span className="font-semibold">
-                  This non-smoking Junior Suite Deluxe Single offers enviable views, your choice of bed
-                  configuration, and quality furnishings with natural light throughout.
-                </span>{' '}
-                Stay connected with HD television, cable, complimentary Wi-Fi, a telephone, wake-up calls,
-                and a laptop-sized personal safe. Daily housekeeping keeps every detail attended to so your
-                suite feels like a sanctuary.
+                This non-smoking 52 sq. meter Junior Suite Deluxe Single at {RESORT_DISPLAY_NAME} offers an
+                incredible and comfortable accommodation experience with enviable views and various bed
+                options, combining elegance and comfort for your total satisfaction. Thoughtfully designed
+                with quality furnishings and natural light throughout.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>
@@ -124,36 +124,9 @@ export function AccommodationsPage() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 bg-gray-50">
+      <section className={`py-12 md:py-16 lg:py-20 px-4 sm:px-6 ${interiorStripeClass(2)}`}>
         <div className="max-w-content mx-auto">
           <div className="flex flex-col lg:flex-row-reverse gap-8 lg:gap-12 items-center">
-            <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
-              <img
-                src="accommodations/convienance.png"
-                alt="Bath and comfort"
-                className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <div className="w-full lg:w-1/2">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Bath &amp; comfort
-              </h2>
-              <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
-                <span className="font-semibold">
-                  Your bathroom features a full premium bath set, quality amenities, and a hair dryer.
-                </span>{' '}
-                Individual air conditioning keeps you comfortable year-round. Thoughtful touches throughout
-                the suite make it easy to unwind after a day on two miles of Caribbean beach.
-              </p>
-              <Button className="w-full" asCta>RESERVE NOW</Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6">
-        <div className="max-w-content mx-auto">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
             <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
               <img
                 src="accommodations/balcony.png"
@@ -163,14 +136,39 @@ export function AccommodationsPage() {
             </div>
             <div className="w-full lg:w-1/2">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Entertainment &amp; connectivity
+                Entertainment and connectivity
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
-                <span className="font-semibold">
-                  Relax with in-suite entertainment and stay connected across the resort.
-                </span>{' '}
-                Enjoy HD television with cable, complimentary Wi-Fi, and space to recharge, so you can
-                share photos, stream, or simply disconnect on your own terms.
+                Stay connected and entertained with an HD television with cable service and complimentary
+                Wi-Fi access throughout your suite and across the resort grounds. Additional in-suite
+                amenities include a telephone, wake-up call service, and a laptop-sized personal safe to keep
+                your valuables secure.
+              </p>
+              <Button className="w-full" asCta>RESERVE NOW</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={`py-12 md:py-16 lg:py-20 px-4 sm:px-6 ${interiorStripeClass(3)}`}>
+        <div className="max-w-content mx-auto">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+            <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
+              <img
+                src="accommodations/convienance.png"
+                alt="Bath and comfort"
+                className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div className="w-full lg:w-1/2">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Bath and comfort
+              </h2>
+              <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
+                Your beautifully appointed bathroom features a full premium bath set and quality amenities
+                with a hair dryer. Individual air conditioning ensures year-round comfort, while daily
+                housekeeping service attends to every detail so your suite always feels like a sanctuary
+                waiting to welcome you home.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>
             </div>

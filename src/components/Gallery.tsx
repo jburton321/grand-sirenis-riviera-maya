@@ -10,11 +10,18 @@ interface GalleryImage {
 interface GalleryProps {
   images: (string | GalleryImage)[];
   className?: string;
+  /** Background on the outer gallery strip (default gray strip on home). */
+  sectionBackgroundClassName?: string;
   /** Tighter strip under hero: smaller cards, less padding/gap. */
   compact?: boolean;
 }
 
-export function Gallery({ images, className = '', compact = false }: GalleryProps) {
+export function Gallery({
+  images,
+  className = '',
+  sectionBackgroundClassName = 'bg-gray-100',
+  compact = false,
+}: GalleryProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -56,7 +63,7 @@ export function Gallery({ images, className = '', compact = false }: GalleryProp
 
   return (
     <>
-      <section className={`relative bg-gray-100 ${className}`}>
+      <section className={`relative ${sectionBackgroundClassName} ${className}`}>
         <div
           ref={scrollRef}
           onScroll={checkScrollability}
