@@ -35,7 +35,7 @@ const reviews: Review[] = [
     name: 'TripLoverFamily',
     date: 'TripAdvisor',
     rating: 5,
-    text: 'Beautiful property in a stunning natural setting. The staff were the friendliest we have encountered across four resorts in the Mayan Riviera and the service was the best of all. The food was excellent — best buffet and the a-la-carte restaurants were amazing. We felt completely at home from the moment we arrived.',
+    text: 'Beautiful property in a stunning natural setting. The staff were the friendliest we have encountered across four resorts in the Mayan Riviera and the service was the best of all. The food was excellent - best buffet and the a-la-carte restaurants were amazing. We felt completely at home from the moment we arrived.',
     avatar: 'images/_67-d-0924777-f-9-fd-4-ea-51-ba-4-de-2853575-a-86629-f-1-c-31-f-4-c-2-c-210419754-ava-4-webp0.png',
   },
 ];

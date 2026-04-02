@@ -9,7 +9,7 @@ type PanelSpec = {
   /** Stacking on small screens: left column (1–3), then right (4–6). */
   mobileOrderClass: string;
   /**
-   * md+: only inner dividers — vertical midline (border-e on left column) +
+   * md+: only inner dividers - vertical midline (border-e on left column) +
    * horizontal between row 1 and 2 of the 2×2 body (border-b on top row).
    * No outer box stroke; shell uses rounded-2xl overflow-hidden.
    */
@@ -48,7 +48,7 @@ const packagePanels: PanelSpec[] = [
       'Dining, drinks, and most on-resort fun included: 8 à la carte + 2 buffets, theater, pools, beach, and trails. No running tab.',
     icon: Wine,
     mobileOrderClass: 'max-md:order-6',
-    /** Bottom-right: no borders — avoids a line along the bottom of the card. */
+    /** Bottom-right: no borders - avoids a line along the bottom of the card. */
     borderClass: 'border-none',
   },
 ];

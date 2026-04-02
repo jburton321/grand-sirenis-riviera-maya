@@ -30,7 +30,7 @@ const bentoCells = [
   },
   {
     lightboxIndex: 1,
-    tag: 'Sport',
+    tag: 'Fitness',
     hero: false as const,
     placement:
       'min-h-[10rem] md:col-span-1 md:col-start-1 md:row-start-2 md:min-h-[10rem]',

@@ -119,7 +119,7 @@ export function ThankYouReceiptCard({ variant }: ThankYouReceiptCardProps) {
       className="mx-auto w-full max-w-[1280px] flex-shrink-0 overflow-hidden rounded-2xl bg-neutral-white shadow-md"
       style={{ boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.25)' }}
     >
-      {/* Same footprint as original hero (min-heights + cover); image only — no gradient or sticker. */}
+      {/* Same footprint as original hero (min-heights + cover); image only - no gradient or sticker. */}
       <div
         className="min-h-[200px] w-full overflow-hidden rounded-t-2xl bg-cover bg-center sm:min-h-[280px]"
         style={{ backgroundImage: `url(${RESORT_HERO_BACKGROUND_IMAGE})` }}

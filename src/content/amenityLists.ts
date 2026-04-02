@@ -42,7 +42,7 @@ export const AMENITIES_HOME_GRID_ITEMS = [
   },
   {
     src: 'images/tennis-fitness.jpg',
-    label: 'Tennis & Fitness',
+    label: 'Fitness Center',
     description:
       'Tennis, 2 gyms, sauna, and activities between pool time and dinner.',
   },
@@ -66,7 +66,7 @@ export const AMENITIES_HOME_GRID_ITEMS = [
   },
   {
     src: 'images/fitnesscenter.jpg',
-    label: 'Fitness Center',
+    label: 'Indoor gym',
     description: 'Cardio, weights, and stretch space for morning workouts.',
   },
   {

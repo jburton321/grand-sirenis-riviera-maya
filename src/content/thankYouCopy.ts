@@ -17,7 +17,7 @@ const SHARED = {
   hoursLabel: 'Reservation Department Hours:',
   hoursLine: 'Mon-Fri: 9 am - 8 pm CST  |  Saturday: 9 am - 5:30 pm CST',
   summaryTitle: 'Your Vacation Summary:',
-  vacationPackageLine: '6-Day/5-Night Junior Suite Deluxe Single — All-Inclusive Stay',
+  vacationPackageLine: '6-Day/5-Night Junior Suite Deluxe Single - All-Inclusive Stay',
   unitType: 'Junior Suite Deluxe Single',
   nightsDisplay: '5 Nights',
   guests: '2 Adults',

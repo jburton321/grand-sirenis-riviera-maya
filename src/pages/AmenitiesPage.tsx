@@ -61,6 +61,10 @@ export function AmenitiesPage() {
         const image = AMENITY_IMAGES[index];
         const reverse = index % 2 === 1;
         const bg = interiorStripeClass(index);
+        const headingAlt =
+          'subtitle' in block && block.subtitle
+            ? `${block.title} ${block.subtitle}`
+            : block.title;
 
         return (
           <section
@@ -76,13 +80,16 @@ export function AmenitiesPage() {
                 <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
                   <img
                     src={image}
-                    alt={block.title}
+                    alt={headingAlt}
                     className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="w-full lg:w-1/2">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    {block.title}
+                    <span className="block">{block.title}</span>
+                    {'subtitle' in block && block.subtitle ? (
+                      <span className="mt-1 block sm:mt-2">{block.subtitle}</span>
+                    ) : null}
                   </h2>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">{block.body}</p>
                   <Button className="w-full" asCta>
