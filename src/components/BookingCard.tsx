@@ -74,7 +74,7 @@ export function BookingCard({
 
       <div className="bg-gray-100 py-3 md:py-4 px-3 md:px-4">
         <div className="flex items-center gap-2 md:gap-4">
-          <div className="rounded-xl bg-amber px-2 py-3 text-center text-fluid-lg font-bold leading-tight text-plum shadow-lg animate-bounce-subtle md:px-4 md:py-4 md:text-fluid-2xl">
+          <div className="rounded-xl bg-amber px-2 py-3 text-center text-fluid-lg font-bold leading-tight text-plum shadow-lg md:px-4 md:py-4 md:text-fluid-2xl">
             <div>{OFFER_SAVE_PERCENT}%</div>
             <div>OFF!</div>
           </div>
