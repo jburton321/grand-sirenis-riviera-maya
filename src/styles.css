@@ -248,6 +248,16 @@ img.hero-sticker-element {
   }
 }
 
+/* Mobile: full-bleed sticker (breaks out of hero px-4; see Hero.tsx wrapper). */
+@media (max-width: 767px) {
+  img.hero-sticker-element {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1023px) {
   img.hero-sticker-element {
     width: 64%;

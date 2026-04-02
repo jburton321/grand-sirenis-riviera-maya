@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Play } from 'lucide-react';
 import { PLAY_VIDEO_LABEL, RESORT_VIDEO_MP4_SRC } from '../constants';
+import { Button } from './Button';
 import { BookingCard } from './BookingCard';
 import { Lightbox } from './Lightbox';
 
@@ -33,25 +34,32 @@ export function Hero() {
                   aria-hidden
                 />
                 <div className="relative z-10 flex w-full flex-col items-center px-4 pt-8 md:px-6 md:pt-12 lg:px-0 lg:pt-0">
-                  <img
-                    className="hero-sticker-element"
-                    src="images/mexico-10.png"
-                    alt="Mexico destination"
-                    loading="eager"
-                  />
+                  <div className="max-md:-mx-4 max-md:w-[calc(100%+2rem)] max-md:shrink-0 max-md:px-4 md:contents">
+                    <img
+                      className="hero-sticker-element"
+                      src="images/mexico-10.png"
+                      alt="Mexico destination"
+                      loading="eager"
+                    />
+                  </div>
                   <div className="hero-composite-wrap relative mt-14 overflow-visible md:mt-10 md:flex md:w-full md:flex-col md:items-center lg:hidden">
                     <button
                       type="button"
                       onClick={() => setIsLightboxOpen(true)}
-                      className="absolute bottom-[12%] left-1/2 z-10 flex w-max max-w-none shrink-0 -translate-x-1/2 flex-nowrap items-center gap-2 whitespace-nowrap rounded-full bg-white/95 px-3 py-2 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl md:relative md:bottom-auto md:left-auto md:translate-x-0 md:gap-3 md:px-5 md:py-3"
+                      className="absolute bottom-[12%] left-1/2 z-10 flex w-max max-w-none shrink-0 -translate-x-1/2 flex-nowrap items-center gap-1.5 whitespace-nowrap rounded-full bg-white/95 px-2.5 py-1.5 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl md:relative md:bottom-auto md:left-auto md:translate-x-0 md:gap-2 md:px-3.5 md:py-2"
                     >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-yellow transition-colors group-hover:bg-yellow-dark md:h-12 md:w-12">
-                        <Play className="ml-0.5 h-5 w-5 shrink-0 fill-white text-white md:h-6 md:w-6" />
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-yellow transition-colors group-hover:bg-yellow-dark md:h-9 md:w-9">
+                        <Play className="ml-0.5 h-4 w-4 shrink-0 fill-white text-white md:h-5 md:w-5" />
                       </span>
-                      <span className="shrink-0 whitespace-nowrap pr-1 text-base font-semibold leading-none text-gray-900 md:text-lg">
+                      <span className="shrink-0 whitespace-nowrap pr-0.5 text-sm font-semibold leading-none text-gray-900 md:text-base">
                         {PLAY_VIDEO_LABEL}
                       </span>
                     </button>
+                  </div>
+                  <div className="relative z-10 mt-4 mb-8 w-full max-w-none lg:hidden md:mt-5 md:mb-10">
+                    <Button className="w-full justify-center" asCta>
+                      RESERVE NOW
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -67,12 +75,12 @@ export function Hero() {
                   <button
                     type="button"
                     onClick={() => setIsLightboxOpen(true)}
-                    className="absolute bottom-[12%] left-1/2 z-10 flex w-max max-w-none shrink-0 -translate-x-1/2 flex-nowrap items-center gap-3 whitespace-nowrap rounded-full bg-white/95 px-5 py-3 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl"
+                    className="absolute bottom-[12%] left-1/2 z-10 flex w-max max-w-none shrink-0 -translate-x-1/2 flex-nowrap items-center gap-2 whitespace-nowrap rounded-full bg-white/95 px-3.5 py-2 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl"
                   >
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-yellow transition-colors group-hover:bg-yellow-dark">
-                      <Play className="ml-0.5 h-6 w-6 shrink-0 fill-white text-white" />
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-yellow transition-colors group-hover:bg-yellow-dark">
+                      <Play className="ml-0.5 h-5 w-5 shrink-0 fill-white text-white" />
                     </span>
-                    <span className="shrink-0 whitespace-nowrap pr-1 text-lg font-semibold leading-none text-gray-900">
+                    <span className="shrink-0 whitespace-nowrap pr-0.5 text-base font-semibold leading-none text-gray-900">
                       {PLAY_VIDEO_LABEL}
                     </span>
                   </button>
