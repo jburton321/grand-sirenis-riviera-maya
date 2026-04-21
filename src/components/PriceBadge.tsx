@@ -46,7 +46,7 @@ export function PriceBadge({
         style={{
           width: `${BASE_SIZE}px`,
           height: `${BASE_SIZE}px`,
-          transform: `scale(${scale})`,
+          transform: `scale(${scale}) translateY(23px)`,
           transformOrigin: 'top left',
         }}
       >

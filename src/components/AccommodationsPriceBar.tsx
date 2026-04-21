@@ -9,7 +9,7 @@ export function AccommodationsPriceBar() {
     <div className="hidden lg:block w-full rounded-b-3xl border border-cardline border-t-0 bg-white/95 overflow-hidden">
       <div className="flex flex-wrap lg:flex-nowrap items-center gap-4 xl:gap-6 px-4 xl:px-6 py-4">
         <div className="flex-shrink-0">
-          <PriceBadge width={220} className="xl:w-[280px]" />
+          <PriceBadge width={190} className="xl:w-[240px]" />
         </div>
 
         <div className="flex flex-col justify-center flex-1 min-w-0">
