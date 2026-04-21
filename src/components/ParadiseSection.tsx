@@ -3,6 +3,7 @@ import { PriceBadge } from './PriceBadge';
 import {
   OFFER_HEADLINE_DESTINATION,
   OFFER_HEADLINE_VACATION,
+  OFFER_SAVE_PERCENT,
   OFFER_STAY_LABEL,
   OFFER_TOTAL_AMOUNT,
   RESORT_DISPLAY_NAME,
@@ -21,11 +22,11 @@ export function ParadiseSection() {
           <div className="ios-frosted-glass mx-auto w-full max-w-3xl overflow-hidden rounded-2xl sm:rounded-3xl">
             <div className="w-full px-5 pt-6 sm:px-8 sm:pt-8 md:px-10 md:pt-10">
               <img
-                src="images/ULC-Grand-Sirenis-logo.png"
+                src="images/WW.svg"
                 alt={RESORT_DISPLAY_NAME}
                 className="mx-auto block h-auto w-full max-w-48 object-contain object-center sm:max-w-52 md:max-w-56"
-                width={1112}
-                height={171}
+                width={500}
+                height={259}
                 loading="lazy"
               />
             </div>
@@ -43,10 +44,11 @@ export function ParadiseSection() {
                 {': '}
                 <span className="font-extrabold text-black">
                   {OFFER_TOTAL_AMOUNT}
-                  <PriceFootnoteMark /> per couple
+                  <PriceFootnoteMark /> deposit today
                 </span>{' '}
-                all-inclusive stay (save 96% vs.{' '}
-                <StruckRetailPrice className="font-extrabold text-slate-950" /> retail).{' '}
+                — pay $700 at booking. $1,200 total for a{' '}
+                <StruckRetailPrice className="font-extrabold text-slate-950" /> all-inclusive
+                retreat (save {OFFER_SAVE_PERCENT}%).{' '}
                 <span className="font-semibold text-slate-950">
                   12 months to travel. Total price, not per person or per night.
                 </span>
@@ -56,25 +58,21 @@ export function ParadiseSection() {
         </div>
 
         <div className="mb-6 sm:mb-8 flex justify-center">
-          <PriceBadge width={260} className="max-w-full" />
+          <PriceBadge width={260} className="max-w-full my-[61px]" />
         </div>
       </div>
 
       <div className="bg-plum py-10 sm:py-12 md:py-16 px-4 sm:px-6 -mt-[10px]">
         <div className="max-w-content mx-auto text-center">
-          <h3 className="mb-6 text-xl font-extrabold text-purple sm:mb-8 sm:text-2xl md:mb-10">
-            Your Caribbean sanctuary
+          <h3 className="mb-6 text-xl font-extrabold text-white sm:mb-8 sm:text-2xl md:mb-10">
+            A Private Collection of Luxury All-Inclusive Resorts
           </h3>
           <p className="text-base leading-relaxed text-white sm:text-lg md:text-xl">
-            All-inclusive with two miles of Caribbean beach between Playa del Carmen and Tulum.
-            Junior Suite Deluxe, pools, lazy river, dining, spa, and jungle-meets-coast setting at{' '}
-            {RESORT_DISPLAY_NAME}.
+            {RESORT_DISPLAY_NAME} is a private vacation club operating across Mexico's Caribbean
+            and Pacific coasts, curating certificate programs for members and invited guests of
+            its partner properties. Today that includes three flagship Hilton all-inclusive
+            resorts in Cancún, Tulum, and Puerto Vallarta.
           </p>
-          <img
-            src="images/divider.png"
-            alt=""
-            className="mx-auto mt-8 sm:mt-10 md:mt-12 w-[470px] max-w-full h-auto"
-          />
         </div>
       </div>
     </BackgroundSection>

@@ -196,10 +196,10 @@
   isolation: isolate;
 }
 
-/* Map section: tiles + Leaflet UI aligned with page / purple / plum */
+/* Map section: tiles + Leaflet UI aligned with PHH navy / gold / cream */
 .brand-map.leaflet-container {
-  background: #f9f5ff;
-  font-family: Inter, system-ui, sans-serif;
+  background: #faf8f4;
+  font-family: Montserrat, system-ui, sans-serif;
 }
 
 .brand-map .leaflet-tile-pane img {
@@ -207,26 +207,26 @@
 }
 
 .brand-map .leaflet-control-zoom a {
-  border-color: #d4c4ea !important;
+  border-color: #e2e6ec !important;
   background-color: #fff !important;
-  color: #793dc3 !important;
+  color: #0b1929 !important;
 }
 
 .brand-map .leaflet-control-zoom a:hover {
-  background-color: #f9f5ff !important;
-  color: #5a2a9a !important;
+  background-color: #faf8f4 !important;
+  color: #b8862d !important;
 }
 
 .brand-map .leaflet-control-attribution {
   background: rgba(255, 255, 255, 0.88) !important;
-  color: #7a6e8a !important;
+  color: #9fafc2 !important;
   font-size: 10px;
   line-height: 1.35;
   max-width: 100%;
 }
 
 .brand-map .leaflet-control-attribution a {
-  color: #1a1033 !important;
+  color: #0b1929 !important;
 }
 
 .leaflet-marker-pane {
@@ -271,6 +271,7 @@ img.hero-sticker-element {
     max-width: 630px;
     padding-left: 0;
     padding-right: 0;
+    margin-top: 4.5rem;
   }
 }
 
@@ -346,86 +347,86 @@ img.hero-sticker-element {
 }
 
 .riviera-cancun-vacation-span {
-  color: #faa528;
-  font-family: "Playfair Display", serif;
+  color: #d4a43c;
+  font-family: "Bodoni Moda", Georgia, serif;
   font-size: 126.68162536621094px;
   font-weight: 500;
 }
 
 .riviera-cancun-vacation-span2 {
   color: #ffffff;
-  font-family: "Playfair Display", serif;
+  font-family: "Bodoni Moda", Georgia, serif;
   font-size: 126.68162536621094px;
   font-weight: 500;
 }
 
 .title-8-span {
-  color: #1a1033;
-  font-family: "Inter", sans-serif;
+  color: #0b1929;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 500;
 }
 
 .title-8-span2 {
-  color: #1a1033;
-  font-family: "Inter", sans-serif;
+  color: #0b1929;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 700;
 }
 
 .title-9-span {
-  color: #1a1033;
-  font-family: "Inter", sans-serif;
+  color: #0b1929;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
 }
 
 .title-9-span2 {
-  color: #1a1033;
-  font-family: "Inter", sans-serif;
+  color: #0b1929;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
 }
 
-/* Brand surfaces: tailwind `primary` (purple) / `cta` (pink). End of bundle wins over stale cache. */
+/* Brand surfaces: Tailwind `primary` / `cta` both map to PHH gold. End of bundle wins over stale cache. */
 .bg-primary {
   --tw-bg-opacity: 1;
-  background-color: #793dc3;
+  background-color: #d4a43c;
 }
 
 .visited\:bg-primary:visited {
   --tw-bg-opacity: 1;
-  background-color: #793dc3;
+  background-color: #d4a43c;
 }
 
 .hover\:bg-primary-dark:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(90 42 154 / var(--tw-bg-opacity, 1));
+  background-color: rgb(184 134 45 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:visited\:bg-primary-dark:visited:hover {
-  background-color: rgb(90 42 154 / var(--tw-bg-opacity, 1));
+  background-color: rgb(184 134 45 / var(--tw-bg-opacity, 1));
 }
 
 .bg-cta {
   --tw-bg-opacity: 1;
-  background-color: #c13291;
+  background-color: #d4a43c;
 }
 
 .visited\:bg-cta:visited {
   --tw-bg-opacity: 1;
-  background-color: #c13291;
+  background-color: #d4a43c;
 }
 
 .hover\:bg-cta-dark:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(158 37 118 / var(--tw-bg-opacity, 1));
+  background-color: rgb(184 134 45 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:visited\:bg-cta-dark:visited:hover {
-  background-color: rgb(158 37 118 / var(--tw-bg-opacity, 1));
+  background-color: rgb(184 134 45 / var(--tw-bg-opacity, 1));
 }

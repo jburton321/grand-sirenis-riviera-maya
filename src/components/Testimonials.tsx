@@ -4,6 +4,7 @@ import { Star, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { GUEST_REVIEW_GALLERY_IMAGES } from '../content/guestReviewGalleryFilenames';
 import { Button } from './Button';
 import { Gallery } from './Gallery';
+import { PRIMARY_CTA_LABEL } from '../constants';
 
 const TRIPADVISOR_LOGO_SRC =
   'images/_67-d-0924777-f-9-fd-4-ea-51-ba-47-f-tripadvisor-svg0.svg';
@@ -341,7 +342,7 @@ export function Testimonials() {
 
         <div className="mt-fluid-8">
           <Button className="w-full" asCta>
-            Reserve Now
+            {PRIMARY_CTA_LABEL}
           </Button>
         </div>
       </div>

@@ -1,77 +1,71 @@
 /**
- * Verbatim narrative from docs/grand-sirenis-ulc-lp-copy-interior-pages.md
- * (On-Site Amenities + Things to Do blocks). Keep in sync when regenerating from Word.
+ * PHH Collection copy — Phase 1 direct swap.
+ * Keep array shape identical to what components consume (index-based .map()).
  */
 
-export const ON_SITE_AMENITIES_TITLE = 'On-site amenities - all included';
+export const ON_SITE_AMENITIES_TITLE = "The Collection's Luxury Amenities";
 
 export const ON_SITE_AMENITIES_INTRO =
-  'The Riviera Maya rewards discovery, and Grand Sirenis ensures every moment is extraordinary.';
+  "The PHH Collection spans three flagship Hilton all-inclusive resorts across Mexico's Caribbean and Pacific coasts. Each property is well-appointed, beachfront-set, and designed for guests seeking comfort, privacy, and elevated service. Every stay includes access to the property's Premium All-Inclusive experience, delivering thoughtful service, refined dining, and a seamless retreat — whether you choose Cancún's 100-acre coastline, Tulum's adults-only sanctuary, or the Pacific views of Vallarta Riviera.";
 
 export const AMENITY_BLOCKS = [
   {
-    title: 'Multiple pools and lazy river',
+    title: 'Luxury All-Inclusive Experience',
     body:
-      "Immerse yourself in an oasis of pure tranquility. Float gently along the resort's beloved lazy river, surrounded by tropical vegetation and the soft sound of waterfalls. Multiple heated outdoor pools - including an Activities Pool designed for organized water games and family fun - provide endless ways to spend your most perfect days.",
+      'Your stay includes unlimited dining, beverages, Wi-Fi, entertainment, and full access to resort and beach amenities. Everything is handled in one place, letting you focus on enjoying the setting, the service, and the pace of the resort without added decisions or extra planning.',
   },
   {
-    title: 'Award-winning Spa Grand Sirenis',
+    title: 'Gourmet Dining with Flexibility',
     body:
-      'Relax and rejuvenate body and mind in the award-winning Spa Grand Sirenis. A wide range of treatments and therapies await you, designed to revitalize and restore your well-being in an atmosphere of serenity and quiet luxury. Spa treatments are also available on the beach for the ultimate in sensory indulgence.',
+      "Each Hilton property offers a diverse culinary program spanning à la carte restaurants, casual cafés, and multiple bars and lounges. Guests enjoy gourmet dining every evening with no reservations required. Cancún leads with 12 venues; Tulum emphasizes authentic Mexican flavors; Vallarta showcases Pacific seafood and sunset beachfront dining. Dedicated cafés and treats shops serve coffee, pastries, and desserts throughout the day, while bars across each resort provide unlimited access to premium cocktails and a wide selection of domestic and international spirits.",
   },
   {
-    title: 'Beyond Flavors',
-    subtitle: 'A Culinary Journey',
+    title: 'Pools, Beach, and Oceanfront Spaces',
     body:
-      'Beyond Flavors invites you to explore an exciting stroll through the most iconic and contemporary world flavors. Innovation and creativity come together to amaze through complete sensory experiences, with great attention paid not just to taste but to space, service, and atmosphere. Eight themed a-la-carte restaurants and two buffets ensure your palate is never anything less than delighted.',
+      "Spend your day by the main pool, relax at the swim-up bar, or take in ocean views from each resort's beachfront. Swim-up rooms at select properties offer direct pool access steps from the terrace, while shaded loungers and open beach space provide room to enjoy the coast. Non-motorized water sports and beach activities are included as part of your stay.",
   },
   {
-    title: 'Nightly live entertainment',
+    title: 'Wellness, Fitness, and Recreation',
     body:
-      "Immerse yourself in a world of entertainment every evening in the resort's semi-outdoor theater, where talented artists transport you through engaging and memorable shows - from live music to stunning theatrical performances that blend seamlessly into the tropical surroundings.",
+      'Guests have access to full-service spas featuring signature treatments and hydrotherapy circuits at select properties. Modern fitness centers, tennis courts, and guided fitness classes support an active stay, while poolside and beachfront activities keep the days engaging without feeling scheduled.',
   },
   {
-    title: 'Water activities and nature trails',
+    title: 'Nightly Entertainment and Social Spaces',
     body:
-      "Embark on exciting water adventures with snorkeling, fishing, and non-motorized watersports directly from the resort's two miles of Caribbean beach. Explore the natural beauty of your surroundings through carefully designed trails winding through stunning gardens and jungle landscapes. Visit the on-site turtle sanctuary and discover a genuine Mayan ruin right within the property grounds.",
+      'Evenings bring live shows, themed events, and social gatherings throughout each resort. Oceanfront bars and entertainment areas host performances and music that keep the energy going after sunset, offering a lively yet refined atmosphere designed for adults.',
   },
 ] as const;
 
-export const THINGS_TO_DO_TITLE = 'Things to do - the Riviera Maya awaits';
+export const THINGS_TO_DO_TITLE = 'Two Coastlines. Two Cultures. One Certificate.';
 
-export function thingsToDoIntro(resortDisplayName: string): string {
-  return `The Riviera Maya is more than a destination. It is a world unto itself, packed with natural wonders, ancient history, and Caribbean magic - all just moments from ${resortDisplayName}.`;
+export function thingsToDoIntro(_resortDisplayName: string): string {
+  return "Your PHH retreat opens onto some of Mexico's most extraordinary experiences. The Caribbean coast delivers ancient ruins, cenotes, and the Riviera Maya nightlife. The Pacific coast offers Malecón strolls, surf towns, and the quieter rhythm of Jalisco.";
 }
 
 export const THINGS_TO_DO_BLOCKS = [
   {
-    title: 'Tulum archaeological ruins',
+    title: 'Chichén Itzá — New Wonder of the World',
     body:
-      'Perched dramatically on coastal cliffs above the turquoise Caribbean Sea, the Tulum Ruins are among the most beautifully situated Mayan ruins in the world. Located just 20 minutes from the resort, this UNESCO-recognized site offers a breathtaking glimpse into an ancient civilization against a backdrop of ocean and jungle that photography cannot fully capture.',
+      'A bucket-list day trip from Cancún or Tulum, and a UNESCO World Heritage Site. Stand at the base of El Castillo pyramid and feel the scale of the ancient Mayan world. Guided tours run daily from both Caribbean coast destinations.',
   },
   {
-    title: 'Cenote exploration',
+    title: 'Tulum Ruins and Sacred Cenotes',
     body:
-      'The Yucatan Peninsula is home to thousands of cenotes - sacred Mayan pools of crystal-clear freshwater connected to an underground river system. These remarkable natural formations range from open-air swimming holes to dramatic cave environments lit by shafts of light filtering through the jungle canopy. Snorkeling, swimming, and cave diving experiences are available throughout the region.',
+      "Mayan structures set atop a 12-meter cliff, overlooking the turquoise Caribbean — one of the few archaeological sites where history opens directly onto a swimming beach. Nearby, the Yucatán's sacred cenotes offer cool, crystal-clear water pooled beneath limestone caves and jungle canopy. A cenote swim is as close as travel gets to another world.",
   },
   {
-    title: 'Chichen Itza',
+    title: 'Xcaret Park and 5th Avenue',
     body:
-      'One of the New Seven Wonders of the World, Chichen Itza is an awe-inspiring Mayan archaeological complex featuring the iconic El Castillo pyramid. Guided day trips from the resort bring this remarkable UNESCO World Heritage Site to life with expert commentary on the mathematics, astronomy, and culture embedded in every stone.',
+      "Xcaret offers a full-day mix of underground rivers, jungle trails, lagoon snorkeling, and evening cultural performances — family-friendly and deeply immersive. A short transfer away, Playa del Carmen's Quinta Avenida is the Riviera Maya's pedestrian centerpiece — shopping, cafés, and rooftop lounges along a single vibrant corridor, day and night.",
   },
   {
-    title: 'Xcaret eco-archaeological park',
+    title: 'The Malecón and Old Town',
     body:
-      "Xcaret is the Riviera Maya's flagship eco-archaeological experience, blending underground rivers, coral reef snorkeling, Mayan village re-creations, wildlife sanctuaries, and the celebrated Mexico Espectacular evening show into one extraordinary day. It is the single most complete cultural and natural immersion the region offers.",
+      "Puerto Vallarta's iconic seaside promenade — public art, live performers, and some of the best golden-hour views in Mexico. A slow walk from Old Town to the Los Arcos amphitheater at sunset is the city's quiet centerpiece. Cobblestone streets, boutique galleries, and a thriving food scene.",
   },
   {
-    title: 'Akumal Bay - swim with sea turtles',
+    title: 'Sayulita and the Marietas',
     body:
-      "Akumal, meaning 'Place of the Turtle' in Mayan, is a sheltered bay just a short drive from the resort where snorkelers regularly encounter wild sea turtles grazing on seagrass in their natural habitat. This accessible, effortless wildlife encounter is among the most memorable experiences the Riviera Maya offers.",
-  },
-  {
-    title: 'Playa del Carmen',
-    body:
-      "Playa del Carmen's famous 5th Avenue pedestrian promenade offers the best of the Riviera Maya's contemporary side - boutique shopping, world-class dining, vibrant open-air bars, and a bustling energy that contrasts beautifully with the resort's tranquility. Just 30 minutes from Grand Sirenis, it makes for a perfect half-day excursion.",
+      'A 45-minute drive north of Hilton Vallarta — surf-town energy, colorful storefronts, and a beach culture both laid-back and fashionable. Offshore, the UNESCO-protected Marietas Islands host the famous Hidden Beach at Playa del Amor, plus snorkeling, paddleboarding, and winter whale sightings.',
   },
 ] as const;

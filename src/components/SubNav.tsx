@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 
 const navItems = [
-  { label: 'What you get', href: '#what-you-get' },
-  { label: 'Hotel video', href: '#hotel-video' },
-  { label: 'Resort details', href: '#resort-details' },
-  { label: 'Guest reviews', href: '#guest-reviews' },
-  { label: 'Reserve it now', href: '#reserve-now' },
+  { label: 'The Collection', href: '#hotel-video' },
+  { label: 'Your Certificate', href: '#what-you-get' },
+  { label: "What's Included", href: '#resort-details' },
+  { label: 'Accept', href: '#guest-reviews' },
 ] as const;
 
 export function SubNav() {
@@ -47,7 +46,7 @@ export function SubNav() {
   };
 
   return (
-    <nav className="sticky top-[52px] z-40 border-b border-cardline bg-page pt-5 pb-2 shadow-sm scrollbar-hide scroll-touch-x overflow-x-auto md:top-[56px] md:pt-4 md:pb-2">
+    <nav className="sticky top-[52px] z-40 border-b border-cardline bg-white pt-5 pb-2 shadow-sm scrollbar-hide scroll-touch-x overflow-x-auto md:top-[56px] md:pt-4 md:pb-2">
       <ul className="mx-auto flex w-full max-w-content items-center justify-start gap-0 px-4 whitespace-nowrap md:px-6 lg:justify-center lg:px-8">
         {navItems.map((item, index) => (
           <li key={item.label} className="flex items-center">

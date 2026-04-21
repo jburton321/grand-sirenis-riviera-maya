@@ -1,5 +1,6 @@
 import { Zap, Bed, Wine, Eye } from 'lucide-react';
 import {
+  OFFER_BALANCE_LINE,
   OFFER_HEADLINE_DESTINATION,
   OFFER_HEADLINE_VACATION,
   OFFER_RETAIL_PRICE,
@@ -7,7 +8,9 @@ import {
   OFFER_SAVE_PERCENT,
   OFFER_STAY_LABEL,
   OFFER_TOTAL_AMOUNT,
+  OFFER_TOTAL_COMPLETE,
   OFFER_TOTAL_LABEL,
+  PRIMARY_CTA_LABEL,
   RESORT_DISPLAY_NAME,
 } from '../constants';
 import { PriceFootnoteMark } from './PriceFootnoteMark';
@@ -50,11 +53,11 @@ export function BookingCard({
 
       <div className="flex flex-col gap-3 p-4 pt-3 md:gap-4 md:p-6 md:pt-4">
         <img
-          className="block h-auto w-full object-contain object-center transition-transform duration-300 hover:scale-[1.02]"
-          src="images/ULC-Grand-Sirenis-logo.png"
+          className="mx-auto block h-auto w-full max-w-[285px] object-contain object-center transition-transform duration-300 hover:scale-[1.02]"
+          src="images/WW.svg"
           alt={RESORT_DISPLAY_NAME}
-          width={1112}
-          height={171}
+          width={500}
+          height={259}
         />
 
         <div className="flex items-center gap-2 md:gap-3">
@@ -64,7 +67,7 @@ export function BookingCard({
         </div>
 
         <h3 className="text-center text-fluid-xl font-bold leading-tight text-slate-800">
-          Grand Sirenis Riviera Maya<br />
+          {RESORT_DISPLAY_NAME}<br />
           <span className="text-fluid-lg font-bold text-slate-700">
             {OFFER_HEADLINE_DESTINATION} ·{' '}
             <span className="font-extrabold text-primary">{OFFER_HEADLINE_VACATION}</span>
@@ -75,8 +78,8 @@ export function BookingCard({
       <div className="bg-gray-100 py-3 md:py-4 px-3 md:px-4">
         <div className="flex items-center gap-2 md:gap-4">
           <div className="rounded-xl bg-amber px-2 py-3 text-center text-fluid-lg font-bold leading-tight text-plum shadow-lg md:px-4 md:py-4 md:text-fluid-2xl">
+            <div>SAVE</div>
             <div>{OFFER_SAVE_PERCENT}%</div>
-            <div>OFF!</div>
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-gray-600 text-fluid-xs">
@@ -90,6 +93,12 @@ export function BookingCard({
               </p>
               <p className="mt-0.5 font-bold uppercase tracking-[0.12em] text-fluid-xs text-slate-600 md:text-fluid-sm">
                 {totalLabel}
+              </p>
+              <p className="mt-1 text-fluid-xs text-slate-600">
+                {OFFER_BALANCE_LINE}
+              </p>
+              <p className="mt-0.5 text-fluid-xs font-semibold text-slate-700">
+                {OFFER_TOTAL_COMPLETE} · {OFFER_RETAIL_PRICE} value
               </p>
             </div>
           </div>
@@ -106,13 +115,13 @@ export function BookingCard({
           <Wine className="mt-0.5 h-5 w-5 shrink-0 text-sky" />
           <p className="text-black text-fluid-sm">
             <span className="font-bold text-primary">All-inclusive: </span>
-            Dining, drinks, pools, beach, and most on-resort activities included.
+            Unlimited gourmet dining, top-shelf spirits, and 24-hour in-room dining.
           </p>
         </div>
       </div>
 
       <div className="px-4 md:px-8 pb-4">
-        <Button className="w-full min-h-touch touch-manipulation" asCta>Reserve Now</Button>
+        <Button className="w-full min-h-touch touch-manipulation" asCta>{PRIMARY_CTA_LABEL}</Button>
       </div>
 
       <div className="flex items-center justify-center py-4 md:py-5 px-4">

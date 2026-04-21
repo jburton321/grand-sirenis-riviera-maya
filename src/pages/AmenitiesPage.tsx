@@ -4,7 +4,7 @@ import { AccommodationsPriceBar } from '../components/AccommodationsPriceBar';
 import { InteriorMobilePriceBar } from '../components/InteriorMobilePriceBar';
 import { InteriorFooter } from '../components/InteriorFooter';
 import { InteriorHero } from '../components/InteriorHero';
-import { RESORT_HERO_BACKGROUND_IMAGE } from '../constants';
+import { PRIMARY_CTA_LABEL, RESORT_HERO_BACKGROUND_IMAGE } from '../constants';
 import { AMENITIES_HOME_GRID_ITEMS } from '../content/amenityLists';
 import { AMENITY_BLOCKS, ON_SITE_AMENITIES_INTRO, ON_SITE_AMENITIES_TITLE } from '../content/interiorCopy';
 import { interiorStripeClass } from '../utils/interiorStripes';
@@ -44,7 +44,7 @@ export function AmenitiesPage() {
               {ON_SITE_AMENITIES_INTRO}
             </p>
             <Button className="w-full" asCta>
-              RESERVE NOW
+              {PRIMARY_CTA_LABEL}
             </Button>
           </div>
           <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
@@ -57,14 +57,14 @@ export function AmenitiesPage() {
         </div>
       </InteriorHero>
 
-      {AMENITY_BLOCKS.map((block, index) => {
+      {AMENITY_BLOCKS.map((rawBlock, index) => {
+        const block = rawBlock as { title: string; body: string; subtitle?: string };
         const image = AMENITY_IMAGES[index];
         const reverse = index % 2 === 1;
         const bg = interiorStripeClass(index);
-        const headingAlt =
-          'subtitle' in block && block.subtitle
-            ? `${block.title} ${block.subtitle}`
-            : block.title;
+        const headingAlt = block.subtitle
+          ? `${block.title} ${block.subtitle}`
+          : block.title;
 
         return (
           <section
@@ -87,13 +87,13 @@ export function AmenitiesPage() {
                 <div className="w-full lg:w-1/2">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                     <span className="block">{block.title}</span>
-                    {'subtitle' in block && block.subtitle ? (
+                    {block.subtitle ? (
                       <span className="mt-1 block sm:mt-2">{block.subtitle}</span>
                     ) : null}
                   </h2>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">{block.body}</p>
                   <Button className="w-full" asCta>
-                    RESERVE NOW
+                    {PRIMARY_CTA_LABEL}
                   </Button>
                 </div>
               </div>
@@ -108,7 +108,7 @@ export function AmenitiesPage() {
             <Gallery images={amenitiesGallery} className="bg-transparent" />
             <div className="px-6 pb-10">
               <Button className="w-full" asCta>
-                Reserve Now
+                {PRIMARY_CTA_LABEL}
               </Button>
             </div>
           </div>

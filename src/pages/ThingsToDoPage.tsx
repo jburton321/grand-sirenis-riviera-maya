@@ -3,17 +3,21 @@ import { AccommodationsPriceBar } from '../components/AccommodationsPriceBar';
 import { InteriorMobilePriceBar } from '../components/InteriorMobilePriceBar';
 import { InteriorFooter } from '../components/InteriorFooter';
 import { InteriorHero } from '../components/InteriorHero';
-import { RESORT_DISPLAY_NAME } from '../constants';
+import { PRIMARY_CTA_LABEL, RESORT_DISPLAY_NAME } from '../constants';
 import { THINGS_TO_DO_BLOCKS, THINGS_TO_DO_TITLE, thingsToDoIntro } from '../content/interiorCopy';
 import { interiorStripeClass } from '../utils/interiorStripes';
 
+/**
+ * Phase 1 image map (reordered to match new PHH Things To Do blocks).
+ * Pacific destination photos (indices 3–4) reuse existing Caribbean imagery as Phase 2 placeholders.
+ */
 const THINGS_IMAGES = [
-  'images/tulumruins.png',
-  'images/cenotes.png',
   'images/chichenitza.png',
+  'images/tulumruins.png',
   'images/xcaret.png',
-  'images/things-to-do-photo-10.png',
   'images/playadelcarmenday.png',
+  'images/things-to-do-photo-10.png',
+  'images/cenotes.png',
 ] as const;
 
 export function ThingsToDoPage() {
@@ -37,7 +41,7 @@ export function ThingsToDoPage() {
               {thingsToDoIntro(RESORT_DISPLAY_NAME)}
             </p>
             <Button className="w-full" asCta>
-              RESERVE NOW
+              {PRIMARY_CTA_LABEL}
             </Button>
           </div>
           <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
@@ -76,7 +80,7 @@ export function ThingsToDoPage() {
                   </h2>
                   <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">{block.body}</p>
                   <Button className="w-full" asCta>
-                    RESERVE NOW
+                    {PRIMARY_CTA_LABEL}
                   </Button>
                 </div>
               </div>

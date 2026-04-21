@@ -1,6 +1,6 @@
 import { Award, MapPin, Star, Wine, type LucideIcon } from 'lucide-react';
 import { Button } from './Button';
-import { CLUB_DISPLAY_NAME, RESORT_DISPLAY_NAME } from '../constants';
+import { PRIMARY_CTA_LABEL } from '../constants';
 
 type PanelSpec = {
   title: string;
@@ -18,25 +18,27 @@ type PanelSpec = {
 
 const packagePanels: PanelSpec[] = [
   {
-    title: 'Accommodations:',
-    description: `5 nights, Junior Suite Deluxe, all-inclusive at ${RESORT_DISPLAY_NAME}. Wi-Fi, safe, mini fridge, HD TV, A/C, and 24-hour room service.`,
+    title: 'What You Receive:',
+    description:
+      '5 days and 4 nights in a Deluxe Room for two adults at your choice of three Hilton luxury all-inclusive resorts — Cancún, Tulum, or Puerto Vallarta. Only $500 today; the remaining $700 is due when you book your travel dates.',
     icon: Award,
     mobileOrderClass: 'max-md:order-2',
     /** Top-left: vertical midline + horizontal mid of 2×2 */
     borderClass: 'border-b border-plum/15 md:border-e md:border-plum/15',
   },
   {
-    title: 'Be Our Guest:',
-    description: `90- to 120-minute resort preview for you and your guest to learn about ${CLUB_DISPLAY_NAME}. No obligation to buy; your trip time stays yours.`,
+    title: 'Why This Certificate Exists:',
+    description:
+      'PHH Collection extends Paradise Retreat certificates to a limited group of members and invited guests each quarter. Your only commitment is a relaxed 90-minute Club Collection presentation with breakfast on day two.',
     icon: Star,
     mobileOrderClass: 'max-md:order-5',
     /** Top-right: horizontal mid only */
     borderClass: 'border-b border-plum/15',
   },
   {
-    title: 'Prime Location:',
+    title: 'Your Destination:',
     description:
-      'Km 256.3 Cancún to Tulum highway: between Playa (~30 min) and Tulum (~20 min), ~1 hr from Cancún airport. Two miles of beach plus an on-site Mayan ruin.',
+      "Choose Cancún's 100-acre Caribbean coastline, Tulum's adults-only sanctuary, or Vallarta Riviera's Pacific sunset setting. Your certificate grants access to any of the three.",
     icon: MapPin,
     mobileOrderClass: 'max-md:order-3',
     /** Bottom-left: vertical midline on md+ only; never a bottom rule (pairs with bottom-right). */
@@ -45,7 +47,7 @@ const packagePanels: PanelSpec[] = [
   {
     title: 'All-Inclusive Privilege:',
     description:
-      'Dining, drinks, and most on-resort fun included: 8 à la carte + 2 buffets, theater, pools, beach, and trails. No running tab.',
+      'Unlimited gourmet à la carte dining, top-shelf spirits, and 24-hour in-room dining. Full resort amenities, beach access, pools, spa, and entertainment — all included.',
     icon: Wine,
     mobileOrderClass: 'max-md:order-6',
     /** Bottom-right: no borders - avoids a line along the bottom of the card. */
@@ -82,7 +84,7 @@ export function AboutPackage() {
       <div className="max-w-content mx-auto">
         <div className="mb-fluid-6 text-center">
           <h2 className="text-slate-800 text-fluid-2xl font-bold tracking-tight md:text-fluid-3xl">
-            About This Package
+            About Your Invitation
           </h2>
         </div>
 
@@ -93,13 +95,13 @@ export function AboutPackage() {
         <div className="grid grid-cols-1 overflow-hidden rounded-2xl bg-white md:grid-cols-2 md:grid-rows-[auto_minmax(0,1fr)_minmax(0,1fr)]">
           <header className="flex min-h-[3.25rem] items-center justify-center border-b border-plum/15 bg-plum px-4 py-3 max-md:order-1 md:order-none md:border-e md:border-b md:border-plum/15 md:px-5">
             <h3 className="text-center text-fluid-lg font-bold text-white md:text-fluid-xl">
-              What you get
+              What You Receive
             </h3>
           </header>
 
-          <header className="flex min-h-[3.25rem] items-center justify-center border-b border-plum/15 bg-purple px-4 py-3 max-md:order-4 md:order-none md:border-b md:border-plum/15 md:px-5">
+          <header className="flex min-h-[3.25rem] items-center justify-center border-b border-plum/15 bg-[#0E254E] px-4 py-3 max-md:order-4 md:order-none md:border-b md:border-plum/15 md:px-5">
             <h3 className="text-center text-fluid-lg font-bold text-white md:text-fluid-xl">
-              Why you get it
+              Why This Certificate Exists
             </h3>
           </header>
 
@@ -111,7 +113,7 @@ export function AboutPackage() {
 
         <div className="mt-fluid-8">
           <Button className="w-full" asCta>
-            Reserve Now
+            {PRIMARY_CTA_LABEL}
           </Button>
         </div>
       </div>

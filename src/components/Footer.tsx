@@ -9,9 +9,9 @@ export function Footer({ fullWidth = false }: FooterProps) {
     <footer className="bg-plum py-fluid-6 px-4 md:px-6 w-full">
       <div className={`${fullWidth ? '' : 'max-w-content mx-auto'} text-center`}>
         <img
-          src="images/layer-20.svg"
-          alt="VacationVIP"
-          className="h-4 md:h-5 w-auto mx-auto mb-4 md:mb-5 transition-transform duration-300 hover:scale-105"
+          src="images/PHH-LOGO-white.svg?v=2"
+          alt="PHH Collection"
+          className="h-12 md:h-16 w-auto mx-auto mb-4 md:mb-5 transition-transform duration-300 hover:scale-105"
         />
 
         <p className="text-white text-fluid-xs md:text-fluid-sm mb-3 md:mb-4 max-w-3xl mx-auto px-2 leading-relaxed">
@@ -19,10 +19,9 @@ export function Footer({ fullWidth = false }: FooterProps) {
           OWNERSHIP INTERESTS.
         </p>
         <p className="text-white text-fluid-xs md:text-fluid-sm mb-4 md:mb-5 max-w-3xl mx-auto px-2 leading-relaxed">
-          This preview rate includes an engaging and educational 90 to 120-minute sales presentation and
-          resort tour about the benefits and savings opportunities of Unlimited Leisure Club vacation
-          ownership. There is no obligation to join or purchase, and the balance of the vacation is yours
-          to enjoy.
+          This certificate rate includes an engaging and educational 90-minute Club Collection
+          presentation with breakfast about the benefits of PHH Collection membership. There is no
+          obligation to join or purchase, and the balance of the vacation is yours to enjoy.
         </p>
 
         <div className="bg-white rounded-lg inline-flex items-center gap-2 px-2 md:px-3 py-1 mb-4 md:mb-5 transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer min-h-touch">
@@ -40,11 +39,11 @@ export function Footer({ fullWidth = false }: FooterProps) {
         </div>
 
         <p className="text-white text-fluid-xs md:text-fluid-sm mb-2">
-          Sogno Tours, LLC d/b/a VacationVIP.com
+          PHH Collection Club
         </p>
 
         <address className="text-white text-fluid-xs md:text-fluid-sm not-italic mb-4 md:mb-5 px-2">
-          9900 Lake Ellenor Drive Suite 300, Orlando, FL 32809
+          Orlando, FL
         </address>
 
         <p className="text-white text-fluid-xs md:text-fluid-sm mb-4 md:mb-5">

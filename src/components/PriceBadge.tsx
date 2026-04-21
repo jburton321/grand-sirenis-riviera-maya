@@ -19,8 +19,10 @@ interface PriceBadgeProps {
 
 const BASE_SIZE = 350;
 
-/** Pink/magenta fill for the circular badge only (rest of site keeps purple `primary`). */
-const PRICE_BADGE_FILL = '#C13291';
+/** Navy Deep fill for the circular badge (PHH brand). Gold ring + cream outline frame it. */
+const PRICE_BADGE_FILL = '#0B1929';
+const PRICE_BADGE_RING = '#D4A43C';
+const PRICE_BADGE_OUTLINE = '#FAF8F4';
 
 
 export function PriceBadge({
@@ -65,10 +67,12 @@ export function PriceBadge({
           className="box-border flex h-full w-full flex-col items-center justify-center rounded-full text-white shadow-[0_10px_30px_-6px_rgba(0,0,0,0.3)]"
           style={{
             backgroundColor: PRICE_BADGE_FILL,
-            border: '12px solid #67A1CE',
-            outline: '8px solid white',
+            border: `12px solid ${PRICE_BADGE_RING}`,
+            outline: `8px solid ${PRICE_BADGE_OUTLINE}`,
             outlineOffset: '-20px',
             padding: '12px 14px',
+            marginTop: '-23px',
+            marginBottom: '-23px',
           }}
         >
           <div

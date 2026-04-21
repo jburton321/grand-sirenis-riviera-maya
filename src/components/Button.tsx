@@ -1,5 +1,5 @@
 import { ReactNode, MouseEvent } from 'react';
-import { DUMMY_CTA_HREF } from '../constants';
+import { DUMMY_CTA_HREF, PRIMARY_CTA_LABEL } from '../constants';
 
 export { DUMMY_CTA_HREF } from '../constants';
 
@@ -7,8 +7,8 @@ interface ButtonProps {
   children?: ReactNode;
   variant?: 'primary' | 'small';
   /**
-   * `brand` = purple primary surface; `cta` = pink reserve CTA with white label text.
-   * Defaults to `cta` when `asCta`, otherwise `brand`.
+   * `brand` = gold primary surface; `cta` = gold accept CTA. Both use navy text for contrast
+   * against the PHH gold pill. Defaults to `cta` when `asCta`, otherwise `brand`.
    */
   color?: 'brand' | 'cta';
   className?: string;
@@ -20,7 +20,7 @@ interface ButtonProps {
 }
 
 export function Button({
-  children = 'RESERVE NOW',
+  children = PRIMARY_CTA_LABEL,
   variant = 'primary',
   color,
   className = '',
@@ -32,8 +32,8 @@ export function Button({
   const surface = color ?? (asCta ? 'cta' : 'brand');
   const surfaceStyles =
     surface === 'cta'
-      ? `bg-cta text-white visited:text-white visited:bg-cta hover:bg-cta-dark hover:visited:bg-cta-dark`
-      : `bg-primary text-white visited:text-white visited:bg-primary hover:bg-primary-dark hover:visited:bg-primary-dark`;
+      ? `bg-cta text-plum visited:text-plum visited:bg-cta hover:bg-cta-dark hover:visited:bg-cta-dark`
+      : `bg-primary text-plum visited:text-plum visited:bg-primary hover:bg-primary-dark hover:visited:bg-primary-dark`;
 
   const baseStyles = `
     relative overflow-hidden

@@ -29,7 +29,7 @@ export function AccommodationsPriceBar() {
               <CocktailIcon className="w-4 h-4 xl:w-5 xl:h-5 flex-shrink-0 mt-0.5 text-sky" />
               <span className="text-fluid-xs xl:text-fluid-sm text-plum">
                 <span className="font-bold">All-inclusive: </span>
-                Dining, drinks, pools, beach, and most on-resort activities included.
+                Unlimited gourmet dining, top-shelf spirits, and 24-hour in-room dining.
               </span>
             </div>
           </div>

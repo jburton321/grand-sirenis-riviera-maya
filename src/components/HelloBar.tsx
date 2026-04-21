@@ -1,9 +1,4 @@
-import {
-  OFFER_HEADLINE_DESTINATION,
-  OFFER_STAY_LABEL,
-  OFFER_TOTAL_AMOUNT,
-} from '../constants';
-import { PriceFootnoteMark } from './PriceFootnoteMark';
+import { RECURRING_RIBBON_LINE } from '../constants';
 
 /** Top-of-page promo strip (LP “hello bar”). */
 export function HelloBar() {
@@ -13,8 +8,7 @@ export function HelloBar() {
       style={{ textWrap: 'balance' }}
       role="status"
     >
-      {OFFER_STAY_LABEL} · {OFFER_HEADLINE_DESTINATION} · just {OFFER_TOTAL_AMOUNT}
-      <PriceFootnoteMark /> Per{'\u00A0'}Couple!
+      {RECURRING_RIBBON_LINE}
     </div>
   );
 }

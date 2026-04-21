@@ -67,7 +67,7 @@ export function Gallery({
         <div
           ref={scrollRef}
           onScroll={checkScrollability}
-          className={`scrollbar-hide scroll-touch-x scroll-smooth overflow-x-auto ${compact ? 'py-2 md:py-3' : 'py-4 md:py-6'}`}
+          className={`scrollbar-hide scroll-touch-x scroll-smooth overflow-x-auto bg-[#F4ECDC] ${compact ? 'py-2 md:py-3' : 'py-4 md:py-6'}`}
         >
           <div
             className={`flex ${compact ? 'gap-2 px-3 md:gap-2.5 md:px-4 lg:px-6' : 'gap-3 px-4 md:gap-4 md:px-6 lg:gap-5 lg:px-8'}`}

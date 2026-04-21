@@ -1,7 +1,7 @@
 export function InteriorFooter() {
   return (
     <>
-      <div style={{ backgroundColor: '#ffffff' }}>
+      <div style={{ backgroundColor: '#F9F8F4' }}>
         <img
           className="w-full h-auto"
           src="images/frame-19840779511.png"

@@ -1,43 +1,63 @@
-/** Global offer / deal pricing (hero card, badges, sticky CTA, body copy). Grand Sirenis ULC LP. */
-export const OFFER_TOTAL_AMOUNT = '$149' as const;
-export const OFFER_TOTAL_LABEL = 'PER COUPLE, ENTIRE STAY' as const;
-export const OFFER_RETAIL_PRICE = '$3,464' as const;
-export const OFFER_SAVE_PERCENT = 96 as const;
-export const OFFER_STAY_LABEL = '6-Days / 5-Nights' as const;
+/**
+ * PHH Collection — $500 deposit is the hero price. $1,200 total is supporting context.
+ * $700 balance is paid at the time of booking.
+ */
 
-/** Short LP headline fragments (Paradise stack, cards, bars). */
-export const OFFER_HEADLINE_DESTINATION = 'Riviera Maya' as const;
-export const OFFER_HEADLINE_VACATION = 'All-Inclusive' as const;
+// ── RESORT & BRAND ──────────────────────────────────────────────
+export const RESORT_DISPLAY_NAME = 'PHH Collection' as const;
+export const CLUB_DISPLAY_NAME = 'PHH Collection' as const;
 
-/** Single scannable line for cards and bars. */
+// ── OFFER PRICING ───────────────────────────────────────────────
+export const OFFER_TOTAL_AMOUNT = '$500' as const;            // PriceBadge circle, BookingCard hero price
+export const OFFER_TOTAL_LABEL = 'Deposit Today' as const;    // Below price in PriceBadge + BookingCard
+export const OFFER_RETAIL_PRICE = '$3,500' as const;          // Struck-through comparison price
+export const OFFER_SAVE_PERCENT = 66 as const;                // Savings badge (number for {X}% interpolation)
+export const OFFER_MEMBER_RATE_COMPLETE = '$500 Deposit' as const; // MobileStickyCTA
+
+// ── OFFER DETAILS ───────────────────────────────────────────────
+export const OFFER_STAY_LABEL = '5 Days / 4 Nights' as const;
+export const OFFER_NIGHTS_COUNT = 4 as const;
+export const OFFER_ROOM_SHORT = 'Deluxe Room' as const;
+export const OFFER_HEADLINE_DESTINATION = 'Cancún · Tulum · Puerto Vallarta' as const;
+export const OFFER_HEADLINE_VACATION = 'All-Inclusive Mexico Vacation' as const;
+
+/** Single scannable line for cards and bars (unchanged hero deck line). */
 export const OFFER_DECK_ONE_LINER =
-  `${OFFER_HEADLINE_DESTINATION} · ${OFFER_HEADLINE_VACATION}` as const;
+  '5-Day Luxury All-Inclusive Retreat · Your Choice of Three Hilton Resorts' as const;
 
-export const RESORT_DISPLAY_NAME = 'Grand Sirenis Riviera Maya Resort & Spa' as const;
-export const CLUB_DISPLAY_NAME = 'Unlimited Leisure Club' as const;
+// ── SPLIT PAY LINES ─────────────────────────────────────────────
+export const OFFER_BALANCE_LINE =
+  'Pay $700 at the time of booking for all 5 days / 4 nights' as const;
+export const OFFER_TOTAL_COMPLETE = '$1,200 total' as const;  // Supporting context, never the hero
 
-/** Nights included (matches `OFFER_STAY_LABEL` 6-Days / 5-Nights). */
-export const OFFER_NIGHTS_COUNT = 5 as const;
+// ── RECURRING RIBBON ────────────────────────────────────────────
+export const RECURRING_RIBBON_LINE =
+  'ONLY $500 DEPOSIT · $700 AT BOOKING · $3,500 VALUE · 66% OFF' as const;
 
-/** Hero / booking card one-liner (two adults, suite type). */
-export const OFFER_ROOM_SHORT = 'Junior Suite Deluxe, 2 adults, all-inclusive' as const;
-
-export const FOOTER_PRICE_DISCLAIMER =
-  '*Price does not include taxes and fees which vary and are payable upon check-in.' as const;
-
+// ── CTA ─────────────────────────────────────────────────────────
+export const PRIMARY_CTA_LABEL = 'ACCEPT YOUR CERTIFICATE' as const;
+export const PRIMARY_CTA_LABEL_SHORT = 'Accept' as const;
 /** Placeholder order/checkout URL until the real flow ships (IANA example domain). */
 export const DUMMY_CTA_HREF = 'https://example.com/?vvip-order' as const;
 
+// ── PHONE ───────────────────────────────────────────────────────
+export const PHONE_USA_CAN = '800-YOUR-EPR' as const;
+export const PHONE_MEX = '+52 998 881 4771' as const;
+
+// ── VIDEO (kept as Phase 2 visual reference — do not disable) ───
 /** Video trigger label (NBSP so “Play” / “Video” never split across lines on narrow viewports). */
 export const PLAY_VIDEO_LABEL = 'Play\u00a0Video' as const;
+/** Hero lightbox promo MP4 (lives in `public/media`). Active: Hilton Cancún — "For the Stay". */
+export const RESORT_VIDEO_MP4_SRC = 'media/hilton-cancun-hero.mp4' as const;
 
-/** Local resort promo MP4 (`public/media`; sourced from Cloudflare Stream HLS master manifest). */
-export const RESORT_VIDEO_MP4_SRC = 'media/resort-video.mp4' as const;
+// ── FOOTER ──────────────────────────────────────────────────────
+export const FOOTER_PRICE_DISCLAIMER =
+  'Member rate represents approximately 66% savings off published resort rates. Published rate based on peak-season Deluxe Room rates at participating Hilton all-inclusive properties.' as const;
 
+// ── IMAGES (kept as Phase 2 visual reference — swap when PHH assets are ready) ─
 /** Amenities interior hero + Thank You receipt hero background (`public/images/`). */
 export const RESORT_HERO_BACKGROUND_IMAGE =
   'images/grand-sirenis-riviera-maya.jpg' as const;
-
 /** Accommodations interior hero (`public/images/`). */
 export const ACCOMMODATIONS_HERO_BACKGROUND_IMAGE =
   'images/juniorsuitedeluxesingle1593-jpg-b2a70f1f45abed688344f0350169.webp' as const;

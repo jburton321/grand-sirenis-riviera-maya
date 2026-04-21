@@ -2,6 +2,7 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from './Button';
 import { useRouter } from '../context/RouterContext';
+import { PRIMARY_CTA_LABEL_SHORT } from '../constants';
 
 const navLinks = [
   { label: 'Home', page: 'home' as const },
@@ -29,9 +30,9 @@ export function Header() {
             aria-label="Go to home"
           >
             <img
-              className="h-5 md:h-6 w-auto"
-              src="images/vacation-vip-full-color-horiz0.png"
-              alt="VacationVIP Logo"
+              className="h-14 md:h-20 w-auto"
+              src="images/PHH-LOGO.svg?v=2"
+              alt="PHH Collection"
             />
           </button>
 
@@ -55,7 +56,7 @@ export function Header() {
                 </li>
               ))}
             </ul>
-            <Button variant="small" asCta>reserve now</Button>
+            <Button variant="small" asCta>{PRIMARY_CTA_LABEL_SHORT}</Button>
           </nav>
 
           <button
@@ -85,7 +86,7 @@ export function Header() {
               ))}
             </ul>
             <div className="mt-4 px-2">
-              <Button variant="small" className="w-full min-h-touch" asCta>reserve now</Button>
+              <Button variant="small" className="w-full min-h-touch" asCta>{PRIMARY_CTA_LABEL_SHORT}</Button>
             </div>
           </nav>
         </div>

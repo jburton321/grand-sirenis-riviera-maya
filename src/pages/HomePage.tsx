@@ -7,8 +7,6 @@ import {
   Amenities,
   AmenitiesGrid,
   Testimonials,
-  MapSection,
-  Button,
 } from '../components';
 import { HERO_GALLERY_FILENAMES } from '../content/heroGalleryFilenames';
 
@@ -32,15 +30,6 @@ function seededShuffle<T>(items: readonly T[], seed: number): T[] {
 
 const galleryImages = seededShuffle([...HERO_GALLERY_FILENAMES], 0x7f4ac0de).map(heroGallery);
 
-const locationGalleryImages = [
-  { src: 'images/playadelcarmenday.png', label: 'Playa del Carmen' },
-  { src: 'images/downtown.png', label: 'Downtown Playa del Carmen' },
-  { src: 'images/chichenitza.png', label: 'Chichen Itza' },
-  { src: 'images/xcaret.png', label: 'Xcaret Park' },
-  { src: 'images/tulumruins.png', label: 'Tulum Ruins' },
-  { src: 'images/cenotes.png', label: 'Cenotes' },
-];
-
 export function HomePage() {
   return (
     <>
@@ -57,7 +46,7 @@ export function HomePage() {
         <Amenities />
         <div className="relative hidden sm:block">
           <img
-            className="w-full h-auto"
+            className="w-full h-auto bg-white"
             src="images/banner.png"
             alt="Save Now Travel Later banner"
           />
@@ -72,22 +61,14 @@ export function HomePage() {
       <section id="guest-reviews">
         <Testimonials />
       </section>
-      <section id="reserve-now">
-        <MapSection>
-          <Gallery images={locationGalleryImages} className="bg-transparent" />
-        </MapSection>
-      </section>
-      <div style={{ backgroundColor: '#F9F5FF' }} className="px-4 pb-0 pt-12 text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 max-w-5xl mx-auto leading-tight mb-8">
-          This is your time, your club, your moment to belong.
+      <div style={{ backgroundColor: '#FFFFFF' }} className="px-4 pt-[15px] pb-[15px] text-center align-middle">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 max-w-5xl mx-auto leading-tight mb-[70px] align-middle">
+          Accept Today. Travel Later.
         </h2>
-        <Button className="w-full max-w-2xl mx-auto block" asCta>
-          RESERVE NOW
-        </Button>
       </div>
-      <div style={{ backgroundColor: '#F9F5FF' }}>
+      <div style={{ backgroundColor: '#FFFFFF' }}>
         <img
-          className="block w-full h-auto"
+          className="block w-full h-auto -mt-[35px] -mb-[35px]"
           src="images/home-bttm.png"
           alt="Beach scene"
         />

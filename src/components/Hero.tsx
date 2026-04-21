@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Play } from 'lucide-react';
-import { PLAY_VIDEO_LABEL, RESORT_VIDEO_MP4_SRC } from '../constants';
+import { PLAY_VIDEO_LABEL, PRIMARY_CTA_LABEL, RESORT_VIDEO_MP4_SRC } from '../constants';
 import { Button } from './Button';
 import { BookingCard } from './BookingCard';
 import { Lightbox } from './Lightbox';
@@ -58,7 +58,7 @@ export function Hero() {
                   </div>
                   <div className="relative z-10 mt-4 mb-8 w-full max-w-none lg:hidden md:mt-5 md:mb-10">
                     <Button className="w-full justify-center" asCta>
-                      RESERVE NOW
+                      {PRIMARY_CTA_LABEL}
                     </Button>
                   </div>
                 </div>
