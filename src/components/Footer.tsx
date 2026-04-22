@@ -6,7 +6,7 @@ interface FooterProps {
 
 export function Footer({ fullWidth = false }: FooterProps) {
   return (
-    <footer className="bg-plum py-fluid-6 px-4 md:px-6 w-full">
+    <footer className="bg-plum pt-10 pb-fluid-6 sm:pt-12 md:pt-fluid-6 px-4 md:px-6 w-full">
       <div className={`${fullWidth ? '' : 'max-w-content mx-auto'} text-center`}>
         <img
           src="images/shared/PHH-LOGO-white.svg?v=2"
