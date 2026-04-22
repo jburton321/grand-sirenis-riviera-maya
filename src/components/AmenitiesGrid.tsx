@@ -51,7 +51,7 @@ function AccordionPanel({
         transition-[flex-grow,height] duration-500 ease-[cubic-bezier(0.34,1.3,0.64,1)]
         focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset
         md:h-full md:flex-shrink md:basis-0
-        ${isActive ? 'h-56 md:flex-grow-[3.5]' : 'h-20 md:flex-grow'}
+        ${isActive ? 'h-80 md:flex-grow-[3.5]' : 'h-24 md:flex-grow'}
       `}
     >
       <div className="absolute inset-0 overflow-hidden">
