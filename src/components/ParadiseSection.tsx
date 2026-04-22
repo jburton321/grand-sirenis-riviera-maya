@@ -15,7 +15,7 @@ export function ParadiseSection() {
   return (
     <BackgroundSection
       backgroundImage="images/home/section-wrapper0.png"
-      backgroundImageMobile="images/home/section-wrapper-MOBILE3.png"
+      backgroundImageMobile="images/home/section-wrapper-MOBILE4.png"
       className="pt-10 sm:pt-12 md:pt-16"
     >
       <div className="max-w-content mx-auto px-4 sm:px-6 text-center">
