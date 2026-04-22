@@ -35,7 +35,7 @@ export function BackgroundSection({
             className="pointer-events-none absolute inset-0 z-0 bg-no-repeat lg:hidden"
             style={{
               backgroundImage: `url(${backgroundImageMobile})`,
-              backgroundSize: '100% auto',
+              backgroundSize: 'auto',
               backgroundPosition: 'top center',
             }}
             aria-hidden
