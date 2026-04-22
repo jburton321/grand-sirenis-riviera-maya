@@ -22,7 +22,7 @@ export function BackgroundSection({
 
   return (
     <section
-      className={`relative bg-cover bg-center ${className}`}
+      className={`relative bg-plum bg-cover bg-center lg:bg-transparent ${className}`}
       style={
         layeredBackgrounds
           ? undefined
@@ -32,8 +32,12 @@ export function BackgroundSection({
       {layeredBackgrounds && (
         <>
           <div
-            className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center lg:hidden"
-            style={{ backgroundImage: `url(${backgroundImageMobile})` }}
+            className="pointer-events-none absolute inset-0 z-0 bg-no-repeat lg:hidden"
+            style={{
+              backgroundImage: `url(${backgroundImageMobile})`,
+              backgroundSize: '100% auto',
+              backgroundPosition: 'top center',
+            }}
             aria-hidden
           />
           <div
