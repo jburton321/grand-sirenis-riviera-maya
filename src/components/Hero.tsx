@@ -11,10 +11,14 @@ export function Hero() {
   return (
     <>
       <section className="relative flex min-h-[500px] flex-col overflow-hidden bg-plum md:min-h-[600px] lg:min-h-[800px] lg:overflow-visible">
-        {/* Mobile-only (<md) hero background. */}
+        {/* Mobile-only (<md) hero background. Fill width at natural aspect, no crop/stretch. */}
         <div
-          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center md:hidden"
-          style={{ backgroundImage: 'url(images/home/HERO-BCK-MOBILE.png)' }}
+          className="pointer-events-none absolute inset-0 z-0 bg-no-repeat md:hidden"
+          style={{
+            backgroundImage: 'url(images/home/HERO-BCK-MOBILE.png)',
+            backgroundSize: '100% auto',
+            backgroundPosition: 'top center',
+          }}
           aria-hidden
         />
         {/* Tablet + desktop (md+) hero background. */}
