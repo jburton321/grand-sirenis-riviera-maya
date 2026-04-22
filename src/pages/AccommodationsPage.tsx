@@ -263,7 +263,7 @@ export function AccommodationsPage() {
       <div style={{ backgroundColor: '#ffffff' }}>
         <img
           className="w-full h-auto"
-          src="images/frame-19840779511.png"
+          src="images/shared/interior-divider.png"
           alt="Decorative divider"
           style={{ backgroundColor: '#F9F8F4' }}
         />

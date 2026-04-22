@@ -33,7 +33,7 @@ const HOTELS: HotelOption[] = [
     subtitle: "Cancún Hotel Zone · 600 ft of Caribbean beachfront",
     description:
       "Endless adventures and thoughtful amenities meet at this oceanfront all-inclusive resort in the heart of Cancún's Hotel Zone. Guests enjoy 540 ocean-view rooms and suites, twelve restaurants and bars, family and adults-only pools with a waterslide, direct beach access, and a signature spa with a hydrotherapy circuit — all just 10 miles from Cancún International Airport.",
-    src: 'images/hilton-cancun.webp',
+    src: 'images/accommodations/hilton-cancun-mar-caribe-01.png',
     alt: 'Hilton Cancun Mar Caribe — beachfront all-inclusive resort',
     videoSrc: 'media/hilton-cancun-hero.mp4',
   },
@@ -43,7 +43,7 @@ const HOTELS: HotelOption[] = [
     subtitle: 'Riviera Maya · Secluded Caribbean bay',
     description:
       "Tucked in a secluded bay overlooking white sands and turquoise water, this is Hilton's largest resort in the Caribbean and Latin America. Spread across 735 rooms and suites in three-story villa-style buildings, discover eight resort pools, 13 restaurants and bars, a luxury spa, and a dedicated Family Zone with a water park — all inspired by the allure of Mayan civilization and modern Mexican culture.",
-    src: 'images/hilton-tulum.webp',
+    src: 'images/accommodations/hilton-tulum-riviera-maya-01.png',
     alt: 'Hilton Tulum Riviera Maya — Caribbean all-inclusive resort',
     videoSrc: 'media/telum.webm',
   },
@@ -53,7 +53,7 @@ const HOTELS: HotelOption[] = [
     subtitle: 'Puerto Vallarta · Bahía de Banderas Pacific coast',
     description:
       "A spectacularly oceanfront all-inclusive escape between the beaches of Bahía de Banderas and downtown Puerto Vallarta. Every one of the 444 rooms and suites faces the Pacific with a private balcony, complemented by two sparkling infinity pools, twelve restaurants, bars and lounges, a full-service Eforea Spa, nightly entertainment, and all-inclusive dining, cocktails, and pool and beach service — just nine miles from Puerto Vallarta International Airport.",
-    src: 'images/hilton-vallarta.webp',
+    src: 'images/accommodations/hilton-vallarta-riviera-01.png',
     alt: 'Hilton Vallarta Riviera — Pacific-coast all-inclusive resort',
     videoSrc: 'media/Vallerta.webm',
   },

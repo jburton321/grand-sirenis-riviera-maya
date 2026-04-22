@@ -59,24 +59,24 @@ export const AMENITIES_HOME_GRID_ITEMS = [
       'Full-service spas with signature treatments and hydrotherapy.',
   },
   {
-    src: 'images/pool.webp',
+    src: 'images/home/pool.webp',
     label: 'Infinity Pools',
     description:
       'Outdoor and infinity pools at every resort.',
   },
   {
-    src: 'images/fitnesscenter.jpg',
+    src: 'images/home/fitnesscenter.jpg',
     label: 'Premium Cocktails',
     description: 'Top-shelf spirits and hand-crafted cocktails throughout your stay.',
   },
   {
-    src: 'images/bars.webp',
+    src: 'images/home/bars.webp',
     label: 'Onsite Dining',
     description:
       'Multiple à la carte restaurants and casual dining venues.',
   },
   {
-    src: 'images/buffet.webp',
+    src: 'images/home/buffet.webp',
     label: 'Full Resort Amenities',
     description:
       'Wi-Fi, entertainment, in-room dining, robes, and more.',

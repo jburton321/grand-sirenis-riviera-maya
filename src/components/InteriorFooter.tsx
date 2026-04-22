@@ -4,13 +4,13 @@ export function InteriorFooter() {
       <div style={{ backgroundColor: '#F9F8F4' }}>
         <img
           className="w-full h-auto bg-white"
-          src="images/frame-19840779511.png"
+          src="images/shared/interior-divider.png"
           alt="Decorative divider"
         />
       </div>
 
       <section className="flex h-[100px] items-center justify-center bg-plum">
-        <img src="/images/tag.png" alt="Save Now Travel Later" className="w-[40%] max-w-md" />
+        <img src="/images/shared/tag.png" alt="Save Now Travel Later" className="w-[40%] max-w-md" />
       </section>
     </>
   );

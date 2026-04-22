@@ -12,19 +12,19 @@ import { interiorStripeClass } from '../utils/interiorStripes';
  * Pacific destination photos (indices 3–4) reuse existing Caribbean imagery as Phase 2 placeholders.
  */
 const THINGS_IMAGES = [
-  'images/chichenitza.png',
-  'images/tulumruins.png',
-  'images/xcaret.png',
-  'images/playadelcarmenday.png',
-  'images/things-to-do-photo-10.jpg',
-  'images/cenotes.png',
+  'images/things-to-do/chichenitza.png',
+  'images/things-to-do/tulumruins.png',
+  'images/things-to-do/xcaret.png',
+  'images/things-to-do/playadelcarmenday.png',
+  'images/things-to-do/things-to-do-photo-10.jpg',
+  'images/things-to-do/cenotes.png',
 ] as const;
 
 export function ThingsToDoPage() {
   return (
     <>
       <InteriorHero
-        backgroundImage="images/things-to-do-photo-10.jpg"
+        backgroundImage="images/things-to-do/things-to-do-photo-10.jpg"
         footer={
           <>
             <AccommodationsPriceBar />
@@ -46,7 +46,7 @@ export function ThingsToDoPage() {
           </div>
           <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
             <img
-              src="images/things-to-do-photo-10.jpg"
+              src="images/things-to-do/things-to-do-photo-10.jpg"
               alt={THINGS_TO_DO_TITLE}
               className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
             />

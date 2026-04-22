@@ -1,8 +1,16 @@
 /**
- * Deletes raster/SVG assets under public/ that are not referenced by the app.
- * All static images live under public/images/ (see index.html, Vite public root).
- * Usage: node scripts/purge-unused-public-images.mjs        # dry-run (list only)
- *        node scripts/purge-unused-public-images.mjs --apply
+ * Deletes raster/SVG assets under public/images/ that are not referenced by the app.
+ *
+ * Strategy: scan every text source (src/**, index.html, scripts/**, public/*.json/.webmanifest)
+ * for any substring matching `images/<path>.<ext>`. Use a single regex that:
+ *   - Tolerates an optional leading slash (`/images/...`)
+ *   - Tolerates an optional `?query` cache-buster (e.g. `PHH-LOGO.svg?v=2`)
+ *   - Handles subfolder paths (`images/home/foo.png`, `images/sliding-gallery-hero/bar.png`)
+ *   - Covers png, jpg/jpeg, webp, gif, svg, avif, ico
+ *
+ * Usage:
+ *   node scripts/purge-unused-public-images.mjs            # dry-run (list only)
+ *   node scripts/purge-unused-public-images.mjs --apply    # actually delete
  */
 import fs from 'fs';
 import path from 'path';
@@ -11,151 +19,89 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const publicDir = path.join(root, 'public');
+const imagesDir = path.join(publicDir, 'images');
 const apply = process.argv.includes('--apply');
 
-const IMAGE_EXT = /\.(?:png|jpe?g|webp|gif|svg|avif|ico)$/i;
+const IMAGE_EXT_RE = /\.(?:png|jpe?g|webp|gif|svg|avif|ico)$/i;
+const IMAGE_EXT_INLINE = 'png|jpe?g|webp|gif|svg|avif|ico';
 
 const used = new Set();
 
 function add(rel) {
   if (!rel || typeof rel !== 'string') return;
-  let n = rel.replace(/\\/g, '/').replace(/^\/+/, '');
-  if (!IMAGE_EXT.test(n)) return;
+  const n = rel
+    .replace(/\\/g, '/')
+    .replace(/^\/+/, '')
+    .replace(/\?.*$/, '') // strip cache-buster query string
+    .replace(/#.*$/, ''); // strip hash
+  if (!IMAGE_EXT_RE.test(n)) return;
+  if (!n.startsWith('images/')) return;
   used.add(n);
 }
 
-// Meta images (index.html → public/images/)
-for (const f of [
-  'images/favicon.ico',
-  'images/favicon-96x96.png',
-  'images/apple-touch-icon.png',
-]) {
-  add(f);
-}
+// 1. Catch anything that looks like images/foo.ext inside any text file
+const GLOBAL_IMAGE_REF_RE = new RegExp(
+  String.raw`(?<![A-Za-z0-9_./-])` +
+    String.raw`(?:\.?/)?` +
+    String.raw`(images\/[A-Za-z0-9_./\- ]+?\.(?:${IMAGE_EXT_INLINE}))` +
+    String.raw`(?:\?[^\s'"\x60)]*)?`,
+  'gi',
+);
 
-// site.webmanifest icons
-const manifestPath = path.join(publicDir, 'site.webmanifest');
-if (fs.existsSync(manifestPath)) {
-  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-  for (const icon of manifest.icons ?? []) {
-    const s = icon.src?.replace(/^\.\//, '') ?? '';
-    add(s);
-  }
-}
-
-// Auto-synced hero gallery (basenames only in TS)
-const heroPath = path.join(root, 'src/content/heroGalleryFilenames.ts');
-if (fs.existsSync(heroPath)) {
-  const text = fs.readFileSync(heroPath, 'utf8');
-  for (const m of text.matchAll(/'([^']+\.webp)'/g)) {
-    add(`images/${m[1]}`);
-  }
-}
-
-const guestPath = path.join(root, 'src/content/guestReviewGalleryFilenames.ts');
-if (fs.existsSync(guestPath)) {
-  const text = fs.readFileSync(guestPath, 'utf8');
-  for (const m of text.matchAll(/'(images\/juniorsuitedeluxesingle[^']+)'/g)) {
-    add(m[1]);
-  }
-}
-
-// Thank-you icons (some use template literals)
-for (const f of [
-  'warning0.svg',
-  'luggage0.svg',
-  'assignment-turned-in2.svg',
-  'assignment-turned-in3.svg',
-  'king-bed0.svg',
-  'bedtime0.svg',
-  'group1.svg',
-  'calendar-month0.svg',
-  'calendar-month1.svg',
-  'credit-score0.svg',
-  'concierge0.svg',
-]) {
-  add(`images/${f}`);
-}
-
-// constants.ts image paths (skip mp4)
-const constantsPath = path.join(root, 'src/constants.ts');
-if (fs.existsSync(constantsPath)) {
-  const text = fs.readFileSync(constantsPath, 'utf8');
-  for (const m of text.matchAll(/=\s*'([^']+\.(?:jpe?g|webp|png|gif|svg))'\s+as\s+const/g)) {
-    add(m[1]);
-  }
-}
-
-// String literals: paths under public/images/
-const pathStringRe =
-  /['"`](\/?images\/[^'"`\s>]+\.(?:png|jpe?g|webp|gif|svg|avif|ico))['"`]/gi;
-
-function scanTextFile(filePath) {
+function scanFile(filePath) {
   const text = fs.readFileSync(filePath, 'utf8');
+  GLOBAL_IMAGE_REF_RE.lastIndex = 0;
   let m;
-  pathStringRe.lastIndex = 0;
-  while ((m = pathStringRe.exec(text)) !== null) {
+  while ((m = GLOBAL_IMAGE_REF_RE.exec(text)) !== null) {
     add(m[1]);
   }
 }
 
-function walkSrc(dir) {
+const SOURCE_FILE_RE = /\.(?:tsx?|jsx?|css|scss|html|json|webmanifest|svg|md|mjs|cjs)$/i;
+
+function walk(dir, opts = {}) {
+  const { skip = new Set() } = opts;
   for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (skip.has(ent.name)) continue;
     const full = path.join(dir, ent.name);
-    if (ent.isDirectory()) walkSrc(full);
-    else if (/\.(tsx?|jsx?|css)$/.test(ent.name)) scanTextFile(full);
+    if (ent.isDirectory()) walk(full, opts);
+    else if (SOURCE_FILE_RE.test(ent.name)) scanFile(full);
   }
 }
 
-walkSrc(path.join(root, 'src'));
-
-const indexHtml = path.join(root, 'index.html');
-if (fs.existsSync(indexHtml)) {
-  const html = fs.readFileSync(indexHtml, 'utf8');
-  for (const m of html.matchAll(/href="\.\/(images\/[^"]+\.(?:ico|png))"/gi)) add(m[1]);
-  for (const m of html.matchAll(
-    /content="__SITE_BASE__\/(images\/[^"]+\.(?:png|jpe?g|webp|gif|svg))"/gi
-  )) {
-    add(m[1]);
-  }
+// Source tree
+walk(path.join(root, 'src'));
+// Build / meta
+for (const rel of ['index.html']) {
+  const p = path.join(root, rel);
+  if (fs.existsSync(p)) scanFile(p);
+}
+// Scripts (covers any codegen that references image paths)
+if (fs.existsSync(path.join(root, 'scripts'))) {
+  walk(path.join(root, 'scripts'));
+}
+// Public config files (site.webmanifest, etc.) — do NOT walk into images/
+for (const ent of fs.readdirSync(publicDir, { withFileTypes: true })) {
+  if (ent.isDirectory()) continue;
+  const full = path.join(publicDir, ent.name);
+  if (SOURCE_FILE_RE.test(ent.name)) scanFile(full);
 }
 
-// url(images/...) in Hero inline styles
-for (const rel of ['src/components/Hero.tsx']) {
-  const fp = path.join(root, rel);
-  if (fs.existsSync(fp)) {
-    const text = fs.readFileSync(fp, 'utf8');
-    for (const m of text.matchAll(
-      /url\((['"]?)(images\/[^)'"]+\.(?:png|jpe?g|webp))\1\)/gi
-    )) {
-      add(m[2]);
-    }
-  }
-}
-
-// MapSection: homePublicImage('File.jpg') → images/File.jpg
-const mapPath = path.join(root, 'src/components/MapSection.tsx');
-if (fs.existsSync(mapPath)) {
-  const text = fs.readFileSync(mapPath, 'utf8');
-  for (const m of text.matchAll(/homePublicImage\('([^']+)'\)/g)) {
-    add(`images/${m[1]}`);
-  }
-}
-
+// 2. Walk images/ on disk and diff against `used`
 function listImageFiles(dir, acc = []) {
   for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, ent.name);
     if (ent.isDirectory()) listImageFiles(full, acc);
-    else if (IMAGE_EXT.test(ent.name)) acc.push(full);
+    else if (IMAGE_EXT_RE.test(ent.name)) acc.push(full);
   }
   return acc;
 }
 
-const allFiles = listImageFiles(publicDir);
+const allFiles = listImageFiles(imagesDir);
 const unused = allFiles
   .map((abs) => ({
     abs,
-    rel: path.relative(publicDir, abs).replace(/\\/g, '/'),
+    rel: `images/${path.relative(imagesDir, abs).replace(/\\/g, '/')}`,
   }))
   .filter(({ rel }) => !used.has(rel));
 
@@ -181,7 +127,7 @@ function removeEmptyDirs(dir) {
     const full = path.join(dir, ent.name);
     if (ent.isDirectory()) removeEmptyDirs(full);
   }
-  if (dir === publicDir) return;
+  if (dir === imagesDir) return;
   try {
     if (fs.readdirSync(dir).length === 0) {
       fs.rmdirSync(dir);
@@ -193,5 +139,5 @@ function removeEmptyDirs(dir) {
   }
 }
 
-removeEmptyDirs(publicDir);
+removeEmptyDirs(imagesDir);
 console.log('\nDone.');

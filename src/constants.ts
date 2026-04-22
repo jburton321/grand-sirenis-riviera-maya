@@ -57,7 +57,7 @@ export const FOOTER_PRICE_DISCLAIMER =
 // ── IMAGES (kept as Phase 2 visual reference — swap when PHH assets are ready) ─
 /** Thank You receipt hero background (`public/images/`). */
 export const RESORT_HERO_BACKGROUND_IMAGE =
-  'images/grand-sirenis-riviera-maya.jpg' as const;
+  'images/thank-you/receipt-hero.jpg' as const;
 /** Amenities interior hero (`public/images/`). */
 export const AMENITIES_HERO_BACKGROUND_IMAGE =
   'images/amenities/amenities-hero-cancun-aerial.png' as const;

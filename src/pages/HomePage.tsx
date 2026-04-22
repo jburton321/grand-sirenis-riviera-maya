@@ -11,10 +11,9 @@ import {
 } from '../components';
 import { HERO_GALLERY_FILENAMES } from '../content/heroGalleryFilenames';
 
-/** Under-hero strip: paths match `public/images/` (list synced by npm script).
- *  Names may include `/` for subfolders, so encode each segment independently. */
-const heroGallery = (name: string) =>
-  `images/${name.split('/').map(encodeURIComponent).join('/')}`;
+/** Under-hero strip: encode each path segment (filenames may contain spaces). */
+const encodeImagePath = (src: string) =>
+  src.split('/').map(encodeURIComponent).join('/');
 
 /** Stable “random” order: same shuffle every build (change seed to reshuffle). */
 function seededShuffle<T>(items: readonly T[], seed: number): T[] {
@@ -31,7 +30,7 @@ function seededShuffle<T>(items: readonly T[], seed: number): T[] {
   return arr;
 }
 
-const galleryImages = seededShuffle([...HERO_GALLERY_FILENAMES], 0x7f4ac0de).map(heroGallery);
+const galleryImages = seededShuffle([...HERO_GALLERY_FILENAMES], 0x7f4ac0de).map(encodeImagePath);
 
 export function HomePage() {
   return (
@@ -51,12 +50,12 @@ export function HomePage() {
         <div className="relative hidden sm:block">
           <img
             className="w-full h-auto bg-white"
-            src="images/banner.png"
+            src="images/home/banner.png"
             alt="Save Now Travel Later banner"
           />
           <img
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -mt-[44px] z-50 w-[40%] max-w-md"
-            src="images/tag.png"
+            src="images/shared/tag.png"
             alt="Special offer tag"
           />
         </div>
@@ -73,7 +72,7 @@ export function HomePage() {
       <div style={{ backgroundColor: '#FFFFFF' }}>
         <img
           className="block w-full h-auto -mt-[35px] -mb-[35px]"
-          src="images/home-bttm.png"
+          src="images/home/home-bttm.png"
           alt="Beach scene"
         />
       </div>

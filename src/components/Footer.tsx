@@ -9,7 +9,7 @@ export function Footer({ fullWidth = false }: FooterProps) {
     <footer className="bg-plum py-fluid-6 px-4 md:px-6 w-full">
       <div className={`${fullWidth ? '' : 'max-w-content mx-auto'} text-center`}>
         <img
-          src="images/PHH-LOGO-white.svg?v=2"
+          src="images/shared/PHH-LOGO-white.svg?v=2"
           alt="PHH Collection"
           className="h-12 md:h-16 w-auto mx-auto mb-4 md:mb-5 transition-transform duration-300 hover:scale-105"
         />
@@ -26,7 +26,7 @@ export function Footer({ fullWidth = false }: FooterProps) {
 
         <div className="bg-white rounded-lg inline-flex items-center gap-2 px-2 md:px-3 py-1 mb-4 md:mb-5 transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer min-h-touch">
           <img
-            src="images/group6.svg"
+            src="images/shared/group6.svg"
             alt="BBB Accredited"
             className="h-7 md:h-9 w-auto"
           />

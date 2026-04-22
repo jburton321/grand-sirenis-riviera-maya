@@ -14,7 +14,7 @@ export function Hero() {
         {/* Desktop: full-bleed hero */}
         <div
           className="pointer-events-none absolute inset-0 z-0 hidden bg-cover bg-center lg:block"
-          style={{ backgroundImage: 'url(images/HERO-BCK-Desktop.png)' }}
+          style={{ backgroundImage: 'url(images/home/HERO-BCK-Desktop.png)' }}
           aria-hidden
         />
 
@@ -25,19 +25,19 @@ export function Hero() {
               <div className="relative order-1 -mt-8 flex min-h-[500px] flex-col items-center overflow-hidden md:-mt-12 md:min-h-[600px] lg:mt-0 lg:min-h-0 lg:overflow-visible">
                 <div
                   className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center md:hidden"
-                  style={{ backgroundImage: 'url(images/HERO-BCK-MOBILE.png)' }}
+                  style={{ backgroundImage: 'url(images/home/HERO-BCK-MOBILE.png)' }}
                   aria-hidden
                 />
                 <div
                   className="pointer-events-none absolute inset-0 z-0 hidden bg-cover bg-center md:block lg:hidden"
-                  style={{ backgroundImage: 'url(images/HERO-BCK-TAB.png)' }}
+                  style={{ backgroundImage: 'url(images/home/HERO-BCK-TAB.png)' }}
                   aria-hidden
                 />
                 <div className="relative z-10 flex w-full flex-col items-center px-4 pt-8 md:px-6 md:pt-12 lg:px-0 lg:pt-0">
                   <div className="max-md:-mx-4 max-md:w-[calc(100%+2rem)] max-md:shrink-0 max-md:px-4 md:contents">
                     <img
                       className="hero-sticker-element"
-                      src="images/mexico-10.png"
+                      src="images/home/mexico-10.png"
                       alt="Mexico destination"
                       loading="eager"
                     />

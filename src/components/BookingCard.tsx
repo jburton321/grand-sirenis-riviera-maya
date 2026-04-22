@@ -53,7 +53,7 @@ export function BookingCard({
       <div className="flex flex-col gap-3 p-4 pt-3 md:gap-4 md:p-6 md:pt-4">
         <img
           className="mx-auto block h-auto w-full max-w-[220px] object-contain object-center transition-transform duration-300 hover:scale-[1.02]"
-          src="images/WW.svg"
+          src="images/shared/WW.svg"
           alt={RESORT_DISPLAY_NAME}
           width={500}
           height={180}
@@ -123,7 +123,7 @@ export function BookingCard({
       </div>
 
       <div className="flex items-center justify-center py-4 md:py-5 px-4">
-        <img src="images/trust.png" alt="Secure Transaction Badge" className="h-auto max-w-[200px] object-contain transition-transform duration-300 hover:scale-110" />
+        <img src="images/shared/trust.png" alt="Secure Transaction Badge" className="h-auto max-w-[200px] object-contain transition-transform duration-300 hover:scale-110" />
       </div>
 
       <div className="flex items-center justify-between gap-2 bg-plum px-3 py-2 md:px-4">

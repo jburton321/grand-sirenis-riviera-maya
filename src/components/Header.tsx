@@ -31,7 +31,7 @@ export function Header() {
           >
             <img
               className="h-14 md:h-20 w-auto"
-              src="images/PHH-LOGO.svg?v=2"
+              src="images/shared/PHH-LOGO.svg?v=2"
               alt="PHH Collection"
             />
           </button>

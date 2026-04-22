@@ -4,8 +4,6 @@ import type { ThankYouCopy, ThankYouVariant } from '../../content/thankYouCopy';
 import { THANK_YOU_DATED, getThankYouCopy, thankYouPackagePriceLine } from '../../content/thankYouCopy';
 import { ThankYouActionBanner } from './ThankYouActionBanner';
 
-const TY = 'images';
-
 function Row({
   icon,
   label,
@@ -17,7 +15,7 @@ function Row({
 }) {
   return (
     <div className="flex flex-row items-start gap-2 self-stretch sm:items-center">
-      <img className="mt-0.5 h-5 w-5 shrink-0 sm:mt-0" src={`${TY}/${icon}`} alt="" />
+      <img className="mt-0.5 h-5 w-5 shrink-0 sm:mt-0" src={icon} alt="" />
       <span className="shrink-0 font-sans text-sm font-semibold leading-normal text-[#2a323b]">
         {label}
       </span>
@@ -36,7 +34,7 @@ function SummarySection({ copy }: { copy: ThankYouCopy }) {
       <div className="flex flex-col gap-6 bg-[#f9f9f9] p-6">
         <div className="flex flex-col gap-2">
           <div className="flex flex-row items-center gap-2">
-            <img className="h-6 w-6 shrink-0" src={`${TY}/luggage0.svg`} alt="" />
+            <img className="h-6 w-6 shrink-0" src="images/thank-you/luggage0.svg" alt="" />
             <span className="font-sans text-lg font-bold leading-tight text-[#2a323b]">
               Vacation package
             </span>
@@ -46,25 +44,25 @@ function SummarySection({ copy }: { copy: ThankYouCopy }) {
           </p>
         </div>
         <div className="flex flex-col gap-1.5">
-          <Row icon="assignment-turned-in3.svg" label="Receipt #:">
+          <Row icon="images/thank-you/assignment-turned-in3.svg" label="Receipt #:">
             {copy.receiptNo}
           </Row>
-          <Row icon="king-bed0.svg" label="Unit Type:">
+          <Row icon="images/thank-you/king-bed0.svg" label="Unit Type:">
             {copy.unitType}
           </Row>
-          <Row icon="bedtime0.svg" label="Number of Nights:">
+          <Row icon="images/thank-you/bedtime0.svg" label="Number of Nights:">
             {copy.nightsDisplay}
           </Row>
-          <Row icon="group1.svg" label="Guests:">
+          <Row icon="images/thank-you/group1.svg" label="Guests:">
             {copy.guests}
           </Row>
-          <Row icon="calendar-month0.svg" label="Preferred Check-In:">
+          <Row icon="images/thank-you/calendar-month0.svg" label="Preferred Check-In:">
             {copy.preferredCheckIn}
           </Row>
-          <Row icon="calendar-month1.svg" label="Preferred Check-Out:">
+          <Row icon="images/thank-you/calendar-month1.svg" label="Preferred Check-Out:">
             {copy.preferredCheckOut}
           </Row>
-          <Row icon="credit-score0.svg" label="Package Price:">
+          <Row icon="images/thank-you/credit-score0.svg" label="Package Price:">
             {pkgPrice}
           </Row>
         </div>
@@ -83,19 +81,19 @@ function VacationDetailsSection({ copy }: { copy: ThankYouCopy }) {
           {copy.vacationDetailsTitle}
         </h3>
         <div className="flex flex-col gap-1.5">
-          <Row icon="concierge0.svg" label="Resort:">
+          <Row icon="images/thank-you/concierge0.svg" label="Resort:">
             {copy.resortLine}
           </Row>
-          <Row icon="assignment-turned-in2.svg" label="Location:">
+          <Row icon="images/thank-you/assignment-turned-in2.svg" label="Location:">
             {copy.locationLine}
           </Row>
-          <Row icon="king-bed0.svg" label="Unit Type:">
+          <Row icon="images/thank-you/king-bed0.svg" label="Unit Type:">
             {copy.unitType}
           </Row>
-          <Row icon="bedtime0.svg" label="Number of Nights:">
+          <Row icon="images/thank-you/bedtime0.svg" label="Number of Nights:">
             {copy.nightsDisplay}
           </Row>
-          <Row icon="group1.svg" label="Guests:">
+          <Row icon="images/thank-you/group1.svg" label="Guests:">
             {copy.guests}
           </Row>
         </div>

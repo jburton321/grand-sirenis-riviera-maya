@@ -124,7 +124,7 @@ export function AmenitiesGrid() {
       <div className="mx-auto max-w-content px-4 text-center md:px-6 lg:px-10">
         <img
           className="mx-auto mb-6 block h-auto w-full max-w-[min(100%,9rem)] object-contain object-center transition-transform duration-300 hover:scale-[1.02] sm:mb-8 sm:max-w-[min(100%,10.5rem)] md:max-w-[min(100%,12rem)] lg:max-w-[min(100%,14rem)]"
-          src="images/WW.svg"
+          src="images/shared/WW.svg"
           alt={RESORT_DISPLAY_NAME}
           width={500}
           height={180}

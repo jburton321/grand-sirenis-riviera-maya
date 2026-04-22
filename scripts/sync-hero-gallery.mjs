@@ -15,7 +15,7 @@ const dir = path.join(root, 'public', 'images', sub);
 const outFile = path.join(root, 'src', 'content', 'heroGalleryFilenames.ts');
 
 const HERO_GALLERY_SEED = 0xC0FFEE42;
-const HERO_GALLERY_COUNT = 16;
+const HERO_GALLERY_COUNT = 18;
 const IMAGE_EXTS = new Set(['.webp', '.png', '.jpg', '.jpeg']);
 
 if (!fs.existsSync(dir)) {
@@ -58,7 +58,7 @@ const body = `/**
  * Source: public/images/${sub}/ (random ${HERO_GALLERY_COUNT}, seeded for stable builds)
  */
 export const HERO_GALLERY_FILENAMES = [
-${picked.map((f) => `  '${escape(`${sub}/${f}`)}',`).join('\n')}
+${picked.map((f) => `  '${escape(`images/${sub}/${f}`)}',`).join('\n')}
 ] as const;
 `;
 
