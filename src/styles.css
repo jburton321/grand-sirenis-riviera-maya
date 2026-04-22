@@ -49,11 +49,6 @@
     display: block;
   }
 
-  img {
-    aspect-ratio: attr(width) / attr(height);
-    object-fit: cover;
-  }
-
   input,
   textarea,
   select {
