@@ -3,29 +3,29 @@
  * PHH Collection — Phase 1 copy swap.
  */
 export const FEATURED_AMENITY_LINES = [
-  'Premium gourmet à la carte dining',
-  'Top-shelf spirits and cocktails',
-  '24-hour in-room dining',
+  'Gourmet à la carte',
+  'Top-shelf cocktails',
+  '24-hour room service',
   'Private beach access',
-  'Outdoor and infinity pools',
+  'Outdoor infinity pools',
   'Full-service spa',
-  'State-of-the-art fitness center',
+  'Fitness center',
   'Nightly entertainment',
-  'Complimentary high-speed Wi-Fi',
-  'Bathrobes, slippers, and in-room safe',
+  'High-speed Wi-Fi',
+  'Bathrobes & room safe',
 ] as const;
 
 export const NEARBY_ATTRACTION_LINES = [
-  'Chichén Itzá — New Wonder of the World',
-  'Tulum Ruins and Caribbean cliffside views',
-  'Sacred cenote swims',
-  'Xcaret Eco-Archaeological Park',
-  '5th Avenue, Playa del Carmen',
-  'Cozumel reef diving',
-  'Puerto Vallarta Malecón',
-  'Sayulita surf and Pacific coastline',
-  'Marietas Islands and Hidden Beach',
-  'Whale watching in Banderas Bay',
+  'Chichén Itzá',
+  'Tulum Ruins',
+  'Sacred cenotes',
+  'Xcaret Park',
+  '5th Ave Playa',
+  'Cozumel reefs',
+  'Vallarta Malecón',
+  'Sayulita surf',
+  'Marietas Islands',
+  'Whale watching',
 ] as const;
 
 /**

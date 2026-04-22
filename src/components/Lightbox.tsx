@@ -19,6 +19,16 @@ interface LightboxProps {
   onNavigate?: (index: number) => void;
   videoUrl?: string;
   title?: string;
+  /** When true, native-video files autoplay muted on open. Controls remain available. */
+  videoAutoPlayMuted?: boolean;
+  /** Optional seek offset (seconds) applied once metadata loads. Useful to skip intros. */
+  videoStartSeconds?: number;
+  /** Small eyebrow label rendered above the video title (e.g. "All-Inclusive Resort"). */
+  videoSubtitle?: string;
+  /** Description paragraph rendered beneath the video + title. */
+  videoDescription?: ReactNode;
+  /** Optional CTA (e.g. Reserve button) rendered beneath the description panel. */
+  videoCta?: ReactNode;
   /** Custom panel when not using image gallery or video (e.g. map location details). */
   bodyContent?: ReactNode;
 }
@@ -31,6 +41,11 @@ export function Lightbox({
   onNavigate,
   videoUrl,
   title,
+  videoAutoPlayMuted = false,
+  videoStartSeconds,
+  videoSubtitle,
+  videoDescription,
+  videoCta,
   bodyContent,
 }: LightboxProps) {
   const isGallery = images && images.length > 0;
@@ -297,34 +312,75 @@ export function Lightbox({
           </div>
         </>
       ) : (
-        <div className="relative w-full max-w-4xl aspect-video animate-scale-in">
-          <div className="w-full h-full bg-black rounded-lg overflow-hidden shadow-2xl">
-            {videoUrl ? (
-              isNativeVideoFile ? (
-                <video
-                  src={videoUrl}
-                  controls
-                  playsInline
-                  className="h-full w-full object-contain"
-                  title={title || 'Video'}
-                >
-                  Your browser does not support embedded video.
-                </video>
+        <div className="relative z-10 flex w-full max-w-4xl flex-col gap-4 max-h-[90vh] animate-scale-in">
+          <div className="relative w-full flex-shrink-0 aspect-video">
+            <div className="h-full w-full overflow-hidden rounded-lg bg-black shadow-2xl">
+              {videoUrl ? (
+                isNativeVideoFile ? (
+                  <video
+                    key={videoUrl}
+                    src={videoUrl}
+                    controls
+                    playsInline
+                    autoPlay={videoAutoPlayMuted}
+                    muted={videoAutoPlayMuted}
+                    onLoadedMetadata={(e) => {
+                      const v = e.currentTarget;
+                      if (typeof videoStartSeconds === 'number' && videoStartSeconds > 0) {
+                        try {
+                          v.currentTime = videoStartSeconds;
+                        } catch {
+                          /* `currentTime` can throw before metadata is fully ready; ignored. */
+                        }
+                      }
+                      if (videoAutoPlayMuted) {
+                        v.play().catch(() => {
+                          /* Autoplay may be blocked; user can still hit the controls. */
+                        });
+                      }
+                    }}
+                    className="h-full w-full object-contain"
+                    title={title || 'Video'}
+                  >
+                    Your browser does not support embedded video.
+                  </video>
+                ) : (
+                  <iframe
+                    src={videoUrl}
+                    className="h-full w-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={title || 'Video'}
+                  />
+                )
               ) : (
-                <iframe
-                  src={videoUrl}
-                  className="h-full w-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title={title || 'Video'}
-                />
-              )
-            ) : (
-              <div className="flex h-full w-full items-center justify-center text-fluid-lg text-white">
-                Video content will appear here
-              </div>
-            )}
+                <div className="flex h-full w-full items-center justify-center text-fluid-lg text-white">
+                  Video content will appear here
+                </div>
+              )}
+            </div>
           </div>
+
+          {(title || videoSubtitle || videoDescription || videoCta) && (
+            <div className="min-h-0 overflow-y-auto scroll-touch-y rounded-xl bg-black/45 px-5 py-4 text-left text-white backdrop-blur-md md:px-6 md:py-5">
+              {videoSubtitle ? (
+                <p className="mb-1 text-fluid-xs font-semibold uppercase tracking-[0.16em] text-white/80 md:text-fluid-sm">
+                  {videoSubtitle}
+                </p>
+              ) : null}
+              {title ? (
+                <h2 className="text-fluid-xl font-bold leading-tight tracking-tight text-white md:text-fluid-2xl">
+                  {title}
+                </h2>
+              ) : null}
+              {videoDescription ? (
+                <div className="mt-3 text-fluid-sm leading-relaxed text-white/90 md:text-fluid-base">
+                  {videoDescription}
+                </div>
+              ) : null}
+              {videoCta ? <div className="mt-4">{videoCta}</div> : null}
+            </div>
+          )}
         </div>
       )}
     </div>

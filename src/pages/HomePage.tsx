@@ -3,6 +3,7 @@ import {
   SubNav,
   Gallery,
   AboutPackage,
+  HotelOptions,
   ParadiseSection,
   Amenities,
   AmenitiesGrid,
@@ -40,6 +41,7 @@ export function HomePage() {
       </section>
       <section id="what-you-get">
         <AboutPackage />
+        <HotelOptions />
         <ParadiseSection />
       </section>
       <section id="resort-details">

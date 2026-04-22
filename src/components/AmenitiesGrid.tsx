@@ -21,8 +21,6 @@ const accordionPanels = [
   { lightboxIndex: 3, tag: 'Wellness' },
   { lightboxIndex: 1, tag: 'Fitness' },
   { lightboxIndex: 2, tag: 'Activity' },
-  { lightboxIndex: 4, tag: 'Leisure' },
-  { lightboxIndex: 6, tag: 'Social' },
 ] as const;
 
 function AccordionPanel({

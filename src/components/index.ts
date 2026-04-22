@@ -4,6 +4,7 @@ export { Hero } from './Hero';
 export { SubNav } from './SubNav';
 export { Gallery } from './Gallery';
 export { AboutPackage } from './AboutPackage';
+export { HotelOptions } from './HotelOptions';
 export { ParadiseSection } from './ParadiseSection';
 export { Amenities } from './Amenities';
 export { AmenitiesGrid } from './AmenitiesGrid';
