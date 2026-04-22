@@ -50,8 +50,8 @@ function AccordionPanel({
       className={`group relative overflow-hidden bg-plum text-left
         transition-[flex-grow,height] duration-500 ease-[cubic-bezier(0.34,1.3,0.64,1)]
         focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset
-        md:h-full md:flex-shrink md:basis-0
-        ${isActive ? 'h-80 md:flex-grow-[3.5]' : 'h-24 md:flex-grow'}
+        h-80 md:h-full md:flex-shrink md:basis-0
+        ${isActive ? 'md:flex-grow-[3.5]' : 'md:flex-grow'}
       `}
     >
       <div className="absolute inset-0 overflow-hidden">
@@ -85,21 +85,21 @@ function AccordionPanel({
           motion reads as a rotation, not a fade.
         */}
         <p
-          className={`m-0 whitespace-nowrap font-sans font-bold leading-snug text-white drop-shadow-lg transition-transform duration-500 ease-[cubic-bezier(0.34,1.3,0.64,1)] md:whitespace-normal ${
+          className={`m-0 whitespace-nowrap text-fluid-base font-sans font-bold leading-snug text-white drop-shadow-lg transition-transform duration-500 ease-[cubic-bezier(0.34,1.3,0.64,1)] md:whitespace-normal origin-bottom-left ${
             isActive
-              ? 'origin-bottom-left text-fluid-base md:rotate-0 md:translate-x-0 md:text-fluid-xl'
-              : 'text-fluid-sm md:absolute md:bottom-5 md:left-1/2 md:top-auto md:h-fit md:w-fit md:origin-bottom-left md:-rotate-90 md:translate-x-[0.4em] md:text-fluid-base'
+              ? 'md:rotate-0 md:translate-x-0 md:text-fluid-xl'
+              : 'md:absolute md:bottom-5 md:left-1/2 md:top-auto md:h-fit md:w-fit md:-rotate-90 md:translate-x-[0.4em] md:text-fluid-base'
           }`}
         >
           {label}
         </p>
 
-        {/* Description — expands + fades in on active. */}
+        {/* Description — always visible on mobile; expands + fades in on active at md+. */}
         <p
-          className={`m-0 overflow-hidden text-sm leading-snug text-white/90 transition-all duration-500 ${
+          className={`m-0 mt-2 max-h-40 overflow-hidden text-sm leading-snug text-white/90 opacity-100 transition-all duration-500 ${
             isActive
-              ? 'mt-2 max-h-40 opacity-100 md:delay-200'
-              : 'mt-0 max-h-0 opacity-0'
+              ? 'md:mt-2 md:max-h-40 md:opacity-100 md:delay-200'
+              : 'md:mt-0 md:max-h-0 md:opacity-0'
           }`}
         >
           {description}
