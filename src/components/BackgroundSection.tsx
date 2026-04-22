@@ -32,8 +32,11 @@ export function BackgroundSection({
       {layeredBackgrounds && (
         <>
           <div
-            className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center lg:hidden"
-            style={{ backgroundImage: `url(${backgroundImageMobile})` }}
+            className="pointer-events-none absolute inset-0 z-0 bg-center bg-no-repeat lg:hidden"
+            style={{
+              backgroundImage: `url(${backgroundImageMobile})`,
+              backgroundSize: '100% 100%',
+            }}
             aria-hidden
           />
           <div
