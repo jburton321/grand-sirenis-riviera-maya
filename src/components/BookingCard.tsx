@@ -4,7 +4,6 @@ import {
   OFFER_HEADLINE_DESTINATION,
   OFFER_HEADLINE_VACATION,
   OFFER_RETAIL_PRICE,
-  OFFER_ROOM_SHORT,
   OFFER_SAVE_PERCENT,
   OFFER_STAY_LABEL,
   OFFER_TOTAL_AMOUNT,
@@ -27,7 +26,7 @@ interface BookingCardProps {
 
 export function BookingCard({
   normalRate = OFFER_RETAIL_PRICE,
-  roomDescription = `${OFFER_ROOM_SHORT} at ${RESORT_DISPLAY_NAME}`,
+  roomDescription = 'Deluxe Room of Your Choice from Three Hilton Resorts',
   totalAmount = OFFER_TOTAL_AMOUNT,
   totalLabel = OFFER_TOTAL_LABEL,
 }: BookingCardProps) {

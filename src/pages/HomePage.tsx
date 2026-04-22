@@ -11,8 +11,10 @@ import {
 } from '../components';
 import { HERO_GALLERY_FILENAMES } from '../content/heroGalleryFilenames';
 
-/** Under-hero strip: paths match `public/images/` (list synced by npm script). */
-const heroGallery = (name: string) => `images/${encodeURIComponent(name)}`;
+/** Under-hero strip: paths match `public/images/` (list synced by npm script).
+ *  Names may include `/` for subfolders, so encode each segment independently. */
+const heroGallery = (name: string) =>
+  `images/${name.split('/').map(encodeURIComponent).join('/')}`;
 
 /** Stable “random” order: same shuffle every build (change seed to reshuffle). */
 function seededShuffle<T>(items: readonly T[], seed: number): T[] {

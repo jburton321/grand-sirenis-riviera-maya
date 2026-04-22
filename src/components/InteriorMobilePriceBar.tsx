@@ -1,6 +1,6 @@
 import { useCountdown } from '../hooks/useCountdown';
 import { PriceBadge } from './PriceBadge';
-import { OFFER_DECK_ONE_LINER, OFFER_ROOM_SHORT, RESORT_DISPLAY_NAME } from '../constants';
+import { OFFER_DECK_ONE_LINER } from '../constants';
 
 export function InteriorMobilePriceBar() {
   const { hours, minutes, seconds, isExpired } = useCountdown(45);
@@ -62,7 +62,7 @@ export function InteriorMobilePriceBar() {
             <BedIcon className="mt-0.5 h-6 w-6 flex-shrink-0 text-sky" />
             <span className="text-[15px] leading-relaxed text-plum">
               <span className="font-bold">
-                {OFFER_ROOM_SHORT} at {RESORT_DISPLAY_NAME}
+                Deluxe Room of Your Choice from Three Hilton Resorts
               </span>
             </span>
           </div>

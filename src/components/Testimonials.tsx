@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Star, X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { GUEST_REVIEW_GALLERY_IMAGES } from '../content/guestReviewGalleryFilenames';
+import {
+  ALL_HOTEL_ACCOMMODATION_IMAGES,
+  seededShuffleImages,
+} from '../content/hotelAccommodationImages';
 import { Button } from './Button';
 import { Gallery } from './Gallery';
 import { PRIMARY_CTA_LABEL } from '../constants';
@@ -41,7 +44,12 @@ const reviews: Review[] = [
   },
 ];
 
-const galleryImages = [...GUEST_REVIEW_GALLERY_IMAGES];
+/** Same 18 Hilton accommodation images as the Accommodations page, shuffled with
+ *  a different seed so this slider has its own stable random order. */
+const galleryImages = seededShuffleImages(
+  ALL_HOTEL_ACCOMMODATION_IMAGES,
+  0x51DE5A1D,
+);
 
 const REVIEW_SWIPE_THRESHOLD_PX = 56;
 

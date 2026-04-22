@@ -1,33 +1,25 @@
 import { Button } from '../components/Button';
-import { Gallery } from '../components/Gallery';
 import { AccommodationsPriceBar } from '../components/AccommodationsPriceBar';
 import { InteriorMobilePriceBar } from '../components/InteriorMobilePriceBar';
 import { InteriorFooter } from '../components/InteriorFooter';
 import { InteriorHero } from '../components/InteriorHero';
-import { PRIMARY_CTA_LABEL, RESORT_HERO_BACKGROUND_IMAGE } from '../constants';
-import { AMENITIES_HOME_GRID_ITEMS } from '../content/amenityLists';
+import { AMENITIES_HERO_BACKGROUND_IMAGE, PRIMARY_CTA_LABEL } from '../constants';
 import { AMENITY_BLOCKS, ON_SITE_AMENITIES_INTRO, ON_SITE_AMENITIES_TITLE } from '../content/interiorCopy';
 import { interiorStripeClass } from '../utils/interiorStripes';
 
-/** Same `images/` set + labels as home `AmenitiesGrid` bento. */
-const amenitiesGallery = AMENITIES_HOME_GRID_ITEMS.map((item) => ({
-  src: item.src,
-  label: item.label,
-}));
-
 const AMENITY_IMAGES = [
-  'images/grand-sirenis-riviera-maya-resort-slide1125-jpg-1e13f6b58e1a.webp',
-  'images/spa25285-jpg-971a5bc2a15364a7b345cbc2f0549ed9.webp',
-  'images/buffetbayou7591-jpg-a09c4018c8a74611962a7d5ff0d1d43e.webp',
-  'images/mexicanshow03882.jpg',
-  'images/snorkel1471-jpg-4ae1ccc4e004c727937840a840f2146f.webp',
+  'images/amenities/sec1-luxury-all-inclusive.jpg',
+  'images/amenities/sec2-gourmet-dining.jpg',
+  'images/amenities/sec3-pools-beach-oceanfront.png',
+  'images/amenities/sec4-wellness-fitness.jpg',
+  'images/amenities/sec5-nightly-entertainment.jpg',
 ] as const;
 
 export function AmenitiesPage() {
   return (
     <>
       <InteriorHero
-        backgroundImage={RESORT_HERO_BACKGROUND_IMAGE}
+        backgroundImage={AMENITIES_HERO_BACKGROUND_IMAGE}
         footer={
           <>
             <AccommodationsPriceBar />
@@ -49,7 +41,7 @@ export function AmenitiesPage() {
           </div>
           <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
             <img
-              src={RESORT_HERO_BACKGROUND_IMAGE}
+              src={AMENITIES_HERO_BACKGROUND_IMAGE}
               alt={ON_SITE_AMENITIES_TITLE}
               className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
             />
@@ -101,19 +93,6 @@ export function AmenitiesPage() {
           </section>
         );
       })}
-
-      <section className={`py-12 md:py-16 lg:py-20 ${interiorStripeClass(AMENITY_BLOCKS.length)}`}>
-        <div className="max-w-content mx-auto px-4 sm:px-6">
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-            <Gallery images={amenitiesGallery} className="bg-transparent" />
-            <div className="px-6 pb-10">
-              <Button className="w-full" asCta>
-                {PRIMARY_CTA_LABEL}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <InteriorFooter />
     </>

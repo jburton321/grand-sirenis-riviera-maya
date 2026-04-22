@@ -3,7 +3,7 @@ export function InteriorFooter() {
     <>
       <div style={{ backgroundColor: '#F9F8F4' }}>
         <img
-          className="w-full h-auto"
+          className="w-full h-auto bg-white"
           src="images/frame-19840779511.png"
           alt="Decorative divider"
         />

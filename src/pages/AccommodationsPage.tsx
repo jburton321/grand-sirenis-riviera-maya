@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Tv,
   Shirt,
@@ -16,8 +17,14 @@ import {
   ACCOMMODATIONS_HERO_BACKGROUND_IMAGE,
   PRIMARY_CTA_LABEL,
 } from '../constants';
-import { GUEST_REVIEW_GALLERY_IMAGES } from '../content/guestReviewGalleryFilenames';
 import { interiorStripeClass } from '../utils/interiorStripes';
+import {
+  CANCUN_ACCOMMODATION_IMAGES,
+  TULUM_ACCOMMODATION_IMAGES,
+  VALLARTA_ACCOMMODATION_IMAGES,
+  ALL_HOTEL_ACCOMMODATION_IMAGES,
+  seededShuffleImages,
+} from '../content/hotelAccommodationImages';
 
 const roomFeatures = [
   { icon: Tv, label: '55" flat-screen HDTV' },
@@ -28,17 +35,133 @@ const roomFeatures = [
   { icon: Lock, label: 'In-room safe' },
 ];
 
-/** Same Junior Suite imagery as Guest reviews (`public/images/`). */
-const accommodationsGallery = [...GUEST_REVIEW_GALLERY_IMAGES];
 
-const accSuiteShot = (index: number) =>
-  GUEST_REVIEW_GALLERY_IMAGES[
-    Math.min(Math.max(0, index), GUEST_REVIEW_GALLERY_IMAGES.length - 1)
-  ];
+/** Per-hotel hero zigzag blocks — images[0] is the main shot; extras power the thumb gallery. */
+type HotelSection = {
+  eyebrow: string;
+  name: string;
+  images: readonly string[];
+  alt: string;
+  body: string;
+};
 
-/** Bath & comfort block - specific suite photo from guest gallery. */
-const bathComfortGalleryImage =
-  'images/juniorsuitedeluxesingle13985-jpg-11ce962885ac99463020599860f.webp';
+const hotelSections: readonly HotelSection[] = [
+  {
+    eyebrow: 'Cancún · Caribbean Coast',
+    name: 'Hilton Cancun Mar Caribe',
+    images: CANCUN_ACCOMMODATION_IMAGES,
+    alt: 'Hilton Cancun Mar Caribe — ocean-view king guest room',
+    body: `Set across 100 acres of Cancún's Mayan coastline, your Deluxe Room opens to
+      Caribbean views and soft Gulf light. A king-size bed anchors a clean, modern
+      layout; the marble bath pairs a spacious rain shower with quiet finishes. Morning
+      light breaks across the mangrove inlets the property is built around — even at
+      full occupancy, the beachfront stays calm.`,
+  },
+  {
+    eyebrow: 'Tulum · Riviera Maya',
+    name: 'Hilton Tulum Riviera Maya',
+    images: TULUM_ACCOMMODATION_IMAGES,
+    alt: 'Hilton Tulum Riviera Maya — Enclave adults-only suite interior',
+    body: `Tulum's adults-only Enclave wing operates as its own resort — separate arrival,
+      separate pools, and a dining room that faces the mangrove preserve rather than the
+      main property. The Deluxe Room is a study in quiet luxury: warm wood, natural stone,
+      and generous light. The private furnished balcony opens to the mangrove and the
+      ocean beyond. Minutes from Tulum Ruins and cenote routes.`,
+  },
+  {
+    eyebrow: 'Puerto Vallarta · Pacific Coast',
+    name: 'Hilton Vallarta Riviera',
+    images: VALLARTA_ACCOMMODATION_IMAGES,
+    alt: 'Hilton Vallarta Riviera — Superior Ocean Front King guest room',
+    body: `Your Vallarta Deluxe Room faces the Pacific — long golden-hour light, warm
+      breezes, and the quiet drama of Jalisco's coastline. The layout flows from
+      king-size bed to private terrace; premium bath amenities and 24-hour in-room
+      dining support an easy, unhurried stay. Steps to beachfront dining and infinity
+      pools, with the Malecón a short drive away.`,
+  },
+];
+
+/** Under-hero slider: every hotel image, seed-shuffled so all three properties
+ *  interleave randomly but stay stable across builds. */
+const accommodationsGallery = seededShuffleImages(
+  ALL_HOTEL_ACCOMMODATION_IMAGES,
+  0xA5C0FFEE,
+);
+
+/**
+ * Single hotel hero image + thumbnail picker. Clicking a thumbnail swaps the main
+ * image; on mobile, swipe left/right over the main image cycles through. Gracefully
+ * falls back to a single image when `images.length === 1`.
+ */
+function HotelGallery({ images, alt }: { images: readonly string[]; alt: string }) {
+  const [active, setActive] = useState(0);
+  const [touchX, setTouchX] = useState<number | null>(null);
+  const count = images.length;
+
+  const step = (delta: number) =>
+    setActive((prev) => (prev + delta + count) % count);
+
+  const onTouchStart = (e: React.TouchEvent) => setTouchX(e.touches[0].clientX);
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchX == null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+    setTouchX(null);
+  };
+
+  return (
+    <div className="w-full lg:w-1/2">
+      <div
+        className="group overflow-hidden rounded-2xl relative touch-pan-y select-none"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
+        <img
+          key={images[active]}
+          src={images[active]}
+          alt={alt}
+          className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105 animate-[fadeIn_0.3s_ease-out]"
+          loading="lazy"
+        />
+      </div>
+
+      {count > 1 && (
+        <div
+          className="mt-3 grid gap-2"
+          style={{ gridTemplateColumns: `repeat(${count}, minmax(0, 1fr))` }}
+          role="tablist"
+          aria-label="Room photo gallery"
+        >
+          {images.map((src, idx) => {
+            const isActive = idx === active;
+            return (
+              <button
+                key={src}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-label={`Show photo ${idx + 1} of ${count}`}
+                onClick={() => setActive(idx)}
+                className={`relative aspect-[4/3] overflow-hidden rounded-lg transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                  isActive
+                    ? 'ring-2 ring-primary ring-offset-2 ring-offset-white'
+                    : 'opacity-70 hover:opacity-100'
+                }`}
+              >
+                <img
+                  src={src}
+                  alt=""
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function AccommodationsPage() {
   return (
@@ -87,88 +210,55 @@ export function AccommodationsPage() {
       <Gallery
         images={accommodationsGallery}
         sectionBackgroundClassName={interiorStripeClass(0)}
+        compact
       />
 
-      <section className={`py-12 md:py-16 lg:py-20 px-4 sm:px-6 ${interiorStripeClass(1)}`}>
-        <div className="max-w-content mx-auto">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
-            <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
-              <img
-                src={accSuiteShot(0)}
-                alt="Deluxe Room - living and sleep area"
-                className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <div className="w-full lg:w-1/2">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Mayan Coastline, Through Your Window
-              </h2>
-              <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
-                Set across 100 acres of Cancún's Mayan coastline, your Deluxe Room opens to
-                Caribbean views and soft Gulf light. A king-size bed anchors a clean, modern
-                layout; the marble bath pairs a spacious rain shower with quiet finishes. Morning
-                light breaks across the mangrove inlets the property is built around — even at
-                full occupancy, the beachfront stays calm.
-              </p>
-              <Button className="w-full" asCta>{PRIMARY_CTA_LABEL}</Button>
-            </div>
+      <section className={`px-4 pt-fluid-8 md:px-6 lg:px-10 ${interiorStripeClass(1)}`}>
+        <div className="mx-auto max-w-content">
+          <div className="text-center">
+            <h2 className="font-sans text-fluid-2xl font-bold tracking-tight text-slate-800 md:text-fluid-3xl">
+              Your Choice of Three Hilton Resorts
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-fluid-base leading-relaxed text-gray-700">
+              Every Paradise Retreat certificate unlocks your pick of these three
+              Hilton luxury all-inclusive resorts in Mexico &mdash; Cancún, Tulum,
+              or Puerto Vallarta.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className={`py-12 md:py-16 lg:py-20 px-4 sm:px-6 ${interiorStripeClass(2)}`}>
-        <div className="max-w-content mx-auto">
-          <div className="flex flex-col lg:flex-row-reverse gap-8 lg:gap-12 items-center">
-            <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
-              <img
-                src={accSuiteShot(4)}
-                alt="Deluxe Room - in-room space and amenities"
-                className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
-              />
+      {hotelSections.map((hotel, idx) => {
+        const reversed = idx % 2 === 1;
+        return (
+          <section
+            key={hotel.name}
+            className={`py-12 md:py-16 lg:py-20 px-4 sm:px-6 ${interiorStripeClass(idx + 1)}`}
+          >
+            <div className="max-w-content mx-auto">
+              <div
+                className={`flex flex-col ${
+                  reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'
+                } gap-8 lg:gap-12 items-center`}
+              >
+                <HotelGallery images={hotel.images} alt={hotel.alt} />
+                <div className="w-full lg:w-1/2">
+                  <p className="text-sm font-semibold uppercase tracking-widest text-sky-dark mb-2">
+                    {hotel.eyebrow}
+                  </p>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    {hotel.name}
+                  </h2>
+                  <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
+                    {hotel.body}
+                  </p>
+                  <Button className="w-full" asCta>{PRIMARY_CTA_LABEL}</Button>
+                </div>
+              </div>
             </div>
-            <div className="w-full lg:w-1/2">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                A Resort Within a Resort
-              </h2>
-              <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
-                Tulum's adults-only wing operates as its own resort — separate arrival, separate
-                pools, and a dining room that faces the mangrove preserve rather than the main
-                property. The Deluxe Room is a study in quiet luxury: warm wood, natural stone,
-                and generous light. The private furnished balcony opens to the mangrove and the
-                ocean beyond. Minutes from Tulum Ruins and cenote routes.
-              </p>
-              <Button className="w-full" asCta>{PRIMARY_CTA_LABEL}</Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={`py-12 md:py-16 lg:py-20 px-4 sm:px-6 ${interiorStripeClass(3)}`}>
-        <div className="max-w-content mx-auto">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
-            <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
-              <img
-                src={bathComfortGalleryImage}
-                alt="Deluxe Room - comfort and bath details"
-                className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <div className="w-full lg:w-1/2">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Pacific Coast Elegance
-              </h2>
-              <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
-                Your Vallarta Deluxe Room faces the Pacific — long golden-hour light, warm
-                breezes, and the quiet drama of Jalisco's coastline. The layout flows from
-                king-size bed to private terrace; premium bath amenities and 24-hour in-room
-                dining support an easy, unhurried stay. Steps to beachfront dining and infinity
-                pools, with the Malecón a short drive away.
-              </p>
-              <Button className="w-full" asCta>{PRIMARY_CTA_LABEL}</Button>
-            </div>
-          </div>
-        </div>
-      </section>
+          </section>
+        );
+      })}
 
       <div style={{ backgroundColor: '#ffffff' }}>
         <img

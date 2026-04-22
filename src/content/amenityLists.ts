@@ -35,25 +35,25 @@ export const NEARBY_ATTRACTION_LINES = [
  */
 export const AMENITIES_HOME_GRID_ITEMS = [
   {
-    src: 'images/beach.webp',
+    src: 'images/amenities/beachfront-access.png',
     label: 'Beachfront Access',
     description:
       'Private beach access across all three Collection destinations.',
   },
   {
-    src: 'images/tennis-fitness.jpg',
+    src: 'images/amenities/fitness-center.png',
     label: 'Fitness Center',
     description:
       'State-of-the-art fitness centers at every property.',
   },
   {
-    src: 'images/watersports.webp',
+    src: 'images/amenities/outdoor-adventures.png',
     label: 'Outdoor Adventures',
     description:
       'Non-motorized water sports, beach activities, and excursions.',
   },
   {
-    src: 'images/spa.webp',
+    src: 'images/amenities/spa-treatment.png',
     label: 'Hot Tub & Spa',
     description:
       'Full-service spas with signature treatments and hydrotherapy.',

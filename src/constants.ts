@@ -55,9 +55,12 @@ export const FOOTER_PRICE_DISCLAIMER =
   'Member rate represents approximately 66% savings off published resort rates. Published rate based on peak-season Deluxe Room rates at participating Hilton all-inclusive properties.' as const;
 
 // ── IMAGES (kept as Phase 2 visual reference — swap when PHH assets are ready) ─
-/** Amenities interior hero + Thank You receipt hero background (`public/images/`). */
+/** Thank You receipt hero background (`public/images/`). */
 export const RESORT_HERO_BACKGROUND_IMAGE =
   'images/grand-sirenis-riviera-maya.jpg' as const;
+/** Amenities interior hero (`public/images/`). */
+export const AMENITIES_HERO_BACKGROUND_IMAGE =
+  'images/amenities/amenities-hero-cancun-aerial.png' as const;
 /** Accommodations interior hero (`public/images/`). */
 export const ACCOMMODATIONS_HERO_BACKGROUND_IMAGE =
-  'images/juniorsuitedeluxesingle1593-jpg-b2a70f1f45abed688344f0350169.webp' as const;
+  'images/accommodations/hilton-vallarta-riviera-01.png' as const;
