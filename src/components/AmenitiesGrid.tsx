@@ -125,7 +125,7 @@ export function AmenitiesGrid() {
     <section className="bg-white pb-10 pt-0 sm:pb-12 md:pb-16">
       <div className="mx-auto max-w-content px-4 text-center md:px-6 lg:px-10">
         <img
-          className="mx-auto mb-6 block h-auto w-full max-w-[min(100%,20rem)] object-contain object-center transition-transform duration-300 hover:scale-[1.02] sm:mb-8 sm:max-w-[min(100%,24rem)] md:max-w-[min(100%,28rem)] lg:max-w-[min(100%,32rem)]"
+          className="mx-auto mb-6 block h-auto w-full max-w-[min(100%,9rem)] object-contain object-center transition-transform duration-300 hover:scale-[1.02] sm:mb-8 sm:max-w-[min(100%,10.5rem)] md:max-w-[min(100%,12rem)] lg:max-w-[min(100%,14rem)]"
           src="images/WW.svg"
           alt={RESORT_DISPLAY_NAME}
           width={500}
