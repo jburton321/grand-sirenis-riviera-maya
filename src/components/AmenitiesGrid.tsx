@@ -120,7 +120,7 @@ export function AmenitiesGrid() {
   };
 
   return (
-    <section className="bg-white pb-10 pt-0 sm:pb-12 md:pb-16">
+    <section className="bg-white pb-10 pt-10 sm:pb-12 sm:pt-12 md:pb-16 md:pt-0">
       <div className="mx-auto max-w-content px-4 text-center md:px-6 lg:px-10">
         <img
           className="mx-auto mb-6 block h-auto w-full max-w-[min(100%,9rem)] object-contain object-center transition-transform duration-300 hover:scale-[1.02] sm:mb-8 sm:max-w-[min(100%,10.5rem)] md:max-w-[min(100%,12rem)] lg:max-w-[min(100%,14rem)]"
