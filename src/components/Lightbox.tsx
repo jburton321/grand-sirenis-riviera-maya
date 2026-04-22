@@ -215,8 +215,8 @@ export function Lightbox({
           <div
             className={`relative z-10 w-full max-w-5xl animate-scale-in ${
               detailLayout
-                ? 'max-h-[90vh] flex flex-col gap-4 md:flex-row md:items-stretch md:gap-6'
-                : 'max-h-[85vh]'
+                ? 'max-h-[90dvh] flex flex-col gap-4 md:flex-row md:items-stretch md:gap-6'
+                : 'max-h-[85dvh]'
             }`}
           >
             {detailLayout ? (
@@ -231,10 +231,10 @@ export function Lightbox({
                     src={currentImage?.src}
                     alt={currentImage?.label || `Image ${currentIndex + 1}`}
                     draggable={false}
-                    className="max-h-[42vh] w-full max-w-full select-none rounded-lg object-contain shadow-2xl md:max-h-[min(78vh,720px)]"
+                    className="max-h-[42dvh] w-full max-w-full select-none rounded-lg object-contain shadow-2xl md:max-h-[min(78dvh,720px)]"
                   />
                 </div>
-                <div className="flex min-h-0 max-h-[38vh] flex-col overflow-y-auto scroll-touch-y rounded-xl bg-black/40 px-4 py-4 text-left backdrop-blur-md md:max-h-none md:w-[48%] md:px-6 md:py-6">
+                <div className="flex min-h-0 max-h-[38dvh] flex-col overflow-y-auto scroll-touch-y rounded-xl bg-black/40 px-4 py-4 text-left backdrop-blur-md md:max-h-none md:w-[48%] md:px-6 md:py-6">
                   {currentImage?.label ? (
                     <h3 className="mb-3 text-fluid-lg font-black tracking-tight text-white sm:text-fluid-xl md:mb-4">
                       {currentImage.label}
@@ -257,7 +257,7 @@ export function Lightbox({
                     src={currentImage?.src}
                     alt={currentImage?.label || `Image ${currentIndex + 1}`}
                     draggable={false}
-                    className="max-h-[80vh] max-w-full select-none rounded-lg object-contain shadow-2xl"
+                    className="max-h-[80dvh] max-w-full select-none rounded-lg object-contain shadow-2xl"
                   />
                 </div>
 
@@ -312,7 +312,7 @@ export function Lightbox({
           </div>
         </>
       ) : (
-        <div className="relative z-10 flex w-full max-w-4xl flex-col gap-4 max-h-[90vh] animate-scale-in">
+        <div className="relative z-10 flex w-full max-w-4xl flex-col gap-4 max-h-[90dvh] animate-scale-in">
           <div className="relative w-full flex-shrink-0 aspect-video">
             <div className="h-full w-full overflow-hidden rounded-lg bg-black shadow-2xl">
               {videoUrl ? (

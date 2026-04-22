@@ -13,7 +13,9 @@ function AppContent() {
 
   return (
     <div
-      className={`bg-page min-h-screen lg:pb-0 ${isThankYouPage ? '' : 'pb-20'}`}
+      className={`bg-page min-h-[100dvh] lg:pb-0 ${
+        isThankYouPage ? '' : 'pb-[calc(5rem+env(safe-area-inset-bottom))]'
+      }`}
       style={{ overflowX: 'clip' }}
     >
       <HelloBar />
