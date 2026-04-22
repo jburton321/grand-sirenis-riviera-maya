@@ -47,7 +47,7 @@ export function HomePage() {
       </section>
       <section id="resort-details">
         <Amenities />
-        <div className="relative hidden sm:block">
+        <div className="relative hidden md:block">
           <img
             className="w-full h-auto bg-white"
             src="images/home/banner.png"

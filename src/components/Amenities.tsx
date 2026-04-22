@@ -72,7 +72,7 @@ export function Amenities() {
             <h3 className="text-white text-fluid-xl md:text-fluid-2xl font-bold mb-fluid-4">
               Featured Amenities
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
               {featuredAmenities.map((item, index) => (
                 <div key={index} className="flex items-center gap-2 md:gap-3 py-1">
                   <item.icon className="w-5 h-5 md:w-6 md:h-6 shrink-0 text-sky" />
@@ -86,7 +86,7 @@ export function Amenities() {
             <h3 className="text-white text-fluid-xl md:text-fluid-2xl font-bold mb-fluid-4">
               Nearby Attractions
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
               {nearbyAttractions.map((item, index) => (
                 <div key={index} className="flex items-center gap-2 md:gap-3 py-1">
                   <item.icon className="w-5 h-5 md:w-6 md:h-6 shrink-0 text-sky" />
