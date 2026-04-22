@@ -11,9 +11,9 @@ export function Hero() {
   return (
     <>
       <section className="relative flex min-h-[500px] flex-col overflow-hidden bg-plum md:min-h-[600px] lg:min-h-[800px] lg:overflow-visible">
-        {/* Desktop: full-bleed hero */}
+        {/* Single full-bleed hero background for all breakpoints (mobile, tablet, desktop). */}
         <div
-          className="pointer-events-none absolute inset-0 z-0 hidden bg-cover bg-center lg:block"
+          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center"
           style={{ backgroundImage: 'url(images/home/HERO-BCK-Desktop.png)' }}
           aria-hidden
         />
@@ -21,18 +21,7 @@ export function Hero() {
         <div className="relative z-10 flex min-h-0 flex-1 flex-col">
           <div className="mx-auto flex w-full max-w-content flex-1 flex-col pt-8 md:pt-12 lg:px-8 lg:pt-fluid-3">
             <div className="flex flex-1 flex-col gap-0 lg:flex-row lg:items-start lg:justify-between lg:gap-fluid-4">
-              {/* Mobile/tablet bg stays in this column so `bg-cover` uses the same box as before. Pull up by the parent’s top padding so the photo fills the strip under the header without changing scale/crop. */}
               <div className="relative order-1 -mt-8 flex min-h-[500px] flex-col items-center overflow-hidden md:-mt-12 md:min-h-[600px] lg:mt-0 lg:min-h-0 lg:overflow-visible">
-                <div
-                  className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center md:hidden"
-                  style={{ backgroundImage: 'url(images/home/HERO-BCK-MOBILE.png)' }}
-                  aria-hidden
-                />
-                <div
-                  className="pointer-events-none absolute inset-0 z-0 hidden bg-cover bg-center md:block lg:hidden"
-                  style={{ backgroundImage: 'url(images/home/HERO-BCK-TAB.png)' }}
-                  aria-hidden
-                />
                 <div className="relative z-10 flex w-full flex-col items-center px-4 pt-8 md:px-6 md:pt-12 lg:px-0 lg:pt-0">
                   <div className="max-md:-mx-4 max-md:w-[calc(100%+2rem)] max-md:shrink-0 max-md:px-4 md:contents">
                     <img
