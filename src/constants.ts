@@ -35,8 +35,8 @@ export const RECURRING_RIBBON_LINE =
   'ONLY $500 DEPOSIT · $700 AT BOOKING · $3,500 VALUE · 66% OFF' as const;
 
 // ── CTA ─────────────────────────────────────────────────────────
-export const PRIMARY_CTA_LABEL = 'ACCEPT YOUR CERTIFICATE' as const;
-export const PRIMARY_CTA_LABEL_SHORT = 'Accept' as const;
+export const PRIMARY_CTA_LABEL = 'RESERVE YOUR STAY' as const;
+export const PRIMARY_CTA_LABEL_SHORT = 'Reserve' as const;
 /** Placeholder order/checkout URL until the real flow ships (IANA example domain). */
 export const DUMMY_CTA_HREF = 'https://example.com/?vvip-order' as const;
 

@@ -129,7 +129,7 @@ export function AmenitiesGrid() {
           src="images/WW.svg"
           alt={RESORT_DISPLAY_NAME}
           width={500}
-          height={259}
+          height={180}
           loading="lazy"
         />
 

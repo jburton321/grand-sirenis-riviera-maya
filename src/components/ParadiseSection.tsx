@@ -26,7 +26,7 @@ export function ParadiseSection() {
                 alt={RESORT_DISPLAY_NAME}
                 className="mx-auto block h-auto w-full max-w-48 object-contain object-center sm:max-w-52 md:max-w-56"
                 width={500}
-                height={259}
+                height={180}
                 loading="lazy"
               />
             </div>

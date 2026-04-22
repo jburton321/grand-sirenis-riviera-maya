@@ -57,7 +57,7 @@ export function BookingCard({
           src="images/WW.svg"
           alt={RESORT_DISPLAY_NAME}
           width={500}
-          height={259}
+          height={180}
         />
 
         <div className="flex items-center gap-2 md:gap-3">
@@ -67,10 +67,9 @@ export function BookingCard({
         </div>
 
         <h3 className="text-center text-fluid-xl font-bold leading-tight text-slate-800">
-          {RESORT_DISPLAY_NAME}<br />
+          {OFFER_HEADLINE_VACATION}<br />
           <span className="text-fluid-lg font-bold text-slate-700">
-            {OFFER_HEADLINE_DESTINATION} ·{' '}
-            <span className="font-extrabold text-primary">{OFFER_HEADLINE_VACATION}</span>
+            {OFFER_HEADLINE_DESTINATION}
           </span>
         </h3>
       </div>
