@@ -27,6 +27,11 @@ export function Hero() {
           style={{ backgroundImage: 'url(images/home/HERO-BCK-Desktop.png)' }}
           aria-hidden
         />
+        {/* 10% black overlay for legibility/contrast over the hero background. */}
+        <div
+          className="pointer-events-none absolute inset-0 z-[1] bg-black/10"
+          aria-hidden
+        />
 
         <div className="relative z-10 flex min-h-0 flex-1 flex-col">
           <div className="mx-auto flex w-full max-w-content flex-1 flex-col pt-8 md:pt-12 lg:px-8 lg:pt-fluid-3">
