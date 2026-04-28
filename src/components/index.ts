@@ -1,6 +1,7 @@
 export { HelloBar } from './HelloBar';
 export { Header } from './Header';
 export { Hero } from './Hero';
+export { HeroVariant } from './HeroVariant';
 export { SubNav } from './SubNav';
 export { Gallery } from './Gallery';
 export { AboutPackage } from './AboutPackage';

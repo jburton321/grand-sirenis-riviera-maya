@@ -1,5 +1,6 @@
 import {
   Hero,
+  HeroVariant,
   SubNav,
   Gallery,
   AboutPackage,
@@ -36,6 +37,7 @@ export function HomePage() {
   return (
     <>
       <Hero />
+      <HeroVariant />
       <SubNav />
       <section id="hotel-video">
         <Gallery images={galleryImages} compact />
