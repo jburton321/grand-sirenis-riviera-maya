@@ -18,7 +18,7 @@ export function ParadiseSection() {
       backgroundImageMobile="images/home/section-wrapper-MOBILE4.png"
       className="pt-10 sm:pt-12 md:pt-16"
     >
-      <div className="max-w-content mx-auto px-4 sm:px-6 text-center">
+      <div className="max-w-content mx-auto -mt-6 px-4 sm:-mt-8 sm:px-6 md:-mt-10 text-center">
         <div className="mb-6 sm:mb-8">
           <div className="ios-frosted-glass mx-auto w-full max-w-3xl overflow-hidden rounded-2xl sm:rounded-3xl">
             <div className="w-full px-5 pt-6 sm:px-8 sm:pt-8 md:px-10 md:pt-10">
