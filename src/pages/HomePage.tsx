@@ -52,11 +52,11 @@ export function HomePage() {
         <div className="relative hidden md:block">
           <img
             className="w-full h-auto bg-white"
-            src="images/home/banner.png"
+            src="images/home/interior-divider3.png"
             alt="Save Now Travel Later banner"
           />
           <img
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -mt-[20px] z-50 w-[40%] max-w-md"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -mt-[50px] z-50 w-[40%] max-w-md"
             src="images/shared/tag.png"
             alt="Special offer tag"
           />

@@ -33,7 +33,7 @@ export function ParadiseSection() {
               Desktop floats it absolutely at 50% / ~62% of the section so it
               always lands inside the circle baked into the background image as
               both scale together with the viewport. */}
-          <div className="flex justify-center lg:absolute lg:left-1/2 lg:top-[14%] lg:m-0 lg:-translate-x-1/2 lg:-translate-y-1/2">
+          <div className="flex justify-center lg:absolute lg:left-1/2 lg:top-[34%] lg:m-0 lg:-translate-x-1/2 lg:-translate-y-1/2">
             {/* Decorative graphic frame around the price badge — the badge
                 sits centred on top of `graphic.png`. The wrapper is square
                 (graphic is 706x707) and sized larger than the badge so the
