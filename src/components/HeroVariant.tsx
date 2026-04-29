@@ -12,9 +12,9 @@ import { BookingCard } from './BookingCard';
  *                        the destination columns (independent of card hover).
  */
 const DESTINATIONS = [
-  { label: 'Cancún', src: 'images/accommodations/hilton-cancun-mar-caribe-01.png' },
-  { label: 'Tulum', src: 'images/accommodations/hilton-tulum-riviera-maya-01.png' },
-  { label: 'Puerto Vallarta', src: 'images/accommodations/hilton-vallarta-riviera-01.png' },
+  { label: 'Cancún', src: 'images/home/Cancun.png' },
+  { label: 'Tulum', src: 'images/home/Tullum.png' },
+  { label: 'Puerto Vallarta', src: 'images/home/PuertoVallarta.png' },
 ] as const;
 
 export function HeroVariant() {
@@ -23,14 +23,14 @@ export function HeroVariant() {
       {/* Independent contrast layer: top-only dark gradient sized to the sticker zone.
           Desktop only — does NOT extend down across the destination cards. */}
       <div
-        className="pointer-events-none absolute left-0 top-0 z-20 hidden h-[50rem] w-3/4 bg-gradient-to-b from-black/70 via-black/30 to-transparent xl:h-[62rem] lg:block"
+        className="pointer-events-none absolute left-0 top-0 z-20 hidden h-[28rem] w-3/4 bg-gradient-to-b from-black/70 via-black/30 to-transparent xl:h-[36rem] lg:block"
         aria-hidden
       />
 
       {/* Independent decorative mexico-10 sticker, sized + positioned over the contrast layer.
           Desktop only. */}
       <div
-        className="pointer-events-none absolute left-0 top-[-54px] z-30 hidden w-3/4 justify-center xl:top-[-86px] lg:flex"
+        className="pointer-events-none absolute left-0 top-[20px] z-30 hidden w-3/4 justify-center xl:top-[10px] lg:flex"
         aria-hidden
       >
         <img
@@ -48,7 +48,7 @@ export function HeroVariant() {
               independent top-down contrast gradient layered UNDER the mexico-10 sticker.
               No fixed height: row sizes to the sticker so it never gets cropped. */}
           <div
-            className="relative flex w-full items-center justify-center overflow-hidden px-2 py-fluid-3 lg:hidden"
+            className="relative flex min-h-[32rem] w-full items-center justify-center overflow-hidden px-0 py-fluid-3 md:min-h-[40rem] lg:hidden"
           >
             <img
               src="images/home/HERO-BCK-MOBILE.png"
@@ -65,14 +65,14 @@ export function HeroVariant() {
               src="images/home/mexico-10.png"
               alt=""
               aria-hidden
-              className="relative z-10 block h-auto w-full max-w-lg object-contain md:max-w-2xl"
+              className="relative z-10 mx-auto my-auto block h-auto w-full max-w-3xl origin-center scale-[1.35] object-contain md:max-w-5xl md:scale-[1.18]"
             />
           </div>
 
           {DESTINATIONS.map((destination) => (
             <div
               key={destination.label}
-              className="group relative flex h-56 cursor-pointer overflow-hidden md:h-72 lg:h-auto"
+              className="group relative flex h-40 cursor-pointer overflow-hidden md:h-48 lg:h-auto"
             >
               <img
                 src={destination.src}
@@ -80,21 +80,16 @@ export function HeroVariant() {
                 loading="eager"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
-              {/* Base gradient for legibility */}
+              {/* Bottom gradient for contrast behind destination titles */}
               <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/75 via-black/20 to-transparent"
                 aria-hidden
               />
-              {/* Hover gradient — fades in to deepen contrast */}
-              <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
-                aria-hidden
-              />
-              <div className="relative z-10 mt-auto flex w-full flex-col items-center gap-1 p-fluid-4 text-center text-white transition-transform duration-500 ease-out group-hover:-translate-y-1">
+              <div className="relative z-10 mt-auto flex w-full flex-col items-center gap-1 px-fluid-4 pb-0 pt-fluid-3 text-center text-white transition-transform duration-500 ease-out group-hover:-translate-y-1 lg:pb-fluid-4 lg:pt-fluid-4">
                 <span className="text-fluid-xs font-semibold uppercase tracking-[0.18em] text-yellow">
                   Hilton
                 </span>
-                <span className="font-serif text-fluid-2xl font-semibold leading-tight drop-shadow">
+                <span className="font-serif text-fluid-2xl font-semibold leading-tight text-white drop-shadow">
                   {destination.label}
                 </span>
                 <span className="mt-2 inline-flex items-center gap-1.5 text-fluid-xs font-medium uppercase tracking-[0.2em] text-white/90 opacity-0 transition-all duration-500 ease-out group-hover:opacity-100">

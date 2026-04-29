@@ -1,5 +1,4 @@
 import {
-  Hero,
   HeroVariant,
   SubNav,
   Gallery,
@@ -36,7 +35,6 @@ const galleryImages = seededShuffle([...HERO_GALLERY_FILENAMES], 0x7f4ac0de).map
 export function HomePage() {
   return (
     <>
-      <Hero />
       <HeroVariant />
       <SubNav />
       <section id="hotel-video">
