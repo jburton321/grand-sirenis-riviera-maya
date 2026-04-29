@@ -1,6 +1,9 @@
 import { BackgroundSection } from './BackgroundSection';
 import { PriceBadge } from './PriceBadge';
 import {
+  HILTON_CANCUN_NAME,
+  HILTON_TULUM_NAME,
+  HILTON_VALLARTA_NAME,
   OFFER_HEADLINE_DESTINATION,
   OFFER_HEADLINE_VACATION,
   OFFER_SAVE_PERCENT,
@@ -71,8 +74,8 @@ export function ParadiseSection() {
           <p className="text-base leading-relaxed text-white sm:text-lg md:text-xl">
             {RESORT_DISPLAY_NAME} is a private vacation club operating across Mexico's Caribbean
             and Pacific coasts, curating certificate programs for members and invited guests of
-            its partner properties. Today that includes three flagship Hilton all-inclusive
-            resorts in Cancún, Tulum, and Puerto Vallarta.
+            its partner properties. Today that includes three flagship Hilton properties:{' '}
+            {HILTON_CANCUN_NAME}; {HILTON_TULUM_NAME}; and {HILTON_VALLARTA_NAME}.
           </p>
         </div>
       </div>

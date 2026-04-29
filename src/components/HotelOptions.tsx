@@ -2,17 +2,18 @@ import { useCallback, useRef, useState } from 'react';
 import { Play } from 'lucide-react';
 import { Button } from './Button';
 import { Lightbox } from './Lightbox';
+import {
+  HILTON_CANCUN_NAME,
+  HILTON_TULUM_NAME,
+  HILTON_VALLARTA_NAME,
+} from '../constants';
 
 /** Background video jumps past the intro so viewers see the scenery right away. */
 const VIDEO_START_SECONDS = 4;
 
 type HotelOption = {
-  /** Primary card title (without the "All-Inclusive Resort" suffix). */
+  /** Full canonical resort name — used as both the card title and the lightbox heading. */
   name: string;
-  /** Eyebrow rendered below the card title. */
-  tagline: string;
-  /** Full marketing name for the lightbox heading (may include "All-Inclusive Resort"). */
-  lightboxName: string;
   /** Eyebrow / location tagline rendered in the lightbox. */
   subtitle: string;
   /** Short description paragraph shown in the lightbox, sourced from hilton.com. */
@@ -26,41 +27,35 @@ type HotelOption = {
 
 /**
  * Real copy and stats below are drawn from the official hilton.com resort
- * pages and Hilton newsroom announcements for each property. Update the
- * poster paths (`src`) to drop in real hero photography when available.
+ * pages and Hilton newsroom announcements for each property. Names are the
+ * canonical full Hilton brand names (see `constants.ts`).
  */
 const HOTELS: HotelOption[] = [
   {
-    name: 'Hilton Cancun',
-    tagline: 'All-Inclusive Resort',
-    lightboxName: 'Hilton Cancun, an All-Inclusive Resort',
+    name: HILTON_CANCUN_NAME,
     subtitle: "Cancún Hotel Zone · 600 ft of Caribbean beachfront",
     description:
       "Endless adventures and thoughtful amenities meet at this oceanfront all-inclusive resort in the heart of Cancún's Hotel Zone. Guests enjoy 540 ocean-view rooms and suites, twelve restaurants and bars, family and adults-only pools with a waterslide, direct beach access, and a signature spa with a hydrotherapy circuit — all just 10 miles from Cancún International Airport.",
     src: 'images/accommodations/hilton-cancun-mar-caribe-01.png',
-    alt: 'Hilton Cancun Mar Caribe — beachfront all-inclusive resort',
+    alt: `${HILTON_CANCUN_NAME} — beachfront all-inclusive resort`,
     videoSrc: 'media/hilton-cancun-hero.mp4',
   },
   {
-    name: 'Hilton Tulum Riviera Maya',
-    tagline: 'All-Inclusive Resort',
-    lightboxName: 'Hilton Tulum Riviera Maya All-Inclusive Resort',
+    name: HILTON_TULUM_NAME,
     subtitle: 'Riviera Maya · Secluded Caribbean bay',
     description:
       "Tucked in a secluded bay overlooking white sands and turquoise water, this is Hilton's largest resort in the Caribbean and Latin America. Spread across 735 rooms and suites in three-story villa-style buildings, discover eight resort pools, 13 restaurants and bars, a luxury spa, and a dedicated Family Zone with a water park — all inspired by the allure of Mayan civilization and modern Mexican culture.",
     src: 'images/accommodations/hilton-tulum-riviera-maya-01.png',
-    alt: 'Hilton Tulum Riviera Maya — Caribbean all-inclusive resort',
+    alt: `${HILTON_TULUM_NAME} — Caribbean all-inclusive resort`,
     videoSrc: 'media/telum.webm',
   },
   {
-    name: 'Hilton Vallarta Riviera',
-    tagline: 'All-Inclusive Resort',
-    lightboxName: 'Hilton All-Inclusive Resort Vallarta Riviera',
+    name: HILTON_VALLARTA_NAME,
     subtitle: 'Puerto Vallarta · Bahía de Banderas Pacific coast',
     description:
       "A spectacularly oceanfront all-inclusive escape between the beaches of Bahía de Banderas and downtown Puerto Vallarta. Every one of the 444 rooms and suites faces the Pacific with a private balcony, complemented by two sparkling infinity pools, twelve restaurants, bars and lounges, a full-service Eforea Spa, nightly entertainment, and all-inclusive dining, cocktails, and pool and beach service — just nine miles from Puerto Vallarta International Airport.",
     src: 'images/accommodations/hilton-vallarta-riviera-01.png',
-    alt: 'Hilton Vallarta Riviera — Pacific-coast all-inclusive resort',
+    alt: `${HILTON_VALLARTA_NAME} — Pacific-coast all-inclusive resort`,
     videoSrc: 'media/Vallerta.webm',
   },
 ];
@@ -149,11 +144,8 @@ function HotelCard({ hotel }: { hotel: HotelOption }) {
       )}
 
       <div className="mt-4">
-        <p className="text-fluid-lg font-bold leading-tight tracking-tight text-slate-900 md:text-fluid-xl">
+        <p className="text-balance text-fluid-lg font-bold leading-tight tracking-tight text-slate-900 md:text-fluid-xl">
           {hotel.name}
-        </p>
-        <p className="mt-1 text-fluid-sm font-normal leading-snug text-gray-700">
-          {hotel.tagline}
         </p>
       </div>
       <div className="mt-4">
@@ -167,7 +159,7 @@ function HotelCard({ hotel }: { hotel: HotelOption }) {
           isOpen={lightboxOpen}
           onClose={closeLightbox}
           videoUrl={hotel.videoSrc}
-          title={hotel.lightboxName}
+          title={hotel.name}
           videoSubtitle={hotel.subtitle}
           videoDescription={hotel.description}
           videoCta={
@@ -191,10 +183,10 @@ export function HotelOptions() {
           <h2 className="font-sans text-fluid-2xl font-bold tracking-tight text-slate-800 md:text-fluid-3xl">
             Your Choice of Three Hilton Resorts
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-fluid-base leading-relaxed text-gray-700">
-            Every Paradise Retreat certificate unlocks your pick of these three
-            Hilton luxury all-inclusive resorts in Mexico &mdash; Cancún, Tulum,
-            or Puerto Vallarta.
+          <p className="mx-auto mt-3 max-w-3xl text-fluid-base leading-relaxed text-gray-700">
+            Every Paradise Retreat certificate unlocks your pick of three
+            Hilton luxury all-inclusive resorts in Mexico &mdash; {HILTON_CANCUN_NAME};{' '}
+            {HILTON_TULUM_NAME}; or {HILTON_VALLARTA_NAME}.
           </p>
         </div>
 

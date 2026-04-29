@@ -20,7 +20,7 @@ const packagePanels: PanelSpec[] = [
   {
     title: 'What You Receive:',
     description:
-      "5 days and 4 nights in a Deluxe Room for two adults at your choice of three Hilton luxury all-inclusive resorts — Cancún, Tulum, or Puerto Vallarta. Only $500 today; the remaining $999 is due when you book your travel dates. Plus you'll get $300 in future travel credits to use towards resorts, cruises, hotels, and more!",
+      "5 days and 4 nights in a Deluxe Room for two adults at your choice of three Hilton luxury all-inclusive resorts — Hilton Cancun, an All-Inclusive Resort; Hilton Tulum Riviera Maya All-Inclusive Resort; or Hilton All-Inclusive Resort Vallarta Riviera. Only $500 today; the remaining $999 is due when you book your travel dates. Plus you'll get $300 in future travel credits to use towards resorts, cruises, hotels, and more!",
     icon: Award,
     mobileOrderClass: 'max-md:order-2',
     /** Top-left: vertical midline + horizontal mid of 2×2 */

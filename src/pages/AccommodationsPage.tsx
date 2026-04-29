@@ -15,6 +15,9 @@ import { SaveNowTravelLater } from '../components/SaveNowTravelLater';
 import { InteriorHero } from '../components/InteriorHero';
 import {
   ACCOMMODATIONS_HERO_BACKGROUND_IMAGE,
+  HILTON_CANCUN_NAME,
+  HILTON_TULUM_NAME,
+  HILTON_VALLARTA_NAME,
   PRIMARY_CTA_LABEL,
 } from '../constants';
 import { interiorStripeClass } from '../utils/interiorStripes';
@@ -48,9 +51,9 @@ type HotelSection = {
 const hotelSections: readonly HotelSection[] = [
   {
     eyebrow: 'Cancún · Caribbean Coast',
-    name: 'Hilton Cancun Mar Caribe',
+    name: HILTON_CANCUN_NAME,
     images: CANCUN_ACCOMMODATION_IMAGES,
-    alt: 'Hilton Cancun Mar Caribe — ocean-view king guest room',
+    alt: `${HILTON_CANCUN_NAME} — ocean-view king guest room`,
     body: `Set across 100 acres of Cancún's Mayan coastline, your Deluxe Room opens to
       Caribbean views and soft Gulf light. A king-size bed anchors a clean, modern
       layout; the marble bath pairs a spacious rain shower with quiet finishes. Morning
@@ -59,9 +62,9 @@ const hotelSections: readonly HotelSection[] = [
   },
   {
     eyebrow: 'Tulum · Riviera Maya',
-    name: 'Hilton Tulum Riviera Maya',
+    name: HILTON_TULUM_NAME,
     images: TULUM_ACCOMMODATION_IMAGES,
-    alt: 'Hilton Tulum Riviera Maya — Enclave adults-only suite interior',
+    alt: `${HILTON_TULUM_NAME} — Enclave adults-only suite interior`,
     body: `Tulum's adults-only Enclave wing operates as its own resort — separate arrival,
       separate pools, and a dining room that faces the mangrove preserve rather than the
       main property. The Deluxe Room is a study in quiet luxury: warm wood, natural stone,
@@ -70,9 +73,9 @@ const hotelSections: readonly HotelSection[] = [
   },
   {
     eyebrow: 'Puerto Vallarta · Pacific Coast',
-    name: 'Hilton Vallarta Riviera',
+    name: HILTON_VALLARTA_NAME,
     images: VALLARTA_ACCOMMODATION_IMAGES,
-    alt: 'Hilton Vallarta Riviera — Superior Ocean Front King guest room',
+    alt: `${HILTON_VALLARTA_NAME} — Superior Ocean Front King guest room`,
     body: `Your Vallarta Deluxe Room faces the Pacific — long golden-hour light, warm
       breezes, and the quiet drama of Jalisco's coastline. The layout flows from
       king-size bed to private terrace; premium bath amenities and 24-hour in-room
@@ -219,10 +222,10 @@ export function AccommodationsPage() {
             <h2 className="font-sans text-fluid-2xl font-bold tracking-tight text-slate-800 md:text-fluid-3xl">
               Your Choice of Three Hilton Resorts
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-fluid-base leading-relaxed text-gray-700">
-              Every Paradise Retreat certificate unlocks your pick of these three
-              Hilton luxury all-inclusive resorts in Mexico &mdash; Cancún, Tulum,
-              or Puerto Vallarta.
+            <p className="mx-auto mt-3 max-w-3xl text-fluid-base leading-relaxed text-gray-700">
+              Every Paradise Retreat certificate unlocks your pick of three
+              Hilton luxury all-inclusive resorts in Mexico &mdash; {HILTON_CANCUN_NAME};{' '}
+              {HILTON_TULUM_NAME}; or {HILTON_VALLARTA_NAME}.
             </p>
           </div>
         </div>

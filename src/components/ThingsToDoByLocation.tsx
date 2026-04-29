@@ -1,5 +1,10 @@
 import { Button } from './Button';
-import { PRIMARY_CTA_LABEL } from '../constants';
+import {
+  HILTON_CANCUN_NAME,
+  HILTON_TULUM_NAME,
+  HILTON_VALLARTA_NAME,
+  PRIMARY_CTA_LABEL,
+} from '../constants';
 
 type Activity = {
   title: string;
@@ -8,8 +13,9 @@ type Activity = {
 };
 
 type Location = {
+  /** Full canonical Hilton resort name — used as the section heading. */
   name: string;
-  /** Short eyebrow shown above the location heading. */
+  /** Short eyebrow with city + coastal region (e.g. "Cancún · Caribbean Coast"). */
   region: string;
   activities: Activity[];
 };
@@ -22,8 +28,8 @@ type Location = {
  */
 const LOCATIONS: Location[] = [
   {
-    name: 'Cancún',
-    region: 'Caribbean Coast',
+    name: HILTON_CANCUN_NAME,
+    region: 'Cancún · Caribbean Coast',
     activities: [
       {
         title: 'Isla Mujeres',
@@ -68,8 +74,8 @@ const LOCATIONS: Location[] = [
     ],
   },
   {
-    name: 'Tulum',
-    region: 'Riviera Maya',
+    name: HILTON_TULUM_NAME,
+    region: 'Tulum · Riviera Maya',
     activities: [
       {
         title: 'Tulum Ruins',
@@ -113,8 +119,8 @@ const LOCATIONS: Location[] = [
     ],
   },
   {
-    name: 'Puerto Vallarta',
-    region: 'Pacific Coast',
+    name: HILTON_VALLARTA_NAME,
+    region: 'Puerto Vallarta · Pacific Coast',
     activities: [
       {
         title: 'The Malecón & Old Town',
@@ -201,13 +207,13 @@ export function ThingsToDoByLocation() {
         <div className="flex flex-col gap-fluid-6">
           {LOCATIONS.map((location) => (
             <div key={location.name}>
-              <div className="mb-fluid-3 flex items-baseline gap-3">
-                <h3 className="text-fluid-xl font-semibold text-slate-900 md:text-fluid-2xl">
-                  {location.name}
-                </h3>
+              <div className="mb-fluid-3 flex flex-col gap-1">
                 <span className="text-fluid-xs font-semibold uppercase tracking-[0.18em] text-plum">
                   {location.region}
                 </span>
+                <h3 className="text-balance text-fluid-xl font-semibold leading-tight text-slate-900 md:text-fluid-2xl">
+                  {location.name}
+                </h3>
               </div>
 
               {/* Manual horizontal scroller with snap. Scrollbar is hidden

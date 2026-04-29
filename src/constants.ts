@@ -22,6 +22,20 @@ export const OFFER_ROOM_SHORT = 'Deluxe Room' as const;
 export const OFFER_HEADLINE_DESTINATION = 'Cancún · Tulum · Puerto Vallarta' as const;
 export const OFFER_HEADLINE_VACATION = 'All-Inclusive Mexico Vacation' as const;
 
+// ── CANONICAL RESORT NAMES (use these everywhere a resort is referenced by name) ─
+/** Hilton Cancun (Mar Caribe) — Hotel Zone Caribbean coastline. */
+export const HILTON_CANCUN_NAME = 'Hilton Cancun, an All-Inclusive Resort' as const;
+/** Hilton Tulum Riviera Maya — Caribbean / Riviera Maya. */
+export const HILTON_TULUM_NAME = 'Hilton Tulum Riviera Maya All-Inclusive Resort' as const;
+/** Hilton Vallarta Riviera — Pacific / Bahía de Banderas. */
+export const HILTON_VALLARTA_NAME = 'Hilton All-Inclusive Resort Vallarta Riviera' as const;
+/** Tuple of all three canonical resort names, in the canonical site order (Cancún → Tulum → Vallarta). */
+export const HILTON_RESORTS_FULL_NAMES = [
+  HILTON_CANCUN_NAME,
+  HILTON_TULUM_NAME,
+  HILTON_VALLARTA_NAME,
+] as const;
+
 /** Single scannable line for cards and bars (unchanged hero deck line). */
 export const OFFER_DECK_ONE_LINER =
   '5-Day Luxury All-Inclusive Retreat · Your Choice of Three Hilton Resorts' as const;

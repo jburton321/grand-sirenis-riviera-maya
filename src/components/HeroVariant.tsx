@@ -1,20 +1,27 @@
 import { BookingCard } from './BookingCard';
+import {
+  HILTON_CANCUN_NAME,
+  HILTON_TULUM_NAME,
+  HILTON_VALLARTA_NAME,
+} from '../constants';
 
 /**
  * HeroVariant — experimental "destinations" hero.
  *
  * Mobile / Tablet (<lg): five stacked rows —
  *                        1) decorative sticker row (bg image + contrast gradient + mexico-10)
- *                        2) Cancún 3) Tulum 4) Puerto Vallarta
+ *                        2) Hilton Cancun  3) Hilton Tulum Riviera Maya  4) Hilton Vallarta
  *                        5) BookingCard (duplicate of the one in <Hero />).
  * Desktop (lg+):        4-column grid — three destination cards + BookingCard, edge-to-edge.
  *                        A decorative mexico-10 sticker + top contrast gradient float over
  *                        the destination columns (independent of card hover).
+ *
+ * Each card carries the canonical full Hilton resort name (see `constants.ts`).
  */
 const DESTINATIONS = [
-  { label: 'Cancún', src: 'images/home/Cancun.png' },
-  { label: 'Tulum', src: 'images/home/Tullum.png' },
-  { label: 'Puerto Vallarta', src: 'images/home/PuertoVallarta.png' },
+  { name: HILTON_CANCUN_NAME, src: 'images/home/Cancun.png' },
+  { name: HILTON_TULUM_NAME, src: 'images/home/Tullum.png' },
+  { name: HILTON_VALLARTA_NAME, src: 'images/home/PuertoVallarta.png' },
 ] as const;
 
 export function HeroVariant() {
@@ -66,12 +73,12 @@ export function HeroVariant() {
 
           {DESTINATIONS.map((destination) => (
             <div
-              key={destination.label}
+              key={destination.name}
               className="group relative flex h-40 cursor-pointer overflow-hidden md:h-48 lg:h-auto"
             >
               <img
                 src={destination.src}
-                alt={`Hilton ${destination.label}`}
+                alt={destination.name}
                 loading="eager"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
@@ -81,11 +88,8 @@ export function HeroVariant() {
                 aria-hidden
               />
               <div className="relative z-10 mt-auto flex w-full flex-col items-center gap-1 px-fluid-4 pb-0 pt-fluid-3 text-center text-white transition-transform duration-500 ease-out group-hover:-translate-y-1 lg:pb-fluid-4 lg:pt-fluid-4">
-                <span className="text-fluid-xs font-semibold uppercase tracking-[0.18em] text-yellow">
-                  Hilton
-                </span>
-                <span className="font-serif text-fluid-2xl font-semibold leading-tight text-white drop-shadow">
-                  {destination.label}
+                <span className="text-balance font-serif text-fluid-base font-semibold leading-tight text-white drop-shadow md:text-fluid-lg lg:text-fluid-xl">
+                  {destination.name}
                 </span>
                 <span className="mt-2 inline-flex items-center gap-1.5 text-fluid-xs font-medium uppercase tracking-[0.2em] text-white/90 opacity-0 transition-all duration-500 ease-out group-hover:opacity-100">
                   Explore
