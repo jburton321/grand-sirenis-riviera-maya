@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { Button } from './Button';
 import {
   HILTON_CANCUN_NAME,
@@ -191,6 +192,19 @@ function ActivityCard({ activity }: { activity: Activity }) {
 }
 
 export function ThingsToDoByLocation() {
+  const scrollerRefs = useRef<Array<HTMLDivElement | null>>([]);
+
+  const scrollCards = (index: number, direction: 'prev' | 'next') => {
+    const scroller = scrollerRefs.current[index];
+    if (!scroller) return;
+
+    const amount = Math.round(scroller.clientWidth * 0.82);
+    scroller.scrollBy({
+      left: direction === 'next' ? amount : -amount,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <section className="bg-white px-4 pb-fluid-8 pt-fluid-8 md:px-6 lg:px-10">
       <div className="mx-auto max-w-content">
@@ -199,40 +213,64 @@ export function ThingsToDoByLocation() {
             Adventures Beyond the Resort
           </h2>
           <p className="mt-3 max-w-2xl text-fluid-base leading-relaxed text-gray-700">
-            Each destination opens onto unforgettable experiences. Swipe through
-            the highlights for every location.
+            Each destination opens onto unforgettable experiences curated for your stay.
           </p>
         </header>
 
         <div className="flex flex-col gap-fluid-6">
-          {LOCATIONS.map((location) => (
+          {LOCATIONS.map((location, index) => (
             <div key={location.name}>
-              <div className="mb-fluid-3 flex flex-col gap-1">
-                <span className="text-fluid-xs font-semibold uppercase tracking-[0.18em] text-plum">
-                  {location.region}
-                </span>
-                <h3 className="text-balance text-fluid-xl font-semibold leading-tight text-slate-900 md:text-fluid-2xl">
-                  {location.name}
-                </h3>
+              <div className="mb-fluid-3 flex items-end justify-between gap-4">
+                <div className="flex min-w-0 flex-col gap-1">
+                  <span className="text-fluid-xs font-semibold uppercase tracking-[0.18em] text-plum">
+                    {location.region}
+                  </span>
+                  <h3 className="text-balance text-fluid-xl font-semibold leading-tight text-slate-900 md:text-fluid-2xl">
+                    {location.name}
+                  </h3>
+                </div>
+                <div className="flex shrink-0 items-center gap-2">
+                  <button
+                    type="button"
+                    aria-label={`Scroll ${location.region} activities left`}
+                    onClick={() => scrollCards(index, 'prev')}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-plum/30 text-plum transition-colors hover:border-plum/60 hover:bg-plum/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plum/40"
+                  >
+                    <span aria-hidden>&larr;</span>
+                  </button>
+                  <button
+                    type="button"
+                    aria-label={`Scroll ${location.region} activities right`}
+                    onClick={() => scrollCards(index, 'next')}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-plum/30 text-plum transition-colors hover:border-plum/60 hover:bg-plum/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plum/40"
+                  >
+                    <span aria-hidden>&rarr;</span>
+                  </button>
+                </div>
               </div>
 
               {/* Manual horizontal scroller with snap. Scrollbar is hidden
                   on every engine. Negative outer margins + matching padding
                   let the first card run flush with the page edge while later
                   cards spill into the gutter. */}
-              <div
-                className="-mx-4 overflow-x-auto px-4 pb-3 [-ms-overflow-style:none] [scrollbar-width:none] md:-mx-6 md:px-6 lg:-mx-10 lg:px-10 [&::-webkit-scrollbar]:hidden"
-              >
-                <ul className="flex snap-x snap-mandatory scroll-smooth gap-4 md:gap-5">
-                  {location.activities.map((activity) => (
-                    <li
-                      key={activity.title}
-                      className="w-[260px] shrink-0 snap-start sm:w-[280px] md:w-[320px] lg:w-[340px]"
-                    >
-                      <ActivityCard activity={activity} />
-                    </li>
-                  ))}
-                </ul>
+              <div className="relative">
+                <div
+                  ref={(el) => {
+                    scrollerRefs.current[index] = el;
+                  }}
+                  className="overflow-x-auto px-1 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                >
+                  <ul className="flex snap-x snap-mandatory scroll-smooth gap-4 md:gap-5">
+                    {location.activities.map((activity) => (
+                      <li
+                        key={activity.title}
+                        className="w-[260px] shrink-0 snap-start sm:w-[280px] md:w-[320px] lg:w-[340px]"
+                      >
+                        <ActivityCard activity={activity} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           ))}

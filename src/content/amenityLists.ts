@@ -35,7 +35,7 @@ export const NEARBY_ATTRACTION_LINES = [
  */
 export const AMENITIES_HOME_GRID_ITEMS = [
   {
-    src: 'images/amenities/beachfront-access.png',
+    src: 'images/amenities/beachfront-access-v2.png',
     label: 'Beachfront Access',
     description:
       'Private beach access across all three Collection destinations.',

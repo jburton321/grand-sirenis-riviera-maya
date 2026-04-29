@@ -46,6 +46,8 @@ function DestinationCard({
   const handleClick = useCallback(() => {
     onOpenVideo(destination.key);
   }, [destination.key, onOpenVideo]);
+  const addInnerShadow =
+    destination.key === 'tulum' || destination.key === 'vallarta';
 
   return (
     <button
@@ -60,6 +62,12 @@ function DestinationCard({
         loading="eager"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
       />
+      {addInnerShadow && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-0 shadow-[inset_0_0_90px_rgba(0,0,0,0.35)]"
+        />
+      )}
 
       {/* Bottom gradient for contrast behind destination titles.
           Explicit z-0 so the text block (z-20 below) is unambiguously above. */}
