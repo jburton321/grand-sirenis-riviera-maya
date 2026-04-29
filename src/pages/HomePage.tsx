@@ -4,6 +4,7 @@ import {
   Gallery,
   AboutPackage,
   HotelOptions,
+  OfferIntroSection,
   ParadiseSection,
   ThingsToDoByLocation,
   AmenitiesGrid,
@@ -43,6 +44,7 @@ export function HomePage() {
       <section id="what-you-get">
         <AboutPackage />
         <HotelOptions />
+        <OfferIntroSection />
         <ParadiseSection />
       </section>
       <section id="resort-details">

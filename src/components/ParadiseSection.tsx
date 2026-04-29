@@ -4,81 +4,46 @@ import {
   HILTON_CANCUN_NAME,
   HILTON_TULUM_NAME,
   HILTON_VALLARTA_NAME,
-  OFFER_HEADLINE_DESTINATION,
-  OFFER_HEADLINE_VACATION,
-  OFFER_SAVE_PERCENT,
-  OFFER_STAY_LABEL,
-  OFFER_TOTAL_AMOUNT,
   RESORT_DISPLAY_NAME,
 } from '../constants';
-import { PriceFootnoteMark } from './PriceFootnoteMark';
-import { StruckRetailPrice } from './StruckRetailPrice';
 
+/**
+ * ParadiseSection — circle-art background with the centred PriceBadge,
+ * followed by the dark "A Private Collection" descriptor band.
+ *
+ * The headline / glass card content has moved to its own dedicated
+ * `<OfferIntroSection>` above this component; this section now owns
+ * just the circle artwork and the badge.
+ */
 export function ParadiseSection() {
   return (
     <>
       <BackgroundSection
-        backgroundImage="images/home/section-wrapper0.png"
-        backgroundImageMobile="images/home/section-wrapper-MOBILE4.png"
+        backgroundImage="images/home/interior-divider2.png"
+        backgroundImageMobile="images/home/interior-divider2.png"
         // lg:aspect locks the desktop section height to the background
         // image's native 3842:2413 ratio so the image fills the section
         // edge-to-edge as the viewport scales — and keeps the absolute-
         // positioned PriceBadge centered inside the circle baked into the
         // image at every screen width.
-        className="pt-10 sm:pt-12 md:pt-16 lg:aspect-[3842/2413]"
+        className="relative z-20 pt-10 sm:pt-12 md:pt-16 lg:-mt-[110px] lg:aspect-[3842/601]"
       >
-        <div className="max-w-content mx-auto -mt-6 px-4 sm:-mt-8 sm:px-6 md:-mt-10 text-center">
-          {/* Mobile / tablet: in document flow with margin spacing.
-              Desktop: pinned to the top-center of the aspect-ratioed section
-              (same anchoring rule as the PriceBadge below) so the headline
-              card always sits above the circle baked into the background
-              image, regardless of viewport width. */}
-          <div className="mb-6 sm:mb-8 lg:absolute lg:left-1/2 lg:top-[4%] lg:m-0 lg:w-full lg:max-w-3xl lg:-translate-x-1/2 lg:px-4">
-            <div className="ios-frosted-glass mx-auto w-full max-w-3xl overflow-hidden rounded-2xl sm:rounded-3xl">
-              <div className="w-full px-5 pt-6 sm:px-8 sm:pt-8 md:px-10 md:pt-10 lg:pt-6">
-                <img
-                  src="images/shared/PHH-LOGO.svg"
-                  alt={RESORT_DISPLAY_NAME}
-                  className="mx-auto block h-auto w-full max-w-48 object-contain object-center sm:max-w-52 md:max-w-56 lg:max-w-44"
-                  width={500}
-                  height={180}
-                  loading="lazy"
-                />
-              </div>
-              <div className="px-5 pb-7 pt-5 sm:px-8 sm:pb-9 sm:pt-6 md:px-10 md:pb-10 md:pt-7 lg:pb-6 lg:pt-4">
-                <h2 className="text-slate-800">
-                  <span className="block text-fluid-sm font-bold tracking-tight sm:text-fluid-base">
-                    {OFFER_STAY_LABEL}
-                  </span>
-                <span className="mt-2 block text-fluid-2xl font-bold tracking-tight sm:mt-3 md:text-fluid-3xl lg:text-fluid-2xl">
-                  {OFFER_HEADLINE_DESTINATION} · {OFFER_HEADLINE_VACATION}
-                </span>
-                </h2>
-                <p className="mx-auto mt-6 max-w-2xl text-pretty text-gray-900 text-fluid-base leading-relaxed sm:mt-8 sm:text-fluid-lg lg:mt-4 lg:text-fluid-base">
-                  <span className="font-bold text-slate-950">{RESORT_DISPLAY_NAME}</span>
-                  {': '}
-                  <span className="font-extrabold text-black">
-                    {OFFER_TOTAL_AMOUNT}
-                    <PriceFootnoteMark /> deposit today
-                  </span>{' '}
-                  — pay $999 at booking. $1,499 total for a{' '}
-                  <StruckRetailPrice className="font-extrabold text-slate-950" /> all-inclusive
-                  retreat (save {OFFER_SAVE_PERCENT}%).{' '}
-                  <span className="font-semibold text-slate-950">
-                    12 months to travel. Total price, not per person or per night.
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile / tablet keep the badge in document flow (margins + flex-center).
-              Desktop floats it absolutely at 50% / ~38% of the section so it
+        <div className="max-w-content mx-auto px-4 sm:px-6 text-center">
+          {/* Mobile / tablet keep the badge in document flow.
+              Desktop floats it absolutely at 50% / ~62% of the section so it
               always lands inside the circle baked into the background image as
-              both scale together with the viewport. Tweak `top-[38%]` if the
-              circle's centre needs a different anchor. */}
-          <div className="mt-24 sm:mt-12 mb-6 sm:mb-8 md:mt-20 flex justify-center lg:absolute lg:left-1/2 lg:top-[62%] lg:m-0 lg:-translate-x-1/2 lg:-translate-y-1/2">
-            <PriceBadge width={260} className="max-w-full my-[61px] lg:my-0" />
+              both scale together with the viewport. */}
+          <div className="flex justify-center lg:absolute lg:left-1/2 lg:top-[14%] lg:m-0 lg:-translate-x-1/2 lg:-translate-y-1/2">
+            {/* Decorative graphic frame around the price badge — the badge
+                sits centred on top of `graphic.png`. The wrapper is square
+                (graphic is 706x707) and sized larger than the badge so the
+                artwork forms a visible halo. */}
+            <div
+              className="relative my-[61px] flex aspect-square w-[360px] max-w-full items-center justify-center bg-contain bg-center bg-no-repeat sm:w-[400px] lg:my-0 lg:w-[440px]"
+              style={{ backgroundImage: 'url(images/home/graphic.png)' }}
+            >
+              <PriceBadge width={260} className="max-w-full" />
+            </div>
           </div>
         </div>
       </BackgroundSection>
@@ -86,7 +51,7 @@ export function ParadiseSection() {
       {/* Bottom band: lifted out of BackgroundSection so it sits flush against
           the section's bottom edge instead of leaving the page color visible
           between the natural-aspect background image and this band. */}
-      <div className="bg-plum py-14 sm:py-16 md:py-20 lg:pb-12 px-4 sm:px-6 -mt-[10px] lg:-mt-[200px] relative -z-10">
+      <div className="relative z-10 bg-plum px-4 py-fluid-8 sm:px-6 md:py-fluid-10">
         <div className="max-w-content mx-auto text-center">
           <h3 className="mb-6 text-xl font-extrabold text-white sm:mb-8 sm:text-2xl md:mb-10">
             A Private Collection of Luxury All-Inclusive Resorts
