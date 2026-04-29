@@ -25,8 +25,8 @@ export const OFFER_HEADLINE_VACATION = 'All-Inclusive Mexico Vacation' as const;
 // ── CANONICAL RESORT NAMES (use these everywhere a resort is referenced by name) ─
 /** Hilton Cancun (Mar Caribe) — Hotel Zone Caribbean coastline. */
 export const HILTON_CANCUN_NAME = 'Hilton Cancun, an All-Inclusive Resort' as const;
-/** Hilton Tulum Riviera Maya — Caribbean / Riviera Maya. */
-export const HILTON_TULUM_NAME = 'Hilton Tulum Riviera Maya All-Inclusive Resort' as const;
+/** Hilton Tulum Riviera — Caribbean / Riviera Maya region. */
+export const HILTON_TULUM_NAME = 'Hilton Tulum Riviera All-Inclusive Resort' as const;
 /** Hilton Vallarta Riviera — Pacific / Bahía de Banderas. */
 export const HILTON_VALLARTA_NAME = 'Hilton All-Inclusive Resort Vallarta Riviera' as const;
 /** Tuple of all three canonical resort names, in the canonical site order (Cancún → Tulum → Vallarta). */

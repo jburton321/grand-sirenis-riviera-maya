@@ -14,7 +14,7 @@ import {
  *
  * Mobile / Tablet (<lg): five stacked rows —
  *                        1) decorative sticker row (bg image + contrast gradient + mexico-10)
- *                        2) Hilton Cancun  3) Hilton Tulum Riviera Maya  4) Hilton Vallarta
+ *                        2) Hilton Cancun  3) Hilton Tulum Riviera  4) Hilton Vallarta
  *                        5) BookingCard (duplicate of the one in <Hero />).
  * Desktop (lg+):        4-column grid — three destination cards + BookingCard, edge-to-edge.
  *                        A decorative mexico-10 sticker + top contrast gradient float over
@@ -61,13 +61,14 @@ function DestinationCard({
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
       />
 
-      {/* Bottom gradient for contrast behind destination titles. */}
+      {/* Bottom gradient for contrast behind destination titles.
+          Explicit z-0 so the text block (z-20 below) is unambiguously above. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/75 via-black/20 to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-2/5 bg-gradient-to-t from-black/75 via-black/20 to-transparent"
       />
 
-      <div className="relative z-10 mt-auto flex w-full flex-col items-center gap-2 px-fluid-4 pb-fluid-3 pt-fluid-3 text-center text-white transition-transform duration-500 ease-out group-hover:-translate-y-1 lg:pb-fluid-4 lg:pt-fluid-4">
+      <div className="relative z-20 mt-auto flex w-full flex-col items-center gap-2 px-fluid-4 pb-fluid-3 pt-fluid-3 text-center text-white transition-transform duration-500 ease-out group-hover:-translate-y-1 lg:pb-fluid-4 lg:pt-fluid-4">
         <span className="text-balance font-serif text-fluid-base font-semibold leading-tight text-white drop-shadow md:text-fluid-lg lg:text-fluid-xl">
           {destination.name}
         </span>
