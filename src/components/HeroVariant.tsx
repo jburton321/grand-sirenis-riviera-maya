@@ -21,16 +21,16 @@ export function HeroVariant() {
   return (
     <section className="relative flex flex-col overflow-hidden bg-plum lg:min-h-[800px] lg:overflow-visible">
       {/* Independent contrast layer: top-only dark gradient sized to the sticker zone.
-          Desktop only — does NOT extend down across the destination cards. */}
+          Desktop only — spans cols 1-3 (viewport - 28rem BookingCard track). */}
       <div
-        className="pointer-events-none absolute left-0 top-0 z-20 hidden h-[28rem] w-3/4 bg-gradient-to-b from-black/70 via-black/30 to-transparent xl:h-[36rem] lg:block"
+        className="pointer-events-none absolute left-0 top-0 z-20 hidden h-[28rem] w-[calc(100%-28rem)] bg-gradient-to-b from-black/70 via-black/30 to-transparent xl:h-[36rem] lg:block"
         aria-hidden
       />
 
       {/* Independent decorative mexico-10 sticker, sized + positioned over the contrast layer.
-          Desktop only. */}
+          Desktop only — same width as the gradient (cols 1-3). */}
       <div
-        className="pointer-events-none absolute left-0 top-[20px] z-30 hidden w-3/4 justify-center xl:top-[10px] lg:flex"
+        className="pointer-events-none absolute left-0 top-[20px] z-30 hidden w-[calc(100%-28rem)] justify-center xl:top-[10px] lg:flex"
         aria-hidden
       >
         <img
@@ -42,7 +42,7 @@ export function HeroVariant() {
 
       <div className="relative z-10 flex min-h-0 flex-1 flex-col">
         {/* lg+: 4 equal columns. <lg: 5 stacked rows (sticker → 3 destinations → BookingCard). */}
-        <div className="flex flex-1 flex-col gap-0 lg:grid lg:grid-cols-4 lg:items-stretch lg:gap-0">
+        <div className="flex flex-1 flex-col gap-0 lg:grid lg:grid-cols-[1fr_1fr_1fr_28rem] lg:items-stretch lg:gap-0">
           {/* Row 1 on <lg only: decorative sticker row.
               Mirrors the desktop sticker treatment — a background image with an
               independent top-down contrast gradient layered UNDER the mexico-10 sticker.
@@ -51,21 +51,16 @@ export function HeroVariant() {
             className="relative flex min-h-[32rem] w-full items-center justify-center overflow-hidden px-0 py-fluid-3 md:min-h-[40rem] lg:hidden"
           >
             <img
-              src="images/home/HERO-BCK-MOBILE.png"
+              src="images/home/mobile-hero-top-bg.png"
               alt=""
               aria-hidden
               className="absolute inset-0 h-full w-full object-cover"
-            />
-            {/* Independent contrast gradient — sits between the bg image and the sticker. */}
-            <div
-              className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent"
-              aria-hidden
             />
             <img
               src="images/home/mexico-10.png"
               alt=""
               aria-hidden
-              className="relative z-10 mx-auto my-auto block h-auto w-full max-w-3xl origin-center scale-[1.35] object-contain md:max-w-5xl md:scale-[1.18]"
+              className="relative z-10 mx-auto my-auto block h-auto w-full max-w-3xl origin-center translate-y-16 scale-[1.35] object-contain md:max-w-5xl md:translate-y-20 md:scale-[1.18]"
             />
           </div>
 
@@ -103,7 +98,7 @@ export function HeroVariant() {
           ))}
 
           {/* Col 4 on lg+ / Row 5 on <lg: BookingCard (duplicate of the one in <Hero />). */}
-          <div className="relative z-10 w-full lg:w-auto">
+          <div className="relative z-10 w-full lg:w-full">
             <BookingCard />
           </div>
         </div>
