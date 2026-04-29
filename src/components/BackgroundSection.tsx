@@ -45,8 +45,16 @@ export function BackgroundSection({
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute inset-0 z-0 hidden bg-cover bg-center lg:block"
-            style={{ backgroundImage: `url(${backgroundImage})` }}
+            className="pointer-events-none absolute inset-0 z-0 hidden bg-no-repeat lg:block"
+            style={{
+              backgroundImage: `url(${backgroundImage})`,
+              // Match the footer image (`<img w-full h-auto>`): span the full
+              // section width and let the height follow the image's natural
+              // aspect ratio — no horizontal cropping. Anything below shows
+              // the section's bg-plum fallback.
+              backgroundSize: '100% auto',
+              backgroundPosition: 'top center',
+            }}
             aria-hidden
           />
         </>
@@ -57,7 +65,7 @@ export function BackgroundSection({
           style={{ backgroundColor: `rgba(0, 0, 0, ${overlayOpacity / 100})` }}
         />
       )}
-      <div className="relative z-10 flex flex-1 flex-col">{children}</div>
+      <div className="relative z-10 flex flex-1 flex-col lg:h-full">{children}</div>
     </section>
   );
 }
