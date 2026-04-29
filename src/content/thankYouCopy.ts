@@ -24,7 +24,7 @@ const SHARED = {
   hoursLabel: 'Reservation Department Hours:',
   hoursLine: 'Mon-Fri: 9 am - 8 pm CST  |  Saturday: 9 am - 5:30 pm CST',
   summaryTitle: 'Your Vacation Summary:',
-  vacationPackageLine: `${OFFER_STAY_LABEL} ${OFFER_ROOM_SHORT} - All-Inclusive Stay`,
+  vacationPackageLine: `${OFFER_STAY_LABEL} ${OFFER_ROOM_SHORT} - ${HILTON_CANCUN_NAME} (Cancun, Mexico)`,
   unitType: OFFER_ROOM_SHORT,
   nightsDisplay: `${OFFER_NIGHTS_COUNT} Nights`,
   guests: '2 Adults',
