@@ -51,7 +51,7 @@ export function ParadiseSection() {
       {/* Bottom band: lifted out of BackgroundSection so it sits flush against
           the section's bottom edge instead of leaving the page color visible
           between the natural-aspect background image and this band. */}
-      <div className="relative z-10 bg-plum px-4 py-fluid-8 sm:px-6 md:py-fluid-10">
+      <div className="relative z-10 bg-plum px-4 pb-fluid-8 pt-28 sm:px-6 md:pb-fluid-10 md:pt-32">
         <div className="max-w-content mx-auto text-center">
           <h3 className="mb-6 text-xl font-extrabold text-white sm:mb-8 sm:text-2xl md:mb-10">
             A Private Collection of Luxury All-Inclusive Resorts
