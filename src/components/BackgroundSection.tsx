@@ -35,7 +35,11 @@ export function BackgroundSection({
             className="pointer-events-none absolute inset-0 z-0 bg-no-repeat lg:hidden"
             style={{
               backgroundImage: `url(${backgroundImageMobile})`,
-              backgroundSize: 'auto',
+              // Fit the viewport width and let the height follow the image's
+              // natural aspect ratio — same approach used elsewhere on the
+              // site (Hero, mobile sticker row, etc.). Anything below the
+              // image's natural height shows the section's `bg-plum` fallback.
+              backgroundSize: '100% auto',
               backgroundPosition: 'top center',
             }}
             aria-hidden

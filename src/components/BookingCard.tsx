@@ -1,7 +1,6 @@
 import { Zap, Bed, Wine, Eye } from 'lucide-react';
 import {
   OFFER_BALANCE_LINE,
-  OFFER_HEADLINE_DESTINATION,
   OFFER_HEADLINE_VACATION,
   OFFER_RETAIL_PRICE,
   OFFER_SAVE_PERCENT,
@@ -53,7 +52,7 @@ export function BookingCard({
       <div className="flex flex-col gap-3 p-4 pt-3 md:gap-4 md:p-6 md:pt-4">
         <img
           className="mx-auto block h-auto w-full max-w-[220px] object-contain object-center transition-transform duration-300 hover:scale-[1.02]"
-          src="images/shared/WW.svg"
+          src="images/shared/PHH-LOGO.svg"
           alt={RESORT_DISPLAY_NAME}
           width={500}
           height={180}
@@ -66,10 +65,7 @@ export function BookingCard({
         </div>
 
         <h3 className="text-center text-fluid-xl font-bold leading-tight text-slate-800">
-          {OFFER_HEADLINE_VACATION}<br />
-          <span className="text-fluid-lg font-bold text-slate-700">
-            {OFFER_HEADLINE_DESTINATION}
-          </span>
+          {OFFER_HEADLINE_VACATION}
         </h3>
       </div>
 
@@ -96,7 +92,7 @@ export function BookingCard({
                 {OFFER_BALANCE_LINE}
               </p>
               <p className="mt-0.5 text-fluid-xs font-semibold text-slate-700">
-                {OFFER_TOTAL_COMPLETE} · {OFFER_RETAIL_PRICE} value
+                {OFFER_TOTAL_COMPLETE} | {OFFER_RETAIL_PRICE}
               </p>
             </div>
           </div>

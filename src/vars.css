@@ -1,10 +1,10 @@
 :root {
-  --color-bg-hero: #0b1929;
+  --color-bg-hero: #002C63;
   --color-bg-page: #f9f8f4;
   --color-bg-card: #ffffff;
-  --color-navy: #112240;
-  --color-navy-deep: #0b1929;
-  --color-navy-light: #1a3355;
+  --color-navy: #002C63;
+  --color-navy-deep: #002C63;
+  --color-navy-light: #002C63;
   --color-gold: #d4a43c;
   --color-gold-light: #e8c56d;
   --color-gold-dark: #b8862d;
@@ -12,12 +12,12 @@
   --color-cream: #faf8f4;
   --color-cta: #d4a43c;
   --color-cta-hover: #b8862d;
-  --color-cta-text: #0b1929;
-  --color-urgent: #1a3355;
+  --color-cta-text: #002C63;
+  --color-urgent: #002C63;
   --color-price: #d4a43c;
   --color-highlight: #e8c56d;
   --color-text-light: #ffffff;
-  --color-text-dark: #0b1929;
+  --color-text-dark: #002C63;
   --color-text-muted: #9fafc2;
   --color-primary: var(--color-gold);
   --color-accent: var(--color-gold);

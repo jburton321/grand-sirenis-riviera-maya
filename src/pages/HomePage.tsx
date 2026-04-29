@@ -5,7 +5,7 @@ import {
   AboutPackage,
   HotelOptions,
   ParadiseSection,
-  Amenities,
+  ThingsToDoByLocation,
   AmenitiesGrid,
   Testimonials,
 } from '../components';
@@ -46,7 +46,7 @@ export function HomePage() {
         <ParadiseSection />
       </section>
       <section id="resort-details">
-        <Amenities />
+        <ThingsToDoByLocation />
         <div className="relative hidden md:block">
           <img
             className="w-full h-auto bg-white"

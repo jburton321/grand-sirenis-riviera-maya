@@ -1,6 +1,7 @@
 /**
- * PHH Collection — $500 deposit is the hero price. $1,200 total is supporting context.
- * $700 balance is paid at the time of booking.
+ * PHH Collection — $500 deposit is the hero price. $1,499 total is supporting context.
+ * $999 balance is paid at the time of booking ($500 deposit + $999 = $1,499 total).
+ * Retail comparison is $2,500 → savings = $1,001 (≈ 40%).
  */
 
 // ── RESORT & BRAND ──────────────────────────────────────────────
@@ -10,8 +11,8 @@ export const CLUB_DISPLAY_NAME = 'PHH Collection' as const;
 // ── OFFER PRICING ───────────────────────────────────────────────
 export const OFFER_TOTAL_AMOUNT = '$500' as const;            // PriceBadge circle, BookingCard hero price
 export const OFFER_TOTAL_LABEL = 'Deposit Today' as const;    // Below price in PriceBadge + BookingCard
-export const OFFER_RETAIL_PRICE = '$3,500' as const;          // Struck-through comparison price
-export const OFFER_SAVE_PERCENT = 66 as const;                // Savings badge (number for {X}% interpolation)
+export const OFFER_RETAIL_PRICE = '$2,500' as const;          // Struck-through comparison price
+export const OFFER_SAVE_PERCENT = 40 as const;                // Savings badge (number for {X}% interpolation) — ($2,500 − $1,499)/$2,500 ≈ 40%
 export const OFFER_MEMBER_RATE_COMPLETE = '$500 Deposit' as const; // MobileStickyCTA
 
 // ── OFFER DETAILS ───────────────────────────────────────────────
@@ -27,12 +28,12 @@ export const OFFER_DECK_ONE_LINER =
 
 // ── SPLIT PAY LINES ─────────────────────────────────────────────
 export const OFFER_BALANCE_LINE =
-  'Pay $700 at the time of booking for all 5 days / 4 nights' as const;
-export const OFFER_TOTAL_COMPLETE = '$1,200 total' as const;  // Supporting context, never the hero
+  'Pay $999 at the time of booking for all 5 days / 4 nights' as const;
+export const OFFER_TOTAL_COMPLETE = '$1,499 total' as const;  // Supporting context, never the hero
 
 // ── RECURRING RIBBON ────────────────────────────────────────────
 export const RECURRING_RIBBON_LINE =
-  'ONLY $500 DEPOSIT · $700 AT BOOKING · $3,500 VALUE · 66% OFF' as const;
+  'ONLY $500 DEPOSIT · $999 AT BOOKING · $2,500 VALUE · 40% OFF' as const;
 
 // ── CTA ─────────────────────────────────────────────────────────
 export const PRIMARY_CTA_LABEL = 'RESERVE YOUR STAY' as const;
@@ -52,7 +53,7 @@ export const RESORT_VIDEO_MP4_SRC = 'media/hilton-cancun-hero.mp4' as const;
 
 // ── FOOTER ──────────────────────────────────────────────────────
 export const FOOTER_PRICE_DISCLAIMER =
-  'Member rate represents approximately 66% savings off published resort rates. Published rate based on peak-season Deluxe Room rates at participating Hilton all-inclusive properties.' as const;
+  'Member rate represents approximately 40% savings off published resort rates. Published rate based on peak-season Deluxe Room rates at participating Hilton all-inclusive properties.' as const;
 
 // ── IMAGES (kept as Phase 2 visual reference — swap when PHH assets are ready) ─
 /** Thank You receipt hero background (`public/images/`). */

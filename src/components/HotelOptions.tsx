@@ -7,7 +7,10 @@ import { Lightbox } from './Lightbox';
 const VIDEO_START_SECONDS = 4;
 
 type HotelOption = {
+  /** Primary card title (without the "All-Inclusive Resort" suffix). */
   name: string;
+  /** Eyebrow rendered below the card title. */
+  tagline: string;
   /** Full marketing name for the lightbox heading (may include "All-Inclusive Resort"). */
   lightboxName: string;
   /** Eyebrow / location tagline rendered in the lightbox. */
@@ -28,8 +31,9 @@ type HotelOption = {
  */
 const HOTELS: HotelOption[] = [
   {
-    name: 'Hilton Cancun Mar Caribe',
-    lightboxName: 'Hilton Cancun Mar Caribe All-Inclusive Resort',
+    name: 'Hilton Cancun',
+    tagline: 'All-Inclusive Resort',
+    lightboxName: 'Hilton Cancun, an All-Inclusive Resort',
     subtitle: "Cancún Hotel Zone · 600 ft of Caribbean beachfront",
     description:
       "Endless adventures and thoughtful amenities meet at this oceanfront all-inclusive resort in the heart of Cancún's Hotel Zone. Guests enjoy 540 ocean-view rooms and suites, twelve restaurants and bars, family and adults-only pools with a waterslide, direct beach access, and a signature spa with a hydrotherapy circuit — all just 10 miles from Cancún International Airport.",
@@ -39,6 +43,7 @@ const HOTELS: HotelOption[] = [
   },
   {
     name: 'Hilton Tulum Riviera Maya',
+    tagline: 'All-Inclusive Resort',
     lightboxName: 'Hilton Tulum Riviera Maya All-Inclusive Resort',
     subtitle: 'Riviera Maya · Secluded Caribbean bay',
     description:
@@ -49,7 +54,8 @@ const HOTELS: HotelOption[] = [
   },
   {
     name: 'Hilton Vallarta Riviera',
-    lightboxName: 'Hilton Vallarta Riviera All-Inclusive Resort',
+    tagline: 'All-Inclusive Resort',
+    lightboxName: 'Hilton All-Inclusive Resort Vallarta Riviera',
     subtitle: 'Puerto Vallarta · Bahía de Banderas Pacific coast',
     description:
       "A spectacularly oceanfront all-inclusive escape between the beaches of Bahía de Banderas and downtown Puerto Vallarta. Every one of the 444 rooms and suites faces the Pacific with a private balcony, complemented by two sparkling infinity pools, twelve restaurants, bars and lounges, a full-service Eforea Spa, nightly entertainment, and all-inclusive dining, cocktails, and pool and beach service — just nine miles from Puerto Vallarta International Airport.",
@@ -147,7 +153,7 @@ function HotelCard({ hotel }: { hotel: HotelOption }) {
           {hotel.name}
         </p>
         <p className="mt-1 text-fluid-sm font-normal leading-snug text-gray-700">
-          All-Inclusive Resort
+          {hotel.tagline}
         </p>
       </div>
       <div className="mt-4">

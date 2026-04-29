@@ -81,9 +81,9 @@ module.exports = {
       },
       colors: {
         navy: {
-          DEFAULT: '#112240',
-          deep: '#0B1929',
-          light: '#1A3355',
+          DEFAULT: '#002C63',
+          deep: '#002C63',
+          light: '#002C63',
           muted: '#243B5C',
         },
         gold: {
@@ -99,14 +99,14 @@ module.exports = {
         cream: '#FAF8F4',
         'off-white': '#F0F2F5',
         plum: {
-          DEFAULT: '#0B1929',
-          light: '#1A3355',
-          dark: '#0B1929',
+          DEFAULT: '#002C63',
+          light: '#002C63',
+          dark: '#002C63',
         },
         purple: {
-          DEFAULT: '#112240',
-          light: '#1A3355',
-          dark: '#0B1929',
+          DEFAULT: '#002C63',
+          light: '#002C63',
+          dark: '#002C63',
         },
         sky: {
           DEFAULT: '#E8C56D',
@@ -119,9 +119,9 @@ module.exports = {
           dark: '#B8862D',
         },
         orange: {
-          DEFAULT: '#1A3355',
+          DEFAULT: '#002C63',
           light: '#243B5C',
-          dark: '#112240',
+          dark: '#002C63',
         },
         amber: {
           DEFAULT: '#D4A43C',
@@ -142,11 +142,11 @@ module.exports = {
         page: '#F9F8F4',
         cardline: '#E2E6EC',
         highlight: '#E8C56D',
-        urgent: '#1A3355',
+        urgent: '#002C63',
         price: '#D4A43C',
-        warning: '#1A3355',
+        warning: '#002C63',
         'text-light': '#FFFFFF',
-        'text-dark': '#0B1929',
+        'text-dark': '#002C63',
         muted: '#9FAFC2',
         'color-white-solid': '#ffffff',
         'color-grey-96': '#f5f5f5',
@@ -183,6 +183,7 @@ module.exports = {
         'scale-in': 'scaleIn 0.3s ease-out',
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'shimmer': 'shimmer 2s linear infinite',
+        'marquee-x': 'marqueeX 40s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -196,6 +197,10 @@ module.exports = {
         shimmer: {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
+        },
+        marqueeX: {
+          '0%': { transform: 'translate3d(0, 0, 0)' },
+          '100%': { transform: 'translate3d(-50%, 0, 0)' },
         },
       },
     },

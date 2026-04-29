@@ -211,7 +211,7 @@
 .brand-map .leaflet-control-zoom a {
   border-color: #e2e6ec !important;
   background-color: #fff !important;
-  color: #0b1929 !important;
+  color: #002C63 !important;
 }
 
 .brand-map .leaflet-control-zoom a:hover {
@@ -228,7 +228,7 @@
 }
 
 .brand-map .leaflet-control-attribution a {
-  color: #0b1929 !important;
+  color: #002C63 !important;
 }
 
 .leaflet-marker-pane {
@@ -363,7 +363,7 @@ img.hero-sticker-element {
 }
 
 .title-8-span {
-  color: #0b1929;
+  color: #002C63;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -371,7 +371,7 @@ img.hero-sticker-element {
 }
 
 .title-8-span2 {
-  color: #0b1929;
+  color: #002C63;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -379,7 +379,7 @@ img.hero-sticker-element {
 }
 
 .title-9-span {
-  color: #0b1929;
+  color: #002C63;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -387,7 +387,7 @@ img.hero-sticker-element {
 }
 
 .title-9-span2 {
-  color: #0b1929;
+  color: #002C63;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   line-height: 24px;

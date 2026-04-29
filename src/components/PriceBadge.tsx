@@ -19,10 +19,17 @@ interface PriceBadgeProps {
 
 const BASE_SIZE = 350;
 
-/** Navy Deep fill for the circular badge (PHH brand). Gold ring + cream outline frame it. */
-const PRICE_BADGE_FILL = '#0B1929';
-const PRICE_BADGE_RING = '#D4A43C';
-const PRICE_BADGE_OUTLINE = '#FAF8F4';
+/** Navy fill (PHH brand). Silver gradient outer ring + reversed silver gradient inner band. */
+const PRICE_BADGE_FILL = '#002C63';
+/**
+ * Brushed-silver/chrome gradient applied to the outer ring. Diagonal sweep
+ * with highlights at ~30% and ~75% to mimic light catching a polished edge.
+ */
+const PRICE_BADGE_RING_GRADIENT =
+  'linear-gradient(135deg, #A7B0BC 0%, #FFFFFF 30%, #C8CFD8 55%, #FFFFFF 75%, #94A0AD 100%)';
+/** Same silver gradient mirrored 180° (315deg) for the inner band — direction reversed. */
+const PRICE_BADGE_BAND_GRADIENT =
+  'linear-gradient(315deg, #A7B0BC 0%, #FFFFFF 30%, #C8CFD8 55%, #FFFFFF 75%, #94A0AD 100%)';
 
 
 export function PriceBadge({
@@ -64,64 +71,76 @@ export function PriceBadge({
         </div>
 
         <div
-          className="box-border flex h-full w-full flex-col items-center justify-center rounded-full text-white shadow-[0_10px_30px_-6px_rgba(0,0,0,0.3)]"
+          className="box-border h-full w-full rounded-full shadow-[0_10px_30px_-6px_rgba(0,0,0,0.3)]"
           style={{
-            backgroundColor: PRICE_BADGE_FILL,
-            border: `12px solid ${PRICE_BADGE_RING}`,
-            outline: `8px solid ${PRICE_BADGE_OUTLINE}`,
-            outlineOffset: '-20px',
-            padding: '12px 14px',
+            // Outer ring layer: silver gradient sits in the border zone via
+            // the standard double-background trick (transparent border +
+            // navy fill clipped to padding-box, gradient to border-box).
+            background: `linear-gradient(${PRICE_BADGE_FILL}, ${PRICE_BADGE_FILL}) padding-box, ${PRICE_BADGE_RING_GRADIENT} border-box`,
+            border: '12px solid transparent',
             marginTop: '-23px',
             marginBottom: '-23px',
           }}
         >
           <div
-            className="rounded-md bg-white text-center font-bold text-black"
+            className="box-border flex h-full w-full flex-col items-center justify-center rounded-full text-white"
             style={{
-              padding: '3px 12px',
-              fontSize: '14px',
-              marginBottom: '6px',
-              lineHeight: 1.2,
-              maxWidth: '240px',
+              // Inner band layer: same gradient 180° mirrored. The reversed
+              // sweep makes the two metallic rings catch light from opposite
+              // sides, giving a polished medallion feel.
+              background: `linear-gradient(${PRICE_BADGE_FILL}, ${PRICE_BADGE_FILL}) padding-box, ${PRICE_BADGE_BAND_GRADIENT} border-box`,
+              border: '8px solid transparent',
+              padding: '12px 14px',
             }}
-          >
-            {days.toUpperCase()}
-          </div>
-
-          <div
-            className="text-white"
-            style={{
-              fontSize: '18px',
-              marginBottom: '4px',
-            }}
-          >
-            <StruckRetailPrice amount={oldPrice} className="text-white" />
-          </div>
-
-          <div
-            className="flex flex-col items-center text-center leading-tight text-white"
-            style={{ marginTop: '2px' }}
           >
             <div
-              className="font-black text-white"
+              className="rounded-md bg-white text-center font-bold text-black"
               style={{
-                fontSize: '64px',
-                lineHeight: 0.95,
-                letterSpacing: '-0.02em',
+                padding: '3px 12px',
+                fontSize: '14px',
+                marginBottom: '6px',
+                lineHeight: 1.2,
+                maxWidth: '240px',
               }}
             >
-              {totalAmount}
-              <PriceFootnoteMark />
+              {days.toUpperCase()}
             </div>
+
             <div
-              className="font-semibold uppercase tracking-[0.14em] text-white"
+              className="text-white"
               style={{
-                fontSize: '12px',
-                marginTop: '4px',
-                opacity: 0.95,
+                fontSize: '18px',
+                marginBottom: '4px',
               }}
             >
-              {totalLabel}
+              <StruckRetailPrice amount={oldPrice} className="text-white" />
+            </div>
+
+            <div
+              className="flex flex-col items-center text-center leading-tight text-white"
+              style={{ marginTop: '2px' }}
+            >
+              <div
+                className="font-black text-white"
+                style={{
+                  fontSize: '64px',
+                  lineHeight: 0.95,
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                {totalAmount}
+                <PriceFootnoteMark />
+              </div>
+              <div
+                className="font-semibold uppercase tracking-[0.14em] text-white"
+                style={{
+                  fontSize: '12px',
+                  marginTop: '4px',
+                  opacity: 0.95,
+                }}
+              >
+                {totalLabel}
+              </div>
             </div>
           </div>
         </div>

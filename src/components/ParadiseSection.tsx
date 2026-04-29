@@ -23,7 +23,7 @@ export function ParadiseSection() {
           <div className="ios-frosted-glass mx-auto w-full max-w-3xl overflow-hidden rounded-2xl sm:rounded-3xl">
             <div className="w-full px-5 pt-6 sm:px-8 sm:pt-8 md:px-10 md:pt-10">
               <img
-                src="images/shared/WW.svg"
+                src="images/shared/PHH-LOGO.svg"
                 alt={RESORT_DISPLAY_NAME}
                 className="mx-auto block h-auto w-full max-w-48 object-contain object-center sm:max-w-52 md:max-w-56"
                 width={500}
@@ -47,7 +47,7 @@ export function ParadiseSection() {
                   {OFFER_TOTAL_AMOUNT}
                   <PriceFootnoteMark /> deposit today
                 </span>{' '}
-                — pay $700 at booking. $1,200 total for a{' '}
+                — pay $999 at booking. $1,499 total for a{' '}
                 <StruckRetailPrice className="font-extrabold text-slate-950" /> all-inclusive
                 retreat (save {OFFER_SAVE_PERCENT}%).{' '}
                 <span className="font-semibold text-slate-950">
