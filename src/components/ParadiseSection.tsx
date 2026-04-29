@@ -39,7 +39,7 @@ export function ParadiseSection() {
                 (graphic is 706x707) and sized larger than the badge so the
                 artwork forms a visible halo. */}
             <div
-              className="relative my-[61px] flex aspect-square w-[360px] max-w-full items-center justify-center bg-contain bg-center bg-no-repeat sm:w-[400px] lg:my-0 lg:w-[440px]"
+              className="relative my-10 flex aspect-square w-[280px] max-w-full items-center justify-center bg-contain bg-center bg-no-repeat sm:my-12 sm:w-[320px] md:my-14 md:w-[360px] lg:my-0 lg:w-[440px]"
               style={{ backgroundImage: 'url(images/home/graphic.png)' }}
             >
               <PriceBadge width={260} className="max-w-full" />
@@ -56,7 +56,7 @@ export function ParadiseSection() {
           <h3 className="mb-6 text-xl font-extrabold text-white sm:mb-8 sm:text-2xl md:mb-10">
             A Private Collection of Luxury All-Inclusive Resorts
           </h3>
-          <p className="text-base leading-relaxed text-white sm:text-lg md:text-xl">
+          <p className="text-pretty text-base leading-relaxed text-white sm:text-lg md:text-xl">
             {RESORT_DISPLAY_NAME} is a private vacation club operating across Mexico's Caribbean
             and Pacific coasts, curating certificate programs for members and invited guests of
             its partner properties. Today that includes three flagship Hilton properties:{' '}

@@ -25,7 +25,7 @@ const BACKGROUND_IMAGE = 'images/home/details-img.png';
 export function OfferIntroSection() {
   return (
     <section
-      className="relative w-full min-h-[680px] bg-plum bg-cover bg-center bg-no-repeat lg:min-h-[820px]"
+      className="relative w-full min-h-[560px] bg-plum bg-cover bg-center bg-no-repeat sm:min-h-[620px] md:min-h-[700px] lg:min-h-[820px]"
       style={{ backgroundImage: `url(${BACKGROUND_IMAGE})` }}
       aria-labelledby="offer-intro-heading"
     >
