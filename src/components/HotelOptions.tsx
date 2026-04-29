@@ -7,56 +7,37 @@ import {
   HILTON_TULUM_NAME,
   HILTON_VALLARTA_NAME,
 } from '../constants';
+import {
+  HILTON_RESORTS_BY_KEY,
+  type HiltonResort,
+} from '../content/hiltonResorts';
 
-/** Background video jumps past the intro so viewers see the scenery right away. */
-const VIDEO_START_SECONDS = 4;
-
-type HotelOption = {
-  /** Full canonical resort name — used as both the card title and the lightbox heading. */
-  name: string;
-  /** Eyebrow / location tagline rendered in the lightbox. */
-  subtitle: string;
-  /** Short description paragraph shown in the lightbox, sourced from hilton.com. */
-  description: string;
+/**
+ * Per-card overlay metadata: the canonical resort entry plus the layout-
+ * specific poster image. Description / subtitle / video come from the shared
+ * `hiltonResorts` content module so HeroVariant uses the same copy.
+ */
+type HotelOption = HiltonResort & {
   /** Poster image used as fallback and as the `poster` for video cards. */
   src: string;
   alt: string;
-  /** Optional looping background video. When present, it replaces the still image. */
-  videoSrc?: string;
 };
 
-/**
- * Real copy and stats below are drawn from the official hilton.com resort
- * pages and Hilton newsroom announcements for each property. Names are the
- * canonical full Hilton brand names (see `constants.ts`).
- */
 const HOTELS: HotelOption[] = [
   {
-    name: HILTON_CANCUN_NAME,
-    subtitle: "Cancún Hotel Zone · 600 ft of Caribbean beachfront",
-    description:
-      "Endless adventures and thoughtful amenities meet at this oceanfront all-inclusive resort in the heart of Cancún's Hotel Zone. Guests enjoy 540 ocean-view rooms and suites, twelve restaurants and bars, family and adults-only pools with a waterslide, direct beach access, and a signature spa with a hydrotherapy circuit — all just 10 miles from Cancún International Airport.",
+    ...HILTON_RESORTS_BY_KEY.cancun,
     src: 'images/accommodations/hilton-cancun-mar-caribe-01.png',
     alt: `${HILTON_CANCUN_NAME} — beachfront all-inclusive resort`,
-    videoSrc: 'media/hilton-cancun-hero.mp4',
   },
   {
-    name: HILTON_TULUM_NAME,
-    subtitle: 'Riviera Maya · Secluded Caribbean bay',
-    description:
-      "Tucked in a secluded bay overlooking white sands and turquoise water, this is Hilton's largest resort in the Caribbean and Latin America. Spread across 735 rooms and suites in three-story villa-style buildings, discover eight resort pools, 13 restaurants and bars, a luxury spa, and a dedicated Family Zone with a water park — all inspired by the allure of Mayan civilization and modern Mexican culture.",
+    ...HILTON_RESORTS_BY_KEY.tulum,
     src: 'images/accommodations/hilton-tulum-riviera-maya-01.png',
     alt: `${HILTON_TULUM_NAME} — Caribbean all-inclusive resort`,
-    videoSrc: 'media/telum.webm',
   },
   {
-    name: HILTON_VALLARTA_NAME,
-    subtitle: 'Puerto Vallarta · Bahía de Banderas Pacific coast',
-    description:
-      "A spectacularly oceanfront all-inclusive escape between the beaches of Bahía de Banderas and downtown Puerto Vallarta. Every one of the 444 rooms and suites faces the Pacific with a private balcony, complemented by two sparkling infinity pools, twelve restaurants, bars and lounges, a full-service Eforea Spa, nightly entertainment, and all-inclusive dining, cocktails, and pool and beach service — just nine miles from Puerto Vallarta International Airport.",
+    ...HILTON_RESORTS_BY_KEY.vallarta,
     src: 'images/accommodations/hilton-vallarta-riviera-01.png',
     alt: `${HILTON_VALLARTA_NAME} — Pacific-coast all-inclusive resort`,
-    videoSrc: 'media/Vallerta.webm',
   },
 ];
 
@@ -69,14 +50,14 @@ function HotelCard({ hotel }: { hotel: HotelOption }) {
     const video = videoRef.current;
     if (!video) return;
     try {
-      video.currentTime = VIDEO_START_SECONDS;
+      video.currentTime = hotel.videoStartSeconds;
     } catch {
       /* `currentTime` set can throw if metadata isn't ready; ignored. */
     }
     video.play().catch(() => {
       /* Autoplay may be blocked on some browsers; poster covers that case. */
     });
-  }, []);
+  }, [hotel.videoStartSeconds]);
 
   const openLightbox = useCallback(() => setLightboxOpen(true), []);
   const closeLightbox = useCallback(() => setLightboxOpen(false), []);
@@ -168,7 +149,7 @@ function HotelCard({ hotel }: { hotel: HotelOption }) {
             </Button>
           }
           videoAutoPlayMuted
-          videoStartSeconds={VIDEO_START_SECONDS}
+          videoStartSeconds={hotel.videoStartSeconds}
         />
       ) : null}
     </li>

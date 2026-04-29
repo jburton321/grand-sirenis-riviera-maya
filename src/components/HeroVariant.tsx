@@ -1,12 +1,16 @@
+import { useCallback, useState } from 'react';
+import { Play } from 'lucide-react';
 import { BookingCard } from './BookingCard';
+import { Button } from './Button';
+import { Lightbox } from './Lightbox';
 import {
-  HILTON_CANCUN_NAME,
-  HILTON_TULUM_NAME,
-  HILTON_VALLARTA_NAME,
-} from '../constants';
+  HILTON_RESORTS_BY_KEY,
+  type HiltonResort,
+  type HiltonResortKey,
+} from '../content/hiltonResorts';
 
 /**
- * HeroVariant — experimental "destinations" hero.
+ * HeroVariant — homepage destinations hero.
  *
  * Mobile / Tablet (<lg): five stacked rows —
  *                        1) decorative sticker row (bg image + contrast gradient + mexico-10)
@@ -16,15 +20,83 @@ import {
  *                        A decorative mexico-10 sticker + top contrast gradient float over
  *                        the destination columns (independent of card hover).
  *
- * Each card carries the canonical full Hilton resort name (see `constants.ts`).
+ * Each destination card carries the canonical full Hilton resort name and an
+ * always-visible play button that opens the same `Lightbox` video popup used
+ * by the `HotelOptions` "Your Choice of Three Hilton Resorts" section.
  */
-const DESTINATIONS = [
-  { name: HILTON_CANCUN_NAME, src: 'images/home/Cancun.png' },
-  { name: HILTON_TULUM_NAME, src: 'images/home/Tullum.png' },
-  { name: HILTON_VALLARTA_NAME, src: 'images/home/PuertoVallarta.png' },
-] as const;
+
+type Destination = HiltonResort & {
+  /** Full-bleed hero photo for the destination card (different from the lightbox poster). */
+  src: string;
+};
+
+const DESTINATIONS: Destination[] = [
+  { ...HILTON_RESORTS_BY_KEY.cancun, src: 'images/home/Cancun.png' },
+  { ...HILTON_RESORTS_BY_KEY.tulum, src: 'images/home/Tullum.png' },
+  { ...HILTON_RESORTS_BY_KEY.vallarta, src: 'images/home/PuertoVallarta.png' },
+];
+
+function DestinationCard({
+  destination,
+  onOpenVideo,
+}: {
+  destination: Destination;
+  onOpenVideo: (key: HiltonResortKey) => void;
+}) {
+  const handleClick = useCallback(() => {
+    onOpenVideo(destination.key);
+  }, [destination.key, onOpenVideo]);
+
+  return (
+    <button
+      type="button"
+      onClick={handleClick}
+      aria-label={`Play ${destination.name} highlight reel`}
+      className="group relative flex h-40 cursor-pointer overflow-hidden bg-plum text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset md:h-48 lg:h-auto"
+    >
+      <img
+        src={destination.src}
+        alt={destination.name}
+        loading="eager"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+      />
+
+      {/* Bottom gradient for contrast behind destination titles. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/75 via-black/20 to-transparent"
+      />
+
+      <div className="relative z-10 mt-auto flex w-full flex-col items-center gap-2 px-fluid-4 pb-fluid-3 pt-fluid-3 text-center text-white transition-transform duration-500 ease-out group-hover:-translate-y-1 lg:pb-fluid-4 lg:pt-fluid-4">
+        <span className="text-balance font-serif text-fluid-base font-semibold leading-tight text-white drop-shadow md:text-fluid-lg lg:text-fluid-xl">
+          {destination.name}
+        </span>
+
+        {/* Always-visible play affordance under the resort title. */}
+        <span
+          aria-hidden
+          className="mt-1 inline-flex items-center gap-2 transition-transform duration-300 group-hover:scale-105 group-focus-visible:scale-105"
+        >
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-plum shadow-md ring-1 ring-plum/10 backdrop-blur-sm md:h-9 md:w-9">
+            <Play className="ml-0.5 h-3.5 w-3.5 fill-current md:h-4 md:w-4" />
+          </span>
+          <span className="text-fluid-xs font-semibold uppercase tracking-[0.18em] text-white/95 drop-shadow">
+            Watch Video
+          </span>
+        </span>
+      </div>
+    </button>
+  );
+}
 
 export function HeroVariant() {
+  const [openKey, setOpenKey] = useState<HiltonResortKey | null>(null);
+
+  const openLightbox = useCallback((key: HiltonResortKey) => {
+    setOpenKey(key);
+  }, []);
+  const closeLightbox = useCallback(() => setOpenKey(null), []);
+
   return (
     <section className="relative flex flex-col overflow-hidden bg-plum lg:min-h-[800px] lg:overflow-visible">
       {/* Independent contrast layer: top-only dark gradient sized to the sticker zone.
@@ -54,9 +126,7 @@ export function HeroVariant() {
               Mirrors the desktop sticker treatment — a background image with an
               independent top-down contrast gradient layered UNDER the mexico-10 sticker.
               No fixed height: row sizes to the sticker so it never gets cropped. */}
-          <div
-            className="relative flex min-h-[32rem] w-full items-center justify-center overflow-hidden px-0 py-fluid-3 md:min-h-[40rem] lg:hidden"
-          >
+          <div className="relative flex min-h-[32rem] w-full items-center justify-center overflow-hidden px-0 py-fluid-3 md:min-h-[40rem] lg:hidden">
             <img
               src="images/home/mobile-hero-top-bg.png"
               alt=""
@@ -72,33 +142,11 @@ export function HeroVariant() {
           </div>
 
           {DESTINATIONS.map((destination) => (
-            <div
-              key={destination.name}
-              className="group relative flex h-40 cursor-pointer overflow-hidden md:h-48 lg:h-auto"
-            >
-              <img
-                src={destination.src}
-                alt={destination.name}
-                loading="eager"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-              />
-              {/* Bottom gradient for contrast behind destination titles */}
-              <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/75 via-black/20 to-transparent"
-                aria-hidden
-              />
-              <div className="relative z-10 mt-auto flex w-full flex-col items-center gap-1 px-fluid-4 pb-0 pt-fluid-3 text-center text-white transition-transform duration-500 ease-out group-hover:-translate-y-1 lg:pb-fluid-4 lg:pt-fluid-4">
-                <span className="text-balance font-serif text-fluid-base font-semibold leading-tight text-white drop-shadow md:text-fluid-lg lg:text-fluid-xl">
-                  {destination.name}
-                </span>
-                <span className="mt-2 inline-flex items-center gap-1.5 text-fluid-xs font-medium uppercase tracking-[0.2em] text-white/90 opacity-0 transition-all duration-500 ease-out group-hover:opacity-100">
-                  Explore
-                  <span aria-hidden className="inline-block transition-transform duration-500 ease-out group-hover:translate-x-1">
-                    →
-                  </span>
-                </span>
-              </div>
-            </div>
+            <DestinationCard
+              key={destination.key}
+              destination={destination}
+              onOpenVideo={openLightbox}
+            />
           ))}
 
           {/* Col 4 on lg+ / Row 5 on <lg: BookingCard (duplicate of the one in <Hero />). */}
@@ -107,6 +155,27 @@ export function HeroVariant() {
           </div>
         </div>
       </div>
+
+      {/* Single Lightbox instance shared across all three destination cards.
+          Driven by `openKey` state — null when closed, key when one is open. */}
+      {DESTINATIONS.map((destination) => (
+        <Lightbox
+          key={destination.key}
+          isOpen={openKey === destination.key}
+          onClose={closeLightbox}
+          videoUrl={destination.videoSrc}
+          title={destination.name}
+          videoSubtitle={destination.subtitle}
+          videoDescription={destination.description}
+          videoCta={
+            <Button className="w-full sm:w-auto" asCta>
+              RESERVE
+            </Button>
+          }
+          videoAutoPlayMuted
+          videoStartSeconds={destination.videoStartSeconds}
+        />
+      ))}
     </section>
   );
 }
