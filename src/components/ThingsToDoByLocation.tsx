@@ -36,8 +36,7 @@ const LOCATIONS: Location[] = [
         title: 'Isla Mujeres',
         blurb:
           'A 30-minute ferry from Puerto Juárez — Playa Norte\'s clear, knee-deep turquoise water, plus golf-cart loops past the southern cliffs and the Tortugranja sea-turtle sanctuary.',
-        // Placeholder: Cancun aerial — swap for Isla Mujeres beach when available.
-        image: 'images/home/mobile-hero-top-bg.png',
+        image: 'images/home/Isla-Mujeres.png',
       },
       {
         title: 'Xcaret Park',
@@ -49,8 +48,7 @@ const LOCATIONS: Location[] = [
         title: 'MUSA Underwater Museum',
         blurb:
           'Snorkel or dive over 500+ life-size sculptures resting on the seafloor between Punta Nizuc and Isla Mujeres — one of the largest underwater art exhibits in the world.',
-        // Placeholder: resort aerial — swap for MUSA / underwater photo.
-        image: 'images/home/Cancun.png',
+        image: 'images/things-to-do/musa-underwater-museum.png',
       },
       {
         title: 'Cenote Day Trip',
@@ -62,15 +60,13 @@ const LOCATIONS: Location[] = [
         title: 'Coco Bongo & Hotel Zone Nightlife',
         blurb:
           'Cancún\'s legendary Coco Bongo headlines the Hotel Zone after dark — Cirque-style aerial acts, live tribute performances, and open-bar packages right on Boulevard Kukulcán.',
-        // Placeholder: Cancun beach panorama — swap for nightlife photo.
-        image: 'images/home/HERO-BCK-MOBILE.png',
+        image: 'images/things-to-do/coco-bongo-nightlife.png',
       },
       {
         title: 'Playa Delfines & the CANCÚN Sign',
         blurb:
           'The Hotel Zone\'s most photographed lookout — turquoise Caribbean water, the giant rainbow CANCÚN letters, and the calmest sand stretches at the southern end of Boulevard Kukulcán.',
-        // Placeholder: Cancun aerial — swap for Playa Delfines / sign photo.
-        image: 'images/home/Cancun.png',
+        image: 'images/things-to-do/playa-delfines-cancun-sign.png',
       },
     ],
   },
@@ -100,8 +96,7 @@ const LOCATIONS: Location[] = [
         title: 'Cobá Ruins',
         blurb:
           'A vast jungle-shrouded Mayan city 45 minutes northwest — rent a bike or pedicab to ride between the ball court, stelae, and Nohoch Mul, the Yucatán\'s tallest temple complex.',
-        // Placeholder: Tulum aerial — swap for Cobá jungle / pyramid photo.
-        image: 'images/home/Tullum.png',
+        image: 'images/things-to-do/coba-ruins.png',
       },
       {
         title: 'Sian Ka\'an Biosphere Reserve',
