@@ -149,6 +149,11 @@ export function HeroVariant() {
               aria-hidden
               className="relative z-10 mx-auto my-auto block h-auto w-full max-w-3xl origin-center translate-y-2 scale-[1.35] object-contain md:max-w-5xl md:translate-y-6 md:scale-[1.18]"
             />
+            <div className="absolute inset-x-0 bottom-8 z-20 px-4 md:bottom-10 md:px-6">
+              <Button asCta className="w-full">
+                RESERVE NOW
+              </Button>
+            </div>
           </div>
 
           {DESTINATIONS.map((destination) => (
