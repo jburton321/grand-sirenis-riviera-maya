@@ -62,6 +62,10 @@ function DestinationCard({
         loading="eager"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
       />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 bg-black/45"
+      />
       {addInnerShadow && (
         <div
           aria-hidden
@@ -76,8 +80,8 @@ function DestinationCard({
         className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-2/5 bg-gradient-to-t from-black/75 via-black/20 to-transparent"
       />
 
-      <div className="relative z-20 mt-auto flex w-full flex-col items-center gap-2 px-fluid-4 pb-fluid-3 pt-fluid-3 text-center text-white transition-transform duration-500 ease-out group-hover:-translate-y-1 lg:pb-fluid-4 lg:pt-fluid-4">
-        <span className="text-balance font-serif text-fluid-base font-semibold leading-tight text-white drop-shadow md:text-fluid-lg lg:text-fluid-xl">
+      <div className="relative z-20 flex h-full w-full flex-col items-center justify-center gap-2 px-fluid-4 pb-fluid-3 pt-fluid-3 text-center text-white transition-transform duration-500 ease-out lg:mt-auto lg:h-auto lg:-translate-y-[78px] lg:justify-start lg:pb-fluid-4 lg:pt-fluid-4 lg:group-hover:-translate-y-[86px]">
+        <span className="text-balance font-sans text-fluid-base font-semibold leading-tight text-white drop-shadow md:text-fluid-lg lg:text-fluid-xl">
           {destination.name}
         </span>
 
@@ -86,7 +90,7 @@ function DestinationCard({
           aria-hidden
           className="mt-1 inline-flex items-center gap-2 transition-transform duration-300 group-hover:scale-105 group-focus-visible:scale-105"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-plum shadow-md ring-1 ring-plum/10 backdrop-blur-sm md:h-9 md:w-9">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-amber shadow-md ring-1 ring-plum/10 backdrop-blur-sm md:h-9 md:w-9">
             <Play className="ml-0.5 h-3.5 w-3.5 fill-current md:h-4 md:w-4" />
           </span>
           <span className="text-fluid-xs font-semibold uppercase tracking-[0.18em] text-white/95 drop-shadow">
@@ -108,23 +112,16 @@ export function HeroVariant() {
 
   return (
     <section className="relative flex flex-col overflow-hidden bg-plum lg:min-h-[800px] lg:overflow-visible">
-      {/* Independent contrast layer: top-only dark gradient sized to the sticker zone.
-          Desktop only — spans cols 1-3 (viewport - 28rem BookingCard track). */}
-      <div
-        className="pointer-events-none absolute left-0 top-0 z-20 hidden h-[28rem] w-[calc(100%-28rem)] bg-gradient-to-b from-black/70 via-black/30 to-transparent xl:h-[36rem] lg:block"
-        aria-hidden
-      />
-
       {/* Independent decorative mexico-10 sticker, sized + positioned over the contrast layer.
           Desktop only — same width as the gradient (cols 1-3). */}
       <div
-        className="pointer-events-none absolute left-0 top-[20px] z-30 hidden w-[calc(100%-28rem)] justify-center xl:top-[10px] lg:flex"
+        className="pointer-events-none absolute inset-y-0 left-0 z-30 hidden w-[calc(100%-28rem)] items-center justify-center lg:flex lg:-translate-y-[126px]"
         aria-hidden
       >
         <img
           src="images/home/mexico-10.png"
           alt=""
-          className="block h-auto w-auto max-w-[46rem] object-contain xl:max-w-[58rem]"
+          className="block h-auto w-auto max-w-[58rem] object-contain xl:max-w-[70rem]"
         />
       </div>
 
@@ -137,16 +134,20 @@ export function HeroVariant() {
               No fixed height: row sizes to the sticker so it never gets cropped. */}
           <div className="relative flex min-h-[32rem] w-full items-center justify-center overflow-hidden px-0 py-fluid-3 md:min-h-[40rem] lg:hidden">
             <img
-              src="images/home/mobile-hero-top-bg.png"
+              src="images/home/MobileHERO-Top.png"
               alt=""
               aria-hidden
               className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 bg-black/40"
             />
             <img
               src="images/home/mexico-10.png"
               alt=""
               aria-hidden
-              className="relative z-10 mx-auto my-auto block h-auto w-full max-w-3xl origin-center translate-y-16 scale-[1.35] object-contain md:max-w-5xl md:translate-y-20 md:scale-[1.18]"
+              className="relative z-10 mx-auto my-auto block h-auto w-full max-w-3xl origin-center translate-y-2 scale-[1.35] object-contain md:max-w-5xl md:translate-y-6 md:scale-[1.18]"
             />
           </div>
 

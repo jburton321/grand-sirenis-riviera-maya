@@ -51,7 +51,7 @@ export function BookingCard({
 
       <div className="flex flex-col gap-3 p-4 pt-3 md:gap-4 md:p-6 md:pt-4">
         <img
-          className="mx-auto block h-auto w-full max-w-[220px] object-contain object-center transition-transform duration-300 hover:scale-[1.02]"
+          className="mx-auto block h-auto w-full max-w-[140px] object-contain object-center transition-transform duration-300 hover:scale-[1.02] md:max-w-[180px]"
           src="images/shared/PHH-LOGO.svg"
           alt={RESORT_DISPLAY_NAME}
           width={500}
