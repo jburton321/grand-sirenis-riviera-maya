@@ -243,6 +243,7 @@ export function Lightbox({
                   <p className="text-fluid-sm leading-relaxed text-white/90 sm:text-fluid-base">
                     {currentImage?.description}
                   </p>
+                  {videoCta ? <div className="mt-4">{videoCta}</div> : null}
                 </div>
               </>
             ) : (

@@ -32,8 +32,8 @@ export function Button({
   const surface = color ?? (asCta ? 'cta' : 'brand');
   const surfaceStyles =
     surface === 'cta'
-      ? `bg-cta text-plum visited:text-plum visited:bg-cta hover:bg-cta-dark hover:visited:bg-cta-dark`
-      : `bg-primary text-plum visited:text-plum visited:bg-primary hover:bg-primary-dark hover:visited:bg-primary-dark`;
+      ? `bg-cta text-white visited:text-white visited:bg-cta hover:bg-cta-dark hover:visited:bg-cta-dark`
+      : `bg-primary text-white visited:text-white visited:bg-primary hover:bg-primary-dark hover:visited:bg-primary-dark`;
 
   const baseStyles = `
     relative overflow-hidden

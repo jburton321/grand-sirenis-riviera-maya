@@ -1,5 +1,6 @@
-import { useRef } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { Button } from './Button';
+import { Lightbox, type LightboxImageItem } from './Lightbox';
 import styles from './ThingsToDoByLocationCard.module.css';
 import {
   HILTON_CANCUN_NAME,
@@ -278,6 +279,8 @@ function ActivityCard({ activity }: { activity: Activity }) {
 
 export function ThingsToDoByLocation() {
   const scrollerRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const [openLocationIndex, setOpenLocationIndex] = useState<number | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   const scrollCards = (index: number, direction: 'prev' | 'next') => {
     const scroller = scrollerRefs.current[index];
@@ -290,14 +293,33 @@ export function ThingsToDoByLocation() {
     });
   };
 
+  const openActivityLightbox = (locationIndex: number, activityIndex: number) => {
+    setOpenLocationIndex(locationIndex);
+    setLightboxIndex(activityIndex);
+  };
+
+  const closeActivityLightbox = () => {
+    setOpenLocationIndex(null);
+    setLightboxIndex(0);
+  };
+
+  const lightboxItems: LightboxImageItem[] = useMemo(() => {
+    if (openLocationIndex == null) return [];
+    return LOCATIONS[openLocationIndex].activities.map((activity) => ({
+      src: activity.image,
+      label: activity.title,
+      description: activity.blurb,
+    }));
+  }, [openLocationIndex]);
+
   return (
     <section className="bg-white px-4 pb-fluid-8 pt-fluid-8 md:px-6 lg:px-10">
       <div className="mx-auto max-w-content">
-        <header className="mb-fluid-6">
+        <header className="mb-fluid-6 text-center">
           <h2 className="text-fluid-2xl font-bold tracking-tight text-slate-900 md:text-fluid-3xl">
             Adventures Beyond the Resort
           </h2>
-          <p className="mt-3 max-w-2xl text-fluid-base leading-relaxed text-gray-700">
+          <p className="mt-3 w-full text-fluid-base leading-relaxed text-gray-700">
             Each destination opens onto unforgettable experiences curated for your stay.
           </p>
         </header>
@@ -325,12 +347,19 @@ export function ThingsToDoByLocation() {
                       className="overflow-x-auto px-1 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                     >
                       <ul className="flex snap-x snap-mandatory scroll-smooth gap-4 md:gap-5">
-                        {location.activities.map((activity) => (
+                        {location.activities.map((activity, activityIndex) => (
                           <li
                             key={activity.title}
                             className="w-[260px] shrink-0 snap-start sm:w-[280px] md:w-[320px] lg:w-[340px]"
                           >
-                            <ActivityCard activity={activity} />
+                            <button
+                              type="button"
+                              onClick={() => openActivityLightbox(index, activityIndex)}
+                              aria-label={`Open details for ${activity.title}`}
+                              className="h-full w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-plum/40 rounded-xl"
+                            >
+                              <ActivityCard activity={activity} />
+                            </button>
                           </li>
                         ))}
                       </ul>
@@ -348,6 +377,20 @@ export function ThingsToDoByLocation() {
           </Button>
         </div>
       </div>
+
+      <Lightbox
+        isOpen={openLocationIndex != null}
+        onClose={closeActivityLightbox}
+        images={lightboxItems}
+        currentIndex={lightboxIndex}
+        onNavigate={setLightboxIndex}
+        title={openLocationIndex != null ? LOCATIONS[openLocationIndex].name : 'Activity details'}
+        videoCta={
+          <Button className="w-full sm:w-auto" asCta>
+            RESERVE
+          </Button>
+        }
+      />
     </section>
   );
 }

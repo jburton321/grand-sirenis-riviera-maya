@@ -432,3 +432,11 @@ img.hero-sticker-element {
 .hover\:visited\:bg-cta-dark:visited:hover {
   background-color: rgb(184 134 45 / var(--tw-bg-opacity, 1));
 }
+
+/* Gold/amber brand surfaces: use white text + subtle readability shadow globally. */
+.bg-amber,
+.bg-primary,
+.bg-cta {
+  color: #ffffff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.22);
+}

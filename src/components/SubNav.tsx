@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 
 const navItems = [
   { label: 'The Collection', href: '#hotel-video' },
-  { label: 'Your Certificate', href: '#what-you-get' },
-  { label: "What's Included", href: '#resort-details' },
-  { label: 'Accept', href: '#guest-reviews' },
+  { label: "What's Included", href: '#what-you-get' },
+  { label: 'Resort Details', href: '#resort-details' },
+  { label: 'Guest Reviews', href: '#guest-reviews' },
 ] as const;
 
 export function SubNav() {
