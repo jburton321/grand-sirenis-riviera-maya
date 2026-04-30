@@ -1,9 +1,14 @@
 import { useRef } from 'react';
 import { Button } from './Button';
+import styles from './ThingsToDoByLocationCard.module.css';
 import {
   HILTON_CANCUN_NAME,
   HILTON_TULUM_NAME,
   HILTON_VALLARTA_NAME,
+  OFFER_RETAIL_PRICE,
+  OFFER_STAY_LABEL,
+  OFFER_TOTAL_AMOUNT,
+  OFFER_TOTAL_COMPLETE,
   PRIMARY_CTA_LABEL,
 } from '../constants';
 
@@ -102,15 +107,13 @@ const LOCATIONS: Location[] = [
         title: 'Sian Ka\'an Biosphere Reserve',
         blurb:
           "A UNESCO-protected wetland just south of town — boat through mangrove channels, drift the Mayan canal, and watch for dolphins, manatees, and 300+ bird species.",
-        // Placeholder: Tulum aerial — swap for Sian Ka'an mangroves photo.
-        image: 'images/sliding-gallery-hero/Aerial_Hilton_Tulum_072679_2.png',
+        image: 'images/things-to-do/sian-kaan-biosphere-reserve.png',
       },
       {
         title: 'Akumal Beach · Swim with Sea Turtles',
         blurb:
           'The "Place of Turtles" lives up to its name — a calm, shallow bay 25 minutes north of Tulum where green sea turtles graze the seagrass year-round.',
-        // Placeholder: Tulum-area beach feel — swap for Akumal turtle photo.
-        image: 'images/things-to-do/playadelcarmenday.png',
+        image: 'images/things-to-do/akumal-sea-turtles.png',
       },
     ],
   },
@@ -122,46 +125,133 @@ const LOCATIONS: Location[] = [
         title: 'The Malecón & Old Town',
         blurb:
           'A mile-long oceanfront promenade lined with Sergio Bustamante and Alejandro Colunga sculptures, plus the cobblestone streets of Zona Romántica and Iglesia de Guadalupe.',
-        image: 'images/home/PuertoVallarta.png',
+        image: 'images/things-to-do/malecon-old-town.png',
       },
       {
         title: 'Sayulita',
         blurb:
           'A bohemian surf town 45 minutes north — pastel storefronts, papel-picado-strung streets, beginner-friendly waves, and some of Riviera Nayarit\'s best taquerías.',
-        // Placeholder: PV aerial — swap for Sayulita village / surf photo.
-        image: 'images/sliding-gallery-hero/HHR_PUERTOVALLARTA_COCOMAR_SH0286.png',
+        image: 'images/things-to-do/sayulita.png',
       },
       {
         title: 'Marietas Islands · Hidden Beach',
         blurb:
           'A UNESCO Biosphere Reserve in Banderas Bay — boat trips snorkel the volcanic islets and (when permits allow) reach Playa del Amor through the famous tunnel opening.',
-        // Placeholder: PV pool aerial — swap for Marietas Islands photo.
-        image: 'images/sliding-gallery-hero/HHR_PUERTOVALLARTA_POOL_SH2027.png',
+        image: 'images/things-to-do/marietas-hidden-beach.png',
       },
       {
         title: 'Yelapa',
         blurb:
           "A boat-only fishing village an hour south by panga — pie-on-the-beach vendors, palapa restaurants, and a 30-minute jungle hike up to a tiered waterfall.",
-        // Placeholder: PV resort photo — swap for Yelapa village / waterfall photo.
-        image: 'images/sliding-gallery-hero/HHR_PUERTOVALLARTA_LALUCE_SH0400.png',
+        image: 'images/things-to-do/yelapa.png',
       },
       {
         title: 'Vallarta Botanical Gardens',
         blurb:
           'A 64-acre living museum 30 minutes south of downtown — orchid conservatories, Sierra Madre overlooks, jungle trails to a swimming river, and the Hacienda de Oro restaurant.',
-        // Placeholder: PV spa/resort photo — swap for Botanical Gardens photo.
-        image: 'images/sliding-gallery-hero/HHR_PUERTOVALLARTA_SPA_SH0172.png',
+        image: 'images/things-to-do/vallarta-botanical-gardens.png',
       },
       {
         title: 'Whale Watching in Banderas Bay',
         blurb:
           'Each December–March, ~1,000 humpbacks migrate into Banderas Bay to calve — half-day boat tours leave from Marina Vallarta with biologists narrating the encounters.',
-        // Placeholder: PV aerial — swap for whale-watching photo.
-        image: 'images/home/PuertoVallarta.png',
+        image: 'images/things-to-do/whale-watching-banderas-bay.png',
       },
     ],
   },
 ];
+
+const LOCATION_RESORT_BLURBS: Record<Location['name'], string> = {
+  [HILTON_CANCUN_NAME]:
+    "Set along Cancun's Caribbean coast, this all-inclusive stay pairs mangrove-backed beachfront calm with bright, modern Deluxe Room comfort.",
+  [HILTON_TULUM_NAME]:
+    'Tulum\'s Riviera Maya setting blends quiet, nature-forward luxury with quick access to cenotes, archaeology routes, and preserved coastal landscapes.',
+  [HILTON_VALLARTA_NAME]:
+    "On Puerto Vallarta's Pacific coast, expect golden-hour ocean views, a relaxed seaside rhythm, and easy reach to both nature excursions and Old Town culture.",
+};
+
+const LOCATION_HOTEL_CARD_META: Record<
+  Location['name'],
+  { image: string; locationLine: string; suiteLine: string }
+> = {
+  [HILTON_CANCUN_NAME]: {
+    image: 'images/home/Cancun.png',
+    locationLine: 'Cancún, Quintana Roo, Mexico',
+    suiteLine: 'Deluxe Room, ocean-forward resort setting',
+  },
+  [HILTON_TULUM_NAME]: {
+    image: 'images/home/Tullum.png',
+    locationLine: 'Tulum, Riviera Maya, Mexico',
+    suiteLine: 'Deluxe Room, nature-forward coastal retreat',
+  },
+  [HILTON_VALLARTA_NAME]: {
+    image: 'images/home/PuertoVallarta.png',
+    locationLine: 'Puerto Vallarta, Jalisco, Mexico',
+    suiteLine: 'Deluxe Room, Pacific coast ocean views',
+  },
+};
+
+function ResortHeaderCard({
+  location,
+  onPrev,
+  onNext,
+}: {
+  location: Location;
+  onPrev: () => void;
+  onNext: () => void;
+}) {
+  const meta = LOCATION_HOTEL_CARD_META[location.name];
+
+  return (
+    <div className={styles.resortCard}>
+      <div
+        className={styles.resortCardImage}
+        style={{ backgroundImage: `url(${meta.image})` }}
+        aria-hidden
+      />
+
+      <div className={styles.resortCardBody}>
+        <div className={styles.resortCardText}>
+          <div className={styles.resortCardHeader}>
+            <span className={styles.resortCardName}>{location.name}</span>
+            <span className={styles.resortCardBadge}>ALL-INCLUSIVE</span>
+          </div>
+          <div className={styles.resortCardLocation}>{meta.locationLine}</div>
+          <p className={styles.resortCardDesc}>{LOCATION_RESORT_BLURBS[location.name]}</p>
+        </div>
+
+        <div className={styles.resortCardPricing}>
+          <div className={styles.resortCardTripInfo}>{OFFER_STAY_LABEL} · 2 adults</div>
+          <div className={styles.resortCardPriceBlock}>
+            <span className={styles.resortCardPriceNow}>{OFFER_TOTAL_AMOUNT}</span>
+            <div className={styles.resortCardPriceMetaLine}>
+              <span className={styles.resortCardPriceWas}>{OFFER_RETAIL_PRICE}</span>
+              <span className={styles.resortCardPriceTotal}>{OFFER_TOTAL_COMPLETE}</span>
+            </div>
+          </div>
+          <div className={styles.resortCardNav}>
+            <button
+              type="button"
+              aria-label={`Scroll ${location.region} activities left`}
+              onClick={onPrev}
+              className={styles.resortCardArrow}
+            >
+              &#8592;
+            </button>
+            <button
+              type="button"
+              aria-label={`Scroll ${location.region} activities right`}
+              onClick={onNext}
+              className={styles.resortCardArrow}
+            >
+              &#8594;
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function ActivityCard({ activity }: { activity: Activity }) {
   return (
@@ -215,56 +305,37 @@ export function ThingsToDoByLocation() {
         <div className="flex flex-col gap-fluid-6">
           {LOCATIONS.map((location, index) => (
             <div key={location.name}>
-              <div className="mb-fluid-3 flex items-end justify-between gap-4">
-                <div className="flex min-w-0 flex-col gap-1">
-                  <span className="text-fluid-xs font-semibold uppercase tracking-[0.18em] text-plum">
-                    {location.region}
-                  </span>
-                  <h3 className="text-balance text-fluid-xl font-semibold leading-tight text-slate-900 md:text-fluid-2xl">
-                    {location.name}
-                  </h3>
+              <div className={styles.resortSectionGroup}>
+                <div className={styles.resortHeaderShell}>
+                  <ResortHeaderCard
+                    location={location}
+                    onPrev={() => scrollCards(index, 'prev')}
+                    onNext={() => scrollCards(index, 'next')}
+                  />
                 </div>
-                <div className="flex shrink-0 items-center gap-2">
-                  <button
-                    type="button"
-                    aria-label={`Scroll ${location.region} activities left`}
-                    onClick={() => scrollCards(index, 'prev')}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-plum/30 text-plum transition-colors hover:border-plum/60 hover:bg-plum/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plum/40"
-                  >
-                    <span aria-hidden>&larr;</span>
-                  </button>
-                  <button
-                    type="button"
-                    aria-label={`Scroll ${location.region} activities right`}
-                    onClick={() => scrollCards(index, 'next')}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-plum/30 text-plum transition-colors hover:border-plum/60 hover:bg-plum/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plum/40"
-                  >
-                    <span aria-hidden>&rarr;</span>
-                  </button>
-                </div>
-              </div>
 
-              {/* Manual horizontal scroller with snap. Scrollbar is hidden
-                  on every engine. Negative outer margins + matching padding
-                  let the first card run flush with the page edge while later
-                  cards spill into the gutter. */}
-              <div className="relative">
-                <div
-                  ref={(el) => {
-                    scrollerRefs.current[index] = el;
-                  }}
-                  className="overflow-x-auto px-1 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-                >
-                  <ul className="flex snap-x snap-mandatory scroll-smooth gap-4 md:gap-5">
-                    {location.activities.map((activity) => (
-                      <li
-                        key={activity.title}
-                        className="w-[260px] shrink-0 snap-start sm:w-[280px] md:w-[320px] lg:w-[340px]"
-                      >
-                        <ActivityCard activity={activity} />
-                      </li>
-                    ))}
-                  </ul>
+                {/* Manual horizontal scroller with snap. Scrollbar is hidden
+                    on every engine. */}
+                <div className={styles.resortActivitiesShell}>
+                  <div className="relative">
+                    <div
+                      ref={(el) => {
+                        scrollerRefs.current[index] = el;
+                      }}
+                      className="overflow-x-auto px-1 py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                    >
+                      <ul className="flex snap-x snap-mandatory scroll-smooth gap-4 md:gap-5">
+                        {location.activities.map((activity) => (
+                          <li
+                            key={activity.title}
+                            className="w-[260px] shrink-0 snap-start sm:w-[280px] md:w-[320px] lg:w-[340px]"
+                          >
+                            <ActivityCard activity={activity} />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
