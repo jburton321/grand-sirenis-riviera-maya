@@ -13,7 +13,7 @@
 
 .resortCardImage {
   flex: 0 0 148px;
-  min-height: 168px;
+  min-height: 160px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -100,6 +100,7 @@
   justify-content: space-between;
   text-align: right;
   white-space: nowrap;
+  gap: 8px;
 }
 
 .resortCardTripInfo {
@@ -113,12 +114,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  gap: 2px;
 }
 
 .resortCardPriceMetaLine {
   display: inline-flex;
   align-items: baseline;
-  gap: 8px;
+  gap: 10px;
 }
 
 .resortCardPriceWas {
@@ -142,7 +144,7 @@
 .resortCardNav {
   display: flex;
   gap: 8px;
-  margin-top: auto;
+  margin-top: 4px;
 }
 
 .resortCardArrow {
@@ -192,7 +194,6 @@
 }
 
 .resortActivitiesShell {
-  border-top: 1px solid #eef1f4;
   padding: 10px 12px 12px;
 }
 
