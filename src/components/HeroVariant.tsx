@@ -147,9 +147,9 @@ export function HeroVariant() {
               src="images/home/mexico-10.png"
               alt=""
               aria-hidden
-              className="relative z-10 mx-auto my-auto block h-auto w-full max-w-3xl origin-center translate-y-2 scale-[1.35] object-contain md:max-w-5xl md:translate-y-6 md:scale-[1.18]"
+              className="relative z-10 mx-auto my-auto block h-auto w-full max-w-3xl origin-center -translate-y-[54px] scale-[1.35] object-contain md:max-w-5xl md:-translate-y-[38px] md:scale-[1.18]"
             />
-            <div className="absolute inset-x-0 bottom-8 z-20 px-4 md:bottom-10 md:px-6">
+            <div className="absolute inset-x-0 bottom-[94px] z-20 px-4 md:bottom-[102px] md:px-6">
               <Button asCta className="w-full">
                 RESERVE NOW
               </Button>
