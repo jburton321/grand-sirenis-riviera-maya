@@ -2,7 +2,6 @@ import { Zap, Bed, Wine, Eye } from 'lucide-react';
 import {
   OFFER_BALANCE_LINE,
   OFFER_HEADLINE_VACATION,
-  OFFER_RETAIL_PRICE,
   OFFER_SAVE_PERCENT,
   OFFER_STAY_LABEL,
   OFFER_TOTAL_AMOUNT,
@@ -12,19 +11,16 @@ import {
   RESORT_DISPLAY_NAME,
 } from '../constants';
 import { PriceFootnoteMark } from './PriceFootnoteMark';
-import { StruckRetailPrice } from './StruckRetailPrice';
 import { Button } from './Button';
 import { useCountdown } from '../hooks/useCountdown';
 
 interface BookingCardProps {
-  normalRate?: string;
   roomDescription?: string;
   totalAmount?: string;
   totalLabel?: string;
 }
 
 export function BookingCard({
-  normalRate = OFFER_RETAIL_PRICE,
   roomDescription = 'Deluxe Room of Your Choice from Three Hilton Resorts',
   totalAmount = OFFER_TOTAL_AMOUNT,
   totalLabel = OFFER_TOTAL_LABEL,
@@ -76,10 +72,6 @@ export function BookingCard({
             <div>{OFFER_SAVE_PERCENT}%</div>
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-gray-600 text-fluid-xs">
-              Retail rate:{' '}
-              <StruckRetailPrice amount={normalRate} className="font-bold text-muted" />
-            </p>
             <div className="mt-1">
               <p className="text-fluid-2xl font-black leading-none tracking-tight text-black md:text-fluid-3xl">
                 {totalAmount}

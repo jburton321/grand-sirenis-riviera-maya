@@ -7,7 +7,6 @@ import {
   RESORT_DISPLAY_NAME,
 } from '../constants';
 import { PriceFootnoteMark } from './PriceFootnoteMark';
-import { StruckRetailPrice } from './StruckRetailPrice';
 
 /**
  * OfferIntroSection — full-bleed offer headline.
@@ -58,8 +57,7 @@ export function OfferIntroSection() {
                 <PriceFootnoteMark /> deposit today
               </span>{' '}
               — pay $999 at booking. $1,499 total for a{' '}
-              <StruckRetailPrice className="font-extrabold text-slate-950" /> all-inclusive
-              retreat (save {OFFER_SAVE_PERCENT}%).{' '}
+              luxury all-inclusive retreat (save {OFFER_SAVE_PERCENT}%).{' '}
               <span className="font-semibold text-slate-950">
                 12 months to travel. Total price, not per person or per night.
               </span>

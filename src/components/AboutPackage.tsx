@@ -29,7 +29,7 @@ const packagePanels: PanelSpec[] = [
   {
     title: 'Why You Get It:',
     description:
-      'PHH Collection extends Paradise Retreat certificates to a limited group of members and invited guests each quarter. Your only commitment is a relaxed 90-minute Club Collection presentation with breakfast on day two.',
+      'PHH Collection extends Paradise Retreat certificates to a limited group of invited guests each quarter. Your only commitment is a relaxed 90-minute Club Collection presentation with breakfast on day two.',
     icon: Star,
     mobileOrderClass: 'max-md:order-5',
     /** Top-right: horizontal mid only */

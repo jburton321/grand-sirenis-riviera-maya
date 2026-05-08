@@ -1,7 +1,7 @@
 /**
  * PHH Collection — $500 deposit is the hero price. $1,499 total is supporting context.
  * $999 balance is paid at the time of booking ($500 deposit + $999 = $1,499 total).
- * Retail comparison is $2,500 → savings = $1,001 (≈ 40%).
+ * Savings messaging remains ~40% off for promotional copy.
  */
 
 // ── RESORT & BRAND ──────────────────────────────────────────────
@@ -11,8 +11,7 @@ export const CLUB_DISPLAY_NAME = 'PHH Collection' as const;
 // ── OFFER PRICING ───────────────────────────────────────────────
 export const OFFER_TOTAL_AMOUNT = '$500' as const;            // PriceBadge circle, BookingCard hero price
 export const OFFER_TOTAL_LABEL = 'Deposit Today' as const;    // Below price in PriceBadge + BookingCard
-export const OFFER_RETAIL_PRICE = '$2,500' as const;          // Struck-through comparison price
-export const OFFER_SAVE_PERCENT = 40 as const;                // Savings badge (number for {X}% interpolation) — ($2,500 − $1,499)/$2,500 ≈ 40%
+export const OFFER_SAVE_PERCENT = 40 as const;                // Savings badge (number for {X}% interpolation)
 export const OFFER_MEMBER_RATE_COMPLETE = '$500 Deposit' as const; // MobileStickyCTA
 
 // ── OFFER DETAILS ───────────────────────────────────────────────
@@ -47,7 +46,7 @@ export const OFFER_TOTAL_COMPLETE = '$1,499 total' as const;  // Supporting cont
 
 // ── RECURRING RIBBON ────────────────────────────────────────────
 export const RECURRING_RIBBON_LINE =
-  'ONLY $500 DEPOSIT · $999 AT BOOKING · $2,500 VALUE · 40% OFF' as const;
+  'ONLY $500 DEPOSIT · $999 AT BOOKING · 40% OFF' as const;
 
 // ── CTA ─────────────────────────────────────────────────────────
 export const PRIMARY_CTA_LABEL = 'RESERVE YOUR STAY' as const;

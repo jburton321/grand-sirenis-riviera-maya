@@ -1,15 +1,12 @@
 import {
-  OFFER_RETAIL_PRICE,
   OFFER_STAY_LABEL,
   OFFER_TOTAL_AMOUNT,
   OFFER_TOTAL_LABEL,
 } from '../constants';
 import { PriceFootnoteMark } from './PriceFootnoteMark';
-import { StruckRetailPrice } from './StruckRetailPrice';
 
 interface PriceBadgeProps {
   days?: string;
-  oldPrice?: string;
   ribbonText?: string;
   totalAmount?: string;
   totalLabel?: string;
@@ -34,7 +31,6 @@ const PRICE_BADGE_BAND_GRADIENT =
 
 export function PriceBadge({
   days = OFFER_STAY_LABEL,
-  oldPrice = OFFER_RETAIL_PRICE,
   ribbonText = 'ONLY',
   totalAmount = OFFER_TOTAL_AMOUNT,
   totalLabel = OFFER_TOTAL_LABEL,
@@ -104,16 +100,6 @@ export function PriceBadge({
               }}
             >
               {days.toUpperCase()}
-            </div>
-
-            <div
-              className="text-white"
-              style={{
-                fontSize: '18px',
-                marginBottom: '4px',
-              }}
-            >
-              <StruckRetailPrice amount={oldPrice} className="text-white" />
             </div>
 
             <div

@@ -6,7 +6,6 @@ import {
   HILTON_CANCUN_NAME,
   HILTON_TULUM_NAME,
   HILTON_VALLARTA_NAME,
-  OFFER_RETAIL_PRICE,
   OFFER_STAY_LABEL,
   OFFER_TOTAL_AMOUNT,
   OFFER_TOTAL_COMPLETE,
@@ -226,7 +225,6 @@ function ResortHeaderCard({
           <div className={styles.resortCardPriceBlock}>
             <span className={styles.resortCardPriceNow}>{OFFER_TOTAL_AMOUNT}</span>
             <div className={styles.resortCardPriceMetaLine}>
-              <span className={styles.resortCardPriceWas}>{OFFER_RETAIL_PRICE}</span>
               <span className={styles.resortCardPriceTotal}>{OFFER_TOTAL_COMPLETE}</span>
             </div>
           </div>
