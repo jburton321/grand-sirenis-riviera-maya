@@ -20,14 +20,14 @@ const packagePanels: PanelSpec[] = [
   {
     title: 'What You Receive:',
     description:
-      "5 days and 4 nights in a Deluxe Room for two adults at your choice of three Hilton luxury all-inclusive resorts — Hilton Cancun, an All-Inclusive Resort; Hilton Tulum Riviera All-Inclusive Resort; or Hilton All-Inclusive Resort Vallarta Riviera. Only $500 today; the remaining $999 is due when you book your travel dates. Plus you'll get $300 in future travel credits to use towards resorts, cruises, hotels, and more!",
+      "4 days and 3 nights in a Deluxe Room for two adults at your choice of three Hilton luxury all-inclusive resorts — Hilton Cancun, an All-Inclusive Resort; Hilton Tulum Riviera All-Inclusive Resort; or Hilton All-Inclusive Resort Vallarta Riviera. Only $500 today; the remaining $999 is due when you book your travel dates. Plus you'll get $300 in future travel credits to use towards resorts, cruises, hotels, and more!",
     icon: Award,
     mobileOrderClass: 'max-md:order-2',
     /** Top-left: vertical midline + horizontal mid of 2×2 */
     borderClass: 'border-b border-plum/15 md:border-e md:border-plum/15',
   },
   {
-    title: 'Why This Certificate Exists:',
+    title: 'Why You Get It:',
     description:
       'PHH Collection extends Paradise Retreat certificates to a limited group of members and invited guests each quarter. Your only commitment is a relaxed 90-minute Club Collection presentation with breakfast on day two.',
     icon: Star,
@@ -101,7 +101,7 @@ export function AboutPackage() {
 
           <header className="flex min-h-[3.25rem] items-center justify-center border-b border-plum/15 bg-[#0E254E] px-4 py-3 max-md:order-4 md:order-none md:border-b md:border-plum/15 md:px-5">
             <h3 className="text-center text-fluid-lg font-bold text-white md:text-fluid-xl">
-              Why This Certificate Exists
+              Why You Get It
             </h3>
           </header>
 

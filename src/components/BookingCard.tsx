@@ -92,7 +92,7 @@ export function BookingCard({
                 {OFFER_BALANCE_LINE}
               </p>
               <p className="mt-0.5 text-fluid-xs font-semibold text-slate-700">
-                {OFFER_TOTAL_COMPLETE} | {OFFER_RETAIL_PRICE}
+                {OFFER_TOTAL_COMPLETE}
               </p>
             </div>
           </div>

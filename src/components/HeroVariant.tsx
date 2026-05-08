@@ -46,8 +46,6 @@ function DestinationCard({
   const handleClick = useCallback(() => {
     onOpenVideo(destination.key);
   }, [destination.key, onOpenVideo]);
-  const addInnerShadow =
-    destination.key === 'tulum' || destination.key === 'vallarta';
 
   return (
     <button
@@ -62,24 +60,13 @@ function DestinationCard({
         loading="eager"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
       />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 bg-black/45"
-      />
-      {addInnerShadow && (
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 z-0 shadow-[inset_0_0_90px_rgba(0,0,0,0.35)]"
-        />
-      )}
 
       {/* Bottom gradient for contrast behind destination titles.
           Explicit z-0 so the text block (z-20 below) is unambiguously above. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-2/5 bg-gradient-to-t from-black/75 via-black/20 to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-3/5 bg-gradient-to-t from-black/75 via-black/20 to-transparent"
       />
-
       <div className="relative z-20 flex h-full w-full flex-col items-center justify-center gap-2 px-fluid-4 pb-fluid-3 pt-fluid-3 text-center text-white transition-transform duration-500 ease-out lg:mt-auto lg:h-auto lg:-translate-y-[78px] lg:justify-start lg:pb-fluid-4 lg:pt-fluid-4 lg:group-hover:-translate-y-[86px]">
         <span className="text-balance font-sans text-fluid-base font-semibold leading-tight text-white drop-shadow md:text-fluid-lg lg:text-fluid-xl">
           {destination.name}
@@ -121,13 +108,13 @@ export function HeroVariant() {
         <img
           src="images/home/mexico-10.png"
           alt=""
-          className="block h-auto w-auto max-w-[58rem] object-contain xl:max-w-[70rem]"
+          className="block h-auto w-auto max-w-[42rem] object-contain xl:max-w-[52rem]"
         />
       </div>
 
       <div className="relative z-10 flex min-h-0 flex-1 flex-col">
         {/* lg+: 4 equal columns. <lg: 5 stacked rows (sticker → 3 destinations → BookingCard). */}
-        <div className="flex flex-1 flex-col gap-0 lg:grid lg:grid-cols-[1fr_1fr_1fr_28rem] lg:items-stretch lg:gap-0">
+        <div className="flex flex-1 flex-col gap-0 lg:grid lg:grid-cols-4 lg:items-stretch lg:gap-0">
           {/* Row 1 on <lg only: decorative sticker row.
               Mirrors the desktop sticker treatment — a background image with an
               independent top-down contrast gradient layered UNDER the mexico-10 sticker.
@@ -147,8 +134,14 @@ export function HeroVariant() {
               src="images/home/mexico-10.png"
               alt=""
               aria-hidden
-              className="relative z-10 mx-auto my-auto block h-auto w-full max-w-3xl origin-center -translate-y-[54px] scale-[1.35] object-contain md:max-w-5xl md:-translate-y-[38px] md:scale-[1.18]"
+              className="relative z-10 mx-auto my-auto block h-auto w-full max-w-[34rem] origin-center -translate-y-[54px] scale-[1.08] object-contain md:max-w-[44rem] md:-translate-y-[38px] md:scale-100"
             />
+            <div className="absolute inset-x-0 bottom-[128px] z-30 px-5 md:bottom-[138px] md:px-8">
+              <div
+                aria-hidden
+                className="mx-auto h-20 w-full max-w-lg rounded-2xl border-2 border-white/85 bg-white/65 shadow-[0_14px_34px_rgba(0,0,0,0.28)] backdrop-blur-lg"
+              />
+            </div>
             <div className="absolute inset-x-0 bottom-[94px] z-20 px-4 md:bottom-[102px] md:px-6">
               <Button asCta className="w-full">
                 RESERVE NOW
@@ -165,7 +158,7 @@ export function HeroVariant() {
           ))}
 
           {/* Col 4 on lg+ / Row 5 on <lg: BookingCard (duplicate of the one in <Hero />). */}
-          <div className="relative z-10 w-full lg:w-full">
+          <div className="relative z-10 w-full lg:w-full [&>aside]:lg:max-w-none">
             <BookingCard />
           </div>
         </div>

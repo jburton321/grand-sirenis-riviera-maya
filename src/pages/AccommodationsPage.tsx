@@ -184,7 +184,7 @@ export function AccommodationsPage() {
               Your Collection Deluxe Room
             </h1>
             <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
-              Your certificate includes 5 days and 4 nights in a finely appointed Deluxe Room at
+              Your certificate includes 4 days and 3 nights in a finely appointed Deluxe Room at
               your chosen Hilton all-inclusive. This is your private sanctuary — designed to let
               you decompress, disconnect, and recharge. Each destination delivers the same standard,
               expressed through the character of its coastline.

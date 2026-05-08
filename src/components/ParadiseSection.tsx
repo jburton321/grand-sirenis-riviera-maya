@@ -33,7 +33,7 @@ export function ParadiseSection() {
               Desktop floats it absolutely at 50% / ~62% of the section so it
               always lands inside the circle baked into the background image as
               both scale together with the viewport. */}
-          <div className="flex justify-center lg:absolute lg:left-1/2 lg:top-[34%] lg:m-0 lg:-translate-x-1/2 lg:-translate-y-1/2">
+          <div className="flex justify-center lg:absolute lg:left-1/2 lg:top-1/2 lg:m-0 lg:-translate-x-1/2 lg:-translate-y-1/2">
             {/* Decorative graphic frame around the price badge — the badge
                 sits centred on top of `graphic.png`. The wrapper is square
                 (graphic is 706x707) and sized larger than the badge so the
@@ -42,7 +42,7 @@ export function ParadiseSection() {
               className="relative my-10 flex aspect-square w-[280px] max-w-full items-center justify-center bg-contain bg-center bg-no-repeat sm:my-12 sm:w-[320px] md:my-14 md:w-[360px] lg:my-0 lg:w-[440px]"
               style={{ backgroundImage: 'url(images/home/graphic.png)' }}
             >
-              <PriceBadge width={260} className="max-w-full" />
+              <PriceBadge width={260} className="max-w-full lg:translate-y-[3px]" />
             </div>
           </div>
         </div>

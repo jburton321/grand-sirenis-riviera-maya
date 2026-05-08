@@ -16,8 +16,8 @@ export const OFFER_SAVE_PERCENT = 40 as const;                // Savings badge (
 export const OFFER_MEMBER_RATE_COMPLETE = '$500 Deposit' as const; // MobileStickyCTA
 
 // ── OFFER DETAILS ───────────────────────────────────────────────
-export const OFFER_STAY_LABEL = '5 Days / 4 Nights' as const;
-export const OFFER_NIGHTS_COUNT = 4 as const;
+export const OFFER_STAY_LABEL = '4-Days/3-Nights' as const;
+export const OFFER_NIGHTS_COUNT = 3 as const;
 export const OFFER_ROOM_SHORT = 'Deluxe Room' as const;
 export const OFFER_HEADLINE_DESTINATION = 'Cancún · Tulum · Puerto Vallarta' as const;
 export const OFFER_HEADLINE_VACATION = 'All-Inclusive Mexico Vacation' as const;
@@ -38,11 +38,11 @@ export const HILTON_RESORTS_FULL_NAMES = [
 
 /** Single scannable line for cards and bars (unchanged hero deck line). */
 export const OFFER_DECK_ONE_LINER =
-  '5-Day Luxury All-Inclusive Retreat · Your Choice of Three Hilton Resorts' as const;
+  '4-Day Luxury All-Inclusive Retreat · Your Choice of Three Hilton Resorts' as const;
 
 // ── SPLIT PAY LINES ─────────────────────────────────────────────
 export const OFFER_BALANCE_LINE =
-  'Pay $999 at the time of booking for all 5 days / 4 nights' as const;
+  'Pay $999 at the time of booking for all 4 days / 3 nights' as const;
 export const OFFER_TOTAL_COMPLETE = '$1,499 total' as const;  // Supporting context, never the hero
 
 // ── RECURRING RIBBON ────────────────────────────────────────────
@@ -75,7 +75,7 @@ export const RESORT_HERO_BACKGROUND_IMAGE =
   'images/thank-you/Can-TY.png' as const;
 /** Amenities interior hero (`public/images/`). */
 export const AMENITIES_HERO_BACKGROUND_IMAGE =
-  'images/amenities/amenities-hero-cancun-aerial.png' as const;
+  'images/amenities/amenities-hero-beach.png' as const;
 /** Accommodations interior hero (`public/images/`). */
 export const ACCOMMODATIONS_HERO_BACKGROUND_IMAGE =
   'images/accommodations/hilton-vallarta-riviera-01.png' as const;
