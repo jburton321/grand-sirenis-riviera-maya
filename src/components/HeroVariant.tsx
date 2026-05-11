@@ -136,12 +136,6 @@ export function HeroVariant() {
               aria-hidden
               className="relative z-10 mx-auto my-auto block h-auto w-full max-w-[34rem] origin-center -translate-y-[54px] scale-[1.08] object-contain md:max-w-[44rem] md:-translate-y-[38px] md:scale-100"
             />
-            <div className="absolute inset-x-0 bottom-[128px] z-30 px-5 md:bottom-[138px] md:px-8">
-              <div
-                aria-hidden
-                className="mx-auto h-20 w-full max-w-lg rounded-2xl border-2 border-white/85 bg-white/65 shadow-[0_14px_34px_rgba(0,0,0,0.28)] backdrop-blur-lg"
-              />
-            </div>
             <div className="absolute inset-x-0 bottom-[94px] z-20 px-4 md:bottom-[102px] md:px-6">
               <Button asCta className="w-full">
                 RESERVE NOW
