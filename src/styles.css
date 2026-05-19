@@ -274,61 +274,6 @@ img.hero-sticker-element {
   }
 }
 
-.hero-composite-wrap {
-  position: relative;
-  display: block;
-}
-
-/* Mobile: same footprint as former couple image so play button `bottom: 12%` matches prior layout. */
-@media (max-width: 767px) {
-  .hero-composite-wrap {
-    width: 100%;
-    max-width: 220px;
-    min-height: 220px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .hero-composite-wrap {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .hero-composite-wrap {
-    width: 14rem;
-    padding-left: 0;
-    padding-right: 0;
-    margin: 0 0 52px 357px;
-  }
-}
-
-@media (min-width: 1280px) and (max-width: 1439px) {
-  .hero-composite-wrap {
-    width: 16rem;
-    padding-left: 0;
-    padding-right: 0;
-    margin: 0 0 52px 357px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .hero-composite-wrap {
-    width: 19rem;
-    padding-left: 0;
-    padding-right: 0;
-    margin: 0 0 52px 357px;
-  }
-}
-
 .like-1-9-k-span {
   color: #ffffff;
   font-family: "-", sans-serif;

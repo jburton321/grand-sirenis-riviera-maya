@@ -19,7 +19,7 @@ const AMENITY_IMAGES = [
   'images/grand-sirenis-riviera-maya-resort-slide1125-jpg-1e13f6b58e1a.webp',
   'images/spa25285-jpg-971a5bc2a15364a7b345cbc2f0549ed9.webp',
   'images/buffetbayou7591-jpg-a09c4018c8a74611962a7d5ff0d1d43e.webp',
-  'images/mexicanshow03882.jpg',
+  'images/tennis-fitness.jpg',
   'images/snorkel1471-jpg-4ae1ccc4e004c727937840a840f2146f.webp',
 ] as const;
 

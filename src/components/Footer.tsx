@@ -19,10 +19,9 @@ export function Footer({ fullWidth = false }: FooterProps) {
           OWNERSHIP INTERESTS.
         </p>
         <p className="text-white text-fluid-xs md:text-fluid-sm mb-4 md:mb-5 max-w-3xl mx-auto px-2 leading-relaxed">
-          This preview rate includes an engaging and educational 90 to 120-minute sales presentation and
-          resort tour about the benefits and savings opportunities of Unlimited Leisure Club vacation
-          ownership. There is no obligation to join or purchase, and the balance of the vacation is yours
-          to enjoy.
+          This preview rate includes an engaging and educational 120-minutes presentation and resort tour about
+          the benefits and savings opportunities of ULTIMATE LEISURE CLUB vacation ownership. There is no obligation
+          to join or purchase, and the balance of the vacation is yours to enjoy.
         </p>
 
         <div className="bg-white rounded-lg inline-flex items-center gap-2 px-2 md:px-3 py-1 mb-4 md:mb-5 transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer min-h-touch">
@@ -40,7 +39,7 @@ export function Footer({ fullWidth = false }: FooterProps) {
         </div>
 
         <p className="text-white text-fluid-xs md:text-fluid-sm mb-2">
-          Sogno Tours, LLC d/b/a VacationVIP.com
+          Sogno, LLC d/b/a VacationVIP.com
         </p>
 
         <address className="text-white text-fluid-xs md:text-fluid-sm not-italic mb-4 md:mb-5 px-2">
@@ -53,6 +52,11 @@ export function Footer({ fullWidth = false }: FooterProps) {
 
         <p className="text-white text-fluid-xs md:text-fluid-sm mb-4 md:mb-5 max-w-3xl mx-auto px-2 leading-relaxed">
           {FOOTER_PRICE_DISCLAIMER}
+        </p>
+
+        <p className="text-white text-fluid-xs md:text-fluid-sm mb-4 md:mb-5 max-w-3xl mx-auto px-2 leading-relaxed">
+          Reservation fees, qualifications, and eligibility requirements are presented when you continue to
+          book and in the Terms &amp; Conditions.
         </p>
 
         <p className="text-white text-fluid-xs px-2 leading-relaxed">

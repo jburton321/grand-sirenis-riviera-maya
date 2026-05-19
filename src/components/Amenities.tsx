@@ -9,7 +9,6 @@ import {
   Baby,
   Trees,
   Coffee,
-  Wifi,
   Globe,
   Landmark,
   ShoppingBag,
@@ -30,14 +29,12 @@ const FEATURED_ICONS = [
   Sparkles,
   Sparkles,
   UtensilsCrossed,
-  UtensilsCrossed,
   Drama,
   Dumbbell,
   Ship,
   Turtle,
   Baby,
   Coffee,
-  Wifi,
 ] as const;
 
 const NEARBY_ICONS = [

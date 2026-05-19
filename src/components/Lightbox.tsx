@@ -1,6 +1,6 @@
 import { useEffect, useCallback, useRef, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Video } from 'lucide-react';
 
 const SWIPE_THRESHOLD_PX = 56;
 
@@ -320,8 +320,16 @@ export function Lightbox({
                 />
               )
             ) : (
-              <div className="flex h-full w-full items-center justify-center text-fluid-lg text-white">
-                Video content will appear here
+              <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-gradient-to-b from-plum/95 via-black/90 to-black px-6 py-10 text-center">
+                <Video className="h-12 w-12 shrink-0 text-white/65 md:h-16 md:w-16" aria-hidden />
+                <p className="text-lg font-bold uppercase tracking-wide text-white md:text-xl">
+                  Video Coming Soon
+                </p>
+                {title ? (
+                  <p className="max-w-md text-fluid-sm leading-relaxed text-white/70">{title}</p>
+                ) : (
+                  <p className="max-w-md text-fluid-sm text-white/60">Resort video placeholder</p>
+                )}
               </div>
             )}
           </div>

@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <>
       <section className="relative flex min-h-[500px] flex-col overflow-hidden bg-plum md:min-h-[600px] lg:min-h-[800px] lg:overflow-visible">
-        {/* Desktop: full-bleed hero */}
+        {/* Full-bleed hero background — same image on all devices */}
         <div
           className="pointer-events-none absolute inset-0 z-0 hidden bg-cover bg-center lg:block"
           style={{ backgroundImage: 'url(images/HERO-BCK-Desktop.png)' }}
@@ -20,73 +20,49 @@ export function Hero() {
 
         <div className="relative z-10 flex min-h-0 flex-1 flex-col">
           <div className="mx-auto flex w-full max-w-content flex-1 flex-col pt-8 md:pt-12 lg:px-8 lg:pt-fluid-3">
-            <div className="flex flex-1 flex-col gap-0 lg:flex-row lg:items-start lg:justify-between lg:gap-fluid-4">
-              {/* Mobile/tablet bg stays in this column so `bg-cover` uses the same box as before. Pull up by the parent’s top padding so the photo fills the strip under the header without changing scale/crop. */}
-              <div className="relative order-1 -mt-8 flex min-h-[500px] flex-col items-center overflow-hidden md:-mt-12 md:min-h-[600px] lg:mt-0 lg:min-h-0 lg:overflow-visible">
+            <div className="flex flex-1 flex-col gap-0 lg:flex-row lg:items-stretch lg:justify-between lg:gap-fluid-4">
+              {/* Mobile/tablet bg uses the same desktop image, scoped to this column so the existing layout box (and `bg-cover` framing) is preserved. */}
+              <div className="relative order-1 -mt-8 flex min-h-[500px] flex-col md:-mt-12 md:min-h-[600px] lg:mt-0 lg:min-h-0 lg:flex-1 lg:justify-center lg:overflow-visible overflow-hidden">
                 <div
-                  className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center md:hidden"
-                  style={{ backgroundImage: 'url(images/HERO-BCK-MOBILE.png)' }}
+                  className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center lg:hidden"
+                  style={{ backgroundImage: 'url(images/HERO-BCK-Desktop.png)' }}
                   aria-hidden
                 />
-                <div
-                  className="pointer-events-none absolute inset-0 z-0 hidden bg-cover bg-center md:block lg:hidden"
-                  style={{ backgroundImage: 'url(images/HERO-BCK-TAB.png)' }}
-                  aria-hidden
-                />
-                <div className="relative z-10 flex w-full flex-col items-center px-4 pt-8 md:px-6 md:pt-12 lg:px-0 lg:pt-0">
-                  <div className="max-md:-mx-4 max-md:w-[calc(100%+2rem)] max-md:shrink-0 max-md:px-4 md:contents">
-                    <img
-                      className="hero-sticker-element"
-                      src="images/mexico-10.png"
-                      alt="Mexico destination"
-                      loading="eager"
-                    />
+                <div className="relative z-10 flex min-h-0 w-full flex-1 flex-col px-4 md:px-6 lg:min-h-0 lg:px-0">
+                  <div className="flex min-h-0 flex-1 flex-col justify-center">
+                    <div className="-translate-y-3 flex flex-col items-center gap-6 md:gap-5 lg:-translate-y-4 lg:gap-6">
+                      <div className="max-md:-mx-4 max-md:w-[calc(100%+2rem)] max-md:shrink-0 max-md:px-4 md:contents">
+                        <img
+                          className="hero-sticker-element !mt-0"
+                          src="images/mexico-10.png"
+                          alt="Mexico destination"
+                          loading="eager"
+                        />
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setIsLightboxOpen(true)}
+                        className="flex w-max max-w-none shrink-0 flex-nowrap items-center gap-1.5 whitespace-nowrap rounded-full bg-white/95 px-2.5 py-1.5 shadow-xl shadow-plum/20 backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-2xl hover:shadow-plum/25 md:gap-2 md:px-3.5 md:py-2"
+                      >
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#D30093] shadow-md shadow-black/25 transition-[color,box-shadow] group-hover:bg-[#AD007E] group-hover:shadow-lg md:h-9 md:w-9 lg:h-10 lg:w-10">
+                          <Play className="ml-0.5 h-4 w-4 shrink-0 fill-white text-white md:h-5 md:w-5" />
+                        </span>
+                        <span className="shrink-0 whitespace-nowrap pr-0.5 text-sm font-semibold leading-none text-gray-900 md:text-base">
+                          {PLAY_VIDEO_LABEL}
+                        </span>
+                      </button>
+                    </div>
                   </div>
-                  <div className="hero-composite-wrap relative mt-14 overflow-visible md:mt-10 md:flex md:w-full md:flex-col md:items-center lg:hidden">
-                    <button
-                      type="button"
-                      onClick={() => setIsLightboxOpen(true)}
-                      className="absolute bottom-[12%] left-1/2 z-10 flex w-max max-w-none shrink-0 -translate-x-1/2 flex-nowrap items-center gap-1.5 whitespace-nowrap rounded-full bg-white/95 px-2.5 py-1.5 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl md:relative md:bottom-auto md:left-auto md:translate-x-0 md:gap-2 md:px-3.5 md:py-2"
-                    >
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-yellow transition-colors group-hover:bg-yellow-dark md:h-9 md:w-9">
-                        <Play className="ml-0.5 h-4 w-4 shrink-0 fill-white text-white md:h-5 md:w-5" />
-                      </span>
-                      <span className="shrink-0 whitespace-nowrap pr-0.5 text-sm font-semibold leading-none text-gray-900 md:text-base">
-                        {PLAY_VIDEO_LABEL}
-                      </span>
-                    </button>
-                  </div>
-                  <div className="relative z-10 mt-4 mb-8 w-full max-w-none lg:hidden md:mt-5 md:mb-10">
+                  <div className="relative z-10 mt-4 mb-8 w-full max-w-none shrink-0 lg:hidden md:mt-5 md:mb-10">
                     <Button className="w-full justify-center" asCta>
                       RESERVE NOW
                     </Button>
                   </div>
                 </div>
               </div>
-              <div className="relative z-10 order-2 w-full lg:w-auto">
+              <div className="relative z-10 order-2 w-full lg:w-auto lg:self-start">
                 <BookingCard />
               </div>
-            </div>
-          </div>
-          <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 hidden lg:flex">
-            <div className="mx-auto flex w-full max-w-content px-4 md:px-6 lg:px-8">
-              <div className="relative flex flex-1 justify-center pointer-events-auto">
-                <div className="hero-composite-wrap hero-desktop-play-shell relative min-h-[280px]">
-                  <button
-                    type="button"
-                    onClick={() => setIsLightboxOpen(true)}
-                    className="absolute bottom-[12%] left-1/2 z-10 flex w-max max-w-none shrink-0 -translate-x-1/2 flex-nowrap items-center gap-2 whitespace-nowrap rounded-full bg-white/95 px-3.5 py-2 shadow-lg backdrop-blur-sm transition-all duration-300 group hover:bg-white hover:shadow-xl"
-                  >
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-yellow transition-colors group-hover:bg-yellow-dark">
-                      <Play className="ml-0.5 h-5 w-5 shrink-0 fill-white text-white" />
-                    </span>
-                    <span className="shrink-0 whitespace-nowrap pr-0.5 text-base font-semibold leading-none text-gray-900">
-                      {PLAY_VIDEO_LABEL}
-                    </span>
-                  </button>
-                </div>
-              </div>
-              <div className="flex-shrink-0" style={{ width: 'calc(28rem + 2rem)' }} />
             </div>
           </div>
         </div>

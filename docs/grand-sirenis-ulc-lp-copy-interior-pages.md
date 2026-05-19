@@ -12,8 +12,8 @@ Use this file when updating **Accommodations**, **Amenities**, **Things to Do**,
 ---
 
 ### 🏨  Accommodations Detail - Interior Billing Banner
-Junior Suite Deluxe Single - Grand Sirenis Riviera Maya Resort & Spa
-Your vacation includes 5 nights of all-inclusive accommodations in a Junior Suite Deluxe Single at Grand Sirenis Riviera Maya Resort & Spa. This elegantly appointed 52 sq. meter suite offers a sophisticated retreat combining contemporary design with the warmth of Mayan-inspired natural surroundings.
+Deluxe Junior Suite Single - Grand Sirenis Riviera Maya Resort & Spa
+Your vacation includes 5 nights of all-inclusive accommodations in a Deluxe Junior Suite Single at Grand Sirenis Riviera Maya Resort & Spa. This elegantly appointed 52 sq. meter suite offers a sophisticated retreat combining contemporary design with the warmth of Mayan-inspired natural surroundings.
 
 - Your Choice of Bed Configuration
 - Individual Air Conditioning
@@ -29,7 +29,7 @@ Your vacation includes 5 nights of all-inclusive accommodations in a Junior Suit
 - Baby Cots Available on Request
 
 Suite Details
-This non-smoking 52 sq. meter Junior Suite Deluxe Single at Grand Sirenis Riviera Maya Resort & Spa offers an incredible and comfortable accommodation experience with enviable views and various bed options, combining elegance and comfort for your total satisfaction. Thoughtfully designed with quality furnishings and natural light throughout.
+This non-smoking 52 sq. meter Deluxe Junior Suite Single at Grand Sirenis Riviera Maya Resort & Spa offers an incredible and comfortable accommodation experience with enviable views and various bed options, combining elegance and comfort for your total satisfaction. Thoughtfully designed with quality furnishings and natural light throughout.
 
 Entertainment and Connectivity
 Stay connected and entertained with an HD television with cable service and complimentary Wi-Fi access throughout your suite and across the resort grounds. Additional in-suite amenities include a telephone, wake-up call service, and a laptop-sized personal safe to keep your valuables secure.
@@ -50,8 +50,8 @@ Beyond Flavors
 A Culinary Journey
 Beyond Flavors invites you to explore an exciting stroll through the most iconic and contemporary world flavors. Innovation and creativity come together to amaze through complete sensory experiences, with great attention paid not just to taste but to space, service, and atmosphere. Eight themed a-la-carte restaurants and two buffets ensure your palate is never anything less than delighted.
 
-Nightly Live Entertainment
-Immerse yourself in a world of entertainment every evening in the resort's semi-outdoor theater, where talented artists transport you through engaging and memorable shows - from live music to stunning theatrical performances that blend seamlessly into the tropical surroundings.
+Fitness Center & Tennis
+Stay active between beach days and dinner reservations in a fully equipped fitness center with cardio and weights, plus a sauna for winding down. Complimentary tennis courts invite friendly matches in the open air - ideal for couples, families, or anyone who likes to keep moving while every meal and sunset still feels like vacation.
 
 Water Activities and Nature Trails
 Embark on exciting water adventures with snorkeling, fishing, and non-motorized watersports directly from the resort's two miles of Caribbean beach. Explore the natural beauty of your surroundings through carefully designed trails winding through stunning gardens and jungle landscapes. Visit the on-site turtle sanctuary and discover a genuine Mayan ruin right within the property grounds.
@@ -80,7 +80,7 @@ Playa del Carmen's famous 5th Avenue pedestrian promenade offers the best of the
 ---
 
 ### 🏛️  Footer
-This preview rate includes an engaging and educational 90 to 120-minute sales presentation and resort tour about the benefits and savings opportunities of Unlimited Leisure Club vacation ownership. There is no obligation to join or purchase, and the balance of the vacation is yours to enjoy. For complete eligibility requirements for the special rate, please review our Terms and Conditions.
+This preview rate includes an engaging and educational 120-minute sales presentation and resort preview about the benefits and savings opportunities of Ultimate Leisure Club vacation ownership. There is no obligation to join or purchase, and the balance of the vacation is yours to enjoy. For complete eligibility requirements for the special rate, please review our Terms and Conditions.
 
 Price does not include taxes and fees, which are collected at check-in. Click here for Terms and Conditions.
 
@@ -88,4 +88,4 @@ THIS ADVERTISING MATERIAL IS BEING USED FOR THE PURPOSE OF SOLICITING THE SALE O
 Copyright © 2025  |  All Rights Reserved.
 
 Marketing Consent:
-By clicking here, I acknowledge and agree that I am not required to submit this form as a condition of purchasing any property, goods, or services. By using this site, I expressly consent and agree to be contacted via telephone and email - person to person and by an automated dialing system, pre-recorded message, electronic mail or SMS text - to receive more information from Unlimited Leisure Club or its affiliates, parent, or subsidiaries. By clicking the Continue button, you agree to send your information to Unlimited Leisure Club, who agrees to use it according to their privacy policy. As an alternative to the consent above you may enter the Promotion here.
+By clicking here, I acknowledge and agree that I am not required to submit this form as a condition of purchasing any property, goods, or services. By using this site, I expressly consent and agree to be contacted via telephone and email - person to person and by an automated dialing system, pre-recorded message, electronic mail or SMS text - to receive more information from Ultimate Leisure Club or its affiliates, parent, or subsidiaries. By clicking the Continue button, you agree to send your information to Ultimate Leisure Club, who agrees to use it according to their privacy policy. As an alternative to the consent above you may enter the Promotion here.

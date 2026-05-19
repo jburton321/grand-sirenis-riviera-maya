@@ -105,23 +105,6 @@ const mapLocations: MapLocation[] = [
       'Distinct ecosystems on one course: forest, mangrove, and oceanfront play',
     ],
   },
-  {
-    id: 'xcaret',
-    name: 'Xcaret Park',
-    distance: '16-20 miles',
-    time: '25-35 minutes',
-    lat: 20.5775,
-    lng: -87.1197,
-    isMain: false,
-    detailImageSrc: homePublicImage('XcaretPark.jpg'),
-    detailImageAlt: 'Xcaret Park',
-    popupSummary:
-      'Flagship eco-archaeological park along Highway 307 south of Playa del Carmen, with underground rivers, wildlife exhibits, Maya heritage displays, and a major evening show.',
-    popupHighlights: [
-      'Underground rivers and swimming experiences through rock galleries',
-      'Evening “México Espectacular”-style production (Xcaret’s signature night show)',
-    ],
-  },
 ];
 
 /** Main resort pin: plum. Secondary pins: brand purple (primary). */

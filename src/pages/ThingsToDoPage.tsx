@@ -7,11 +7,13 @@ import { RESORT_DISPLAY_NAME } from '../constants';
 import { THINGS_TO_DO_BLOCKS, THINGS_TO_DO_TITLE, thingsToDoIntro } from '../content/interiorCopy';
 import { interiorStripeClass } from '../utils/interiorStripes';
 
+const THINGS_TO_DO_HERO_IMAGE = 'images/things-to-do-interior-hero.png' as const;
+
 const THINGS_IMAGES = [
   'images/tulumruins.png',
   'images/cenotes.png',
   'images/chichenitza.png',
-  'images/xcaret.png',
+  'images/PuertoMorelos.jpg',
   'images/things-to-do-photo-10.png',
   'images/playadelcarmenday.png',
 ] as const;
@@ -20,7 +22,7 @@ export function ThingsToDoPage() {
   return (
     <>
       <InteriorHero
-        backgroundImage="images/hero_herobackground.png"
+        backgroundImage={THINGS_TO_DO_HERO_IMAGE}
         footer={
           <>
             <AccommodationsPriceBar />
@@ -42,8 +44,8 @@ export function ThingsToDoPage() {
           </div>
           <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
             <img
-              src="images/things-to-do-photo-10.png"
-              alt={THINGS_TO_DO_TITLE}
+              src={THINGS_TO_DO_HERO_IMAGE}
+              alt={`${RESORT_DISPLAY_NAME} pools, swim-up bar, and tropical gardens`}
               className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
             />
           </div>

@@ -19,7 +19,7 @@ type PanelSpec = {
 const packagePanels: PanelSpec[] = [
   {
     title: 'Accommodations:',
-    description: `5 nights, Junior Suite Deluxe, all-inclusive at ${RESORT_DISPLAY_NAME}. Wi-Fi, safe, mini fridge, HD TV, A/C, and 24-hour room service.`,
+    description: `5 nights, Deluxe Junior Suite, all-inclusive at ${RESORT_DISPLAY_NAME}. Wi-Fi, safe, mini fridge, HD TV, A/C, and room service.`,
     icon: Award,
     mobileOrderClass: 'max-md:order-2',
     /** Top-left: vertical midline + horizontal mid of 2×2 */
@@ -27,7 +27,7 @@ const packagePanels: PanelSpec[] = [
   },
   {
     title: 'Be Our Guest:',
-    description: `90- to 120-minute resort preview for you and your guest to learn about ${CLUB_DISPLAY_NAME}. No obligation to buy; your trip time stays yours.`,
+    description: `120-minute resort preview for you and your guest to learn about ${CLUB_DISPLAY_NAME}. No obligation to buy; your trip time stays yours.`,
     icon: Star,
     mobileOrderClass: 'max-md:order-5',
     /** Top-right: horizontal mid only */

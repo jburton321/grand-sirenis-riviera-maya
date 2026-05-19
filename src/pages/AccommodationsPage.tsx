@@ -31,13 +31,13 @@ const roomFeatures = [
   { icon: Wifi, label: 'Complimentary Wi-Fi' },
   { icon: Bath, label: 'Full bath set and hair dryer' },
   { icon: Shirt, label: 'Iron and ironing board' },
-  { icon: Phone, label: '24-hour room service' },
+  { icon: Phone, label: 'Room service' },
   { icon: AlarmClock, label: 'Wake-up call service' },
   { icon: LampDesk, label: 'Desk with lamp and natural light' },
   { icon: Baby, label: 'Baby cots available on request' },
 ];
 
-/** Same Junior Suite imagery as Guest reviews (`public/images/`). */
+/** Same Deluxe Junior Suite imagery as Guest reviews (`public/images/`). */
 const accommodationsGallery = [...GUEST_REVIEW_GALLERY_IMAGES];
 
 const accSuiteShot = (index: number) =>
@@ -64,11 +64,11 @@ export function AccommodationsPage() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           <div className="flex flex-col justify-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Junior Suite Deluxe Single
+              Deluxe Junior Suite Single
             </h1>
             <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
               <span className="font-semibold">
-                Your vacation includes 5 nights of all-inclusive accommodations in a Junior Suite Deluxe
+                Your vacation includes 5 nights of all-inclusive accommodations in a Deluxe Junior Suite
                 Single at {RESORT_DISPLAY_NAME}.
               </span>{' '}
               This elegantly appointed 52 sq. meter suite offers a sophisticated retreat combining
@@ -106,7 +106,7 @@ export function AccommodationsPage() {
             <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
               <img
                 src={accSuiteShot(0)}
-                alt="Junior Suite Deluxe Single - living and sleep area"
+                alt="Deluxe Junior Suite Single - living and sleep area"
                 className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -115,7 +115,7 @@ export function AccommodationsPage() {
                 Suite details
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
-                This non-smoking 52 sq. meter Junior Suite Deluxe Single at {RESORT_DISPLAY_NAME} offers an
+                This non-smoking 52 sq. meter Deluxe Junior Suite Single at {RESORT_DISPLAY_NAME} offers an
                 incredible and comfortable stay with the space, light, and layout you see in these guest
                 photos - enviable views, flexible bed options, and quality furnishings that combine elegance
                 with everyday comfort.
@@ -132,7 +132,7 @@ export function AccommodationsPage() {
             <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
               <img
                 src={accSuiteShot(4)}
-                alt="Junior Suite Deluxe - in-room space and amenities"
+                alt="Deluxe Junior Suite - in-room space and amenities"
                 className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -141,7 +141,7 @@ export function AccommodationsPage() {
                 Entertainment and connectivity
               </h2>
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
-                Relax in the same Junior Suite style shown here while you enjoy HD television with cable and
+                Relax in the same Deluxe Junior Suite style shown here while you enjoy HD television with cable and
                 complimentary Wi-Fi in your room and across the resort. Your suite also includes a telephone,
                 wake-up call service, and a laptop-sized personal safe for peace of mind.
               </p>
@@ -157,7 +157,7 @@ export function AccommodationsPage() {
             <div className="w-full lg:w-1/2 group overflow-hidden rounded-2xl">
               <img
                 src={bathComfortGalleryImage}
-                alt="Junior Suite Deluxe - comfort and bath details"
+                alt="Deluxe Junior Suite - comfort and bath details"
                 className="w-full h-auto shadow-lg object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -168,7 +168,7 @@ export function AccommodationsPage() {
               <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
                 Unwind in a beautifully appointed bathroom with a full premium bath set, quality amenities,
                 and a hair dryer. Individual air conditioning keeps your suite comfortable year-round, and
-                daily housekeeping keeps everything fresh - so every return to your Junior Suite feels like
+                daily housekeeping keeps everything fresh - so every return to your Deluxe Junior Suite feels like
                 coming home.
               </p>
               <Button className="w-full" asCta>RESERVE NOW</Button>

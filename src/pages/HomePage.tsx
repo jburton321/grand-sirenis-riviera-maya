@@ -35,10 +35,10 @@ const galleryImages = seededShuffle([...HERO_GALLERY_FILENAMES], 0x7f4ac0de).map
 const locationGalleryImages = [
   { src: 'images/playadelcarmenday.png', label: 'Playa del Carmen' },
   { src: 'images/downtown.png', label: 'Downtown Playa del Carmen' },
-  { src: 'images/chichenitza.png', label: 'Chichen Itza' },
-  { src: 'images/xcaret.png', label: 'Xcaret Park' },
+  { src: 'images/chichenitza.png', label: 'Chichen Itza ruin' },
   { src: 'images/tulumruins.png', label: 'Tulum Ruins' },
   { src: 'images/cenotes.png', label: 'Cenotes' },
+  { src: 'images/PuertoMorelos.jpg', label: 'Puerto Morelos' },
 ];
 
 export function HomePage() {

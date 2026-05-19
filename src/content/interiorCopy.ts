@@ -1,6 +1,6 @@
 /**
- * Verbatim narrative from docs/grand-sirenis-ulc-lp-copy-interior-pages.md
- * (On-Site Amenities + Things to Do blocks). Keep in sync when regenerating from Word.
+ * On-site amenities + Things to Do narrative (see docs/grand-sirenis-ulc-lp-copy-interior-pages.md).
+ * Keep in sync when regenerating from Word; reconcile intentional site edits after imports.
  */
 
 export const ON_SITE_AMENITIES_TITLE = 'On-site amenities - all included';
@@ -26,9 +26,9 @@ export const AMENITY_BLOCKS = [
       'Beyond Flavors invites you to explore an exciting stroll through the most iconic and contemporary world flavors. Innovation and creativity come together to amaze through complete sensory experiences, with great attention paid not just to taste but to space, service, and atmosphere. Eight themed a-la-carte restaurants and two buffets ensure your palate is never anything less than delighted.',
   },
   {
-    title: 'Nightly live entertainment',
+    title: 'Fitness center & tennis',
     body:
-      "Immerse yourself in a world of entertainment every evening in the resort's semi-outdoor theater, where talented artists transport you through engaging and memorable shows - from live music to stunning theatrical performances that blend seamlessly into the tropical surroundings.",
+      'Stay active between beach days and dinner reservations in a fully equipped fitness center with cardio and weights, plus a sauna for winding down. Complimentary tennis courts invite friendly matches in the open air - ideal for couples, families, or anyone who likes to keep moving while every meal and sunset still feels like vacation.',
   },
   {
     title: 'Water activities and nature trails',
@@ -60,9 +60,9 @@ export const THINGS_TO_DO_BLOCKS = [
       'One of the New Seven Wonders of the World, Chichen Itza is an awe-inspiring Mayan archaeological complex featuring the iconic El Castillo pyramid. Guided day trips from the resort bring this remarkable UNESCO World Heritage Site to life with expert commentary on the mathematics, astronomy, and culture embedded in every stone.',
   },
   {
-    title: 'Xcaret eco-archaeological park',
+    title: 'Puerto Morelos',
     body:
-      "Xcaret is the Riviera Maya's flagship eco-archaeological experience, blending underground rivers, coral reef snorkeling, Mayan village re-creations, wildlife sanctuaries, and the celebrated Mexico Espectacular evening show into one extraordinary day. It is the single most complete cultural and natural immersion the region offers.",
+      'Between Cancún and Playa del Carmen, this quieter coastal town offers reef-protected waters, relaxed beach-town charm, and snorkeling relatively close to shore - ideal for a low-key half-day away from the resort.',
   },
   {
     title: 'Akumal Bay - swim with sea turtles',

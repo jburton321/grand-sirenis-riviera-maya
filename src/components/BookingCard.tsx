@@ -50,7 +50,7 @@ export function BookingCard({
 
       <div className="flex flex-col gap-3 p-4 pt-3 md:gap-4 md:p-6 md:pt-4">
         <img
-          className="block h-auto w-full object-contain object-center transition-transform duration-300 hover:scale-[1.02]"
+          className="mx-auto block h-auto w-full max-w-[260px] object-contain object-center transition-transform duration-300 hover:scale-[1.02] md:max-w-[300px]"
           src="images/ULC-Grand-Sirenis-logo.png"
           alt={RESORT_DISPLAY_NAME}
           width={1112}
@@ -74,7 +74,7 @@ export function BookingCard({
 
       <div className="bg-gray-100 py-3 md:py-4 px-3 md:px-4">
         <div className="flex items-center gap-2 md:gap-4">
-          <div className="rounded-xl bg-amber px-2 py-3 text-center text-fluid-lg font-bold leading-tight text-plum shadow-lg md:px-4 md:py-4 md:text-fluid-2xl">
+          <div className="rounded-xl bg-[#94C025] px-2 py-3 text-center text-fluid-lg font-bold leading-tight text-white shadow-lg md:px-4 md:py-4 md:text-fluid-2xl">
             <div>{OFFER_SAVE_PERCENT}%</div>
             <div>OFF!</div>
           </div>

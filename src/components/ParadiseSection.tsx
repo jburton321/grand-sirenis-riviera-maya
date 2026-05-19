@@ -48,7 +48,8 @@ export function ParadiseSection() {
                 all-inclusive stay (save 96% vs.{' '}
                 <StruckRetailPrice className="font-extrabold text-slate-950" /> retail).{' '}
                 <span className="font-semibold text-slate-950">
-                  12 months to travel. Total price, not per person or per night.
+                  Book within 6 months of purchase; travel within 12 months. Total price, not per person or
+                  per night.
                 </span>
               </p>
             </div>
@@ -67,7 +68,7 @@ export function ParadiseSection() {
           </h3>
           <p className="text-base leading-relaxed text-white sm:text-lg md:text-xl">
             All-inclusive with two miles of Caribbean beach between Playa del Carmen and Tulum.
-            Junior Suite Deluxe, pools, lazy river, dining, spa, and jungle-meets-coast setting at{' '}
+            Deluxe Junior Suite, pools, lazy river, dining, spa, and jungle-meets-coast setting at{' '}
             {RESORT_DISPLAY_NAME}.
           </p>
           <img

@@ -5,28 +5,26 @@ export const FEATURED_AMENITY_LINES = [
   '2 mi of Caribbean beach',
   'Pools, lazy river, activities pool',
   'Spa Grand Sirenis',
-  '8 à la carte + 2 buffets, inclusive',
   'Beyond Flavors',
   'Nights out, outdoor theater',
-  '2 gyms, sauna',
+  '1 gym, sauna',
   'Snorkel, fish, watersports',
   'Turtle sanctuary, trails',
   'Sirenios Kids Club',
   'Coffee shop, bars, salon',
-  'Free WiFi',
 ] as const;
 
 export const NEARBY_ATTRACTION_LINES = [
   'Tulum ruins (~20 min)',
-  'Chichen Itza day trips',
+  'Chichen Itza ruin',
   'Cenotes: swim, snorkel, caves',
   'Playa del Carmen 5th Ave',
   'Cobá ruins, jungle bikes',
-  'Xcaret Park',
-  'Xel-Há water park',
+  'Puerto Morelos',
+  'Snorkeling & natural swim areas',
   'Akumal sea turtles',
   "Sian Ka'an Biosphere",
-  'Holbox day trip',
+  'Holbox Town',
 ] as const;
 
 /**
@@ -44,7 +42,7 @@ export const AMENITIES_HOME_GRID_ITEMS = [
     src: 'images/tennis-fitness.jpg',
     label: 'Fitness Center',
     description:
-      'Tennis, 2 gyms, sauna, and activities between pool time and dinner.',
+      'Tennis, gym, sauna, and activities between pool time and dinner.',
   },
   {
     src: 'images/watersports.webp',
